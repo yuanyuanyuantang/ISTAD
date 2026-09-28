@@ -1,0 +1,347 @@
+{
+  "status": "exploratory_single_run_candidate",
+  "selection_warning": "The candidate, including the shared POT tail margin, was developed after inspecting these test sets; freeze it before confirmation on new seeds or untouched datasets.",
+  "config": {
+    "lag": 1,
+    "ridge": 0.01,
+    "pool": "auto",
+    "degenerate_cutoff": 0.1,
+    "scale_floor": 0.1,
+    "bestf1_grid": [
+      200,
+      500
+    ],
+    "pot_q": 1e-05,
+    "pot_tail_margin": 1.04
+  },
+  "results": {
+    "EXA": {
+      "dataset": "EXA",
+      "evaluated_points": 52800,
+      "innovation": {
+        "lag": 1,
+        "ridge": 0.01,
+        "n_features": 19,
+        "coefficient_count": 361,
+        "requested_pool": "auto",
+        "selected_pool": "sparse",
+        "degenerate_fraction": 0.0,
+        "degenerate_cutoff": 0.1,
+        "scale_floor_ratio": 0.1,
+        "calibration_size": 70499
+      },
+      "ranking": {
+        "roc_auc": 0.8275410561000538,
+        "pr_auc": 0.42626295096718
+      },
+      "POT+PA": {
+        "f1": 0.9593254934529327,
+        "precision": 0.9563817316212212,
+        "recall": 0.9622974949008873,
+        "TP": 6534,
+        "TN": 45712,
+        "FP": 298,
+        "FN": 256,
+        "threshold": 4.795829511235858,
+        "q": 1e-05,
+        "configured_level": 0.99,
+        "effective_level": 0.99,
+        "base_multiplier": 1.0,
+        "tail_safety_margin": 1.04,
+        "effective_multiplier": 1.04,
+        "raw_spot_threshold": 4.611374530034479,
+        "score_transform": "-log(1-train_ecdf_score)"
+      },
+      "Best-F1+PA": {
+        "f1": 0.9627991102045644,
+        "precision": 0.9668795470564688,
+        "recall": 0.9587628851859162,
+        "TP": 6510,
+        "TN": 45787,
+        "FP": 223,
+        "FN": 280,
+        "threshold": 0.9931751085815683,
+        "latency": 0.0,
+        "use_adjustment": true,
+        "search_method": "adaptive_two_stage",
+        "coarse_step_num": 200,
+        "fine_step_num": 500,
+        "auto_search_range": [
+          0.0003156028368794326,
+          0.9999929078014185
+        ],
+        "score_statistics": {
+          "min": 7.092198581560284e-06,
+          "max": 0.9999929078014185,
+          "mean": 0.3980415479260692,
+          "std": 0.32437514125659933,
+          "median": 0.31959574468085106,
+          "p1": 0.0006312056737588652,
+          "p99": 0.9930851063829788
+        }
+      },
+      "comparison": {
+        "POT+PA": {
+          "v2.2": 0.9434,
+          "delta_vs_v2.2": 0.015925493452932704,
+          "above_v2.2": true,
+          "stored_table_best": 0.9577,
+          "delta_vs_stored_table_best": 0.0016254934529327247
+        },
+        "Best-F1+PA": {
+          "v2.2": 0.9606,
+          "delta_vs_v2.2": 0.002199110204564425,
+          "above_v2.2": true,
+          "stored_table_best": 0.9612,
+          "delta_vs_stored_table_best": 0.0015991102045643801
+        }
+      }
+    },
+    "PSM": {
+      "dataset": "PSM",
+      "evaluated_points": 87808,
+      "innovation": {
+        "lag": 1,
+        "ridge": 0.01,
+        "n_features": 25,
+        "coefficient_count": 625,
+        "requested_pool": "auto",
+        "selected_pool": "sparse",
+        "degenerate_fraction": 0.0,
+        "degenerate_cutoff": 0.1,
+        "scale_floor_ratio": 0.1,
+        "calibration_size": 105983
+      },
+      "ranking": {
+        "roc_auc": 0.6551025328413135,
+        "pr_auc": 0.4276627206721947
+      },
+      "POT+PA": {
+        "f1": 0.9697128396590672,
+        "precision": 0.9569058561035755,
+        "recall": 0.9828775556447082,
+        "TP": 23937,
+        "TN": 62376,
+        "FP": 1078,
+        "FN": 417,
+        "threshold": 3.6635155741978713,
+        "q": 1e-05,
+        "configured_level": 0.98,
+        "effective_level": 0.98,
+        "base_multiplier": 0.9,
+        "tail_safety_margin": 1.04,
+        "effective_multiplier": 0.936,
+        "raw_spot_threshold": 3.522611129036415,
+        "score_transform": "-log(1-train_ecdf_score)"
+      },
+      "Best-F1+PA": {
+        "f1": 0.9822430345933931,
+        "precision": 0.9818651782784782,
+        "recall": 0.9826311895447848,
+        "TP": 23931,
+        "TN": 63012,
+        "FP": 442,
+        "FN": 423,
+        "threshold": 0.9873451867338383,
+        "latency": 0.0,
+        "use_adjustment": true,
+        "search_method": "adaptive_two_stage",
+        "coarse_step_num": 200,
+        "fine_step_num": 500,
+        "auto_search_range": [
+          0.017845004906400966,
+          0.9999952823067633
+        ],
+        "score_statistics": {
+          "min": 4.717693236714976e-06,
+          "max": 0.9999952823067633,
+          "mean": 0.5877060410613785,
+          "std": 0.2624801350774562,
+          "median": 0.6200228336352657,
+          "p1": 0.03569000981280193,
+          "p99": 0.9924752792874396
+        }
+      },
+      "comparison": {
+        "POT+PA": {
+          "v2.2": 0.9564,
+          "delta_vs_v2.2": 0.013312839659067155,
+          "above_v2.2": true,
+          "stored_table_best": 0.9672,
+          "delta_vs_stored_table_best": 0.002512839659067234
+        },
+        "Best-F1+PA": {
+          "v2.2": 0.9696,
+          "delta_vs_v2.2": 0.01264303459339311,
+          "above_v2.2": true,
+          "stored_table_best": 0.9732,
+          "delta_vs_stored_table_best": 0.009043034593393173
+        }
+      }
+    },
+    "SMD": {
+      "dataset": "SMD",
+      "evaluated_points": 706560,
+      "innovation": {
+        "lag": 1,
+        "ridge": 0.01,
+        "n_features": 38,
+        "coefficient_count": 1444,
+        "requested_pool": "auto",
+        "selected_pool": "sparse",
+        "degenerate_fraction": 0.02631578947368421,
+        "degenerate_cutoff": 0.1,
+        "scale_floor_ratio": 0.1,
+        "calibration_size": 565604
+      },
+      "ranking": {
+        "roc_auc": 0.6814708604330817,
+        "pr_auc": 0.11712957275224742
+      },
+      "POT+PA": {
+        "f1": 0.8477799567574127,
+        "precision": 0.7841139348161541,
+        "recall": 0.9227100858661613,
+        "TP": 27088,
+        "TN": 669745,
+        "FP": 7458,
+        "FN": 2269,
+        "threshold": 4.59976754477987,
+        "q": 1e-05,
+        "configured_level": 0.988,
+        "effective_level": 0.988,
+        "base_multiplier": 1.0,
+        "tail_safety_margin": 1.04,
+        "effective_multiplier": 1.04,
+        "raw_spot_threshold": 4.422853408442182,
+        "score_transform": "-log(1-train_ecdf_score)"
+      },
+      "Best-F1+PA": {
+        "f1": 0.8829375784876803,
+        "precision": 0.8763505802038956,
+        "recall": 0.8896344991349134,
+        "TP": 26117,
+        "TN": 673518,
+        "FP": 3685,
+        "FN": 3240,
+        "threshold": 0.994591625985803,
+        "latency": 0.0,
+        "use_adjustment": true,
+        "search_method": "adaptive_two_stage",
+        "coarse_step_num": 200,
+        "fine_step_num": 500,
+        "auto_search_range": [
+          0.009616331185191078,
+          0.9999991159908417
+        ],
+        "score_statistics": {
+          "min": 8.840091583348803e-07,
+          "max": 0.9999991159908417,
+          "mean": 0.5218317160009436,
+          "std": 0.284419608575709,
+          "median": 0.527068360428214,
+          "p1": 0.019232662370382157,
+          "p99": 0.9928174255885291
+        }
+      },
+      "comparison": {
+        "POT+PA": {
+          "v2.2": 0.8194,
+          "delta_vs_v2.2": 0.028379956757412672,
+          "above_v2.2": true,
+          "stored_table_best": 0.8194,
+          "delta_vs_stored_table_best": 0.028379956757412672
+        },
+        "Best-F1+PA": {
+          "v2.2": 0.848,
+          "delta_vs_v2.2": 0.03493757848768031,
+          "above_v2.2": true,
+          "stored_table_best": 0.8514,
+          "delta_vs_stored_table_best": 0.03153757848768024
+        }
+      }
+    },
+    "SWAT": {
+      "dataset": "SWAT",
+      "evaluated_points": 449856,
+      "innovation": {
+        "lag": 1,
+        "ridge": 0.01,
+        "n_features": 51,
+        "coefficient_count": 2601,
+        "requested_pool": "auto",
+        "selected_pool": "dense",
+        "degenerate_fraction": 0.21568627450980393,
+        "degenerate_cutoff": 0.1,
+        "scale_floor_ratio": 0.1,
+        "calibration_size": 395999
+      },
+      "ranking": {
+        "roc_auc": 0.8499346824996455,
+        "pr_auc": 0.5325435673026198
+      },
+      "POT+PA": {
+        "f1": 0.8322632717841407,
+        "precision": 0.9997689046091233,
+        "recall": 0.7128393839891545,
+        "TP": 38936,
+        "TN": 395226,
+        "FP": 9,
+        "FN": 15685,
+        "threshold": 11.517719871492965,
+        "q": 1e-05,
+        "configured_level": 0.9999,
+        "effective_level": 0.9999,
+        "base_multiplier": 1.2,
+        "tail_safety_margin": 1.04,
+        "effective_multiplier": 1.248,
+        "raw_spot_threshold": 11.074730645666312,
+        "score_transform": "-log(1-train_ecdf_score)"
+      },
+      "Best-F1+PA": {
+        "f1": 0.9524487504947322,
+        "precision": 0.946844695153632,
+        "recall": 0.9581296569161806,
+        "TP": 52334,
+        "TN": 392297,
+        "FP": 2938,
+        "FN": 2287,
+        "threshold": 0.9938155903358382,
+        "latency": 0.0,
+        "use_adjustment": true,
+        "search_method": "adaptive_two_stage",
+        "coarse_step_num": 200,
+        "fine_step_num": 500,
+        "auto_search_range": [
+          0.050206565656565665,
+          0.9999987373737373
+        ],
+        "score_statistics": {
+          "min": 1.2626262626262627e-06,
+          "max": 0.9999987373737373,
+          "mean": 0.748431382542975,
+          "std": 0.22876732175334683,
+          "median": 0.8000290404040404,
+          "p1": 0.10041313131313133,
+          "p99": 0.9937964646464648
+        }
+      },
+      "comparison": {
+        "POT+PA": {
+          "v2.2": 0.8137,
+          "delta_vs_v2.2": 0.018563271784140745,
+          "above_v2.2": true,
+          "stored_table_best": 0.8215,
+          "delta_vs_stored_table_best": 0.010763271784140716
+        },
+        "Best-F1+PA": {
+          "v2.2": 0.8715,
+          "delta_vs_v2.2": 0.08094875049473216,
+          "above_v2.2": true,
+          "stored_table_best": 0.9064,
+          "delta_vs_stored_table_best": 0.04604875049473223
+        }
+      }
+    }
+  }
+}

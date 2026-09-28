@@ -1,0 +1,12 @@
+anomaly_detection_PSM_TimesNet_PSM_ftM_sl100_ll48_pl0_dm64_nh8_el2_dl1_df64_expand2_dc4_fc1_ebtimeF_dtTrue_ms2022_0  
+Accuracy : 0.9849, Precision : 0.9848, Recall : 0.9604, F-score : 0.9724 
+Average epoch training time: 95.9553s
+Total epoch training time: 287.8660s
+Finished epochs: 3
+
+Best F1 Threshold Method:
+Threshold: 0.048382
+F1: 0.9731, Precision: 0.9819, Recall: 0.9644
+TP: 2347147, TN: 6297173, FP: 43325, FN: 86555
+ROC-AUC: 0.5689, PR-AUC: 0.3631
+

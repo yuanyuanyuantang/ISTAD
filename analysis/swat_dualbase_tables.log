@@ -1,0 +1,23 @@
+===== SWAT 逐种子（官方采纳表；POT lm=(0.9999, 1.2)）=====
+s48   gate=0.737 | gated(v2.1): A=0.7376 C=0.8021 D=0.8615 ROC=0.8488 AP=0.7503 hit=15/35 | dual_base: 同左（dual npz base 路 = 本行分数源）
+s89   gate=0.730 | gated(v2.1): A=0.7647 C=0.8253 D=0.8750 ROC=0.8426 AP=0.7391 hit=18/35 | dual_base: 同左（dual npz base 路 = 本行分数源）
+s2021 gate=0.747 | gated(v2.1): A=0.6088 C=0.8138 D=0.8780 ROC=0.8589 AP=0.7557 hit=18/35 | dual_base: 同左（dual npz base 路 = 本行分数源）
+
+注：SWAT dual npz 的 test_err 即 dual 联合模型 base 视角逐特征误差，gated 聚合后 = dual_base。上表 gated 行（回归校验）与 dual_base 行同分，因 sota_push_scan.py 中两者分别从 base npz 与 dual npz 独立加载——
+
+===== SWAT 严格两源对照（base npz = 分开训练 / dual npz = 联合训练）=====
+s48   gate(base)=0.743 gate(dual)=0.737 | gated: A=0.0127 C=0.8061 D=0.8710 ROC=0.8422 AP=0.7362 hit=16/35 | dual_base: A=0.7376 C=0.8021 D=0.8615 ROC=0.8488 AP=0.7503 hit=15/35
+s89   gate(base)=0.764 gate(dual)=0.730 | gated: A=0.7554 C=0.8193 D=0.8714 ROC=0.8310 AP=0.7250 hit=18/35 | dual_base: A=0.7647 C=0.8253 D=0.8750 ROC=0.8426 AP=0.7391 hit=18/35
+s2021 gate(base)=0.770 gate(dual)=0.747 | gated: A=0.0067 C=0.8120 D=0.8641 ROC=0.8507 AP=0.7338 hit=17/35 | dual_base: A=0.6088 C=0.8138 D=0.8780 ROC=0.8589 AP=0.7557 hit=18/35
+
+===== SWAT mean±std =====
+gated      A=0.2583±0.3516  C=0.8125±0.0054  D=0.8689±0.0034  ROC=0.8413±0.0081  AP=0.7317±0.0048
+dual_base  A=0.7037±0.0680  C=0.8137±0.0095  D=0.8715±0.0072  ROC=0.8501±0.0067  AP=0.7484±0.0069
+
+===== gated 回归校验（v2.1 定稿行）=====
+  ref A=0.2583 got 0.2583 [OK]
+  ref C=0.8125 got 0.8125 [OK]
+  ref D=0.8689 got 0.8689 [OK]
+  ref ROC=0.8413 got 0.8413 [OK]
+  ref AP=0.7317 got 0.7317 [OK]
+>>> 回归 通过；dual_base 官方行 = A=0.7037±0.0680  C=0.8137±0.0095  D=0.8715±0.0072  ROC=0.8501±0.0067  AP=0.7484±0.0069

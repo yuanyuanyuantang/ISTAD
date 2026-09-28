@@ -1,0 +1,289 @@
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          anomaly_detection   Is Training:        1                   
+  Model ID:           SWAT_BestF1_Adaptive_2GPUModel:              ISTAD               
+  Seed:               48                  Itr:                1                   
+
+[1mData Loader[0m
+  Data:               SWAT                Root Path:          ./dataset/SWAT      
+  Features:           M                   Seq Len:            100                 
+  Enc In:             51                  C Out:              51                  
+  Checkpoints:        ./checkpoints/      
+
+[1mAnomaly Detection Task[0m
+  Anomaly Ratio:      1.0                 
+
+[1mISTAD Parameters[0m
+  Kernel Size:        15                  Branch Mode:        hgat_kan_tcn        
+  TCN Type:           kan                 
+  Feat GAT Dim:       256                 GRU Layers:         1                   
+  GRU Hidden:         256                 Recon Layers:       2                   
+  Recon Hidden:       256                 ISTAD Dropout:      0.1                 
+  Recon Type:         kanad               KANAD Order:        6                   
+  Leaky Alpha:        0.2                 H Init:             normal              
+  Hyperedges:         20                  Top-K Nodes:        10                  
+  KAN Grid:           10                  KAN Order:          3                   
+  Arch:               legacy              Ablation:           full                
+  Explainability:     0                   Explain Batches:    0                   
+  Explain Points:     20000               Explain TopK:       10                  
+  SmoothGrad:         0                   SG Samples:         20                  
+  SG Noise:           0.1                 Quad Mode:          quantile            
+  Quad Value:         0.75                Err Agg:            sum                 
+  Sal Agg:            sum                 
+
+[1mRun Parameters[0m
+  Num Workers:        4                   Batch Size:         128                 
+  Train Epochs:       30                  Patience:           10                  
+  Learning Rate:      0.001               Lradj:              cosine              
+  Des:                SWAT_sl100_s48      
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      1                   Devices:            0,1                 
+
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+>>>>>>>start training : anomaly_detection_SWAT_BestF1_Adaptive_2GPU_ISTAD_SWAT_ftM_sl100_bmhgat_kan_tcn_bs128_SWAT_sl100_s48_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+test: (449919, 51)
+train: (495000, 51)
+train 5210
+test: (449919, 51)
+train: (495000, 51)
+val 1042
+test: (449919, 51)
+train: (495000, 51)
+test 4735
+Epoch: 1 cost time: 9.800123453140259
+Epoch: 1, Steps: 41 | Train Loss: 0.7963185 Vali Loss: 0.4107273 Test Loss: 9.4004720
+Validation loss decreased (inf --> 0.410727).  Saving model ...
+Updating learning rate to 0.0009972609476841367
+Epoch: 2 cost time: 7.924935579299927
+Epoch: 2, Steps: 41 | Train Loss: 0.6631844 Vali Loss: 0.2475949 Test Loss: 9.8417207
+Validation loss decreased (0.410727 --> 0.247595).  Saving model ...
+Updating learning rate to 0.0009890738003669028
+Epoch: 3 cost time: 7.954508066177368
+Epoch: 3, Steps: 41 | Train Loss: 0.4210838 Vali Loss: 0.1233629 Test Loss: 6.0468439
+Validation loss decreased (0.247595 --> 0.123363).  Saving model ...
+Updating learning rate to 0.0009755282581475768
+Epoch: 4 cost time: 7.989263534545898
+Epoch: 4, Steps: 41 | Train Loss: 0.2108412 Vali Loss: 0.0829698 Test Loss: 5.5312524
+Validation loss decreased (0.123363 --> 0.082970).  Saving model ...
+Updating learning rate to 0.0009567727288213005
+Epoch: 5 cost time: 7.835015296936035
+Epoch: 5, Steps: 41 | Train Loss: 0.1752978 Vali Loss: 0.0679057 Test Loss: 5.1884109
+Validation loss decreased (0.082970 --> 0.067906).  Saving model ...
+Updating learning rate to 0.0009330127018922195
+Epoch: 6 cost time: 7.956293821334839
+Epoch: 6, Steps: 41 | Train Loss: 0.1561034 Vali Loss: 0.0560424 Test Loss: 5.3324990
+Validation loss decreased (0.067906 --> 0.056042).  Saving model ...
+Updating learning rate to 0.0009045084971874737
+Epoch: 7 cost time: 7.991707801818848
+Epoch: 7, Steps: 41 | Train Loss: 0.1437907 Vali Loss: 0.0533178 Test Loss: 5.3437647
+Validation loss decreased (0.056042 --> 0.053318).  Saving model ...
+Updating learning rate to 0.0008715724127386971
+Epoch: 8 cost time: 8.010148763656616
+Epoch: 8, Steps: 41 | Train Loss: 0.1372242 Vali Loss: 0.0541487 Test Loss: 5.0575455
+EarlyStopping counter: 1 out of 10
+Updating learning rate to 0.0008345653031794292
+Epoch: 9 cost time: 8.020101070404053
+Epoch: 9, Steps: 41 | Train Loss: 0.1280453 Vali Loss: 0.0443939 Test Loss: 5.1732602
+Validation loss decreased (0.053318 --> 0.044394).  Saving model ...
+Updating learning rate to 0.0007938926261462366
+Epoch: 10 cost time: 7.976356029510498
+Epoch: 10, Steps: 41 | Train Loss: 0.1235930 Vali Loss: 0.0435996 Test Loss: 5.0650323
+Validation loss decreased (0.044394 --> 0.043600).  Saving model ...
+Updating learning rate to 0.00075
+Epoch: 11 cost time: 7.902347803115845
+Epoch: 11, Steps: 41 | Train Loss: 0.1208842 Vali Loss: 0.0444413 Test Loss: 5.3491686
+EarlyStopping counter: 1 out of 10
+Updating learning rate to 0.0007033683215379002
+Epoch: 12 cost time: 7.998473167419434
+Epoch: 12, Steps: 41 | Train Loss: 0.1169604 Vali Loss: 0.0426005 Test Loss: 5.1938295
+Validation loss decreased (0.043600 --> 0.042601).  Saving model ...
+Updating learning rate to 0.0006545084971874737
+Epoch: 13 cost time: 7.9945902824401855
+Epoch: 13, Steps: 41 | Train Loss: 0.1158986 Vali Loss: 0.0383543 Test Loss: 5.2960325
+Validation loss decreased (0.042601 --> 0.038354).  Saving model ...
+Updating learning rate to 0.0006039558454088796
+Epoch: 14 cost time: 8.114858865737915
+Epoch: 14, Steps: 41 | Train Loss: 0.1145714 Vali Loss: 0.0408764 Test Loss: 5.2148888
+EarlyStopping counter: 1 out of 10
+Updating learning rate to 0.0005522642316338268
+Epoch: 15 cost time: 7.941404581069946
+Epoch: 15, Steps: 41 | Train Loss: 0.1131078 Vali Loss: 0.0392652 Test Loss: 5.1893690
+EarlyStopping counter: 2 out of 10
+Updating learning rate to 0.0005
+Epoch: 16 cost time: 7.9006757736206055
+Epoch: 16, Steps: 41 | Train Loss: 0.1096957 Vali Loss: 0.0347213 Test Loss: 5.2035716
+Validation loss decreased (0.038354 --> 0.034721).  Saving model ...
+Updating learning rate to 0.00044773576836617336
+Epoch: 17 cost time: 8.04004693031311
+Epoch: 17, Steps: 41 | Train Loss: 0.1081111 Vali Loss: 0.0410405 Test Loss: 5.2233738
+EarlyStopping counter: 1 out of 10
+Updating learning rate to 0.0003960441545911204
+Epoch: 18 cost time: 7.974551677703857
+Epoch: 18, Steps: 41 | Train Loss: 0.1069531 Vali Loss: 0.0323823 Test Loss: 5.1196672
+Validation loss decreased (0.034721 --> 0.032382).  Saving model ...
+Updating learning rate to 0.00034549150281252633
+Epoch: 19 cost time: 7.983020544052124
+Epoch: 19, Steps: 41 | Train Loss: 0.1061623 Vali Loss: 0.0340998 Test Loss: 5.1178482
+EarlyStopping counter: 1 out of 10
+Updating learning rate to 0.0002966316784621
+Epoch: 20 cost time: 7.981380224227905
+Epoch: 20, Steps: 41 | Train Loss: 0.1050087 Vali Loss: 0.0318493 Test Loss: 5.1596234
+Validation loss decreased (0.032382 --> 0.031849).  Saving model ...
+Updating learning rate to 0.0002500000000000001
+Epoch: 21 cost time: 7.974192380905151
+Epoch: 21, Steps: 41 | Train Loss: 0.1056463 Vali Loss: 0.0314923 Test Loss: 5.1394867
+Validation loss decreased (0.031849 --> 0.031492).  Saving model ...
+Updating learning rate to 0.00020610737385376348
+Epoch: 22 cost time: 8.04995322227478
+Epoch: 22, Steps: 41 | Train Loss: 0.1039367 Vali Loss: 0.0319542 Test Loss: 5.1244071
+EarlyStopping counter: 1 out of 10
+Updating learning rate to 0.00016543469682057105
+Epoch: 23 cost time: 8.081585884094238
+Epoch: 23, Steps: 41 | Train Loss: 0.1029459 Vali Loss: 0.0308685 Test Loss: 5.1354051
+Validation loss decreased (0.031492 --> 0.030869).  Saving model ...
+Updating learning rate to 0.00012842758726130281
+Epoch: 24 cost time: 8.239218473434448
+Epoch: 24, Steps: 41 | Train Loss: 0.1027143 Vali Loss: 0.0323774 Test Loss: 5.1307860
+EarlyStopping counter: 1 out of 10
+Updating learning rate to 9.549150281252633e-05
+Epoch: 25 cost time: 7.940819263458252
+Epoch: 25, Steps: 41 | Train Loss: 0.1025085 Vali Loss: 0.0330095 Test Loss: 5.1245230
+EarlyStopping counter: 2 out of 10
+Updating learning rate to 6.698729810778065e-05
+Epoch: 26 cost time: 7.980410814285278
+Epoch: 26, Steps: 41 | Train Loss: 0.1019534 Vali Loss: 0.0331070 Test Loss: 5.1267311
+EarlyStopping counter: 3 out of 10
+Updating learning rate to 4.322727117869951e-05
+Epoch: 27 cost time: 8.014689922332764
+Epoch: 27, Steps: 41 | Train Loss: 0.1019540 Vali Loss: 0.0329552 Test Loss: 5.1195615
+EarlyStopping counter: 4 out of 10
+Updating learning rate to 2.4471741852423235e-05
+Epoch: 28 cost time: 8.016623973846436
+Epoch: 28, Steps: 41 | Train Loss: 0.1016561 Vali Loss: 0.0310152 Test Loss: 5.1240041
+EarlyStopping counter: 5 out of 10
+Updating learning rate to 1.0926199633097156e-05
+Epoch: 29 cost time: 8.110214710235596
+Epoch: 29, Steps: 41 | Train Loss: 0.1030755 Vali Loss: 0.0303909 Test Loss: 5.1092390
+Validation loss decreased (0.030869 --> 0.030391).  Saving model ...
+Updating learning rate to 2.739052315863355e-06
+Epoch: 30 cost time: 8.023597002029419
+Epoch: 30, Steps: 41 | Train Loss: 0.1025428 Vali Loss: 0.0305399 Test Loss: 5.1213585
+EarlyStopping counter: 1 out of 10
+Updating learning rate to 0.0
+>>>>>>>testing : anomaly_detection_SWAT_BestF1_Adaptive_2GPU_ISTAD_SWAT_ftM_sl100_bmhgat_kan_tcn_bs128_SWAT_sl100_s48_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test: (449919, 51)
+train: (495000, 51)
+test 4735
+test: (449919, 51)
+train: (495000, 51)
+train 5210
+Percentile Threshold : 24.81215684890747
+pred_raw: (473500,)
+gt:      (473500,)
+pred_pa: (473500,)
+gt_pa:   (473500,)
+
+============================================================
+使用百分位数阈值的结果:
+============================================================
+Accuracy : 0.9604, Precision : 0.9974, Recall : 0.6758, F-score : 0.8057 
+============================================================
+
+
+使用自适应 Best F1 搜索（两阶段）
+粗搜索步数: 200, 精细搜索步数: 500
+
+============================================================
+自适应 Best F1 阈值搜索（两阶段）
+============================================================
+
+分数统计信息:
+  最小值: 0.004004
+  最大值: 88.637184
+  均值: 5.108499
+  标准差: 6.343696
+  中位数: 4.468960
+  第1百分位: 0.007598
+  第99百分位: 25.034205
+
+自动确定的搜索范围: [0.004004, 50.068409]
+
+============================================================
+阶段 1: 粗搜索（步数: 200）
+============================================================
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [0.0040, 50.0684]
+搜索步数: 200
+使用点调整: True
+阈值: 0.2543 | F1: 0.2702 | Precision: 0.1576 | Recall: 0.9448
+阈值: 5.2608 | F1: 0.3360 | Precision: 0.2098 | Recall: 0.8436
+阈值: 10.2672 | F1: 0.8262 | Precision: 0.9862 | Recall: 0.7109
+阈值: 15.2736 | F1: 0.8234 | Precision: 0.9923 | Recall: 0.7036
+阈值: 20.2801 | F1: 0.8159 | Precision: 0.9949 | Recall: 0.6914
+阈值: 25.2865 | F1: 0.8057 | Precision: 0.9975 | Recall: 0.6758
+阈值: 30.2930 | F1: 0.8061 | Precision: 0.9987 | Recall: 0.6758
+阈值: 35.2994 | F1: 0.8062 | Precision: 0.9990 | Recall: 0.6758
+阈值: 40.3059 | F1: 0.7968 | Precision: 0.9991 | Recall: 0.6626
+阈值: 45.3123 | F1: 0.7929 | Precision: 0.9993 | Recall: 0.6572
+
+============================================================
+✓ 找到最佳阈值: 8.765275
+  最佳 F1: 0.8532
+  Precision: 0.9660
+  Recall: 0.7639
+============================================================
+
+
+============================================================
+阶段 2: 精细搜索（步数: 500）
+============================================================
+在最佳阈值 8.765275 附近精细搜索
+精细搜索范围: [3.758835, 13.771716]
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [3.7588, 13.7717]
+搜索步数: 500
+使用点调整: True
+阈值: 3.7789 | F1: 0.3261 | Precision: 0.2002 | Recall: 0.8789
+阈值: 4.7801 | F1: 0.3316 | Precision: 0.2061 | Recall: 0.8484
+阈值: 5.7814 | F1: 0.3537 | Precision: 0.2237 | Recall: 0.8436
+阈值: 6.7827 | F1: 0.5203 | Precision: 0.3815 | Recall: 0.8180
+阈值: 7.7840 | F1: 0.7828 | Precision: 0.7690 | Recall: 0.7971
+阈值: 8.7853 | F1: 0.8534 | Precision: 0.9667 | Recall: 0.7639
+阈值: 9.7866 | F1: 0.8302 | Precision: 0.9821 | Recall: 0.7190
+阈值: 10.7879 | F1: 0.8271 | Precision: 0.9887 | Recall: 0.7109
+阈值: 11.7892 | F1: 0.8227 | Precision: 0.9904 | Recall: 0.7036
+阈值: 12.7905 | F1: 0.8229 | Precision: 0.9910 | Recall: 0.7036
+
+============================================================
+✓ 找到最佳阈值: 8.885430
+  最佳 F1: 0.8546
+  Precision: 0.9696
+  Recall: 0.7639
+============================================================
+
+
+✓ 精细搜索找到更好的阈值！
+
+============================================================
+自适应搜索完成！
+============================================================
+最终最佳阈值: 8.885430
+最佳 F1: 0.8546
+Precision: 0.9696
+Recall: 0.7639
+============================================================
+
+Saved Best F1 results: ./test_results/anomaly_detection_SWAT_BestF1_Adaptive_2GPU_ISTAD_SWAT_ftM_sl100_bmhgat_kan_tcn_bs128_SWAT_sl100_s48_0/bestf1_threshold_results.json
+Saved anomaly score plot: ./test_results/anomaly_detection_SWAT_BestF1_Adaptive_2GPU_ISTAD_SWAT_ftM_sl100_bmhgat_kan_tcn_bs128_SWAT_sl100_s48_0/anomaly_score_threshold.png
+ISTAD explainability is disabled by --istad_enable_explain 0
+Saved train time summary: ./test_results/anomaly_detection_SWAT_BestF1_Adaptive_2GPU_ISTAD_SWAT_ftM_sl100_bmhgat_kan_tcn_bs128_SWAT_sl100_s48_0/train_time_summary.json

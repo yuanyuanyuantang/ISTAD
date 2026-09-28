@@ -1,0 +1,725 @@
+{
+  "status": "development_seed_stability_not_independent_confirmation",
+  "datasets": [
+    "EXA",
+    "PSM",
+    "SMD",
+    "SWAT"
+  ],
+  "seeds": [
+    87,
+    90,
+    98
+  ],
+  "formal_v4": {
+    "POT+PA": {
+      "EXA": 0.9593254934529327,
+      "PSM": 0.9697128396590672,
+      "SMD": 0.8477799567574127,
+      "SWAT": 0.8322632717841407
+    },
+    "Best-F1+PA": {
+      "EXA": 0.9627991102045644,
+      "PSM": 0.9822430345933931,
+      "SMD": 0.8829375784876803,
+      "SWAT": 0.9524487504947322
+    }
+  },
+  "formal_v4_macro": {
+    "POT+PA": 0.9022703904133883,
+    "Best-F1+PA": 0.9451071184450924
+  },
+  "runs": {
+    "EXA": {
+      "87": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0",
+        "score_sha256": "5188744821fe5b4394a622b33e9633ae5dbdac9ff90039d9276df3098b48d450",
+        "best_sha256": "49198b3a50ceaf3ca3acf8a24923c47dcd6531c9ee1f2f1644731b04e4c97607",
+        "parameters": {
+          "neural": 4771,
+          "hgat": 274
+        },
+        "selected_weight": 7.092198581560284e-06,
+        "message_gate": 0.26126331090927124,
+        "kill_switch": false,
+        "ranking": {
+          "fused_roc_auc": 0.8275449788561685,
+          "fused_pr_auc": 0.4263482368820395,
+          "v4_roc_auc": 0.8275410561000538,
+          "v4_pr_auc": 0.42626295096718,
+          "hgat_roc_auc": 0.8465484035454929,
+          "hgat_pr_auc": 0.49831940050213774
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 12098,
+          "changed_values": 52800,
+          "max_absolute_correction": 5.8894507110052174e-06
+        },
+        "POT+PA": {
+          "f1": 0.9593254934529327,
+          "precision": 0.9563817316212212,
+          "recall": 0.9622974949008873,
+          "TP": 6534,
+          "TN": 45712,
+          "FP": 298,
+          "FN": 256,
+          "threshold": 4.795826076940404,
+          "raw_spot_threshold": 4.611371227827312,
+          "effective_level": 0.99,
+          "score_transform": "-log(1-score)"
+        },
+        "Best-F1+PA": {
+          "f1": 0.9627991102045644,
+          "precision": 0.9668795470564688,
+          "recall": 0.9587628851859162,
+          "TP": 6510,
+          "TN": 45787,
+          "FP": 223,
+          "FN": 280,
+          "threshold": 0.9931751086643793,
+          "search_method": "adaptive_two_stage",
+          "coarse_step_num": 200,
+          "fine_step_num": 500
+        }
+      },
+      "90": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v4hg_s90_0",
+        "score_sha256": "0254c810911423d4cea0ca747049b51ead26e7bffff8a6b86da3b7e5eb815015",
+        "best_sha256": "222398931628c0a7963e0e9938126ca563d3c9d94abd3bbb16028213cb7505ab",
+        "parameters": {
+          "neural": 4771,
+          "hgat": 274
+        },
+        "selected_weight": 7.092198581560284e-06,
+        "message_gate": 0.2620074152946472,
+        "kill_switch": false,
+        "ranking": {
+          "fused_roc_auc": 0.8275459375387114,
+          "fused_pr_auc": 0.426356106993368,
+          "v4_roc_auc": 0.8275410561000538,
+          "v4_pr_auc": 0.42626295096718,
+          "hgat_roc_auc": 0.8588182453132588,
+          "hgat_pr_auc": 0.5491782740496413
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 12099,
+          "changed_values": 52800,
+          "max_absolute_correction": 6.2660890539634195e-06
+        },
+        "POT+PA": {
+          "f1": 0.9593254934529327,
+          "precision": 0.9563817316212212,
+          "recall": 0.9622974949008873,
+          "TP": 6534,
+          "TN": 45712,
+          "FP": 298,
+          "FN": 256,
+          "threshold": 4.7958262866137105,
+          "raw_spot_threshold": 4.61137142943626,
+          "effective_level": 0.99,
+          "score_transform": "-log(1-score)"
+        },
+        "Best-F1+PA": {
+          "f1": 0.9627991102045644,
+          "precision": 0.9668795470564688,
+          "recall": 0.9587628851859162,
+          "TP": 6510,
+          "TN": 45787,
+          "FP": 223,
+          "FN": 280,
+          "threshold": 0.993175108666988,
+          "search_method": "adaptive_two_stage",
+          "coarse_step_num": 200,
+          "fine_step_num": 500
+        }
+      },
+      "98": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v4hg_s98_0",
+        "score_sha256": "41624c889b4171691e3109020682e08ed6efb31e54e2cbb8a9d2df92bac62226",
+        "best_sha256": "5a15db28b09bde722edb49f8c4b93718fca16dbd91ebbc4a8a87eb5510d84abc",
+        "parameters": {
+          "neural": 4771,
+          "hgat": 274
+        },
+        "selected_weight": 7.092198581560284e-06,
+        "message_gate": 0.25975218415260315,
+        "kill_switch": false,
+        "ranking": {
+          "fused_roc_auc": 0.8275460127608809,
+          "fused_pr_auc": 0.42633045979043177,
+          "v4_roc_auc": 0.8275410561000538,
+          "v4_pr_auc": 0.42626295096718,
+          "hgat_roc_auc": 0.8633295284786331,
+          "hgat_pr_auc": 0.5354945237008496
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 12100,
+          "changed_values": 52800,
+          "max_absolute_correction": 6.196274147440839e-06
+        },
+        "POT+PA": {
+          "f1": 0.9593254934529327,
+          "precision": 0.9563817316212212,
+          "recall": 0.9622974949008873,
+          "TP": 6534,
+          "TN": 45712,
+          "FP": 298,
+          "FN": 256,
+          "threshold": 4.795832990236491,
+          "raw_spot_threshold": 4.611377875227395,
+          "effective_level": 0.99,
+          "score_transform": "-log(1-score)"
+        },
+        "Best-F1+PA": {
+          "f1": 0.9627991102045644,
+          "precision": 0.9668795470564688,
+          "recall": 0.9587628851859162,
+          "TP": 6510,
+          "TN": 45787,
+          "FP": 223,
+          "FN": 280,
+          "threshold": 0.9931751086484455,
+          "search_method": "adaptive_two_stage",
+          "coarse_step_num": 200,
+          "fine_step_num": 500
+        }
+      }
+    },
+    "PSM": {
+      "87": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0",
+        "score_sha256": "9a3f9b20c6b140fe9ed400f68aa67f3f39bd2858f8c2148130faa6dddc28125c",
+        "best_sha256": "2431e82afd1a61e8e47b5de23006081141fbe485dd6ca9ca7632afdd51b35964",
+        "parameters": {
+          "neural": 7303,
+          "hgat": 346
+        },
+        "selected_weight": 4.717693236714976e-06,
+        "message_gate": 0.35305002331733704,
+        "kill_switch": false,
+        "ranking": {
+          "fused_roc_auc": 0.6551032527388935,
+          "fused_pr_auc": 0.42768295207121687,
+          "v4_roc_auc": 0.655102538018105,
+          "v4_pr_auc": 0.42766275405842274,
+          "hgat_roc_auc": 0.6494537854601262,
+          "hgat_pr_auc": 0.412555881418198
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 21406,
+          "changed_values": 87808,
+          "max_absolute_correction": 3.547667745018579e-06
+        },
+        "POT+PA": {
+          "f1": 0.9697128396590672,
+          "precision": 0.9569058561035755,
+          "recall": 0.9828775556447082,
+          "TP": 23937,
+          "TN": 62376,
+          "FP": 1078,
+          "FN": 417,
+          "threshold": 3.663481003221717,
+          "raw_spot_threshold": 3.5225778877131892,
+          "effective_level": 0.98,
+          "score_transform": "-log(1-score)"
+        },
+        "Best-F1+PA": {
+          "f1": 0.9822430345933931,
+          "precision": 0.9818651782784782,
+          "recall": 0.9826311895447848,
+          "TP": 23931,
+          "TN": 63012,
+          "FP": 442,
+          "FN": 423,
+          "threshold": 0.9873451892649632,
+          "search_method": "adaptive_two_stage",
+          "coarse_step_num": 200,
+          "fine_step_num": 500
+        }
+      },
+      "90": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s90_0",
+        "score_sha256": "801ea5743a8ab5279147d6c64ad9a647d48f871c61c56a1a8c009a7a0893e86f",
+        "best_sha256": "312c105df191f90c90762efe4c2a799efca84eaedf4bdfe8f4cc6f49eb63eef8",
+        "parameters": {
+          "neural": 7303,
+          "hgat": 346
+        },
+        "selected_weight": 4.717693236714976e-06,
+        "message_gate": 0.3261118233203888,
+        "kill_switch": false,
+        "ranking": {
+          "fused_roc_auc": 0.6551030789928259,
+          "fused_pr_auc": 0.42768272245280464,
+          "v4_roc_auc": 0.655102538018105,
+          "v4_pr_auc": 0.42766275405842274,
+          "hgat_roc_auc": 0.6460997771342042,
+          "hgat_pr_auc": 0.40097195510759764
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 21407,
+          "changed_values": 87808,
+          "max_absolute_correction": 3.7879491832093493e-06
+        },
+        "POT+PA": {
+          "f1": 0.9697128396590672,
+          "precision": 0.9569058561035755,
+          "recall": 0.9828775556447082,
+          "TP": 23937,
+          "TN": 62376,
+          "FP": 1078,
+          "FN": 417,
+          "threshold": 3.663501253687918,
+          "raw_spot_threshold": 3.5225973593153057,
+          "effective_level": 0.98,
+          "score_transform": "-log(1-score)"
+        },
+        "Best-F1+PA": {
+          "f1": 0.9822430345933931,
+          "precision": 0.9818651782784782,
+          "recall": 0.9826311895447848,
+          "TP": 23931,
+          "TN": 63012,
+          "FP": 442,
+          "FN": 423,
+          "threshold": 0.9873451903377801,
+          "search_method": "adaptive_two_stage",
+          "coarse_step_num": 200,
+          "fine_step_num": 500
+        }
+      },
+      "98": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s98_0",
+        "score_sha256": "b00617882b8ec3a8daa0eee6d66b398c5dcd79be32de91406d8a388981568d2c",
+        "best_sha256": "556a5ba3871ad60c91ba60429ddde6f576dd09beb6e5658756d4d85d6d192aaa",
+        "parameters": {
+          "neural": 7303,
+          "hgat": 346
+        },
+        "selected_weight": 4.717693236714976e-06,
+        "message_gate": 0.3303990364074707,
+        "kill_switch": false,
+        "ranking": {
+          "fused_roc_auc": 0.6551030126651837,
+          "fused_pr_auc": 0.42767946672283585,
+          "v4_roc_auc": 0.655102538018105,
+          "v4_pr_auc": 0.42766275405842274,
+          "hgat_roc_auc": 0.6430799892676827,
+          "hgat_pr_auc": 0.4059218563369949
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 21405,
+          "changed_values": 87808,
+          "max_absolute_correction": 3.311570533348629e-06
+        },
+        "POT+PA": {
+          "f1": 0.9697128396590672,
+          "precision": 0.9569058561035755,
+          "recall": 0.9828775556447082,
+          "TP": 23937,
+          "TN": 62376,
+          "FP": 1078,
+          "FN": 417,
+          "threshold": 3.6634883091234376,
+          "raw_spot_threshold": 3.5225849126186897,
+          "effective_level": 0.98,
+          "score_transform": "-log(1-score)"
+        },
+        "Best-F1+PA": {
+          "f1": 0.9822430345933931,
+          "precision": 0.9818651782784782,
+          "recall": 0.9826311895447848,
+          "TP": 23931,
+          "TN": 63012,
+          "FP": 442,
+          "FN": 423,
+          "threshold": 0.9873451935458808,
+          "search_method": "adaptive_two_stage",
+          "coarse_step_num": 200,
+          "fine_step_num": 500
+        }
+      }
+    },
+    "SMD": {
+      "87": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_innov_hglite_bs128_v4hg_s87_0",
+        "score_sha256": "d219f41e1ed42a7bc87f059c0732b55d6e0725d8da99e0aebce5d435b4d9d5fc",
+        "best_sha256": "e86ca2a44a428248ef3a64ac4e000a71a77f40a6649c2181785e8a02d97af69f",
+        "parameters": {
+          "neural": 14522,
+          "hgat": 506
+        },
+        "selected_weight": 8.840091583348803e-07,
+        "message_gate": 0.2673893868923187,
+        "kill_switch": false,
+        "ranking": {
+          "fused_roc_auc": 0.6814710859035942,
+          "fused_pr_auc": 0.11717848019704843,
+          "v4_roc_auc": 0.6814708604330817,
+          "v4_pr_auc": 0.11712957275224742,
+          "hgat_roc_auc": 0.6904611025653097,
+          "hgat_pr_auc": 0.12010952125547035
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 172838,
+          "changed_values": 706560,
+          "max_absolute_correction": 5.794817884430259e-07
+        },
+        "POT+PA": {
+          "f1": 0.8477799567574127,
+          "precision": 0.7841139348161541,
+          "recall": 0.9227100858661613,
+          "TP": 27088,
+          "TN": 669745,
+          "FP": 7458,
+          "FN": 2269,
+          "threshold": 4.599768334627357,
+          "raw_spot_threshold": 4.42285416791092,
+          "effective_level": 0.988,
+          "score_transform": "-log(1-score)"
+        },
+        "Best-F1+PA": {
+          "f1": 0.8829375784876803,
+          "precision": 0.8763505802038956,
+          "recall": 0.8896344991349134,
+          "TP": 26117,
+          "TN": 673518,
+          "FP": 3685,
+          "FN": 3240,
+          "threshold": 0.9945916260368917,
+          "search_method": "adaptive_two_stage",
+          "coarse_step_num": 200,
+          "fine_step_num": 500
+        }
+      },
+      "90": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_innov_hglite_bs128_v4hg_s90_0",
+        "score_sha256": "a293304d4e0885639c3a78bba6bb2a287adbf15e02ba084275e956d865eb3d95",
+        "best_sha256": "b0cd3ee381ece6220ce44b217f4fcae331a7484292c2c02d49a4251f2d45ca2b",
+        "parameters": {
+          "neural": 14522,
+          "hgat": 506
+        },
+        "selected_weight": 8.840091583348803e-07,
+        "message_gate": 0.2765718996524811,
+        "kill_switch": false,
+        "ranking": {
+          "fused_roc_auc": 0.6814714171805145,
+          "fused_pr_auc": 0.11716510520220545,
+          "v4_roc_auc": 0.6814708604330817,
+          "v4_pr_auc": 0.11712957275224742,
+          "hgat_roc_auc": 0.7077093476364,
+          "hgat_pr_auc": 0.15343348086642766
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 172839,
+          "changed_values": 706560,
+          "max_absolute_correction": 5.390814470374039e-07
+        },
+        "POT+PA": {
+          "f1": 0.8477799567574127,
+          "precision": 0.7841139348161541,
+          "recall": 0.9227100858661613,
+          "TP": 27088,
+          "TN": 669745,
+          "FP": 7458,
+          "FN": 2269,
+          "threshold": 4.599767932578188,
+          "raw_spot_threshold": 4.4228537813251805,
+          "effective_level": 0.988,
+          "score_transform": "-log(1-score)"
+        },
+        "Best-F1+PA": {
+          "f1": 0.8829375784876803,
+          "precision": 0.8763505802038956,
+          "recall": 0.8896344991349134,
+          "TP": 26117,
+          "TN": 673518,
+          "FP": 3685,
+          "FN": 3240,
+          "threshold": 0.9945916260712467,
+          "search_method": "adaptive_two_stage",
+          "coarse_step_num": 200,
+          "fine_step_num": 500
+        }
+      },
+      "98": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_innov_hglite_bs128_v4hg_s98_0",
+        "score_sha256": "1e195878de55f853fb259d99f0e669eda23f4d19321fe10ba71ba764709c31d5",
+        "best_sha256": "92433855f3e317e7d4eef1bafa9a8f7dc268fcece56281a359eee9d29846aaaf",
+        "parameters": {
+          "neural": 14522,
+          "hgat": 506
+        },
+        "selected_weight": 8.840091583348803e-07,
+        "message_gate": 0.2629287540912628,
+        "kill_switch": false,
+        "ranking": {
+          "fused_roc_auc": 0.6814711699300284,
+          "fused_pr_auc": 0.11717317546761566,
+          "v4_roc_auc": 0.6814708604330817,
+          "v4_pr_auc": 0.11712957275224742,
+          "hgat_roc_auc": 0.6898539410575951,
+          "hgat_pr_auc": 0.1282499595044785
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 172840,
+          "changed_values": 706560,
+          "max_absolute_correction": 6.192622931111558e-07
+        },
+        "POT+PA": {
+          "f1": 0.8477799567574127,
+          "precision": 0.7841139348161541,
+          "recall": 0.9227100858661613,
+          "TP": 27088,
+          "TN": 669745,
+          "FP": 7458,
+          "FN": 2269,
+          "threshold": 4.599768061979179,
+          "raw_spot_threshold": 4.422853905749211,
+          "effective_level": 0.988,
+          "score_transform": "-log(1-score)"
+        },
+        "Best-F1+PA": {
+          "f1": 0.8829375784876803,
+          "precision": 0.8763505802038956,
+          "recall": 0.8896344991349134,
+          "TP": 26117,
+          "TN": 673518,
+          "FP": 3685,
+          "FN": 3240,
+          "threshold": 0.9945916259925695,
+          "search_method": "adaptive_two_stage",
+          "coarse_step_num": 200,
+          "fine_step_num": 500
+        }
+      }
+    },
+    "SWAT": {
+      "87": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_innov_hglite_bs64_v4hg_s87_0",
+        "score_sha256": "e6ea97fc1edb3fb90640fccc99c18d45c0483af4c972754da15c02c95af63912",
+        "best_sha256": "e6be1113f0bbd8009d1f4fb8640ce15c0e81e4e8f977fc34eddb47ba668d73c1",
+        "parameters": {
+          "neural": 44867,
+          "hgat": 618
+        },
+        "selected_weight": 1.2626262626262627e-06,
+        "message_gate": 0.2591799199581146,
+        "kill_switch": false,
+        "ranking": {
+          "fused_roc_auc": 0.8500226172775898,
+          "fused_pr_auc": 0.5287901573756483,
+          "v4_roc_auc": 0.8499346909533648,
+          "v4_pr_auc": 0.5325448076037615,
+          "hgat_roc_auc": 0.8584153139425083,
+          "hgat_pr_auc": 0.5570610026599506
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 77184,
+          "changed_values": 449856,
+          "max_absolute_correction": 5.296853964054105e-07
+        },
+        "POT+PA": {
+          "f1": 0.8322632717841407,
+          "precision": 0.9997689046091233,
+          "recall": 0.7128393839891545,
+          "TP": 38936,
+          "TN": 395226,
+          "FP": 9,
+          "FN": 15685,
+          "threshold": 11.517715481999804,
+          "raw_spot_threshold": 11.074726424999811,
+          "effective_level": 0.9999,
+          "score_transform": "-log(1-score)"
+        },
+        "Best-F1+PA": {
+          "f1": 0.9524487504947322,
+          "precision": 0.946844695153632,
+          "recall": 0.9581296569161806,
+          "TP": 52334,
+          "TN": 392297,
+          "FP": 2938,
+          "FN": 2287,
+          "threshold": 0.9938155906452376,
+          "search_method": "adaptive_two_stage",
+          "coarse_step_num": 200,
+          "fine_step_num": 500
+        }
+      },
+      "90": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_innov_hglite_bs64_v4hg_s90_0",
+        "score_sha256": "a67d8141c933f997a4a3a1df989ec256a337c8cd5bfeddf55b7247599ea34f84",
+        "best_sha256": "8b61fc5f825d44952573c5807e3c58a9944ee31037d1fb5028f723754f4bcc4f",
+        "parameters": {
+          "neural": 44867,
+          "hgat": 618
+        },
+        "selected_weight": 1.2626262626262627e-06,
+        "message_gate": 0.25202223658561707,
+        "kill_switch": false,
+        "ranking": {
+          "fused_roc_auc": 0.8500213257808833,
+          "fused_pr_auc": 0.5297480386695905,
+          "v4_roc_auc": 0.8499346909533648,
+          "v4_pr_auc": 0.5325448076037615,
+          "hgat_roc_auc": 0.8626315467082839,
+          "hgat_pr_auc": 0.5968430621032248
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 77187,
+          "changed_values": 449856,
+          "max_absolute_correction": 5.700001093345008e-07
+        },
+        "POT+PA": {
+          "f1": 0.8322632717841407,
+          "precision": 0.9997689046091233,
+          "recall": 0.7128393839891545,
+          "TP": 38936,
+          "TN": 395226,
+          "FP": 9,
+          "FN": 15685,
+          "threshold": 11.51769958378371,
+          "raw_spot_threshold": 11.074711138253567,
+          "effective_level": 0.9999,
+          "score_transform": "-log(1-score)"
+        },
+        "Best-F1+PA": {
+          "f1": 0.9524487504947322,
+          "precision": 0.946844695153632,
+          "recall": 0.9581296569161806,
+          "TP": 52334,
+          "TN": 392297,
+          "FP": 2938,
+          "FN": 2287,
+          "threshold": 0.9938155906952651,
+          "search_method": "adaptive_two_stage",
+          "coarse_step_num": 200,
+          "fine_step_num": 500
+        }
+      },
+      "98": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_innov_hglite_bs64_v4hg_s98_0",
+        "score_sha256": "c22986f9c9be79f8e28d4d5318baa01293f734590538174cbe997c5ad067d454",
+        "best_sha256": "d0a6c9d4886f08f58c5d9fb6f2f5cf5e65b80f21582c7a07d65d61a4dc1d73a7",
+        "parameters": {
+          "neural": 44867,
+          "hgat": 618
+        },
+        "selected_weight": 1.2626262626262627e-06,
+        "message_gate": 0.25380146503448486,
+        "kill_switch": false,
+        "ranking": {
+          "fused_roc_auc": 0.8500212344807144,
+          "fused_pr_auc": 0.5292529418141889,
+          "v4_roc_auc": 0.8499346909533648,
+          "v4_pr_auc": 0.5325448076037615,
+          "hgat_roc_auc": 0.8469870050146608,
+          "hgat_pr_auc": 0.5634925546908245
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 77188,
+          "changed_values": 449856,
+          "max_absolute_correction": 7.030412126907137e-07
+        },
+        "POT+PA": {
+          "f1": 0.8322632717841407,
+          "precision": 0.9997689046091233,
+          "recall": 0.7128393839891545,
+          "TP": 38936,
+          "TN": 395226,
+          "FP": 9,
+          "FN": 15685,
+          "threshold": 11.51765871548124,
+          "raw_spot_threshold": 11.074671841808884,
+          "effective_level": 0.9999,
+          "score_transform": "-log(1-score)"
+        },
+        "Best-F1+PA": {
+          "f1": 0.9524487504947322,
+          "precision": 0.946844695153632,
+          "recall": 0.9581296569161806,
+          "TP": 52334,
+          "TN": 392297,
+          "FP": 2938,
+          "FN": 2287,
+          "threshold": 0.9938155908249209,
+          "search_method": "adaptive_two_stage",
+          "coarse_step_num": 200,
+          "fine_step_num": 500
+        }
+      }
+    }
+  },
+  "aggregate": {
+    "EXA": {
+      "POT+PA": {
+        "mean": 0.9593254934529328,
+        "population_std": 1.1102230246251565e-16
+      },
+      "Best-F1+PA": {
+        "mean": 0.9627991102045644,
+        "population_std": 0.0
+      }
+    },
+    "PSM": {
+      "POT+PA": {
+        "mean": 0.9697128396590672,
+        "population_std": 0.0
+      },
+      "Best-F1+PA": {
+        "mean": 0.9822430345933931,
+        "population_std": 0.0
+      }
+    },
+    "SMD": {
+      "POT+PA": {
+        "mean": 0.8477799567574126,
+        "population_std": 1.1102230246251565e-16
+      },
+      "Best-F1+PA": {
+        "mean": 0.8829375784876804,
+        "population_std": 1.1102230246251565e-16
+      }
+    },
+    "SWAT": {
+      "POT+PA": {
+        "mean": 0.8322632717841407,
+        "population_std": 0.0
+      },
+      "Best-F1+PA": {
+        "mean": 0.9524487504947322,
+        "population_std": 0.0
+      }
+    }
+  },
+  "macro": {
+    "POT+PA": {
+      "mean": 0.9022703904133883,
+      "population_std": 0.0
+    },
+    "Best-F1+PA": {
+      "mean": 0.9451071184450924,
+      "population_std": 0.0
+    }
+  },
+  "decision": {
+    "pot_macro_pass": true,
+    "best_macro_pass": true,
+    "rank_safety_pass": true,
+    "non_vacuous_tie_refinement": true,
+    "overall_pass": true
+  }
+}

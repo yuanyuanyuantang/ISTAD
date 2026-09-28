@@ -1,0 +1,46 @@
+===== 回归校验：min_z（v2.1 定稿 SMD 行 0.8480±0.0063 等）=====
+  min_z     A=0.0863±0.0080 C=0.8194±0.0165 D=0.8480±0.0063 ROC=0.7481±0.0219 AP=0.1620±0.0189  target✗/guard
+    ref A=0.0863 got 0.0863 [OK]
+    ref C=0.8194 got 0.8194 [OK]
+    ref D=0.8480 got 0.8480 [OK]
+    ref ROC=0.7481 got 0.7481 [OK]
+    ref AP=0.1620 got 0.1620 [OK]
+
+===== SMD 跨种子委员会（min_z 分数，2/3/4 模型）=====
+  committee[2] A=0.0474 C=0.6487 D=0.8504 ROC=0.7740 AP=0.1879  target✗/guard✗ ['C', 'A']
+  committee[3] A=0.0512 C=0.7010 D=0.8611 ROC=0.7695 AP=0.1819  target✓/guard✗ ['C']
+  committee[4] A=0.0521 C=0.7187 D=0.8563 ROC=0.7692 AP=0.1769  target✓/guard✗ ['C']
+
+===== SMD 委员会（gated 分数，复算 §3.0g(2) 0.7907/0.8577）=====
+  g-committee[2] A=0.0307 C=0.3350 D=0.8163 ROC=0.7622 AP=0.1734  target✗/guard✗ ['C', 'A']
+  g-committee[3] A=0.0318 C=0.5207 D=0.8096 ROC=0.7593 AP=0.1625  target✗/guard✗ ['C', 'A']
+  g-committee[4] A=0.0335 C=0.5350 D=0.8116 ROC=0.7598 AP=0.1565  target✗/guard✗ ['C', 'AP', 'A']
+
+===== SMD min_z 融合家族（dual npz，V0）=====
+  min_z     A=0.0863±0.0080 C=0.8194±0.0165 D=0.8480±0.0063 ROC=0.7481±0.0219 AP=0.1620±0.0189  target✗/guard
+  mean_z    A=0.0425±0.0080 C=0.5812±0.1436 D=0.8099±0.0113 ROC=0.7482±0.0173 AP=0.1491±0.0186  target✗/guard✗ ['C', 'AP', 'A']
+/data/modeluse/TS/vus_diag/sota_push_scan.py:386: RuntimeWarning: divide by zero encountered in log
+  sc_te = -np.log(np.exp(-5 * z(g_te)) + np.exp(-5 * z(m_te))) / 5
+Traceback (most recent call last):
+  File "/data/modeluse/TS/vus_diag/sota_push_scan.py", line 401, in <module>
+    {'EXA': run_exa, 'SWAT': run_swat, 'SMD': run_smd}[ds]()
+  File "/data/modeluse/TS/vus_diag/sota_push_scan.py", line 395, in run_smd
+    rows.append(evaluate(ds, sc_te, sc_tr, lb, segs))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/modeluse/TS/vus_diag/sota_push_scan.py", line 123, in evaluate
+    return dict(A=a, C=c, D=d, ROC=roc_auc_score(lb, sc_te),
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zenghaoyang/.local/lib/python3.11/site-packages/sklearn/utils/_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zenghaoyang/.local/lib/python3.11/site-packages/sklearn/metrics/_ranking.py", line 683, in roc_auc_score
+    y_score = check_array(y_score, ensure_2d=False)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zenghaoyang/.local/lib/python3.11/site-packages/sklearn/utils/validation.py", line 1074, in check_array
+    _assert_all_finite(
+  File "/home/zenghaoyang/.local/lib/python3.11/site-packages/sklearn/utils/validation.py", line 133, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/home/zenghaoyang/.local/lib/python3.11/site-packages/sklearn/utils/validation.py", line 182, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input contains infinity or a value too large for dtype('float64').
+ERROR conda.cli.main_run:execute(142): `conda run python -u sota_push_scan.py SMD` failed. (See above for error)

@@ -1,0 +1,33 @@
+SMD s48   gate=0.088 | dual_base: A=0.1098 C=0.7369 D=0.7760 ROC=0.7610 AP=0.1400 | min_z: D=0.8541 ROC=0.7735 AP=0.1823
+SMD s2021 gate=0.109 | dual_base: A=0.2378 C=0.7526 D=0.8187 ROC=0.7592 AP=0.1753 | min_z: D=0.8545 ROC=0.7619 AP=0.1795
+SMD s2022 gate=0.106 | dual_base: A=0.1560 C=0.7147 D=0.8052 ROC=0.7152 AP=0.1213 | min_z: D=0.8415 ROC=0.7161 AP=0.1423
+SMD s2025 gate=0.127 | dual_base: A=0.1881 C=0.7157 D=0.8026 ROC=0.7378 AP=0.1250 | min_z: D=0.8420 ROC=0.7408 AP=0.1438
+
+===== SMD dual_base 4 种子 mean±std =====
+A    dual_base=0.1729±0.0467  min_z=0.0863±0.0080  [gated 参照 0.2208]
+C    dual_base=0.7300±0.0158  min_z=0.8194±0.0165  [gated 参照 0.7331]
+D    dual_base=0.8006±0.0155  min_z=0.8480±0.0063  [gated 参照 0.8361]
+ROC  dual_base=0.7433±0.0186  min_z=0.7481±0.0219  [gated 参照 0.7700]
+AP   dual_base=0.1404±0.0214  min_z=0.1620±0.0189  [gated 参照 0.1750]
+revin 第二视角单独: ROC=0.7508 AP=0.1572
+=== 预注册判定 ===
+D   0.8006 vs 0.8381 < | ROC 0.7433 vs 0.7650 <
+AP  0.1404 vs 0.1700 < | A   0.1729 vs 0.2008 <
+>>> KEEP GATED（未全过预注册线，维持 gated）
+
+EXA s48   gate=0.017 | dual_base: A=0.2409 C=0.9435 D=0.9604 ROC=0.8759 AP=0.6271 | min_z: D=0.9574 ROC=0.7876 AP=0.4564
+EXA s89   gate=0.017 | dual_base: A=0.2430 C=0.9430 D=0.9602 ROC=0.8757 AP=0.6273 | min_z: D=0.9559 ROC=0.7882 AP=0.4576
+EXA s2021 gate=0.017 | dual_base: A=0.2389 C=0.9436 D=0.9607 ROC=0.8752 AP=0.6261 | min_z: D=0.9580 ROC=0.7881 AP=0.4570
+
+===== EXA dual_base 3 种子 mean±std =====
+A    dual_base=0.2410±0.0017  min_z=0.0730±0.0055  [gated 参照 0.2410]
+C    dual_base=0.9434±0.0003  min_z=0.8509±0.0074  [gated 参照 0.9434]
+D    dual_base=0.9604±0.0002  min_z=0.9571±0.0009  [gated 参照 0.9606]
+ROC  dual_base=0.8756±0.0003  min_z=0.7880±0.0002  [gated 参照 0.8744]
+AP   dual_base=0.6268±0.0005  min_z=0.4570±0.0005  [gated 参照 0.6252]
+revin 第二视角单独: ROC=0.7718 AP=0.4024
+=== 预注册判定 ===
+D   0.9604 vs 0.9626 < | ROC 0.8756 vs 0.8694 >=
+AP  0.6268 vs 0.6202 >= | A   0.2410 vs 0.2210 >=
+>>> KEEP GATED（未全过预注册线，维持 gated）
+

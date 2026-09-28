@@ -1,0 +1,216 @@
+{
+  "anchors": {
+    "archive_field": "score",
+    "archive_max_abs_diff": 2.9802269652101643e-08,
+    "archive_tolerance": 1e-06,
+    "checkpoint": "checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_innov_hglite_bs128_v4hg_s87_0/checkpoint.pth",
+    "checkpoint_sha256": "f9f89d2ec0e2e038982813f3eb1b6c6db7c4ab8676d5f4972d4e72464e05a9a5",
+    "e1_passport": {
+      "e1_report": "analysis/e1_incidence_counterfactual/final/per_run/SMD_s87.json",
+      "matched": true
+    },
+    "train_graph_cache": "reproduced_bitwise"
+  },
+  "dataset": "SMD",
+  "event": {
+    "context": [
+      392721,
+      396265
+    ],
+    "end": 396073,
+    "entity": 16,
+    "length": 3161,
+    "start": 392913,
+    "window_block": [
+      4090,
+      4127
+    ]
+  },
+  "model": {
+    "arch": "legacy",
+    "branch_mode": "hgat",
+    "device": "cuda:0",
+    "fusion_epsilon": 8.840091583348803e-07,
+    "hgat_rank": 8,
+    "k_top": 7,
+    "kernel": 7,
+    "n_hyperedges": 19,
+    "pool": "sparse",
+    "seed": 87,
+    "spatial_type": "lite"
+  },
+  "peak_point": {
+    "definition": "event point with maximal max-variable innovation evidence",
+    "g": 0.9975160528400091,
+    "global_index": 395140,
+    "hyperedge_evidence_ranking": [
+      {
+        "d": 4.323485053890776,
+        "hyperedge": 10,
+        "rank": 0
+      },
+      {
+        "d": 4.012231841611484,
+        "hyperedge": 15,
+        "rank": 1
+      },
+      {
+        "d": 3.910961934516311,
+        "hyperedge": 7,
+        "rank": 2
+      },
+      {
+        "d": 3.6089038525417183,
+        "hyperedge": 17,
+        "rank": 3
+      },
+      {
+        "d": 3.5844255294508622,
+        "hyperedge": 12,
+        "rank": 4
+      },
+      {
+        "d": 3.566397211959754,
+        "hyperedge": 16,
+        "rank": 5
+      },
+      {
+        "d": 3.5524367967658743,
+        "hyperedge": 6,
+        "rank": 6
+      },
+      {
+        "d": 3.1817380859971784,
+        "hyperedge": 18,
+        "rank": 7
+      },
+      {
+        "d": 3.0309706267239878,
+        "hyperedge": 9,
+        "rank": 8
+      },
+      {
+        "d": 2.8548945514823303,
+        "hyperedge": 1,
+        "rank": 9
+      },
+      {
+        "d": 2.631341856007535,
+        "hyperedge": 4,
+        "rank": 10
+      },
+      {
+        "d": 2.514599072341255,
+        "hyperedge": 3,
+        "rank": 11
+      },
+      {
+        "d": 2.4973674949169946,
+        "hyperedge": 11,
+        "rank": 12
+      },
+      {
+        "d": 2.4937846493608933,
+        "hyperedge": 8,
+        "rank": 13
+      },
+      {
+        "d": 1.699208057942382,
+        "hyperedge": 5,
+        "rank": 14
+      },
+      {
+        "d": 1.696155220996452,
+        "hyperedge": 13,
+        "rank": 15
+      },
+      {
+        "d": 1.3730791466866654,
+        "hyperedge": 14,
+        "rank": 16
+      },
+      {
+        "d": 1.2835801530575652,
+        "hyperedge": 0,
+        "rank": 17
+      },
+      {
+        "d": 1.1883997500018593,
+        "hyperedge": 2,
+        "rank": 18
+      }
+    ],
+    "q": 0.9997586654997745,
+    "s": 0.9997586635172862,
+    "top1_hyperedge_per_top_variable": [
+      {
+        "name": "var_9",
+        "top1_hyperedge": 10,
+        "variable": 9,
+        "weight": 0.040862344205379486
+      },
+      {
+        "name": "var_4",
+        "top1_hyperedge": 10,
+        "variable": 4,
+        "weight": 0.04087986797094345
+      },
+      {
+        "name": "var_12",
+        "top1_hyperedge": 17,
+        "variable": 12,
+        "weight": 0.14708612859249115
+      },
+      {
+        "name": "var_17",
+        "top1_hyperedge": 10,
+        "variable": 17,
+        "weight": 0.04089872166514397
+      },
+      {
+        "name": "var_2",
+        "top1_hyperedge": 10,
+        "variable": 2,
+        "weight": 0.0408649705350399
+      }
+    ]
+  },
+  "selection_rule": "longest maximal run of positive test labels; ties broken by earliest start; SMD runs are taken within one entity",
+  "top_variables": [
+    {
+      "max_event_evidence": 53.79481528900134,
+      "name": "var_9",
+      "rank": 0,
+      "train_sigma": 0.9043997767280441,
+      "variable": 9
+    },
+    {
+      "max_event_evidence": 41.911392070859904,
+      "name": "var_4",
+      "rank": 1,
+      "train_sigma": 0.019903090364334314,
+      "variable": 4
+    },
+    {
+      "max_event_evidence": 30.528911731652684,
+      "name": "var_12",
+      "rank": 2,
+      "train_sigma": 0.63731279054816,
+      "variable": 12
+    },
+    {
+      "max_event_evidence": 29.722579034453588,
+      "name": "var_17",
+      "rank": 3,
+      "train_sigma": 0.9986694495559604,
+      "variable": 17
+    },
+    {
+      "max_event_evidence": 29.5789899467128,
+      "name": "var_2",
+      "rank": 4,
+      "train_sigma": 0.06718330609166467,
+      "variable": 2
+    }
+  ]
+}

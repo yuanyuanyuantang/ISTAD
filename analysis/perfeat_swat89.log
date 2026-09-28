@@ -1,0 +1,11 @@
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (449919, 51)
+train: (495000, 51)
+TEST 4686
+test: (449919, 51)
+train: (495000, 51)
+test errors: (449856, 51)
+train errors: (494976, 51)
+regression maxdelta vs istad_scores: 0.000015
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/SWAT_s89.npz

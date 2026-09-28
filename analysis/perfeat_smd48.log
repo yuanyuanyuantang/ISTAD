@@ -1,0 +1,11 @@
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (708420, 38)
+train: (708405, 38)
+TEST 7379
+test: (708420, 38)
+train: (708405, 38)
+test errors: (708384, 38)
+train errors: (708384, 38)
+regression maxdelta vs istad_scores: 0.001953
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/SMD_s48.npz

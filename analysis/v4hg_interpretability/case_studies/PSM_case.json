@@ -1,0 +1,181 @@
+{
+  "anchors": {
+    "archive_field": "score",
+    "archive_max_abs_diff": 2.9658349776084947e-08,
+    "archive_tolerance": 1e-06,
+    "checkpoint": "checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0/checkpoint.pth",
+    "checkpoint_sha256": "bd2cae1d5402d60e66eebfb7b055802575b842b8e5d30578a0096e70d3ed929d",
+    "e1_passport": {
+      "e1_report": "analysis/e1_incidence_counterfactual/final/per_run/PSM_s87.json",
+      "matched": true
+    },
+    "train_graph_cache": "reproduced_bitwise"
+  },
+  "dataset": "PSM",
+  "event": {
+    "context": [
+      17863,
+      26979
+    ],
+    "end": 26851,
+    "entity": null,
+    "length": 8861,
+    "start": 17991,
+    "window_block": [
+      279,
+      421
+    ]
+  },
+  "model": {
+    "arch": "legacy",
+    "branch_mode": "hgat",
+    "device": "cuda:0",
+    "fusion_epsilon": 4.717693236714976e-06,
+    "hgat_rank": 8,
+    "k_top": 5,
+    "kernel": 7,
+    "n_hyperedges": 12,
+    "pool": "sparse",
+    "seed": 87,
+    "spatial_type": "lite"
+  },
+  "peak_point": {
+    "definition": "event point with maximal max-variable innovation evidence",
+    "g": 0.9998867753623188,
+    "global_index": 23464,
+    "hyperedge_evidence_ranking": [
+      {
+        "d": 19.51151452450873,
+        "hyperedge": 8,
+        "rank": 0
+      },
+      {
+        "d": 2.6383394371041926,
+        "hyperedge": 7,
+        "rank": 1
+      },
+      {
+        "d": 2.564825175262134,
+        "hyperedge": 10,
+        "rank": 2
+      },
+      {
+        "d": 2.425409764631202,
+        "hyperedge": 6,
+        "rank": 3
+      },
+      {
+        "d": 2.4081862295917795,
+        "hyperedge": 11,
+        "rank": 4
+      },
+      {
+        "d": 2.397163072918052,
+        "hyperedge": 4,
+        "rank": 5
+      },
+      {
+        "d": 2.1526616359538484,
+        "hyperedge": 5,
+        "rank": 6
+      },
+      {
+        "d": 2.0949553344003307,
+        "hyperedge": 3,
+        "rank": 7
+      },
+      {
+        "d": 2.053766964102791,
+        "hyperedge": 2,
+        "rank": 8
+      },
+      {
+        "d": 1.7206555813187958,
+        "hyperedge": 0,
+        "rank": 9
+      },
+      {
+        "d": 1.6849649858289522,
+        "hyperedge": 9,
+        "rank": 10
+      },
+      {
+        "d": 0.9686798522477353,
+        "hyperedge": 1,
+        "rank": 11
+      }
+    ],
+    "q": 0.9999858469202898,
+    "s": 0.9999858464529028,
+    "top1_hyperedge_per_top_variable": [
+      {
+        "name": "var_20",
+        "top1_hyperedge": 8,
+        "variable": 20,
+        "weight": 0.14175543189048767
+      },
+      {
+        "name": "var_12",
+        "top1_hyperedge": 7,
+        "variable": 12,
+        "weight": 0.199946790933609
+      },
+      {
+        "name": "var_21",
+        "top1_hyperedge": 11,
+        "variable": 21,
+        "weight": 0.19951371848583221
+      },
+      {
+        "name": "var_13",
+        "top1_hyperedge": 5,
+        "variable": 13,
+        "weight": 0.2016012966632843
+      },
+      {
+        "name": "var_14",
+        "top1_hyperedge": 9,
+        "variable": 14,
+        "weight": 0.1997760832309723
+      }
+    ]
+  },
+  "selection_rule": "longest maximal run of positive test labels; ties broken by earliest start; SMD runs are taken within one entity",
+  "top_variables": [
+    {
+      "max_event_evidence": 130.6568452737267,
+      "name": "var_20",
+      "rank": 0,
+      "train_sigma": 0.7525181479430296,
+      "variable": 20
+    },
+    {
+      "max_event_evidence": 58.93566611274566,
+      "name": "var_12",
+      "rank": 1,
+      "train_sigma": 0.45850452595727353,
+      "variable": 12
+    },
+    {
+      "max_event_evidence": 53.470454938260936,
+      "name": "var_21",
+      "rank": 2,
+      "train_sigma": 0.5115105247194695,
+      "variable": 21
+    },
+    {
+      "max_event_evidence": 45.933552026231816,
+      "name": "var_13",
+      "rank": 3,
+      "train_sigma": 0.4224131965996361,
+      "variable": 13
+    },
+    {
+      "max_event_evidence": 44.874958412654124,
+      "name": "var_14",
+      "rank": 4,
+      "train_sigma": 0.3201580580059106,
+      "variable": 14
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "datasets": {
+    "EXA": {
+      "event": {
+        "end": 8644,
+        "entity": null,
+        "start": 7973
+      },
+      "n_event_points": 672,
+      "n_hyperedges": 9,
+      "pairs": {
+        "87-90": {
+          "kendall_tau_peak": 0.16666666666666666,
+          "mean_top1_edge_jaccard": 0.04860963900814216
+        },
+        "87-98": {
+          "kendall_tau_peak": -0.2777777777777778,
+          "mean_top1_edge_jaccard": 0.07147367508121186
+        },
+        "90-98": {
+          "kendall_tau_peak": -0.1111111111111111,
+          "mean_top1_edge_jaccard": 0.05691950544891721
+        }
+      }
+    },
+    "PSM": {
+      "event": {
+        "end": 26851,
+        "entity": null,
+        "start": 17991
+      },
+      "n_event_points": 8861,
+      "n_hyperedges": 12,
+      "pairs": {
+        "87-90": {
+          "kendall_tau_peak": -0.1212121212121212,
+          "mean_top1_edge_jaccard": 0.015132037188167977
+        },
+        "87-98": {
+          "kendall_tau_peak": -0.2727272727272727,
+          "mean_top1_edge_jaccard": 0.032534445032692455
+        },
+        "90-98": {
+          "kendall_tau_peak": -0.0606060606060606,
+          "mean_top1_edge_jaccard": 0.0210095070206402
+        }
+      }
+    },
+    "SMD": {
+      "event": {
+        "end": 396073,
+        "entity": 16,
+        "start": 392913
+      },
+      "n_event_points": 3161,
+      "n_hyperedges": 19,
+      "pairs": {
+        "87-90": {
+          "kendall_tau_peak": -0.28654970760233917,
+          "mean_top1_edge_jaccard": 0.02389498158690805
+        },
+        "87-98": {
+          "kendall_tau_peak": -0.017543859649122806,
+          "mean_top1_edge_jaccard": 0.017043573732832894
+        },
+        "90-98": {
+          "kendall_tau_peak": -0.08771929824561403,
+          "mean_top1_edge_jaccard": 0.018253756217798376
+        }
+      }
+    },
+    "SWAT": {
+      "event": {
+        "end": 263727,
+        "entity": null,
+        "start": 227828
+      },
+      "n_event_points": 35900,
+      "n_hyperedges": 20,
+      "pairs": {
+        "87-90": {
+          "kendall_tau_peak": -0.16842105263157894,
+          "mean_top1_edge_jaccard": 0.020557970950567984
+        },
+        "87-98": {
+          "kendall_tau_peak": 0.0736842105263158,
+          "mean_top1_edge_jaccard": 0.008672222827990263
+        },
+        "90-98": {
+          "kendall_tau_peak": -0.021052631578947368,
+          "mean_top1_edge_jaccard": 0.021791436582369865
+        }
+      }
+    }
+  },
+  "definitions": {
+    "jaccard": "per event point t: assignment A_t = {(v, argmax_m H_t[v, m])} over all C variables; Jaccard(A_t, B_t) = |A\u2229B| / |A\u222aB| with |A|=|B|=C; averaged over event points",
+    "kendall_tau": "Kendall tau between the hyperedge evidence vectors d_t,m at the event evidence-peak point, over all M hyperedges"
+  },
+  "injections": {},
+  "protocol": "v4hg_interpretability_stage_c_v1",
+  "s3_statement": "The per-variable evidence branch is closed-form (VAR residual scaled by train-only statistics) and contains no random state, so it is identical across seeds by construction; only the exported H_t organization varies.",
+  "seeds": [
+    87,
+    90,
+    98
+  ]
+}

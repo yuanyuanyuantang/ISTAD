@@ -1,0 +1,12 @@
+anomaly_detection_SMD_DLinear_SMD_ftM_sl100_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_ms2022_0  
+Accuracy : 0.9824, Precision : 0.7608, Recall : 0.8419, F-score : 0.7993 
+Average epoch training time: 1.0710s
+Total epoch training time: 9.6393s
+Finished epochs: 9
+
+Best F1 Threshold Method:
+Threshold: 4.854977
+F1: 0.8433, Precision: 0.9036, Recall: 0.7905
+TP: 23275, TN: 676473, FP: 2483, FN: 6169
+ROC-AUC: 0.7321, PR-AUC: 0.1457
+

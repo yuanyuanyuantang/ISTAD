@@ -1,0 +1,11 @@
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (708420, 38)
+train: (708405, 38)
+TEST 7379
+test: (708420, 38)
+train: (708405, 38)
+test errors: (708384, 38) (base + revin)
+train errors: (708384, 38) (base + revin)
+[dual] 联合训练新模型，无同权重参考，跳过回归校验
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/SMD_s2022_dual.npz

@@ -1,0 +1,5 @@
+installed_at=20260912_232148
+input_state=post_e2
+package_dir=/data/modeluse/TS/ISTAD_R1_postE2_server_patch_20260912
+release_root=/data/modeluse/TS/ISTAD-release
+backup_root=/data/modeluse/TS/ISTAD-release/analysis/r1_post_e2_backup_20260912_232148

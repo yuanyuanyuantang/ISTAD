@@ -1,0 +1,204 @@
+
+===== PSM =====
+-- seed 87 --
+  base_mean   D=0.8942 ROC=0.7615 AP=0.5597
+  gated       D=0.9303 ROC=0.7892 AP=0.6089
+  c50_mean    D=0.8945 ROC=0.7595 AP=0.5585
+  c50_trim1   D=0.9306 ROC=0.7708 AP=0.5930
+  c50_top2    D=0.8977 ROC=0.7589 AP=0.5571
+  c50_top3    D=0.8924 ROC=0.7587 AP=0.5557
+  c25_mean    D=0.8944 ROC=0.7611 AP=0.5594
+  c40_mean    D=0.8943 ROC=0.7604 AP=0.5589
+-- seed 90 --
+  base_mean   D=0.8010 ROC=0.7230 AP=0.4514
+  gated       D=0.8992 ROC=0.7385 AP=0.4728
+  c50_mean    D=0.8014 ROC=0.7248 AP=0.4519
+  c50_trim1   D=0.9011 ROC=0.7456 AP=0.4768
+  c50_top2    D=0.7876 ROC=0.7195 AP=0.4354
+  c50_top3    D=0.7877 ROC=0.7222 AP=0.4397
+  c25_mean    D=0.8010 ROC=0.7234 AP=0.4515
+  c40_mean    D=0.8013 ROC=0.7242 AP=0.4518
+-- seed 98 --
+  base_mean   D=0.9109 ROC=0.6874 AP=0.4827
+  gated       D=0.8894 ROC=0.6861 AP=0.4815
+  c50_mean    D=0.9109 ROC=0.6890 AP=0.4835
+  c50_trim1   D=0.8900 ROC=0.6864 AP=0.4780
+  c50_top2    D=0.9390 ROC=0.6868 AP=0.4863
+  c50_top3    D=0.9314 ROC=0.6883 AP=0.4876
+  c25_mean    D=0.9109 ROC=0.6876 AP=0.4828
+  c40_mean    D=0.9110 ROC=0.6882 AP=0.4831
+-- seed 2021 --
+  base_mean   D=0.9074 ROC=0.7221 AP=0.4526
+  gated       D=0.9054 ROC=0.7201 AP=0.4431
+  c50_mean    D=0.9074 ROC=0.7200 AP=0.4515
+  c50_trim1   D=0.9020 ROC=0.7263 AP=0.4402
+  c50_top2    D=0.9339 ROC=0.7038 AP=0.4373
+  c50_top3    D=0.9272 ROC=0.7073 AP=0.4376
+  c25_mean    D=0.9074 ROC=0.7218 AP=0.4524
+  c40_mean    D=0.9074 ROC=0.7209 AP=0.4520
+-- PSM seed-mean --
+  base_mean   D=0.8784 ROC=0.7235 AP=0.4866
+  gated       D=0.9061 ROC=0.7335 AP=0.5016
+  c50_mean    D=0.8786 ROC=0.7233 AP=0.4863
+  c50_trim1   D=0.9059 ROC=0.7323 AP=0.4970
+  c50_top2    D=0.8896 ROC=0.7172 AP=0.4790
+  c50_top3    D=0.8847 ROC=0.7191 AP=0.4802
+  c25_mean    D=0.8784 ROC=0.7235 AP=0.4865
+  c40_mean    D=0.8785 ROC=0.7234 AP=0.4864
+
+===== SMD =====
+-- seed 48 --
+  base_mean   D=0.8360 ROC=0.7660 AP=0.1734
+  gated       D=0.8269 ROC=0.7652 AP=0.1761
+  c50_mean    D=0.8361 ROC=0.7651 AP=0.1732
+  c50_trim1   D=0.8332 ROC=0.7806 AP=0.1988
+  c50_top2    D=0.8368 ROC=0.7424 AP=0.1457
+  c50_top3    D=0.8355 ROC=0.7473 AP=0.1510
+  c25_mean    D=0.8360 ROC=0.7660 AP=0.1734
+  c40_mean    D=0.8360 ROC=0.7656 AP=0.1733
+-- seed 2021 --
+  base_mean   D=0.8528 ROC=0.7860 AP=0.1937
+  gated       D=0.8583 ROC=0.7857 AP=0.2077
+  c50_mean    D=0.8528 ROC=0.7848 AP=0.1934
+  c50_trim1   D=0.8718 ROC=0.7971 AP=0.2259
+  c50_top2    D=0.8499 ROC=0.7523 AP=0.1620
+  c50_top3    D=0.8519 ROC=0.7605 AP=0.1675
+  c25_mean    D=0.8528 ROC=0.7859 AP=0.1937
+  c40_mean    D=0.8528 ROC=0.7854 AP=0.1935
+-- seed 2022 --
+  base_mean   D=0.8489 ROC=0.7651 AP=0.1572
+  gated       D=0.8578 ROC=0.7646 AP=0.1587
+  c50_mean    D=0.8489 ROC=0.7642 AP=0.1570
+  c50_trim1   D=0.8598 ROC=0.7831 AP=0.1922
+  c50_top2    D=0.8444 ROC=0.7365 AP=0.1330
+  c50_top3    D=0.8491 ROC=0.7430 AP=0.1385
+  c25_mean    D=0.8489 ROC=0.7650 AP=0.1572
+  c40_mean    D=0.8489 ROC=0.7646 AP=0.1571
+-- seed 2025 --
+  base_mean   D=0.7980 ROC=0.7654 AP=0.1595
+  gated       D=0.8012 ROC=0.7647 AP=0.1573
+  c50_mean    D=0.7980 ROC=0.7646 AP=0.1593
+  c50_trim1   D=0.8101 ROC=0.7673 AP=0.1687
+  c50_top2    D=0.7916 ROC=0.7507 AP=0.1431
+  c50_top3    D=0.7925 ROC=0.7547 AP=0.1466
+  c25_mean    D=0.7980 ROC=0.7653 AP=0.1595
+  c40_mean    D=0.7980 ROC=0.7650 AP=0.1594
+-- SMD seed-mean --
+  base_mean   D=0.8339 ROC=0.7706 AP=0.1709
+  gated       D=0.8361 ROC=0.7700 AP=0.1750
+  c50_mean    D=0.8339 ROC=0.7697 AP=0.1707
+  c50_trim1   D=0.8438 ROC=0.7820 AP=0.1964
+  c50_top2    D=0.8307 ROC=0.7455 AP=0.1459
+  c50_top3    D=0.8322 ROC=0.7514 AP=0.1509
+  c25_mean    D=0.8339 ROC=0.7705 AP=0.1709
+  c40_mean    D=0.8339 ROC=0.7702 AP=0.1708
+
+===== EXA =====
+-- seed 48 --
+  base_mean   D=0.9586 ROC=0.8726 AP=0.5971
+  gated       D=0.9611 ROC=0.8725 AP=0.6234
+  c50_mean    D=0.9587 ROC=0.8774 AP=0.6009
+  c50_trim1   D=0.9401 ROC=0.8760 AP=0.6631
+  c50_top2    D=0.9594 ROC=0.8719 AP=0.5436
+  c50_top3    D=0.9589 ROC=0.8771 AP=0.5711
+  c25_mean    D=0.9586 ROC=0.8734 AP=0.5977
+  c40_mean    D=0.9587 ROC=0.8754 AP=0.5993
+-- seed 89 --
+  base_mean   D=0.9598 ROC=0.8762 AP=0.6016
+  gated       D=0.9602 ROC=0.8758 AP=0.6273
+  c50_mean    D=0.9598 ROC=0.8811 AP=0.6056
+  c50_trim1   D=0.9412 ROC=0.8810 AP=0.6699
+  c50_top2    D=0.9597 ROC=0.8742 AP=0.5473
+  c50_top3    D=0.9591 ROC=0.8796 AP=0.5750
+  c25_mean    D=0.9598 ROC=0.8770 AP=0.6023
+  c40_mean    D=0.9598 ROC=0.8791 AP=0.6039
+-- seed 2021 --
+  base_mean   D=0.9591 ROC=0.8754 AP=0.5996
+  gated       D=0.9604 ROC=0.8750 AP=0.6250
+  c50_mean    D=0.9592 ROC=0.8801 AP=0.6034
+  c50_trim1   D=0.9423 ROC=0.8803 AP=0.6671
+  c50_top2    D=0.9599 ROC=0.8736 AP=0.5453
+  c50_top3    D=0.9592 ROC=0.8789 AP=0.5729
+  c25_mean    D=0.9591 ROC=0.8762 AP=0.6002
+  c40_mean    D=0.9592 ROC=0.8781 AP=0.6018
+-- EXA seed-mean --
+  base_mean   D=0.9592 ROC=0.8747 AP=0.5994
+  gated       D=0.9606 ROC=0.8744 AP=0.6252
+  c50_mean    D=0.9592 ROC=0.8795 AP=0.6033
+  c50_trim1   D=0.9412 ROC=0.8791 AP=0.6667
+  c50_top2    D=0.9596 ROC=0.8732 AP=0.5454
+  c50_top3    D=0.9591 ROC=0.8785 AP=0.5730
+  c25_mean    D=0.9592 ROC=0.8755 AP=0.6001
+  c40_mean    D=0.9592 ROC=0.8776 AP=0.6017
+
+===== SWAT =====
+-- seed 48 --
+  base_mean   D=0.8596 ROC=0.8360 AP=0.7299
+  gated       D=0.8710 ROC=0.8422 AP=0.7362
+  c50_mean    D=0.8664 ROC=0.8473 AP=0.7358
+  c50_trim1   D=0.8673 ROC=0.8454 AP=0.7385
+  c50_top2    D=0.8893 ROC=0.8457 AP=0.7347
+  c50_top3    D=0.8803 ROC=0.8467 AP=0.7364
+  c25_mean    D=0.8599 ROC=0.8363 AP=0.7300
+  c40_mean    D=0.8596 ROC=0.8442 AP=0.7335
+-- seed 89 --
+  base_mean   D=0.8700 ROC=0.8293 AP=0.7217
+  gated       D=0.8714 ROC=0.8310 AP=0.7250
+  c50_mean    D=0.8696 ROC=0.8371 AP=0.7280
+  c50_trim1   D=0.8711 ROC=0.8316 AP=0.7198
+  c50_top2    D=0.8726 ROC=0.8397 AP=0.7344
+  c50_top3    D=0.8670 ROC=0.8387 AP=0.7337
+  c25_mean    D=0.8705 ROC=0.8293 AP=0.7217
+  c40_mean    D=0.8709 ROC=0.8327 AP=0.7236
+-- seed 2021 --
+  base_mean   D=0.8421 ROC=0.8153 AP=0.7090
+  gated       D=0.8641 ROC=0.8507 AP=0.7338
+  c50_mean    D=0.8530 ROC=0.8221 AP=0.7085
+  c50_trim1   D=0.8551 ROC=0.8517 AP=0.7308
+  c50_top2    D=0.8569 ROC=0.8188 AP=0.7120
+  c50_top3    D=0.8564 ROC=0.8200 AP=0.7159
+  c25_mean    D=0.8420 ROC=0.8159 AP=0.7091
+  c40_mean    D=0.8501 ROC=0.8193 AP=0.7093
+-- SWAT seed-mean --
+  base_mean   D=0.8572 ROC=0.8268 AP=0.7202
+  gated       D=0.8689 ROC=0.8413 AP=0.7317
+  c50_mean    D=0.8630 ROC=0.8355 AP=0.7241
+  c50_trim1   D=0.8645 ROC=0.8429 AP=0.7297
+  c50_top2    D=0.8729 ROC=0.8347 AP=0.7270
+  c50_top3    D=0.8679 ROC=0.8351 AP=0.7287
+  c25_mean    D=0.8575 ROC=0.8272 AP=0.7203
+  c40_mean    D=0.8602 ROC=0.8321 AP=0.7221
+
+===== 汇总 =====
+PSM   base_mean   D=0.8784 ROC=0.7235 AP=0.4866
+PSM   gated       D=0.9061 ROC=0.7335 AP=0.5016
+PSM   c50_mean    D=0.8786 ROC=0.7233 AP=0.4863
+PSM   c50_trim1   D=0.9059 ROC=0.7323 AP=0.4970
+PSM   c50_top2    D=0.8896 ROC=0.7172 AP=0.4790
+PSM   c50_top3    D=0.8847 ROC=0.7191 AP=0.4802
+PSM   c25_mean    D=0.8784 ROC=0.7235 AP=0.4865
+PSM   c40_mean    D=0.8785 ROC=0.7234 AP=0.4864
+SMD   base_mean   D=0.8339 ROC=0.7706 AP=0.1709
+SMD   gated       D=0.8361 ROC=0.7700 AP=0.1750
+SMD   c50_mean    D=0.8339 ROC=0.7697 AP=0.1707
+SMD   c50_trim1   D=0.8438 ROC=0.7820 AP=0.1964
+SMD   c50_top2    D=0.8307 ROC=0.7455 AP=0.1459
+SMD   c50_top3    D=0.8322 ROC=0.7514 AP=0.1509
+SMD   c25_mean    D=0.8339 ROC=0.7705 AP=0.1709
+SMD   c40_mean    D=0.8339 ROC=0.7702 AP=0.1708
+EXA   base_mean   D=0.9592 ROC=0.8747 AP=0.5994
+EXA   gated       D=0.9606 ROC=0.8744 AP=0.6252
+EXA   c50_mean    D=0.9592 ROC=0.8795 AP=0.6033
+EXA   c50_trim1   D=0.9412 ROC=0.8791 AP=0.6667
+EXA   c50_top2    D=0.9596 ROC=0.8732 AP=0.5454
+EXA   c50_top3    D=0.9591 ROC=0.8785 AP=0.5730
+EXA   c25_mean    D=0.9592 ROC=0.8755 AP=0.6001
+EXA   c40_mean    D=0.9592 ROC=0.8776 AP=0.6017
+SWAT  base_mean   D=0.8572 ROC=0.8268 AP=0.7202
+SWAT  gated       D=0.8689 ROC=0.8413 AP=0.7317
+SWAT  c50_mean    D=0.8630 ROC=0.8355 AP=0.7241
+SWAT  c50_trim1   D=0.8645 ROC=0.8429 AP=0.7297
+SWAT  c50_top2    D=0.8729 ROC=0.8347 AP=0.7270
+SWAT  c50_top3    D=0.8679 ROC=0.8351 AP=0.7287
+SWAT  c25_mean    D=0.8575 ROC=0.8272 AP=0.7203
+SWAT  c40_mean    D=0.8602 ROC=0.8321 AP=0.7221

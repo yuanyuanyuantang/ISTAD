@@ -1,0 +1,185 @@
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          anomaly_detection   Is Training:        0                   
+  Model ID:           PSM                 Model:              ISTAD               
+  Seed:               87                  Itr:                1                   
+
+[1mData Loader[0m
+  Data:               PSM                 Root Path:          /data/modeluse/TS/ISTAD/dataset/PSM
+  Features:           M                   Seq Len:            64                  
+  Enc In:             25                  C Out:              25                  
+  Checkpoints:        /data/modeluse/TS/ISTAD-release/code/ISTAD/../../checkpoints/ISTAD_v4_hgat_integrated
+  Eval Step:          64                  
+
+[1mAnomaly Detection Task[0m
+  Anomaly Ratio:      1.0                 Threshold Source:   train               
+
+[1mISTAD Parameters[0m
+  Kernel Size:        7                   Branch Mode:        hgat                
+  TCN Type:           kan                 
+  Feat GAT Dim:       -1                  GRU Layers:         1                   
+  GRU Hidden:         150                 Recon Layers:       1                   
+  Recon Hidden:       32                  ISTAD Dropout:      0.3                 
+  Recon Type:         pointwise           KANAD Order:        3                   
+  Objective:          reconstruct         Target / Lag:       ('', 1)             
+  Leaky Alpha:        0.2                 H Init:             normal              
+  Hyperedges:         -1                  Top-K Nodes:        -1                  
+  Spatial Type:       lite                HGAT Rank:          8                   
+  HGAT Projection:    linear              
+  KAN Grid:           5                   KAN Order:          3                   
+  Arch:               legacy              Ablation:           full                
+  Explainability:     0                   Explain Batches:    0                   
+  Explain Points:     20000               Explain TopK:       10                  
+  SmoothGrad:         0                   SG Samples:         20                  
+  SG Noise:           0.1                 Quad Mode:          quantile            
+  Quad Value:         0.75                Err Agg:            sum                 
+  Sal Agg:            sum                 
+  V3 Denoise:         1                   Evidence Head:      0                   
+  Clean / Denoise:    (1.0, 0.5)          Evidence Weight:    0.2                 
+  Frequency Weight:   0.0                 
+  Point Evidence:     0.0                 
+  Corrupt P/T/C:      (0.8, 0.15, 0.2)    Corrupt Scale:      1.5                 
+  Corrupt Modes:      4                   Target-only corrupt:0                   
+  Score Mode:         innovation_hgat     Score Agg / K:      ('calibrated', 3)   
+  Evidence Map:       prob                Dump Scores:        1                   
+  Strict Val:         1                   Hide Test Loss:     1                   
+  Entity Aware:       0                   
+  Innovation lag/ridge:(1, 0.01)           Innovation pool:    auto                
+  Degenerate cutoff:  0.1                 Scale floor:        0.1                 
+  Evidence tie-break: 0.001               Fusion train ECDF:  0                   
+  HGAT input:         raw                 
+  HGAT fusion:        rank_tiebreak       HGAT max weight:    0.2                 
+  HGAT ref/tail:      (0.8, 0.01)         HGAT inflation:     1.25                
+
+[1mRun Parameters[0m
+  Num Workers:        4                   Batch Size:         128                 
+  Train Epochs:       3                   Patience:           3                   
+  Learning Rate:      0.001               Lradj:              type1               
+  Des:                v4hg_s87            
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+>>>>>>>testing : anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test: (87841, 25)
+train: (105984, 25)
+test 1372
+test: (87841, 25)
+train: (105984, 25)
+score_train 1656
+loading model
+Innovation branch: {"calibration_size": 105983, "coefficient_count": 625, "degenerate_cutoff": 0.1, "degenerate_fraction": 0.0, "lag": 1, "n_features": 25, "requested_pool": "auto", "ridge": 0.01, "scale_floor_ratio": 0.1, "selected_pool": "sparse"}
+HGAT-validated innovation: {"component_calibration": "normal_train_ecdf", "final_calibration": "rank_safe_no_recalibration", "fusion_strategy": "rank_tiebreak", "message_gate": 0.35305002331733704, "n_hyperedges": 12, "pool": "sparse", "relation_input": "raw_normalized_value", "reliability_gate": {"allowed_graph_tail_rate": 0.017101476624050573, "base_threshold": 0.9892591334541063, "base_validation_tail_rate": 0.01368118129924046, "graph_threshold": 0.9888581295289856, "graph_validation_tail_rate": 0.015709770250507148, "inflation_limit": 1.25, "kill_switch": false, "max_weight": 0.2, "method": "normal_tail_stability", "reference_fraction": 0.8, "reference_size": 84787, "reliability": 0.8708708708708586, "selected_weight": 0.17417417417417172, "tail_probability": 0.01, "validation_size": 21197}, "reliability_mix_weight": 0.17417417417417172, "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations", "selected_weight": 4.717693236714976e-06}
+Percentile Threshold Source: train
+Percentile Threshold : 0.9899949664813393
+Saved E1 incidence counterfactual audit: /data/modeluse/TS/ISTAD-release/analysis/e1_incidence_counterfactual/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0/e1_incidence_counterfactual.json
+Saved point scores and labels: /data/modeluse/TS/ISTAD-release/analysis/e1_incidence_counterfactual/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0/point_scores_innovation_hgat_rank_tiebreak.npz
+pred_raw: (87808,)
+gt:      (87808,)
+pred_pa: (87808,)
+gt_pa:   (87808,)
+
+============================================================
+使用百分位数阈值的结果:
+============================================================
+Raw point F1: 0.0661 (P=0.7201, R=0.0347)
+Accuracy : 0.9650, Precision : 0.9850, Recall : 0.8872, F-score : 0.9336 
+============================================================
+
+
+使用自适应 Best F1 搜索（两阶段）
+粗搜索步数: 200, 精细搜索步数: 500
+
+============================================================
+自适应 Best F1 阈值搜索（两阶段）
+============================================================
+
+分数统计信息:
+  最小值: 0.000005
+  最大值: 0.999995
+  均值: 0.587706
+  标准差: 0.262480
+  中位数: 0.620024
+  第1百分位: 0.035690
+  第99百分位: 0.992475
+
+自动确定的搜索范围: [0.017845, 0.999995]
+
+============================================================
+阶段 1: 粗搜索（步数: 200）
+============================================================
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [0.0178, 1.0000]
+搜索步数: 200
+使用点调整: True
+阈值: 0.0228 | F1: 0.4360 | Precision: 0.2788 | Recall: 1.0000
+阈值: 0.1210 | F1: 0.4498 | Precision: 0.2901 | Recall: 1.0000
+阈值: 0.2192 | F1: 0.4714 | Precision: 0.3084 | Recall: 1.0000
+阈值: 0.3174 | F1: 0.4990 | Precision: 0.3325 | Recall: 1.0000
+阈值: 0.4156 | F1: 0.5321 | Precision: 0.3625 | Recall: 0.9999
+阈值: 0.5138 | F1: 0.5752 | Precision: 0.4037 | Recall: 0.9998
+阈值: 0.6120 | F1: 0.6311 | Precision: 0.4611 | Recall: 0.9998
+阈值: 0.7103 | F1: 0.7003 | Precision: 0.5389 | Recall: 0.9996
+阈值: 0.8085 | F1: 0.7936 | Precision: 0.6579 | Recall: 0.9996
+阈值: 0.9067 | F1: 0.9080 | Precision: 0.8319 | Recall: 0.9995
+
+============================================================
+✓ 找到最佳阈值: 0.985263
+  最佳 F1: 0.9806
+  Precision: 0.9784
+  Recall: 0.9828
+============================================================
+
+
+============================================================
+阶段 2: 精细搜索（步数: 500）
+============================================================
+在最佳阈值 0.985263 附近精细搜索
+精细搜索范围: [0.887048, 0.999995]
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [0.8870, 1.0000]
+搜索步数: 500
+使用点调整: True
+阈值: 0.8873 | F1: 0.8835 | Precision: 0.7916 | Recall: 0.9995
+阈值: 0.8986 | F1: 0.8987 | Precision: 0.8163 | Recall: 0.9995
+阈值: 0.9099 | F1: 0.9118 | Precision: 0.8383 | Recall: 0.9995
+阈值: 0.9212 | F1: 0.9240 | Precision: 0.8591 | Recall: 0.9995
+阈值: 0.9325 | F1: 0.9364 | Precision: 0.8808 | Recall: 0.9995
+阈值: 0.9437 | F1: 0.9486 | Precision: 0.9027 | Recall: 0.9995
+阈值: 0.9550 | F1: 0.9585 | Precision: 0.9209 | Recall: 0.9994
+阈值: 0.9663 | F1: 0.9702 | Precision: 0.9427 | Recall: 0.9993
+阈值: 0.9776 | F1: 0.9727 | Precision: 0.9628 | Recall: 0.9828
+阈值: 0.9889 | F1: 0.9325 | Precision: 0.9827 | Recall: 0.8872
+
+============================================================
+✓ 找到最佳阈值: 0.987345
+  最佳 F1: 0.9822
+  Precision: 0.9819
+  Recall: 0.9826
+============================================================
+
+
+✓ 精细搜索找到更好的阈值！
+
+============================================================
+自适应搜索完成！
+============================================================
+最终最佳阈值: 0.987345
+最佳 F1: 0.9822
+Precision: 0.9819
+Recall: 0.9826
+============================================================
+
+Saved Best F1 results: /data/modeluse/TS/ISTAD-release/analysis/e1_incidence_counterfactual/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0/bestf1_threshold_results_innovation_hgat_rank_tiebreak.json
+Saved anomaly score plot: /data/modeluse/TS/ISTAD-release/analysis/e1_incidence_counterfactual/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0/anomaly_score_threshold_innovation_hgat_rank_tiebreak.png
+ISTAD explainability is disabled by --istad_enable_explain 0

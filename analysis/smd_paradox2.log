@@ -1,0 +1,48 @@
+===== SMD seed 48 =====
+  FP-budget 段命中（阈值=第k大正常分）:
+    FP≤   500: ISTAD hit=111 P=0.972 R=0.593 | TimesNet hit=127 P=0.972 R=0.593
+    FP≤  1000: ISTAD hit=126 P=0.952 R=0.668 | TimesNet hit=161 P=0.954 R=0.709
+    FP≤  3000: ISTAD hit=154 P=0.881 R=0.754 | TimesNet hit=219 P=0.888 R=0.807
+    FP≤ 10000: ISTAD hit=222 P=0.717 R=0.859 | TimesNet hit=253 P=0.719 R=0.867
+  聚合家族（bf+PA / ROC / AP）:
+    gated    D=0.8269 th=1.645 hit=176/327 FP=4150 ROC=0.7652 AP=0.1761
+    mean     D=0.8360 th=3.313 hit=200/327 FP=3148 ROC=0.7660 AP=0.1734
+    zmean    D=0.7786 th=4.063 hit=162/327 FP=5773 ROC=0.7648 AP=0.2215
+    ztop1    D=0.7582 th=54.07 hit=187/327 FP=8646 ROC=0.7375 AP=0.1826
+    ztop3    D=0.7749 th=37.69 hit=161/327 FP=5895 ROC=0.7525 AP=0.2164
+    ztop5    D=0.7765 th=23.02 hit=176/327 FP=7472 ROC=0.7589 AP=0.2218
+    zl2      D=0.7776 th=75.71 hit=167/327 FP=6229 ROC=0.7483 AP=0.2074
+    rawtop3  D=0.8355 th=29.54 hit=214/327 FP=3518 ROC=0.7471 AP=0.1510
+  [mean] miss 127 段（6038 pts）；其中 TimesNet 能命中 22 段；miss 段长度中位 16 (全体 11)
+===== SMD seed 2021 =====
+  FP-budget 段命中（阈值=第k大正常分）:
+    FP≤   500: ISTAD hit=125 P=0.972 R=0.588 | TimesNet hit=124 P=0.972 R=0.588
+    FP≤  1000: ISTAD hit=157 P=0.956 R=0.744 | TimesNet hit=159 P=0.954 R=0.707
+    FP≤  3000: ISTAD hit=193 P=0.887 R=0.802 | TimesNet hit=221 P=0.889 R=0.814
+    FP≤ 10000: ISTAD hit=255 P=0.729 R=0.912 | TimesNet hit=260 P=0.722 R=0.884
+  聚合家族（bf+PA / ROC / AP）:
+    gated    D=0.8583 th=1.031 hit=214/327 FP=3783 ROC=0.7857 AP=0.2077
+    mean     D=0.8528 th=1.905 hit=229/327 FP=4100 ROC=0.7860 AP=0.1937
+    zmean    D=0.8834 th=2.934 hit=197/327 FP=1728 ROC=0.7786 AP=0.2711
+    ztop1    D=0.8746 th=34.15 hit=250/327 FP=3658 ROC=0.7497 AP=0.1976
+    ztop3    D=0.8935 th=25.62 hit=221/327 FP=1487 ROC=0.7668 AP=0.2360
+    ztop5    D=0.8894 th=19.4 hit=202/327 FP=1255 ROC=0.7732 AP=0.2512
+    zl2      D=0.8931 th=51.98 hit=225/327 FP=1764 ROC=0.7626 AP=0.2313
+    rawtop3  D=0.8518 th=20.01 hit=233/327 FP=4186 ROC=0.7601 AP=0.1673
+  [ztop3] miss 106 段（4465 pts）；其中 TimesNet 能命中 32 段；miss 段长度中位 6 (全体 11)
+===== SMD seed 2022 =====
+  FP-budget 段命中（阈值=第k大正常分）:
+    FP≤   500: ISTAD hit=130 P=0.976 R=0.704 | TimesNet hit=117 P=0.971 R=0.564
+    FP≤  1000: ISTAD hit=158 P=0.958 R=0.776 | TimesNet hit=163 P=0.954 R=0.708
+    FP≤  3000: ISTAD hit=183 P=0.886 R=0.792 | TimesNet hit=220 P=0.890 R=0.821
+    FP≤ 10000: ISTAD hit=222 P=0.711 R=0.837 | TimesNet hit=262 P=0.722 R=0.880
+  聚合家族（bf+PA / ROC / AP）:
+    gated    D=0.8578 th=2.162 hit=158/327 FP=975 ROC=0.7646 AP=0.1587
+    mean     D=0.8489 th=3.513 hit=204/327 FP=2789 ROC=0.7651 AP=0.1572
+    zmean    D=0.8364 th=3.87 hit=166/327 FP=2714 ROC=0.7757 AP=0.2057
+    ztop1    D=0.8491 th=46.46 hit=201/327 FP=3240 ROC=0.7458 AP=0.1475
+    ztop3    D=0.8560 th=29.9 hit=190/327 FP=2373 ROC=0.7637 AP=0.1746
+    ztop5    D=0.8464 th=25.87 hit=156/327 FP=1389 ROC=0.7704 AP=0.1873
+    zl2      D=0.8586 th=72.19 hit=165/327 FP=1263 ROC=0.7595 AP=0.1706
+    rawtop3  D=0.8491 th=42.98 hit=195/327 FP=2342 ROC=0.7427 AP=0.1384
+  [zl2] miss 162 段（6345 pts）；其中 TimesNet 能命中 75 段；miss 段长度中位 6 (全体 11)

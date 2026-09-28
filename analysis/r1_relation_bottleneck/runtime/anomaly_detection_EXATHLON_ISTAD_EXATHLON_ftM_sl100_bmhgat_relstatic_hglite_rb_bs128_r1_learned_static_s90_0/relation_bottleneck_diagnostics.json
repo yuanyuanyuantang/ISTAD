@@ -1,0 +1,69 @@
+{
+  "protocol": "masked_channel_relation_bottleneck_v1",
+  "relation_mode": "static",
+  "mask_ratio_requested": 0.2,
+  "mask_folds": 5,
+  "validation_batches": 2,
+  "validation_cells": 351500,
+  "masked_validation_mse": 0.9900515869487909,
+  "frozen_no_message_masked_validation_mse": 0.994099039829303,
+  "relative_loss_increase_without_message": 0.00408812321889795,
+  "hgat_output_variance_mean": 0.03559360094368458,
+  "incidence_entropy_normalized_mean": 0.4140893220901489,
+  "message_gate_mean": 0.26620903611183167,
+  "training": {
+    "protocol": "masked_channel_relation_bottleneck_v1",
+    "epochs": [
+      {
+        "epoch": 1,
+        "mean_hgat_gradient_norm": 0.03510996011905498,
+        "nonzero_gradient_steps": 6,
+        "steps": 6
+      },
+      {
+        "epoch": 2,
+        "mean_hgat_gradient_norm": 0.03665632141484875,
+        "nonzero_gradient_steps": 6,
+        "steps": 6
+      },
+      {
+        "epoch": 3,
+        "mean_hgat_gradient_norm": 0.021518427446329546,
+        "nonzero_gradient_steps": 6,
+        "steps": 6
+      },
+      {
+        "epoch": 4,
+        "mean_hgat_gradient_norm": 0.019970301568484807,
+        "nonzero_gradient_steps": 6,
+        "steps": 6
+      },
+      {
+        "epoch": 5,
+        "mean_hgat_gradient_norm": 0.023386465691864994,
+        "nonzero_gradient_steps": 6,
+        "steps": 6
+      },
+      {
+        "epoch": 6,
+        "mean_hgat_gradient_norm": 0.019006066145673826,
+        "nonzero_gradient_steps": 6,
+        "steps": 6
+      },
+      {
+        "epoch": 7,
+        "mean_hgat_gradient_norm": 0.02032448975622606,
+        "nonzero_gradient_steps": 6,
+        "steps": 6
+      },
+      {
+        "epoch": 8,
+        "mean_hgat_gradient_norm": 0.018626189835765312,
+        "nonzero_gradient_steps": 6,
+        "steps": 6
+      }
+    ],
+    "mean_epoch_hgat_gradient_norm": 0.024324777747281034,
+    "relation_mode": "static"
+  }
+}

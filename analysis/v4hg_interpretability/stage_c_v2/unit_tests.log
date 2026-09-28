@@ -1,0 +1,10 @@
+test_hungarian_alignment_recovers_permutation (__main__.StageCV2MetricTests) ... ok
+test_hungarian_finds_known_optimum (__main__.StageCV2MetricTests) ... ok
+test_induced_relations_ignore_hyperedge_permutation (__main__.StageCV2MetricTests) ... ok
+test_non_permutation_change_is_detected (__main__.StageCV2MetricTests) ... ok
+test_partition_metrics_ignore_label_names (__main__.StageCV2MetricTests) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.033s
+
+OK

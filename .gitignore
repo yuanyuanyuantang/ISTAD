@@ -1,0 +1,6 @@
+/checkpoints/
+/analysis/istad_perfeat/*.npz
+/analysis/ISTAD_R1_full_verification_20260913.tar.gz
+__pycache__/
+*.py[cod]
+.pytest_cache/

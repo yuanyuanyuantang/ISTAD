@@ -1,0 +1,116 @@
+
+===== PSM =====
+-- seed 87 (test (87808, 25)) --
+  [gate fires test: 0.263]
+  [zone f3>3: n=17693]  区外 ROC base=0.7987 revin=0.5630 | 区内 ROC base=0.7848 revin=0.5903
+  base       C=0.8001  D=0.8942  A=0.4405  ROC=0.7615  AP=0.5597  POT_th=0.1347
+  trim1      C=0.8051  D=0.9303  A=0.5339  ROC=0.7723  AP=0.5947  POT_th=0.06006
+  gated      C=0.8817  D=0.9303  A=0.4664  ROC=0.7892  AP=0.6089  POT_th=0.1112
+  revin      C=0.9689  D=0.9803  A=0.0625  ROC=0.5666  AP=0.3430  POT_th=0.05818
+  fusion     C=0.9272  D=0.9410  A=0.3156  ROC=0.7509  AP=0.5449  POT_th=0.6444
+-- seed 90 (test (87808, 25)) --
+  [gate fires test: 0.397]
+  [zone f3>3: n=17548]  区外 ROC base=0.7448 revin=0.5286 | 区内 ROC base=0.6582 revin=0.5809
+  base       C=0.7456  D=0.8010  A=0.4725  ROC=0.7230  AP=0.4514  POT_th=0.0925
+  trim1      C=0.8044  D=0.8991  A=0.5047  ROC=0.7478  AP=0.4772  POT_th=0.05998
+  gated      C=0.8036  D=0.8992  A=0.4567  ROC=0.7385  AP=0.4728  POT_th=0.08086
+  revin      C=0.9695  D=0.9746  A=0.0613  ROC=0.5447  AP=0.3321  POT_th=0.02255
+  fusion     C=0.9563  D=0.9575  A=0.0321  ROC=0.6722  AP=0.4305  POT_th=0.5608
+-- seed 2021 (test (87808, 25)) --
+  [gate fires test: 0.256]
+  [zone f3>3: n=49]  区外 ROC base=0.7224 revin=0.5282 | 区内 ROC base=0.4889 revin=0.5889
+  base       C=0.8145  D=0.9074  A=0.4888  ROC=0.7221  AP=0.4526  POT_th=0.1224
+  trim1      C=0.7987  D=0.9020  A=0.5016  ROC=0.7285  AP=0.4411  POT_th=0.05349
+  gated      C=0.8111  D=0.9054  A=0.4853  ROC=0.7201  AP=0.4431  POT_th=0.1079
+  revin      C=0.9670  D=0.9810  A=0.0598  ROC=0.5282  AP=0.3208  POT_th=0.02089
+  fusion     C=0.9677  D=0.9716  A=0.0350  ROC=0.6789  AP=0.4307  POT_th=1.074
+-- PSM seed-mean --
+  base       C=0.7867  D=0.8675  A=0.4673  ROC=0.7355  AP=0.4879
+  trim1      C=0.8027  D=0.9105  A=0.5134  ROC=0.7495  AP=0.5043
+  gated      C=0.8321  D=0.9116  A=0.4695  ROC=0.7493  AP=0.5083
+  revin      C=0.9685  D=0.9786  A=0.0612  ROC=0.5465  AP=0.3320
+  fusion     C=0.9504  D=0.9567  A=0.1276  ROC=0.7007  AP=0.4687
+
+===== SMD =====
+-- seed 48 (test (708384, 38)) --
+  [gate fires test: 0.119]
+  base       C=0.7415  D=0.8360  A=0.2340  ROC=0.7660  AP=0.1734  POT_th=1.213
+  trim1      C=0.7047  D=0.8332  A=0.2606  ROC=0.7815  AP=0.1991  POT_th=0.4325
+  gated      C=0.7309  D=0.8269  A=0.2299  ROC=0.7652  AP=0.1761  POT_th=0.8115
+-- seed 2021 (test (708384, 38)) --
+  [gate fires test: 0.093]
+  base       C=0.7547  D=0.8528  A=0.2484  ROC=0.7860  AP=0.1937  POT_th=0.771
+  trim1      C=0.6806  D=0.8716  A=0.2748  ROC=0.7981  AP=0.2262  POT_th=0.3049
+  gated      C=0.7551  D=0.8583  A=0.2553  ROC=0.7857  AP=0.2077  POT_th=0.5347
+-- seed 2022 (test (708384, 38)) --
+  [gate fires test: 0.118]
+  base       C=0.7442  D=0.8489  A=0.1763  ROC=0.7651  AP=0.1572  POT_th=1.385
+  trim1      C=0.6689  D=0.8598  A=0.2364  ROC=0.7840  AP=0.1925  POT_th=0.4492
+  gated      C=0.7316  D=0.8578  A=0.1566  ROC=0.7646  AP=0.1587  POT_th=0.9788
+-- seed 2025 (test (708384, 38)) --
+  [gate fires test: 0.075]
+  base       C=0.7120  D=0.7980  A=0.2435  ROC=0.7654  AP=0.1595  POT_th=1.151
+  trim1      C=0.6996  D=0.8102  A=0.2581  ROC=0.7680  AP=0.1689  POT_th=0.5812
+  gated      C=0.7147  D=0.8012  A=0.2412  ROC=0.7647  AP=0.1573  POT_th=0.9127
+-- SMD seed-mean --
+  base       C=0.7381  D=0.8339  A=0.2256  ROC=0.7706  AP=0.1709
+  trim1      C=0.6884  D=0.8437  A=0.2575  ROC=0.7829  AP=0.1967
+  gated      C=0.7331  D=0.8361  A=0.2208  ROC=0.7700  AP=0.1750
+
+===== EXA =====
+-- seed 48 (test (52800, 19)) --
+  [gate fires test: 0.017]
+  base       C=0.9539  D=0.9586  A=0.2048  ROC=0.8726  AP=0.5971  POT_th=6.082
+  trim1      C=0.9020  D=0.9402  A=0.3700  ROC=0.8712  AP=0.6577  POT_th=2.37
+  gated      C=0.9436  D=0.9611  A=0.2400  ROC=0.8725  AP=0.6234  POT_th=4.129
+-- seed 89 (test (52800, 19)) --
+  [gate fires test: 0.017]
+  base       C=0.9543  D=0.9598  A=0.2075  ROC=0.8762  AP=0.6016  POT_th=6.046
+  trim1      C=0.9016  D=0.9406  A=0.3681  ROC=0.8760  AP=0.6643  POT_th=2.365
+  gated      C=0.9430  D=0.9602  A=0.2422  ROC=0.8758  AP=0.6273  POT_th=4.092
+-- seed 2021 (test (52800, 19)) --
+  [gate fires test: 0.017]
+  base       C=0.9541  D=0.9591  A=0.2070  ROC=0.8754  AP=0.5996  POT_th=6.094
+  trim1      C=0.9039  D=0.9420  A=0.3085  ROC=0.8757  AP=0.6618  POT_th=2.745
+  gated      C=0.9435  D=0.9604  A=0.2409  ROC=0.8750  AP=0.6250  POT_th=4.144
+-- EXA seed-mean --
+  base       C=0.9541  D=0.9592  A=0.2064  ROC=0.8747  AP=0.5994
+  trim1      C=0.9025  D=0.9409  A=0.3489  ROC=0.8743  AP=0.6613
+  gated      C=0.9434  D=0.9606  A=0.2410  ROC=0.8744  AP=0.6252
+
+===== SWAT =====
+-- seed 48 (test (449856, 51)) --
+  [gate fires test: 0.743]
+  base       C=0.8109  D=0.8596  A=0.0113  ROC=0.8360  AP=0.7299  POT_th=25.89
+  trim1      C=0.8061  D=0.8685  A=0.0127  ROC=0.8423  AP=0.7363  POT_th=16.33
+  gated      C=0.8061  D=0.8710  A=0.0127  ROC=0.8422  AP=0.7362  POT_th=16.33
+-- seed 89 (test (449856, 51)) --
+  [gate fires test: 0.764]
+  base       C=0.8230  D=0.8700  A=0.7623  ROC=0.8293  AP=0.7217  POT_th=8.848
+  trim1      C=0.8185  D=0.8720  A=0.7568  ROC=0.8312  AP=0.7251  POT_th=5.778
+  gated      C=0.8193  D=0.8714  A=0.7554  ROC=0.8310  AP=0.7250  POT_th=5.966
+-- seed 2021 (test (449856, 51)) --
+  [gate fires test: 0.770]
+  base       C=0.8111  D=0.8421  A=0.0194  ROC=0.8153  AP=0.7090  POT_th=29.99
+  trim1      C=0.8120  D=0.8660  A=0.0067  ROC=0.8526  AP=0.7348  POT_th=20.93
+  gated      C=0.8120  D=0.8641  A=0.0067  ROC=0.8507  AP=0.7338  POT_th=20.93
+-- SWAT seed-mean --
+  base       C=0.8150  D=0.8572  A=0.2643  ROC=0.8268  AP=0.7202
+  trim1      C=0.8122  D=0.8688  A=0.2587  ROC=0.8420  AP=0.7321
+  gated      C=0.8125  D=0.8689  A=0.2583  ROC=0.8413  AP=0.7317
+
+===== 汇总 =====
+PSM   base     C=0.7867 D=0.8675 A=0.4673 ROC=0.7355 AP=0.4879
+PSM   trim1    C=0.8027 D=0.9105 A=0.5134 ROC=0.7495 AP=0.5043
+PSM   gated    C=0.8321 D=0.9116 A=0.4695 ROC=0.7493 AP=0.5083
+PSM   revin    C=0.9685 D=0.9786 A=0.0612 ROC=0.5465 AP=0.3320
+PSM   fusion   C=0.9504 D=0.9567 A=0.1276 ROC=0.7007 AP=0.4687
+SMD   base     C=0.7381 D=0.8339 A=0.2256 ROC=0.7706 AP=0.1709
+SMD   trim1    C=0.6884 D=0.8437 A=0.2575 ROC=0.7829 AP=0.1967
+SMD   gated    C=0.7331 D=0.8361 A=0.2208 ROC=0.7700 AP=0.1750
+EXA   base     C=0.9541 D=0.9592 A=0.2064 ROC=0.8747 AP=0.5994
+EXA   trim1    C=0.9025 D=0.9409 A=0.3489 ROC=0.8743 AP=0.6613
+EXA   gated    C=0.9434 D=0.9606 A=0.2410 ROC=0.8744 AP=0.6252
+SWAT  base     C=0.8150 D=0.8572 A=0.2643 ROC=0.8268 AP=0.7202
+SWAT  trim1    C=0.8122 D=0.8688 A=0.2587 ROC=0.8420 AP=0.7321
+SWAT  gated    C=0.8125 D=0.8689 A=0.2583 ROC=0.8413 AP=0.7317

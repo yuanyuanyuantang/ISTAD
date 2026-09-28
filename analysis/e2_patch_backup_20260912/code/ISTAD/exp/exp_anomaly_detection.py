@@ -1,0 +1,2287 @@
+from data_provider.data_factory import data_provider
+from exp.exp_basic import Exp_Basic
+from utils.tools import EarlyStopping, adjust_learning_rate, adjustment
+from utils.innovation import (
+    TrainingOnlyInnovationScorer,
+    hypergraph_pool_feature_evidence,
+    rank_safe_hgat_refine,
+    training_ecdf_recalibrate,
+    training_only_hgat_reliability_gate,
+)
+from utils.causal_prior import EntitywiseComponentECDF, fit_signed_causal_prior
+from sklearn.metrics import precision_recall_fscore_support
+from sklearn.metrics import accuracy_score, roc_auc_score, average_precision_score
+import torch.multiprocessing
+import json
+
+torch.multiprocessing.set_sharing_strategy('file_system')
+import torch
+import torch.nn as nn
+from torch import optim
+import os
+import time
+import warnings
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+warnings.filterwarnings('ignore')
+plt.switch_backend('agg')
+
+
+class Exp_Anomaly_Detection(Exp_Basic):
+    def __init__(self, args):
+        super(Exp_Anomaly_Detection, self).__init__(args)
+
+    @staticmethod
+    def _extract_anomaly_segments(labels):
+        labels = np.asarray(labels).astype(np.int8).reshape(-1)
+        if labels.size == 0:
+            return np.array([], dtype=np.int64), np.array([], dtype=np.int64)
+        padded = np.pad(labels, (1, 1), mode='constant', constant_values=0)
+        changes = np.diff(padded)
+        starts = np.where(changes == 1)[0]
+        ends = np.where(changes == -1)[0] - 1
+        return starts, ends
+
+    def _plot_anomaly_score_vs_threshold(self, score, threshold, gt, pred, save_path, max_points=50000):
+        score = np.asarray(score).reshape(-1)
+        gt = np.asarray(gt).astype(np.int8).reshape(-1)
+        pred = np.asarray(pred).astype(np.int8).reshape(-1)
+
+        valid_length = min(score.shape[0], gt.shape[0], pred.shape[0])
+        if valid_length == 0:
+            return
+
+        score = score[:valid_length]
+        gt = gt[:valid_length]
+        pred = pred[:valid_length]
+        x = np.arange(valid_length)
+
+        if valid_length > max_points:
+            sampled_idx = np.linspace(0, valid_length - 1, max_points, dtype=np.int64)
+            sampled_idx = np.unique(sampled_idx)
+            plot_x = x[sampled_idx]
+            plot_score = score[sampled_idx]
+            plot_pred = pred[sampled_idx]
+        else:
+            plot_x = x
+            plot_score = score
+            plot_pred = pred
+
+        fig, ax = plt.subplots(figsize=(18, 7))
+
+        gt_starts, gt_ends = self._extract_anomaly_segments(gt)
+        for idx, (start, end) in enumerate(zip(gt_starts, gt_ends)):
+            ax.axvspan(start, end, color='green', alpha=0.18, zorder=1, label='Ground Truth' if idx == 0 else None)
+
+        ax.fill_between(
+            plot_x,
+            0,
+            threshold,
+            where=plot_pred.astype(bool),
+            color='red',
+            alpha=0.82,
+            zorder=2,
+            interpolate=True,
+            label='Predicted Anomaly (Raw)'
+        )
+
+        ax.plot(plot_x, plot_score, color='blue', linewidth=1.2, zorder=3, label='Anomaly Score')
+        ax.axhline(y=threshold, color='red', linestyle='--', linewidth=2.0, zorder=4, label='Threshold')
+        ax.set_title('Anomaly Detection: Score vs Threshold')
+        ax.set_xlabel('Time Step')
+        ax.set_ylabel('Anomaly Score')
+        ax.grid(True, alpha=0.3)
+        ax.legend(loc='upper left')
+        fig.tight_layout()
+        fig.savefig(save_path, dpi=200)
+        plt.close(fig)
+
+    @staticmethod
+    def _build_downsample_indices(length, max_points):
+        if length <= 0:
+            return np.array([], dtype=np.int64)
+        if max_points is None or max_points <= 0 or length <= max_points:
+            return np.arange(length, dtype=np.int64)
+        step = max(1, int(np.ceil(length / max_points)))
+        return np.arange(0, length, step, dtype=np.int64)
+
+    def _plot_istad_saliency_heatmap(
+        self,
+        saliency,
+        score,
+        threshold,
+        gt,
+        pred,
+        save_path,
+        max_points=20000,
+        saliency_x=None,
+        score_panel=None,
+        score_max_points=50000,
+    ):
+        saliency = np.asarray(saliency, dtype=np.float32)
+        score = np.asarray(score, dtype=np.float32).reshape(-1)
+        gt = np.asarray(gt, dtype=np.int8).reshape(-1)
+        pred = np.asarray(pred, dtype=np.int8).reshape(-1)
+        if saliency.ndim != 2:
+            return
+
+        valid_heat_len = min(saliency.shape[0], gt.shape[0], pred.shape[0])
+        if valid_heat_len <= 0:
+            return
+
+        saliency = saliency[:valid_heat_len]
+        gt = gt[:valid_heat_len]
+        pred = pred[:valid_heat_len]
+        if saliency_x is None:
+            saliency_x = np.arange(valid_heat_len, dtype=np.int64)
+        else:
+            saliency_x = np.asarray(saliency_x, dtype=np.int64).reshape(-1)
+            saliency_x = saliency_x[:valid_heat_len]
+
+        heat_idx = self._build_downsample_indices(valid_heat_len, max_points=max_points)
+        if heat_idx.size == 0:
+            return
+
+        saliency_plot = saliency[heat_idx]
+        gt_heat_plot = gt[heat_idx]
+        pred_heat_plot = pred[heat_idx]
+        x_heat_plot = saliency_x[heat_idx]
+
+        if x_heat_plot.size > 1:
+            heat_step = float(np.median(np.diff(x_heat_plot)))
+        else:
+            heat_step = 1.0
+        x_heat_left = float(x_heat_plot[0] - 0.5 * heat_step)
+        x_heat_right = float(x_heat_plot[-1] + 0.5 * heat_step)
+
+        def _segment_bounds(x_axis, s_idx, e_idx, step):
+            left = float(x_axis[s_idx] - 0.5 * step)
+            right = float(x_axis[e_idx] + 0.5 * step)
+            return left, right
+
+        if score_panel is None:
+            score_full = score
+            gt_full = gt
+            pred_full = pred
+        else:
+            score_full = np.asarray(score_panel.get('score', score), dtype=np.float32).reshape(-1)
+            gt_full = np.asarray(score_panel.get('gt', gt), dtype=np.int8).reshape(-1)
+            pred_full = np.asarray(score_panel.get('pred', pred), dtype=np.int8).reshape(-1)
+
+        valid_score_len = min(score_full.shape[0], gt_full.shape[0], pred_full.shape[0])
+        if valid_score_len <= 0:
+            return
+        score_full = score_full[:valid_score_len]
+        gt_full = gt_full[:valid_score_len]
+        pred_full = pred_full[:valid_score_len]
+
+        score_idx = self._build_downsample_indices(valid_score_len, max_points=score_max_points)
+        if score_idx.size == 0:
+            return
+
+        x_score_plot = np.arange(valid_score_len, dtype=np.int64)[score_idx]
+        score_plot = score_full[score_idx]
+        gt_score_plot = gt_full[score_idx]
+        pred_score_plot = pred_full[score_idx]
+
+        if x_score_plot.size > 1:
+            score_step = float(np.median(np.diff(x_score_plot)))
+        else:
+            score_step = 1.0
+        x_score_left = float(x_score_plot[0] - 0.5 * score_step)
+        x_score_right = float(x_score_plot[-1] + 0.5 * score_step)
+
+        fig, (ax_score, ax_heat) = plt.subplots(
+            2,
+            1,
+            figsize=(18, 10),
+            sharex=True,
+            gridspec_kw={'height_ratios': [1, 3]},
+        )
+
+        ax_score.plot(x_score_plot, score_plot, color='steelblue', linewidth=0.9, label='Anomaly Score')
+        ax_score.axhline(y=threshold, color='red', linestyle='--', linewidth=1.6, label='Threshold')
+
+        gt_score_starts, gt_score_ends = self._extract_anomaly_segments(gt_score_plot)
+        for seg_i, (s, e) in enumerate(zip(gt_score_starts, gt_score_ends)):
+            left, right = _segment_bounds(x_score_plot, s, e, score_step)
+            ax_score.axvspan(
+                left,
+                right,
+                color='green',
+                alpha=0.18,
+                label='Ground Truth' if seg_i == 0 else None,
+            )
+
+        pred_score_starts, pred_score_ends = self._extract_anomaly_segments(pred_score_plot)
+        for seg_i, (s, e) in enumerate(zip(pred_score_starts, pred_score_ends)):
+            left, right = _segment_bounds(x_score_plot, s, e, score_step)
+            ax_score.axvspan(
+                left,
+                right,
+                color='red',
+                alpha=0.15,
+                label='Predicted (Raw)' if seg_i == 0 else None,
+            )
+
+        ax_score.set_ylabel('Score')
+        ax_score.set_title('ISTAD Explainability: Score + Saliency')
+        ax_score.grid(True, alpha=0.25)
+        ax_score.legend(loc='upper right')
+
+        im = ax_heat.imshow(
+            saliency_plot.T,
+            aspect='auto',
+            cmap='viridis',
+            origin='lower',
+            extent=[x_heat_left, x_heat_right, 0, saliency_plot.shape[1] - 1],
+        )
+
+        gt_heat_starts, gt_heat_ends = self._extract_anomaly_segments(gt_heat_plot)
+        for seg_i, (s, e) in enumerate(zip(gt_heat_starts, gt_heat_ends)):
+            left, right = _segment_bounds(x_heat_plot, s, e, heat_step)
+            ax_heat.axvspan(
+                left,
+                right,
+                color='green',
+                alpha=0.12,
+                label='Ground Truth' if seg_i == 0 else None,
+            )
+        pred_heat_starts, pred_heat_ends = self._extract_anomaly_segments(pred_heat_plot)
+        for seg_i, (s, e) in enumerate(zip(pred_heat_starts, pred_heat_ends)):
+            left, right = _segment_bounds(x_heat_plot, s, e, heat_step)
+            ax_heat.axvspan(
+                left,
+                right,
+                color='red',
+                alpha=0.10,
+                label='Predicted (Raw)' if seg_i == 0 else None,
+            )
+
+        x_left = min(x_score_left, x_heat_left)
+        x_right = max(x_score_right, x_heat_right)
+        ax_score.set_xlim(x_left, x_right)
+        ax_heat.set_xlim(x_left, x_right)
+        ax_heat.set_xlabel('Time Step')
+        ax_heat.set_ylabel('Feature Index')
+        ax_heat.legend(loc='upper right')
+        fig.colorbar(im, ax=ax_heat, label='|d score / d input|')
+        fig.tight_layout()
+        fig.savefig(save_path, dpi=180)
+        plt.close(fig)
+
+    @staticmethod
+    def _topk_feature_summary(values, topk, feature_indices=None):
+        values = np.asarray(values, dtype=np.float64).reshape(-1)
+        if values.size == 0:
+            return []
+        k = max(1, min(int(topk), values.size))
+        order = np.argsort(values)[::-1][:k]
+        feature_indices = None if feature_indices is None else np.asarray(feature_indices).reshape(-1)
+        return [
+            {
+                "feature": int(feature_indices[i]) if feature_indices is not None and i < feature_indices.size else int(i),
+                "value": float(values[i]),
+            }
+            for i in order
+        ]
+
+    @staticmethod
+    def _window_last_step_indices(length, window_size):
+        length = int(length)
+        window_size = max(1, int(window_size))
+        if length <= 0:
+            return np.array([], dtype=np.int64)
+        return np.arange(window_size - 1, length, window_size, dtype=np.int64)
+
+    @staticmethod
+    def _to_window_last_step_series(values, window_size):
+        values = np.asarray(values).reshape(-1)
+        window_size = max(1, int(window_size))
+        if values.size < window_size:
+            return values.copy()
+        idx = Exp_Anomaly_Detection._window_last_step_indices(values.size, window_size)
+        return values[idx]
+
+    @staticmethod
+    def _aggregate_by_method(data, method):
+        arr = np.asarray(data, dtype=np.float64)
+        if arr.ndim == 1:
+            return arr
+        if arr.size == 0 or arr.shape[0] == 0:
+            return np.zeros((arr.shape[-1],), dtype=np.float64)
+        method = str(method).lower()
+        if method == "mean":
+            return np.mean(arr, axis=0)
+        if method == "peak":
+            return np.max(arr, axis=0)
+        return np.sum(arr, axis=0)
+
+    @staticmethod
+    def _compute_quadrant_thresholds(total_error, saliency, mode="quantile", value=0.75):
+        total_error = np.asarray(total_error, dtype=np.float64).reshape(-1)
+        saliency = np.asarray(saliency, dtype=np.float64).reshape(-1)
+        if total_error.size == 0 or saliency.size == 0:
+            return 0.0, 0.0
+
+        mode = str(mode).lower()
+        try:
+            value = float(value)
+        except Exception:
+            value = 0.75
+
+        if mode == "fixed":
+            return float(value * np.max(total_error)), float(value * np.max(saliency))
+        if mode == "median":
+            return float(np.median(total_error)), float(np.median(saliency))
+        if mode == "topk":
+            k = max(1, int(value))
+            err_sorted = np.sort(total_error)[::-1]
+            sal_sorted = np.sort(saliency)[::-1]
+            err_thr = err_sorted[min(k - 1, err_sorted.size - 1)]
+            sal_thr = sal_sorted[min(k - 1, sal_sorted.size - 1)]
+            return float(err_thr), float(sal_thr)
+
+        q = min(max(value, 0.0), 1.0)
+        return float(np.percentile(total_error, q * 100)), float(np.percentile(saliency, q * 100))
+
+    @staticmethod
+    def _compute_recon_anomaly_score(recons_last, x_last):
+        recon_error_sq = (recons_last - x_last) ** 2
+        d = max(1, int(recons_last.shape[-1]))
+        return recon_error_sq.sum(dim=-1) / d
+
+    def _get_explain_model(self):
+        """解包 DataParallel，使梯度能回传到输入 x。
+
+        DataParallel 会把输入 scatter 到各 GPU replica 上做前向，
+        反传时原始 x.grad 拿不到梯度（返回 None 或全 0），
+        这正是 SWAT 显著性全 0 的根因。显著性计算须用解包后的单卡模型。
+        """
+        m = self.model
+        if isinstance(m, nn.DataParallel):
+            m = m.module
+        return m
+
+    def _load_checkpoint(self, path):
+        """加载 checkpoint，自动处理 module. 前缀和 weight_norm API 差异。
+
+        处理两个兼容性问题：
+        1. module. 前缀：SWAT checkpoint 在 DataParallel 下保存，key 带 module. 前缀。
+           单卡加载时需剥离。
+        2. weight_norm API：PyTorch≥2.0 用 torch.nn.utils.parametrizations.weight_norm
+           （key 形如 parametrizations.weight.original0/original1），
+           PyTorch<2.0 用 torch.nn.utils.weight_norm（key 形如 weight_g/weight_v）。
+           训练环境≥2.0、当前环境<2.0 时需做 key 转换。
+        """
+        state_dict = torch.load(path, map_location=self.device)
+        if not isinstance(state_dict, dict):
+            return
+
+        # 1. 处理 module. 前缀
+        model_is_dp = isinstance(self.model, nn.DataParallel)
+        has_module_prefix = any(k.startswith('module.') for k in state_dict.keys())
+        if has_module_prefix and not model_is_dp:
+            state_dict = {k[len('module.'):]: v for k, v in state_dict.items()}
+        elif not has_module_prefix and model_is_dp:
+            state_dict = {'module.' + k: v for k, v in state_dict.items()}
+
+        # 2. 处理 weight_norm parametrization key 转换
+        # checkpoint 用 PyTorch≥2.0 保存（parametrizations.weight.original0/1）
+        # 但当前模型在 PyTorch<2.0 下构建（weight_g/weight_v）时需要转换
+        model_sd = self.model.state_dict()
+        ckpt_has_param = any('.parametrizations.weight.original' in k for k in state_dict.keys())
+        model_has_param = any('.parametrizations.weight.original' in k for k in model_sd.keys())
+
+        if ckpt_has_param and not model_has_param:
+            # checkpoint 用新 API，模型用旧 API → 转换 key
+            converted = {}
+            for k, v in state_dict.items():
+                suffix = '.parametrizations.weight.original0'
+                suffix2 = '.parametrizations.weight.original1'
+                if k.endswith(suffix):
+                    converted[k[: -len(suffix)] + '.weight_g'] = v
+                elif k.endswith(suffix2):
+                    converted[k[: -len(suffix2)] + '.weight_v'] = v
+                else:
+                    converted[k] = v
+            state_dict = converted
+        elif not ckpt_has_param and model_has_param:
+            # checkpoint 用旧 API，模型用新 API → 反向转换
+            converted = {}
+            for k, v in state_dict.items():
+                if k.endswith('.weight_g'):
+                    converted[k[: -len('.weight_g')] + '.parametrizations.weight.original0'] = v
+                elif k.endswith('.weight_v'):
+                    converted[k[: -len('.weight_v')] + '.parametrizations.weight.original1'] = v
+                else:
+                    converted[k] = v
+            state_dict = converted
+
+        incompatible = self.model.load_state_dict(state_dict, strict=False)
+        allowed_missing = {'evidence_head.pool_logit', 'module.evidence_head.pool_logit'}
+        unexpected = list(incompatible.unexpected_keys)
+        missing = [key for key in incompatible.missing_keys if key not in allowed_missing]
+        if unexpected or missing:
+            raise RuntimeError(
+                f'Checkpoint/model mismatch. Missing={missing}, unexpected={unexpected}'
+            )
+
+    def _compute_vanilla_saliency(self, x, anomaly_score):
+        if not x.requires_grad:
+            x.requires_grad_(True)
+        model = self._get_explain_model()
+        model.zero_grad()
+        if x.grad is not None:
+            x.grad.zero_()
+
+        # 显存优化：使用 retain_graph=False 并立即释放
+        try:
+            anomaly_score.sum().backward(retain_graph=False)
+        except RuntimeError as e:
+            print(f"Warning: Backward pass failed: {e}")
+            return np.zeros((x.shape[0], x.shape[-1]), dtype=np.float32)
+
+        if x.grad is None:
+            return np.zeros((x.shape[0], x.shape[-1]), dtype=np.float32)
+
+        saliency = torch.abs(x * x.grad)
+        result = saliency[:, -1, :].detach().cpu().numpy().astype(np.float32)
+
+        # 立即清理显存
+        del saliency
+        if hasattr(torch.cuda, 'empty_cache'):
+            torch.cuda.empty_cache()
+
+        return result
+
+    def _compute_smoothgrad_saliency(self, x, x_last_target, f_dim, n_samples, noise_level):
+        sample_count = max(1, int(n_samples))
+        saliency_sum = np.zeros((x.shape[0], x.shape[-1]), dtype=np.float64)
+        valid_count = 0
+
+        x_std = float(x.std().item())
+        if x_std == 0:
+            x_std = 1.0
+        noise_std = float(noise_level) * x_std
+
+        model = self._get_explain_model()
+
+        for sample_idx in range(sample_count):
+            try:
+                x_noisy = x.detach().clone()
+                x_noisy = x_noisy + torch.randn_like(x_noisy) * noise_std
+                x_noisy.requires_grad_(True)
+
+                outputs_n = model(x_noisy, None, None, None)
+                outputs_n = outputs_n[:, :, f_dim:]
+                outputs_n = self._base_recon(outputs_n, x.shape[-1])
+                recons_last_n = outputs_n[:, -1, :]
+                anomaly_score_n = self._compute_recon_anomaly_score(recons_last_n, x_last_target)
+
+                model.zero_grad()
+                anomaly_score_n.sum().backward()
+
+                if x_noisy.grad is None:
+                    continue
+                saliency = torch.abs(x.detach() * x_noisy.grad)
+                saliency_current = saliency[:, -1, :].detach().cpu().numpy()
+                if not np.isnan(saliency_current).any():
+                    saliency_sum += saliency_current
+                    valid_count += 1
+            except Exception as e:
+                print(f"SmoothGrad sample {sample_idx} failed: {e}")
+
+        if valid_count > 0:
+            return (saliency_sum / valid_count).astype(np.float32)
+
+        x_ref = x.detach().clone().requires_grad_(True)
+        outputs = model(x_ref, None, None, None)
+        outputs = outputs[:, :, f_dim:]
+        outputs = self._base_recon(outputs, x.shape[-1])
+        recons_last = outputs[:, -1, :]
+        anomaly_score = self._compute_recon_anomaly_score(recons_last, x_last_target)
+        return self._compute_vanilla_saliency(x_ref, anomaly_score)
+
+    def _save_feature_localization_timeseries(
+        self,
+        saliency_maps,
+        recon_error_maps,
+        true_anomalies,
+        pred_labels,
+        anomaly_scores,
+        feature_indices,
+        save_path,
+    ):
+        lengths = [len(saliency_maps), len(recon_error_maps)]
+        if true_anomalies is not None:
+            lengths.append(len(true_anomalies))
+        if pred_labels is not None:
+            lengths.append(len(pred_labels))
+        if anomaly_scores is not None:
+            lengths.append(len(anomaly_scores))
+        t_len = min(lengths) if lengths else 0
+        if t_len <= 0:
+            return
+
+        sal = np.asarray(saliency_maps[:t_len], dtype=np.float64)
+        r_err = np.asarray(recon_error_maps[:t_len], dtype=np.float64)
+
+        data = {
+            "time_idx": np.arange(t_len, dtype=np.int64),
+            "saliency_total": sal.sum(axis=1),
+            "recon_error_total": r_err.sum(axis=1),
+        }
+        for i in range(sal.shape[1]):
+            data[f"saliency_{i}"] = sal[:, i]
+        for i in range(r_err.shape[1]):
+            feat_idx = int(feature_indices[i]) if feature_indices is not None and i < len(feature_indices) else int(i)
+            data[f"recon_error_{feat_idx}"] = r_err[:, i]
+
+        if true_anomalies is not None:
+            data["label_true"] = np.asarray(true_anomalies[:t_len]).astype(int)
+        if pred_labels is not None:
+            data["label_pred"] = np.asarray(pred_labels[:t_len]).astype(int)
+        if anomaly_scores is not None:
+            data["anomaly_score"] = np.asarray(anomaly_scores[:t_len], dtype=np.float64)
+
+        out_path = os.path.join(save_path, "feature_localization_timeseries.csv")
+        pd.DataFrame(data).to_csv(out_path, index=False)
+        print(f"Saved ISTAD feature localization time-series: {out_path}")
+
+    def _build_segment_localization_summary(
+        self,
+        gt,
+        pred,
+        saliency,
+        recon_error,
+        topk,
+        threshold,
+        feature_indices=None,
+    ):
+        gt = np.asarray(gt, dtype=np.int8).reshape(-1)
+        pred = np.asarray(pred, dtype=np.int8).reshape(-1)
+        saliency = np.asarray(saliency, dtype=np.float64)
+        recon_error = np.asarray(recon_error, dtype=np.float64)
+
+        gt_starts, gt_ends = self._extract_anomaly_segments(gt)
+        pred_starts, pred_ends = self._extract_anomaly_segments(pred)
+        gt_segments = list(zip(gt_starts.tolist(), gt_ends.tolist()))
+        pred_segments = list(zip(pred_starts.tolist(), pred_ends.tolist()))
+        agg_error = str(getattr(self.args, 'istad_quadrant_agg_error', 'sum')).lower()
+        agg_saliency = str(getattr(self.args, 'istad_quadrant_agg_saliency', 'sum')).lower()
+
+        if len(gt_segments) > 0:
+            use_segments = gt_segments
+            source = "ground_truth"
+        else:
+            use_segments = pred_segments
+            source = "prediction"
+
+        summary = {
+            "segment_source": source,
+            "threshold": float(threshold),
+            "topk": int(topk),
+            "error_aggregation": agg_error,
+            "saliency_aggregation": agg_saliency,
+            "num_gt_segments": int(len(gt_segments)),
+            "num_pred_segments": int(len(pred_segments)),
+            "segments": [],
+        }
+
+        if (
+            saliency.ndim != 2
+            or recon_error.ndim != 2
+            or saliency.shape[0] == 0
+        ):
+            return summary
+
+        n_points = min(len(gt), len(pred), saliency.shape[0], recon_error.shape[0])
+        if n_points <= 0:
+            return summary
+
+        saliency = saliency[:n_points]
+        recon_error = recon_error[:n_points]
+
+        for seg_id, (s, e) in enumerate(use_segments, start=1):
+            s = max(0, int(s))
+            e = min(n_points - 1, int(e))
+            if e < s:
+                continue
+
+            seg_sal = self._aggregate_by_method(saliency[s:e + 1], agg_saliency)
+            seg_err = self._aggregate_by_method(recon_error[s:e + 1], agg_error)
+
+            summary["segments"].append({
+                "segment_id": int(seg_id),
+                "start_idx": int(s),
+                "end_idx": int(e),
+                "length": int(e - s + 1),
+                "top_saliency_features": self._topk_feature_summary(seg_sal, topk),
+                "top_error_features": self._topk_feature_summary(seg_err, topk, feature_indices=feature_indices),
+            })
+
+        return summary
+
+    def _run_istad_explainability(self, test_loader, test_energy, threshold, gt, pred, folder_path, score_panel=None):
+        if str(self.args.model).upper() != 'ISTAD':
+            return
+
+        enable_explain = bool(int(getattr(self.args, 'istad_enable_explain', 1)))
+        if not enable_explain:
+            print("ISTAD explainability is disabled by --istad_enable_explain 0")
+            return
+        score_mode = str(getattr(self.args, 'istad_score_mode', 'base_mean')).lower()
+        if score_mode == 'innovation':
+            print(
+                'ISTAD gradient explainability skipped: the selected innovation score '
+                'is a closed-form causal residual, not the neural reconstruction score.'
+            )
+            return
+        if score_mode == 'innovation_fused':
+            print(
+                'ISTAD explainability note: gradients describe only the neural evidence '
+                'tie-break component of the fused score.'
+            )
+
+        max_batches = int(getattr(self.args, 'istad_explain_max_batches', 0))
+        topk = int(getattr(self.args, 'istad_explain_topk', 10))
+        max_plot_points = int(getattr(self.args, 'istad_explain_max_points', 20000))
+        use_smoothgrad = bool(int(getattr(self.args, 'istad_use_smoothgrad', 0)))
+        smoothgrad_samples = int(getattr(self.args, 'istad_smoothgrad_samples', 20))
+        smoothgrad_noise = float(getattr(self.args, 'istad_smoothgrad_noise', 0.1))
+        quadrant_mode = str(getattr(self.args, 'istad_quadrant_threshold_mode', 'quantile')).lower()
+        quadrant_value = float(getattr(self.args, 'istad_quadrant_threshold_value', 0.75))
+        agg_error = str(getattr(self.args, 'istad_quadrant_agg_error', 'sum')).lower()
+        agg_saliency = str(getattr(self.args, 'istad_quadrant_agg_saliency', 'sum')).lower()
+
+        print("Running ISTAD explainability analysis...")
+        self.model.eval()
+        # 解包 DataParallel：DataParallel 会断开输入→输出的梯度路径，
+        # 导致 x.grad 为 None（SWAT 显著性全 0 的根因）。显著性计算必须用单卡模型。
+        explain_model = self._get_explain_model()
+        saliency_raw_chunks = []
+        recon_error_chunks = []
+        error_feature_indices = None
+
+        for i, (batch_x, _) in enumerate(test_loader):
+            if max_batches > 0 and i >= max_batches:
+                break
+
+            # 显存优化：每个批次后清理
+            if i > 0 and i % 5 == 0:
+                if hasattr(torch.cuda, 'empty_cache'):
+                    torch.cuda.empty_cache()
+
+            x = batch_x.float().to(self.device)
+            x = x.requires_grad_(True)
+
+            f_dim = -1 if self.args.features == 'MS' else 0
+
+            with torch.set_grad_enabled(True):
+                outputs = explain_model(x, None, None, None)
+                outputs = outputs[:, :, f_dim:]
+                outputs = self._base_recon(outputs, x.shape[-1])
+                x_target = x[:, :, f_dim:]
+
+                x_last = x_target[:, -1, :].detach()
+                recons_last = outputs[:, -1, :]
+                anomaly_score = self._compute_recon_anomaly_score(recons_last, x_last)
+
+            if use_smoothgrad:
+                saliency_current = self._compute_smoothgrad_saliency(
+                    x=x,
+                    x_last_target=x_last,
+                    f_dim=f_dim,
+                    n_samples=smoothgrad_samples,
+                    noise_level=smoothgrad_noise,
+                )
+            else:
+                saliency_current = self._compute_vanilla_saliency(x, anomaly_score)
+
+            d = max(1, int(recons_last.shape[-1]))
+            recon_error = ((recons_last - x_last) ** 2 / d).detach().cpu().numpy().astype(np.float32)
+
+            saliency_raw_chunks.append(saliency_current.astype(np.float32))
+            recon_error_chunks.append(recon_error)
+            
+            # 立即释放不需要的张量
+            del x, outputs, x_target, x_last, recons_last, anomaly_score, recon_error
+
+            if error_feature_indices is None:
+                full_dim = int(batch_x.shape[-1])
+                out_dim = int(saliency_current.shape[-1])
+                start_idx = full_dim - out_dim if f_dim == -1 else 0
+                error_feature_indices = np.arange(start_idx, start_idx + out_dim, dtype=np.int64)
+
+        if len(saliency_raw_chunks) == 0:
+            print("ISTAD explainability skipped: no saliency batches were collected.")
+            return
+
+        saliency_raw = np.concatenate(saliency_raw_chunks, axis=0)
+        recon_error = np.concatenate(recon_error_chunks, axis=0)
+        n_features = int(saliency_raw.shape[-1])
+        if error_feature_indices is None:
+            error_feature_indices = np.arange(recon_error.shape[-1], dtype=np.int64)
+
+        # Global clipping + normalization (same behavior as original ISTAD project).
+        q99 = np.percentile(saliency_raw, 99)
+        saliency_clipped = np.clip(saliency_raw, 0.0, q99)
+        sal_min = float(saliency_clipped.min())
+        sal_max = float(saliency_clipped.max())
+        if sal_max > sal_min:
+            saliency = (saliency_clipped - sal_min) / (sal_max - sal_min)
+        else:
+            saliency = saliency_clipped
+        saliency = saliency.astype(np.float32)
+
+        if score_panel is not None:
+            test_energy_full = np.asarray(score_panel.get("score", test_energy)).reshape(-1)
+            gt_full = np.asarray(score_panel.get("gt", gt)).reshape(-1).astype(np.int8)
+            pred_full = np.asarray(score_panel.get("pred", pred)).reshape(-1).astype(np.int8)
+        else:
+            test_energy_full = np.asarray(test_energy).reshape(-1)
+            gt_full = np.asarray(gt).reshape(-1).astype(np.int8)
+            pred_full = np.asarray(pred).reshape(-1).astype(np.int8)
+        full_len = min(len(test_energy_full), len(gt_full), len(pred_full))
+        if full_len <= 0:
+            print("ISTAD explainability skipped: empty full-length score panel.")
+            return
+        test_energy_full = test_energy_full[:full_len]
+        gt_full = gt_full[:full_len]
+        pred_full = pred_full[:full_len]
+
+        window_size = int(getattr(self.args, 'seq_len', 1))
+        window_last_idx = self._window_last_step_indices(full_len, window_size)
+        test_energy = self._to_window_last_step_series(test_energy_full, window_size)
+        gt = self._to_window_last_step_series(gt_full, window_size).astype(np.int8)
+        pred = self._to_window_last_step_series(pred_full, window_size).astype(np.int8)
+
+        valid_len = min(
+            len(test_energy),
+            len(gt),
+            len(pred),
+            len(window_last_idx),
+            len(saliency),
+            len(saliency_raw),
+            len(recon_error),
+        )
+        if valid_len <= 0:
+            print("ISTAD explainability skipped: invalid alignment length.")
+            return
+
+        test_energy = test_energy[:valid_len]
+        gt = gt[:valid_len]
+        pred = pred[:valid_len]
+        window_last_idx = window_last_idx[:valid_len]
+        saliency = saliency[:valid_len]
+        saliency_raw = saliency_raw[:valid_len]
+        recon_error = recon_error[:valid_len]
+
+        heatmap_path = os.path.join(folder_path, 'istad_saliency_heatmap.png')
+        self._plot_istad_saliency_heatmap(
+            saliency=saliency,
+            score=test_energy,
+            threshold=threshold,
+            gt=gt,
+            pred=pred,
+            save_path=heatmap_path,
+            max_points=max_plot_points,
+            saliency_x=window_last_idx,
+            score_panel={
+                "score": test_energy_full,
+                "gt": gt_full,
+                "pred": pred_full,
+            },
+        )
+        print(f"Saved ISTAD saliency heatmap: {heatmap_path}")
+
+        np.save(os.path.join(folder_path, 'istad_saliency.npy'), saliency)
+        np.save(os.path.join(folder_path, 'saliency_maps.npy'), saliency)
+        np.save(os.path.join(folder_path, 'saliency_maps_raw.npy'), saliency_raw)
+        np.save(os.path.join(folder_path, 'recon_error_maps.npy'), recon_error)
+        np.save(os.path.join(folder_path, 'feature_contributions.npy'), np.sum(saliency, axis=0))
+        np.save(os.path.join(folder_path, 'temporal_contributions.npy'), np.sum(saliency, axis=1))
+
+        self._save_feature_localization_timeseries(
+            saliency_maps=saliency,
+            recon_error_maps=recon_error,
+            true_anomalies=gt,
+            pred_labels=pred,
+            anomaly_scores=test_energy,
+            feature_indices=error_feature_indices,
+            save_path=folder_path,
+        )
+
+        pred_mask = pred.astype(bool)
+        gt_mask = gt.astype(bool)
+        overall_saliency = np.mean(saliency, axis=0)
+        overall_error = np.mean(recon_error, axis=0)
+        err_thr, sal_thr = self._compute_quadrant_thresholds(
+            total_error=overall_error,
+            saliency=overall_saliency,
+            mode=quadrant_mode,
+            value=quadrant_value,
+        )
+        quadrant_counts = {"q1": 0, "q2": 0, "q3": 0, "q4": 0}
+        for err_i, sal_i in zip(overall_error, overall_saliency):
+            if err_i > err_thr and sal_i > sal_thr:
+                quadrant_counts["q1"] += 1
+            elif err_i > err_thr and sal_i <= sal_thr:
+                quadrant_counts["q2"] += 1
+            elif err_i <= err_thr and sal_i > sal_thr:
+                quadrant_counts["q3"] += 1
+            else:
+                quadrant_counts["q4"] += 1
+
+        summary = {
+            "explain_batches_used": int(len(saliency_raw_chunks)),
+            "points_used": int(valid_len),
+            "topk": int(topk),
+            "use_smoothgrad": bool(use_smoothgrad),
+            "smoothgrad_samples": int(smoothgrad_samples),
+            "smoothgrad_noise": float(smoothgrad_noise),
+            "quadrant_threshold_mode": quadrant_mode,
+            "quadrant_threshold_value": float(quadrant_value),
+            "quadrant_error_threshold": float(err_thr),
+            "quadrant_saliency_threshold": float(sal_thr),
+            "quadrant_feature_counts": quadrant_counts,
+            "error_aggregation": agg_error,
+            "saliency_aggregation": agg_saliency,
+            "overall_top_saliency_features": self._topk_feature_summary(overall_saliency, topk),
+            "overall_top_error_features": self._topk_feature_summary(overall_error, topk, feature_indices=error_feature_indices),
+            "pred_anomaly_top_saliency_features": self._topk_feature_summary(
+                np.mean(saliency[pred_mask], axis=0) if np.any(pred_mask) else np.zeros(n_features),
+                topk,
+            ),
+            "pred_anomaly_top_error_features": self._topk_feature_summary(
+                np.mean(recon_error[pred_mask], axis=0) if np.any(pred_mask) else np.zeros(recon_error.shape[1]),
+                topk,
+                feature_indices=error_feature_indices,
+            ),
+            "gt_anomaly_top_saliency_features": self._topk_feature_summary(
+                np.mean(saliency[gt_mask], axis=0) if np.any(gt_mask) else np.zeros(n_features),
+                topk,
+            ),
+            "gt_anomaly_top_error_features": self._topk_feature_summary(
+                np.mean(recon_error[gt_mask], axis=0) if np.any(gt_mask) else np.zeros(recon_error.shape[1]),
+                topk,
+                feature_indices=error_feature_indices,
+            ),
+        }
+
+        summary_path = os.path.join(folder_path, 'istad_explainability_summary.json')
+        with open(summary_path, 'w') as f:
+            json.dump(summary, f, indent=2)
+        print(f"Saved ISTAD explainability summary: {summary_path}")
+
+        segment_summary = self._build_segment_localization_summary(
+            gt=gt,
+            pred=pred,
+            saliency=saliency,
+            recon_error=recon_error,
+            topk=topk,
+            threshold=threshold,
+            feature_indices=error_feature_indices,
+        )
+        segment_summary_path = os.path.join(folder_path, 'segment_localization_summary.json')
+        with open(segment_summary_path, 'w') as f:
+            json.dump(segment_summary, f, indent=2)
+        print(f"Saved ISTAD segment localization summary: {segment_summary_path}")
+
+    def _build_model(self):
+        model = self.model_dict[self.args.model](self.args).float()
+
+        if self.args.use_multi_gpu and self.args.use_gpu:
+            model = nn.DataParallel(model, device_ids=self.args.device_ids)
+        return model
+
+    def _get_data(self, flag):
+        data_set, data_loader = data_provider(self.args, flag)
+        return data_set, data_loader
+
+    def _select_optimizer(self):
+        model_optim = optim.Adam(self.model.parameters(), lr=self.args.learning_rate)
+        return model_optim
+
+    def _select_criterion(self):
+        criterion = nn.MSELoss()
+        return criterion
+
+    def _dual_enabled(self):
+        return bool(int(getattr(self.args, 'istad_dual', 0) or 0))
+
+    def _dual_lambda(self):
+        return float(getattr(self.args, 'istad_dual_lambda', 1.0) or 1.0)
+
+    def _model_core(self):
+        return self.model.module if isinstance(self.model, nn.DataParallel) else self.model
+
+    def _denoise_enabled(self):
+        return bool(int(getattr(self.args, 'istad_denoise', 0) or 0))
+
+    def _innovation_relation_input_enabled(self):
+        return str(getattr(
+            self.args, 'istad_hgat_input', 'raw'
+        )).lower() == 'innovation'
+
+    def _new_innovation_scorer(self):
+        return TrainingOnlyInnovationScorer(
+            lag=int(getattr(self.args, 'istad_innovation_lag', 1)),
+            ridge=float(getattr(self.args, 'istad_innovation_ridge', 0.01)),
+            pool=str(getattr(self.args, 'istad_innovation_pool', 'auto')),
+            degenerate_cutoff=float(getattr(
+                self.args, 'istad_innovation_degenerate_cutoff', 0.10
+            )),
+            scale_floor_ratio=float(getattr(
+                self.args, 'istad_innovation_scale_floor', 0.10
+            )),
+        )
+
+    def _target_forecast_enabled(self):
+        return str(getattr(self.args, 'istad_objective', 'reconstruct')).lower() == 'target_forecast'
+
+    def _target_output_enabled(self):
+        return str(getattr(self.args, 'istad_objective', 'reconstruct')).lower() in {
+            'target_reconstruct', 'target_forecast'
+        }
+
+    def _forecast_lag(self):
+        return int(getattr(self.args, 'istad_forecast_lag', 1) or 1)
+
+    def _target_indices(self):
+        text = str(getattr(self.args, 'istad_target_features', '') or '')
+        return tuple(int(value.strip()) for value in text.split(',') if value.strip())
+
+    def _v7_enabled(self):
+        return str(getattr(
+            self.args, 'istad_arch', 'legacy'
+        )).lower() in {'v7', 'v71'}
+
+    def _target_view(self, values):
+        if not self._target_output_enabled():
+            return values
+        indices = torch.as_tensor(self._target_indices(), device=values.device)
+        return values.index_select(-1, indices)
+
+    def _valid_time_view(self, values):
+        if not self._target_forecast_enabled():
+            return values
+        return values[:, self._forecast_lag():]
+
+    def _model_input(self, values):
+        """Hide each current target while retaining current exogenous context."""
+        if not self._target_forecast_enabled():
+            return values
+        lag = self._forecast_lag()
+        shifted = values.clone()
+        indices = torch.as_tensor(self._target_indices(), device=values.device)
+        shifted[:, :lag].index_fill_(-1, indices, 0.0)
+        shifted[:, lag:, indices] = values[:, :-lag, indices]
+        return shifted
+
+    def _forward_model(self, values, return_aux=False):
+        return self.model(
+            self._model_input(values), None, None, None, return_aux=return_aux
+        )
+
+    @staticmethod
+    def _raw_entity_ids(dataset, split='train'):
+        lengths_by_split = getattr(dataset, 'segment_lengths', None)
+        if lengths_by_split is None:
+            return None
+        lengths = tuple(int(length) for length in lengths_by_split[split])
+        return np.repeat(np.arange(len(lengths), dtype=np.int64), lengths)
+
+    def _replace_split_with_innovations(self, dataset, split, scorer):
+        values = np.asarray(getattr(dataset, split))
+        entity_ids = self._raw_entity_ids(dataset, split=split)
+        transformed = scorer.signed_feature_innovation(values, entity_ids)
+        setattr(dataset, split, transformed.astype(np.float32))
+
+    def _configure_innovation_relation_training_input(
+        self, train_data, vali_data, test_data=None
+    ):
+        """Fit VAR on normal score windows and replace neural relation inputs."""
+        if not self._innovation_relation_input_enabled():
+            return None
+        score_data, score_loader = self._get_data(flag='score_train')
+        score_points = np.concatenate(
+            [batch_x.numpy() for batch_x, _ in score_loader], axis=0
+        ).reshape(-1, int(self.args.enc_in))
+        score_entities = getattr(score_data, 'point_entity_ids', None)
+        scorer = self._new_innovation_scorer().fit(score_points, score_entities)
+        self._replace_split_with_innovations(train_data, 'train', scorer)
+        self._replace_split_with_innovations(vali_data, 'val', scorer)
+        if test_data is not None:
+            self._replace_split_with_innovations(test_data, 'test', scorer)
+        print('HGAT relation input:', json.dumps({
+            'domain': 'signed_standardized_var_innovation',
+            'fit_split': 'normal_score_train',
+            **scorer.metadata_dict(),
+        }, sort_keys=True))
+        return scorer
+
+    def _configure_v7_causal_prior(self, train_data):
+        """Fit and install V7 structure before optimization using train only."""
+        if not self._v7_enabled():
+            return None
+        points = np.asarray(train_data.train, dtype=np.float64)
+        entity_ids = self._raw_entity_ids(train_data, split='train')
+        prior, signs, coefficients, metadata = fit_signed_causal_prior(
+            points,
+            self._target_indices(),
+            lag=self._forecast_lag(),
+            ridge=float(getattr(self.args, 'istad_v7_prior_ridge', 0.01)),
+            topk=int(getattr(self.args, 'istad_v7_prior_topk', -1)),
+            entity_ids=entity_ids,
+        )
+        self._model_core().set_causal_prior(prior, signs)
+        self.v7_prior_metadata = dict(metadata)
+        self.v7_prior_metadata['coefficient_abs_mean'] = float(
+            np.mean(np.abs(coefficients))
+        )
+        self.v7_prior_metadata['coefficient_abs_max'] = float(
+            np.max(np.abs(coefficients))
+        )
+        print('V7 causal prior:', json.dumps(
+            self.v7_prior_metadata, sort_keys=True
+        ))
+        return self.v7_prior_metadata
+
+    def _v7_components(self, batch_x, outputs, auxiliary):
+        target = self._target_view(batch_x)
+        prediction_error = torch.mean((target - outputs).square(), dim=-1)
+        relation_deviation = auxiliary['relation_deviation']
+        return self._zero_invalid_prefix(torch.stack(
+            [prediction_error, relation_deviation], dim=-1
+        ))
+
+    def _v7_loss(self, batch_x, criterion):
+        outputs, auxiliary = self._forward_model(batch_x, return_aux=True)
+        forecast_loss = self._reconstruction_loss(criterion, outputs, batch_x)
+        prior_loss = auxiliary['prior_kl']
+        prior_weight = float(getattr(
+            self.args, 'istad_v7_prior_lambda', 0.05
+        ))
+        if auxiliary.get('prior_gate') is not None:
+            prior_loss = prior_loss * auxiliary['prior_gate'].mean()
+        loss = forecast_loss + prior_weight * prior_loss
+        return loss, forecast_loss.detach(), prior_loss.detach()
+
+    def _zero_invalid_prefix(self, score):
+        if not self._target_forecast_enabled():
+            return score
+        score = score.clone()
+        score[:, :self._forecast_lag()] = 0.0
+        return score
+
+    def _dual_split(self, outputs, n_feat):
+        # outputs: (B, sl, 2C) -> (base, revin)
+        return outputs[..., :n_feat], outputs[..., n_feat:2 * n_feat]
+
+    def _dual_loss(self, criterion, outputs, batch_x):
+        # 双头联合损失：base 重建 + lambda * revin 重建（共享 backbone）
+        assert self.args.features == 'M', 'istad_dual only supports features=M'
+        n_feat = batch_x.shape[-1]
+        base, revin = self._dual_split(outputs, n_feat)
+        return criterion(base, batch_x) + self._dual_lambda() * criterion(revin, batch_x)
+
+    def _reconstruction_loss(self, criterion, outputs, target):
+        if self._dual_enabled():
+            return self._dual_loss(criterion, outputs, target)
+        target = self._target_view(target)
+        return criterion(self._valid_time_view(outputs), self._valid_time_view(target))
+
+    def _masked_denoise_loss(self, outputs, target, corruption_mask):
+        """Balance reconstruction quality on corrupted and untouched positions."""
+        predictions = []
+        weights = []
+        if self._dual_enabled():
+            base, revin = self._dual_split(outputs, target.shape[-1])
+            predictions = [base, revin]
+            weights = [1.0, self._dual_lambda()]
+        else:
+            predictions = [outputs]
+            weights = [1.0]
+
+        target = self._target_view(target)
+        corruption_mask = self._target_view(corruption_mask)
+        target = self._valid_time_view(target)
+        corruption_mask = self._valid_time_view(corruption_mask)
+
+        total = target.sum() * 0.0
+        for prediction, view_weight in zip(predictions, weights):
+            prediction = self._valid_time_view(prediction)
+            squared_error = (prediction - target).square()
+            terms = []
+            if torch.any(corruption_mask):
+                terms.append(squared_error[corruption_mask].mean())
+            if torch.any(~corruption_mask):
+                terms.append(squared_error[~corruption_mask].mean())
+            total = total + view_weight * (sum(terms) / len(terms))
+        return total
+
+    def _spectral_reconstruction_loss(self, outputs, target):
+        """Compare log-amplitude spectra so short and long patterns both matter."""
+        if self._dual_enabled():
+            base, revin = self._dual_split(outputs, target.shape[-1])
+            predictions = [base, revin]
+            weights = [1.0, self._dual_lambda()]
+        else:
+            predictions = [outputs]
+            weights = [1.0]
+        target = self._valid_time_view(self._target_view(target))
+        target_spectrum = torch.log1p(torch.fft.rfft(target, dim=1).abs())
+        total = target.sum() * 0.0
+        for prediction, view_weight in zip(predictions, weights):
+            prediction = self._valid_time_view(prediction)
+            prediction_spectrum = torch.log1p(torch.fft.rfft(prediction, dim=1).abs())
+            total = total + view_weight * nn.functional.mse_loss(
+                prediction_spectrum, target_spectrum
+            )
+        return total
+
+    def _synthetic_corrupt(self, clean, generator=None):
+        """Inject localized pseudo anomalies into normal training windows.
+
+        The validated four-family setting covers level, variance, trend and scale
+        changes.  Two harder shape corruptions are available as an explicit
+        ablation, rather than silently changing the default training distribution.
+        The returned feature mask provides label-free supervision for the v3
+        evidence head.  No test samples or labels are used here.
+        """
+        if clean.ndim != 3:
+            raise ValueError(f'Expected (B,W,C) training windows, got {tuple(clean.shape)}')
+        corrupted = clean.clone()
+        mask = torch.zeros_like(clean, dtype=torch.bool)
+        batch, window, channels = clean.shape
+        probability = min(1.0, max(0.0, float(getattr(self.args, 'istad_corrupt_prob', 0.8))))
+        time_ratio = min(1.0, max(1.0 / window, float(
+            getattr(self.args, 'istad_corrupt_time_ratio', 0.15))))
+        channel_ratio = min(1.0, max(1.0 / channels, float(
+            getattr(self.args, 'istad_corrupt_channel_ratio', 0.2))))
+        magnitude = max(0.0, float(getattr(self.args, 'istad_corrupt_scale', 1.5)))
+
+        max_length = max(1, int(round(window * time_ratio)))
+        max_channels = max(1, int(round(channels * channel_ratio)))
+        device = clean.device
+
+        for b in range(batch):
+            if torch.rand((), device=device, generator=generator).item() > probability:
+                continue
+            length = int(torch.randint(1, max_length + 1, (), device=device,
+                                       generator=generator).item())
+            start = int(torch.randint(0, window - length + 1, (), device=device,
+                                      generator=generator).item())
+            if bool(int(getattr(self.args, 'istad_corrupt_target_only', 0) or 0)):
+                candidates = torch.as_tensor(
+                    self._target_indices(), device=device, dtype=torch.long
+                )
+                if candidates.numel() == 0:
+                    raise ValueError('target-only corruption requires target feature indices')
+                n_selected = int(torch.randint(
+                    1, candidates.numel() + 1, (), device=device, generator=generator
+                ).item())
+                selected = candidates[
+                    torch.randperm(candidates.numel(), device=device, generator=generator)[:n_selected]
+                ]
+            else:
+                n_selected = int(torch.randint(1, max_channels + 1, (), device=device,
+                                               generator=generator).item())
+                selected = torch.randperm(channels, device=device, generator=generator)[:n_selected]
+            feature_scale = clean[b, :, selected].std(dim=0, unbiased=False).clamp_min(0.1)
+            random_scale = 0.5 + torch.rand(n_selected, device=device, generator=generator)
+            amplitude = magnitude * feature_scale * random_scale
+            sign = torch.where(
+                torch.rand(n_selected, device=device, generator=generator) < 0.5,
+                -torch.ones(n_selected, device=device),
+                torch.ones(n_selected, device=device),
+            )
+            n_modes = int(getattr(self.args, 'istad_corrupt_modes', 4))
+            if n_modes not in {4, 6}:
+                raise ValueError('istad_corrupt_modes must be 4 or 6')
+            mode = int(torch.randint(0, n_modes, (), device=device, generator=generator).item())
+            # Advanced indexing returns a copy, so mutate the local tensor and
+            # assign it back explicitly after applying the selected corruption.
+            segment = corrupted[b, start:start + length, selected].clone()
+
+            if mode == 0:  # persistent level shift
+                segment.add_((sign * amplitude).view(1, -1))
+            elif mode == 1:  # bursty variance/noise anomaly
+                noise = torch.randn(
+                    length, n_selected, device=device, dtype=clean.dtype, generator=generator
+                )
+                segment.add_(noise * amplitude.view(1, -1))
+            elif mode == 2:  # gradual trend anomaly
+                ramp = torch.linspace(0.2, 1.0, length, device=device, dtype=clean.dtype)
+                segment.add_(ramp.view(-1, 1) * (sign * amplitude).view(1, -1))
+            elif mode == 3:  # local gain change plus a small offset
+                gain = 1.0 + 0.5 * random_scale
+                segment.copy_(segment * gain.view(1, -1) + 0.25 * (sign * amplitude).view(1, -1))
+            elif mode == 4:  # localized oscillation / seasonal distortion
+                cycles = 0.5 + 2.5 * torch.rand((), device=device, generator=generator)
+                phase = 2.0 * torch.pi * torch.rand((), device=device, generator=generator)
+                wave = torch.sin(
+                    torch.linspace(0.0, 2.0 * torch.pi, length, device=device,
+                                   dtype=clean.dtype) * cycles + phase
+                )
+                segment.add_(wave.view(-1, 1) * amplitude.view(1, -1))
+            else:  # shape distortion with a non-zero displacement
+                segment.copy_(segment.flip(0) + 0.1 * (sign * amplitude).view(1, -1))
+            corrupted[b, start:start + length, selected] = segment
+            mask[b, start:start + length, selected] = True
+
+        return corrupted, mask
+
+    @staticmethod
+    def _balanced_evidence_loss(logits, positive_mask):
+        positive_mask = positive_mask.bool()
+        negative_mask = ~positive_mask
+        terms = []
+        if torch.any(positive_mask):
+            terms.append(nn.functional.softplus(-logits[positive_mask]).mean())
+        if torch.any(negative_mask):
+            terms.append(nn.functional.softplus(logits[negative_mask]).mean())
+        if not terms:
+            return logits.sum() * 0.0
+        classification = sum(terms) / len(terms)
+        if torch.any(positive_mask) and torch.any(negative_mask):
+            separation = logits[positive_mask].mean() - logits[negative_mask].mean()
+            classification = classification + 0.25 * nn.functional.relu(1.0 - separation)
+        return classification
+
+    @staticmethod
+    def _balanced_probability_loss(probability, positive_mask):
+        """Balanced BCE for a bounded point anomaly probability."""
+        positive_mask = positive_mask.bool()
+        negative_mask = ~positive_mask
+        probability = probability.clamp(1e-6, 1.0 - 1e-6)
+        terms = []
+        if torch.any(positive_mask):
+            terms.append(-probability[positive_mask].log().mean())
+        if torch.any(negative_mask):
+            terms.append(-torch.log1p(-probability[negative_mask]).mean())
+        return sum(terms) / len(terms) if terms else probability.sum() * 0.0
+
+    def _v3_loss(self, clean, criterion, generator=None):
+        if self.args.features != 'M':
+            raise ValueError('ISTAD-v3 denoising currently requires --features M')
+        clean_outputs = self._forward_model(clean)
+        clean_loss = self._reconstruction_loss(criterion, clean_outputs, clean)
+
+        corrupted, corruption_mask = self._synthetic_corrupt(clean, generator=generator)
+        corrupted_outputs = self._forward_model(corrupted)
+        denoise_loss = self._masked_denoise_loss(corrupted_outputs, clean, corruption_mask)
+        frequency_lambda = float(getattr(self.args, 'istad_frequency_lambda', 0.0))
+        if frequency_lambda > 0.0:
+            denoise_loss = denoise_loss + frequency_lambda * self._spectral_reconstruction_loss(
+                corrupted_outputs, clean
+            )
+
+        evidence_loss = clean_loss.new_zeros(())
+        if bool(int(getattr(self.args, 'istad_evidence_head', 0) or 0)):
+            logits = self._model_core().evidence_logits(corrupted, corrupted_outputs)
+            positive_mask = self._target_view(corruption_mask)
+            valid_logits = self._valid_time_view(logits)
+            valid_positive_mask = self._valid_time_view(positive_mask)
+            evidence_loss = self._balanced_evidence_loss(
+                valid_logits, valid_positive_mask
+            )
+            point_probability = self._model_core().aggregate_evidence(
+                valid_logits.sigmoid(),
+                mode='learned',
+                topk=int(getattr(self.args, 'istad_score_topk', 3)),
+            )
+            point_loss = self._balanced_probability_loss(
+                point_probability, valid_positive_mask.any(dim=-1)
+            )
+            evidence_loss = evidence_loss + float(
+                getattr(self.args, 'istad_point_evidence_lambda', 0.0)
+            ) * point_loss
+
+        total = (
+            float(getattr(self.args, 'istad_clean_lambda', 1.0)) * clean_loss
+            + float(getattr(self.args, 'istad_denoise_lambda', 1.0)) * denoise_loss
+            + float(getattr(self.args, 'istad_evidence_lambda', 0.2)) * evidence_loss
+        )
+        return total, clean_loss.detach(), denoise_loss.detach(), evidence_loss.detach()
+
+    def _evidence_feature_score(self, batch_x, outputs):
+        logits = self._model_core().evidence_logits(batch_x, outputs)
+        transform = str(getattr(self.args, 'istad_evidence_transform', 'prob')).lower()
+        if transform == 'prob':
+            return logits.sigmoid()
+        elif transform == 'logit':
+            return logits
+        raise ValueError(f'Unsupported evidence transform: {transform}')
+
+    def _calibration_components(self, batch_x, outputs):
+        """Dense and sparse scores later calibrated only against normal train data."""
+        feature_score = self._evidence_feature_score(batch_x, outputs)
+        k = min(feature_score.shape[-1], max(
+            1, int(getattr(self.args, 'istad_score_topk', 3))
+        ))
+        dense_score = feature_score.mean(dim=-1)
+        sparse_score = feature_score.topk(k, dim=-1).values.mean(dim=-1)
+        return self._zero_invalid_prefix(
+            torch.stack([dense_score, sparse_score], dim=-1)
+        )
+
+    def _point_score(self, batch_x, outputs):
+        score_mode = str(getattr(self.args, 'istad_score_mode', 'base_mean')).lower()
+        if score_mode == 'base_mean':
+            reconstruction = self._base_recon(outputs, batch_x.shape[-1])
+            observed = self._target_view(batch_x)
+            return self._zero_invalid_prefix(
+                torch.mean((observed - reconstruction).square(), dim=-1)
+            )
+        if score_mode not in {'evidence', 'innovation_fused'}:
+            raise ValueError(f'Unsupported ISTAD score mode: {score_mode}')
+
+        feature_score = self._evidence_feature_score(batch_x, outputs)
+        aggregate = str(getattr(self.args, 'istad_score_aggregate', 'calibrated')).lower()
+        if aggregate in {'calibrated', 'calibrated_mean'}:
+            raise RuntimeError('calibrated aggregation requires train-reference scoring in test()')
+        return self._zero_invalid_prefix(self._model_core().aggregate_evidence(
+            feature_score,
+            mode=aggregate,
+            topk=int(getattr(self.args, 'istad_score_topk', 3)),
+        ))
+
+    def _base_recon(self, outputs, n_feat):
+        # 对双头输出只取 base 半部，供 test 打分/阈值流程复用
+        if self._dual_enabled():
+            return outputs[..., :n_feat]
+        return outputs
+
+    def vali(self, vali_data, vali_loader, criterion):
+        total_loss = []
+        self.model.eval()
+        with torch.no_grad():
+            for i, (batch_x, _) in enumerate(vali_loader):
+                batch_x = batch_x.float().to(self.device)
+
+                if self._v7_enabled():
+                    loss, _, _ = self._v7_loss(batch_x, criterion)
+                elif self._denoise_enabled():
+                    generator = torch.Generator(device=batch_x.device)
+                    generator.manual_seed(int(self.args.seed) + i)
+                    loss, _, _, _ = self._v3_loss(batch_x, criterion, generator=generator)
+                else:
+                    outputs = self._forward_model(batch_x)
+                    f_dim = -1 if self.args.features == 'MS' else 0
+                    outputs = outputs[:, :, f_dim:]
+                    loss = self._reconstruction_loss(criterion, outputs, batch_x)
+                total_loss.append(loss.item())
+        total_loss = np.average(total_loss)
+        self.model.train()
+        return total_loss
+
+    def train(self, setting):
+        train_data, train_loader = self._get_data(flag='train')
+        vali_data, vali_loader = self._get_data(flag='val')
+        self._configure_v7_causal_prior(train_data)
+        inspect_test = not bool(int(getattr(self.args, 'istad_no_test_during_train', 0) or 0))
+        test_data, test_loader = self._get_data(flag='test') if inspect_test else (None, None)
+        self._configure_innovation_relation_training_input(
+            train_data, vali_data, test_data
+        )
+
+        path = os.path.join(self.args.checkpoints, setting)
+        if not os.path.exists(path):
+            os.makedirs(path)
+
+        time_now = time.time()
+
+        train_steps = len(train_loader)
+        early_stopping = EarlyStopping(patience=self.args.patience, verbose=True)
+
+        model_optim = self._select_optimizer()
+        criterion = self._select_criterion()
+        epoch_train_times = []
+
+        for epoch in range(self.args.train_epochs):
+            iter_count = 0
+            train_loss = []
+
+            self.model.train()
+            epoch_time = time.time()
+            for i, (batch_x, batch_y) in enumerate(train_loader):
+                iter_count += 1
+                model_optim.zero_grad()
+
+                batch_x = batch_x.float().to(self.device)
+
+                if self._v7_enabled():
+                    loss, clean_part, prior_part = self._v7_loss(batch_x, criterion)
+                elif self._denoise_enabled():
+                    loss, clean_part, denoise_part, evidence_part = self._v3_loss(batch_x, criterion)
+                else:
+                    outputs = self._forward_model(batch_x)
+                    f_dim = -1 if self.args.features == 'MS' else 0
+                    outputs = outputs[:, :, f_dim:]
+                    loss = self._reconstruction_loss(criterion, outputs, batch_x)
+                train_loss.append(loss.item())
+
+                if (i + 1) % 100 == 0:
+                    if self._v7_enabled():
+                        print("\titers: {0}, epoch: {1} | loss: {2:.7f} "
+                              "forecast: {3:.7f} prior_kl: {4:.7f}".format(
+                                  i + 1, epoch + 1, loss.item(),
+                                  clean_part.item(), prior_part.item()))
+                    elif self._denoise_enabled():
+                        print("\titers: {0}, epoch: {1} | loss: {2:.7f} clean: {3:.7f} "
+                              "denoise: {4:.7f} evidence: {5:.7f}".format(
+                                  i + 1, epoch + 1, loss.item(), clean_part.item(),
+                                  denoise_part.item(), evidence_part.item()))
+                    else:
+                        print("\titers: {0}, epoch: {1} | loss: {2:.7f}".format(
+                            i + 1, epoch + 1, loss.item()))
+                    speed = (time.time() - time_now) / iter_count
+                    left_time = speed * ((self.args.train_epochs - epoch) * train_steps - i)
+                    print('\tspeed: {:.4f}s/iter; left time: {:.4f}s'.format(speed, left_time))
+                    iter_count = 0
+                    time_now = time.time()
+
+                loss.backward()
+                model_optim.step()
+
+            epoch_train_time = time.time() - epoch_time
+            epoch_train_times.append(epoch_train_time)
+            print("Epoch: {} cost time: {}".format(epoch + 1, epoch_train_time))
+            train_loss = np.average(train_loss)
+            vali_loss = self.vali(vali_data, vali_loader, criterion)
+            if inspect_test:
+                test_loss = self.vali(test_data, test_loader, criterion)
+                print("Epoch: {0}, Steps: {1} | Train Loss: {2:.7f} Vali Loss: {3:.7f} Test Loss: {4:.7f}".format(
+                    epoch + 1, train_steps, train_loss, vali_loss, test_loss))
+            else:
+                print("Epoch: {0}, Steps: {1} | Train Loss: {2:.7f} Vali Loss: {3:.7f}".format(
+                    epoch + 1, train_steps, train_loss, vali_loss))
+            early_stopping(vali_loss, self.model, path)
+            if early_stopping.early_stop:
+                print("Early stopping")
+                break
+            adjust_learning_rate(model_optim, epoch + 1, self.args)
+
+        self.avg_epoch_train_time = float(np.mean(epoch_train_times)) if epoch_train_times else 0.0
+
+        best_model_path = path + '/' + 'checkpoint.pth'
+        self._load_checkpoint(best_model_path)
+
+        return self.model
+
+    def test(self, setting, test=0):
+        test_data, test_loader = self._get_data(flag='test')
+        train_data, train_loader = self._get_data(flag='score_train')
+        requested_score_mode = str(
+            getattr(self.args, 'istad_score_mode', 'base_mean')
+        ).lower()
+        if test and requested_score_mode != 'innovation':
+            print('loading model')
+            self._load_checkpoint(
+                os.path.join(self.args.checkpoints, setting, 'checkpoint.pth')
+            )
+        elif test:
+            print('Innovation-only scoring: checkpoint loading is not required.')
+
+        attens_energy = []
+        result_root = os.environ.get('ISTAD_E1_RESULT_ROOT', './test_results')
+        folder_path = os.path.join(result_root, setting) + '/'
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
+        score_mode = requested_score_mode
+        innovation_scoring = score_mode in {
+            'innovation', 'innovation_fused', 'innovation_hgat'
+        }
+        hgat_innovation_scoring = score_mode == 'innovation_hgat'
+        v7_scoring = score_mode == 'v7_fused'
+        model_scoring = score_mode != 'innovation'
+        score_suffix = ''
+        if score_mode == 'evidence':
+            score_suffix = '_{}_{}'.format(
+                str(getattr(self.args, 'istad_score_aggregate', 'calibrated')).lower(),
+                str(getattr(self.args, 'istad_evidence_transform', 'prob')).lower(),
+            )
+        elif score_mode == 'innovation':
+            score_suffix = '_innovation'
+        elif score_mode == 'innovation_fused':
+            fusion_tag = format(float(getattr(
+                self.args, 'istad_innovation_fusion_weight', 0.001
+            )), '.6g').replace('.', 'p')
+            score_suffix = '_innovation_fused_w{}_{}_{}'.format(
+                fusion_tag,
+                str(getattr(self.args, 'istad_score_aggregate', 'calibrated')).lower(),
+                str(getattr(self.args, 'istad_evidence_transform', 'prob')).lower(),
+            )
+            if bool(int(getattr(self.args, 'istad_fusion_recalibrate', 0) or 0)):
+                score_suffix += '_train_ecdf'
+        elif score_mode == 'innovation_hgat':
+            hgat_strategy = str(getattr(
+                self.args, 'istad_hgat_fusion_strategy', 'rank_tiebreak'
+            )).lower()
+            if hgat_strategy == 'rank_tiebreak':
+                score_suffix = '_innovation_hgat_rank_tiebreak'
+            else:
+                graph_weight_tag = format(float(getattr(
+                    self.args, 'istad_hgat_fusion_max_weight', 0.20
+                )), '.6g').replace('.', 'p')
+                score_suffix = f'_innovation_hgat_w{graph_weight_tag}_train_ecdf'
+        elif score_mode == 'v7_fused':
+            score_suffix = '_v7_fused'
+
+        self.model.eval()
+        self.anomaly_criterion = nn.MSELoss(reduction='none')
+        aggregation_mode = str(
+            getattr(self.args, 'istad_score_aggregate', 'calibrated')
+        ).lower()
+        calibrated_aggregate = (
+            score_mode in {'evidence', 'innovation_fused'}
+            and aggregation_mode in {'calibrated', 'calibrated_mean'}
+        )
+        train_point_batches = []
+        test_point_batches = []
+        innovation_scorer = None
+        innovation_metadata = None
+        hgat_metadata = None
+        v7_metadata = None
+        e1_audit = None
+        e1_requested = os.environ.get('ISTAD_E1_COUNTERFACTUAL', '0') == '1'
+        if e1_requested and not test:
+            raise RuntimeError('E1 incidence audit is inference-only; use is_training=0')
+        if e1_requested and not hgat_innovation_scoring:
+            raise RuntimeError('E1 incidence audit requires score_mode=innovation_hgat')
+
+        # Fit V4 before neural scoring.  HGAT scoring needs the aligned
+        # per-variable innovations, so the two deterministic scoring loaders
+        # are read once up front and then replayed for the model forward pass.
+        # Test points are scored causally but never used to fit any parameter,
+        # calibration reference, or reliability gate.
+        if innovation_scoring:
+            for batch_x, _ in train_loader:
+                train_point_batches.append(batch_x.numpy())
+            for batch_x, _ in test_loader:
+                test_point_batches.append(batch_x.numpy())
+            train_points = np.concatenate(train_point_batches, axis=0).reshape(
+                -1, train_point_batches[0].shape[-1]
+            )
+            test_points = np.concatenate(test_point_batches, axis=0).reshape(
+                -1, test_point_batches[0].shape[-1]
+            )
+            train_entity_ids = getattr(train_data, 'point_entity_ids', None)
+            test_entity_ids_for_score = getattr(test_data, 'point_entity_ids', None)
+            if train_entity_ids is not None:
+                train_entity_ids = np.asarray(train_entity_ids).reshape(-1)
+                if len(train_entity_ids) != len(train_points):
+                    raise RuntimeError(
+                        f'Train entity metadata has {len(train_entity_ids)} points, '
+                        f'expected {len(train_points)}'
+                    )
+            if test_entity_ids_for_score is not None:
+                test_entity_ids_for_score = np.asarray(
+                    test_entity_ids_for_score
+                ).reshape(-1)
+                if len(test_entity_ids_for_score) != len(test_points):
+                    raise RuntimeError(
+                        f'Test entity metadata has {len(test_entity_ids_for_score)} points, '
+                        f'expected {len(test_points)}'
+                    )
+            innovation_scorer = self._new_innovation_scorer().fit(
+                train_points, train_entity_ids
+            )
+            train_innovation_energy = innovation_scorer.score(
+                train_points, train_entity_ids
+            )
+            test_innovation_energy = innovation_scorer.score(
+                test_points, test_entity_ids_for_score
+            )
+            innovation_metadata = innovation_scorer.metadata_dict()
+            print('Innovation branch:', json.dumps(innovation_metadata, sort_keys=True))
+            if hgat_innovation_scoring:
+                train_feature_evidence = innovation_scorer.feature_evidence(
+                    train_points, train_entity_ids
+                )
+                test_feature_evidence = innovation_scorer.feature_evidence(
+                    test_points, test_entity_ids_for_score
+                )
+                if self._innovation_relation_input_enabled():
+                    self._replace_split_with_innovations(
+                        train_data, 'train', innovation_scorer
+                    )
+                    self._replace_split_with_innovations(
+                        test_data, 'test', innovation_scorer
+                    )
+                if e1_requested:
+                    from utils.e1_incidence_audit import (
+                        E1IncidenceCounterfactualCollector,
+                    )
+                    e1_audit = E1IncidenceCounterfactualCollector(
+                        train_feature_evidence=train_feature_evidence,
+                        test_feature_evidence=test_feature_evidence,
+                        train_entity_ids=train_entity_ids,
+                        test_entity_ids=test_entity_ids_for_score,
+                        pool=innovation_scorer.selected_pool_,
+                        repeats=int(os.environ.get('ISTAD_E1_RANDOM_REPEATS', '100')),
+                        seed=int(self.args.seed),
+                        work_dir=os.path.join(folder_path, 'e1_temporary'),
+                    )
+
+        # (1) Statistics on normal training data.
+        train_point_cursor = 0
+        with torch.no_grad():
+            for i, (batch_x, batch_y) in enumerate(train_loader):
+                batch_x = batch_x.float().to(self.device)
+                if model_scoring:
+                    if v7_scoring:
+                        outputs, auxiliary = self._forward_model(
+                            batch_x, return_aux=True
+                        )
+                        score = self._v7_components(batch_x, outputs, auxiliary)
+                    elif hgat_innovation_scoring:
+                        _, auxiliary = self._forward_model(
+                            batch_x, return_aux=True
+                        )
+                        incidence = auxiliary['incidence'].detach().cpu().numpy()
+                        point_count = int(np.prod(incidence.shape[:2]))
+                        incidence = incidence.reshape(
+                            point_count, incidence.shape[2], incidence.shape[3]
+                        )
+                        evidence = train_feature_evidence[
+                            train_point_cursor:train_point_cursor + point_count
+                        ]
+                        if e1_audit is not None:
+                            e1_audit.consume('train', incidence, train_point_cursor)
+                        train_point_cursor += point_count
+                        score = hypergraph_pool_feature_evidence(
+                            evidence,
+                            incidence,
+                            pool=innovation_scorer.selected_pool_,
+                        )
+                        hgat_message_gate = float(
+                            auxiliary['message_gate'].detach().cpu().item()
+                        )
+                    else:
+                        outputs = self._forward_model(batch_x)
+                        score = (self._calibration_components(batch_x, outputs)
+                                 if calibrated_aggregate else self._point_score(batch_x, outputs))
+                    if torch.is_tensor(score):
+                        score = score.detach().cpu().numpy()
+                    attens_energy.append(np.asarray(score))
+
+        if hgat_innovation_scoring and train_point_cursor != len(train_points):
+            raise RuntimeError(
+                f'HGAT train alignment consumed {train_point_cursor} points, '
+                f'expected {len(train_points)}'
+            )
+
+        if model_scoring:
+            attens_energy = np.concatenate(attens_energy, axis=0)
+            if v7_scoring:
+                train_v7_components = np.asarray(attens_energy).reshape(-1, 2)
+            elif calibrated_aggregate:
+                train_components = np.asarray(attens_energy).reshape(-1, 2)
+            elif hgat_innovation_scoring:
+                train_hgat_raw = np.asarray(attens_energy).reshape(-1)
+            else:
+                train_model_energy = np.asarray(attens_energy).reshape(-1)
+
+        # (2) find the threshold
+        attens_energy = []
+        test_labels = []
+        test_point_cursor = 0
+        with torch.no_grad():
+            for i, (batch_x, batch_y) in enumerate(test_loader):
+                batch_x = batch_x.float().to(self.device)
+                if model_scoring:
+                    # Evaluation needs no autograd graph.  The old loop detached
+                    # only the final score and unnecessarily raised peak memory.
+                    if v7_scoring:
+                        outputs, auxiliary = self._forward_model(
+                            batch_x, return_aux=True
+                        )
+                        score = self._v7_components(batch_x, outputs, auxiliary)
+                    elif hgat_innovation_scoring:
+                        _, auxiliary = self._forward_model(
+                            batch_x, return_aux=True
+                        )
+                        incidence = auxiliary['incidence'].detach().cpu().numpy()
+                        point_count = int(np.prod(incidence.shape[:2]))
+                        incidence = incidence.reshape(
+                            point_count, incidence.shape[2], incidence.shape[3]
+                        )
+                        evidence = test_feature_evidence[
+                            test_point_cursor:test_point_cursor + point_count
+                        ]
+                        if e1_audit is not None:
+                            e1_audit.consume('test', incidence, test_point_cursor)
+                        test_point_cursor += point_count
+                        score = hypergraph_pool_feature_evidence(
+                            evidence,
+                            incidence,
+                            pool=innovation_scorer.selected_pool_,
+                        )
+                    else:
+                        outputs = self._forward_model(batch_x)
+                        score = (self._calibration_components(batch_x, outputs)
+                                 if calibrated_aggregate else self._point_score(batch_x, outputs))
+                    if torch.is_tensor(score):
+                        score = score.cpu().numpy()
+                    attens_energy.append(np.asarray(score))
+                test_labels.append(batch_y)
+
+        if hgat_innovation_scoring and test_point_cursor != len(test_points):
+            raise RuntimeError(
+                f'HGAT test alignment consumed {test_point_cursor} points, '
+                f'expected {len(test_points)}'
+            )
+
+        if model_scoring:
+            attens_energy = np.concatenate(attens_energy, axis=0)
+        if v7_scoring:
+            test_v7_components = np.asarray(attens_energy).reshape(-1, 2)
+            use_entity_calibration = bool(int(getattr(
+                self.args, 'istad_v7_entity_calibration', 1
+            ) or 0))
+            train_v7_entities = getattr(train_data, 'point_entity_ids', None)
+            test_v7_entities = getattr(test_data, 'point_entity_ids', None)
+            if use_entity_calibration:
+                train_v7_entities = (
+                    None if train_v7_entities is None
+                    else np.asarray(train_v7_entities).reshape(-1)
+                )
+                test_v7_entities = (
+                    None if test_v7_entities is None
+                    else np.asarray(test_v7_entities).reshape(-1)
+                )
+            else:
+                train_v7_entities = None
+                test_v7_entities = None
+            calibrator = EntitywiseComponentECDF().fit(
+                train_v7_components, train_v7_entities
+            )
+            train_v7_calibrated = calibrator.transform(
+                train_v7_components, train_v7_entities
+            )
+            test_v7_calibrated = calibrator.transform(
+                test_v7_components, test_v7_entities
+            )
+            relation_weight = float(getattr(
+                self.args, 'istad_v7_relation_score_weight', 0.25
+            ))
+            train_model_energy = (
+                (1.0 - relation_weight) * train_v7_calibrated[:, 0]
+                + relation_weight * train_v7_calibrated[:, 1]
+            )
+            test_model_energy = (
+                (1.0 - relation_weight) * test_v7_calibrated[:, 0]
+                + relation_weight * test_v7_calibrated[:, 1]
+            )
+            prior = self._model_core().backbone.causal_prior.detach().cpu().numpy()
+            learned_gates = self._model_core().backbone.gate_values()
+            if learned_gates is not None:
+                learned_gates = {
+                    name: values.detach().cpu().numpy().astype(float).tolist()
+                    for name, values in learned_gates.items()
+                }
+            v7_metadata = {
+                'prior': getattr(self, 'v7_prior_metadata', {
+                    'n_features': int(prior.shape[0]),
+                    'n_targets': int(prior.shape[1]),
+                    'topk': int(getattr(self.args, 'istad_v7_prior_topk', -1)),
+                    'loaded_from_checkpoint': True,
+                }),
+                'prior_nonzero': int(np.count_nonzero(prior)),
+                'prior_ready': bool(
+                    self._model_core().backbone.causal_prior_ready.item()
+                ),
+                'relation_score_weight': relation_weight,
+                'learned_gates': learned_gates,
+                'calibration': calibrator.metadata_dict(),
+            }
+            print('V7 scoring:', json.dumps(v7_metadata, sort_keys=True))
+        elif hgat_innovation_scoring:
+            test_hgat_raw = np.asarray(attens_energy).reshape(-1)
+            train_model_energy, test_model_energy = training_ecdf_recalibrate(
+                train_hgat_raw, test_hgat_raw
+            )
+            hgat_metadata = {
+                'role': 'dynamic_hyperedge_pooling_of_v4_feature_innovations',
+                'relation_input': (
+                    'signed_standardized_var_innovation'
+                    if self._innovation_relation_input_enabled()
+                    else 'raw_normalized_value'
+                ),
+                'n_hyperedges': int(incidence.shape[-1]),
+                'pool': innovation_scorer.selected_pool_,
+                'message_gate': hgat_message_gate,
+                'component_calibration': 'normal_train_ecdf',
+            }
+        elif calibrated_aggregate:
+            test_components = np.asarray(attens_energy).reshape(-1, 2)
+            references = [np.sort(train_components[:, j]) for j in range(2)]
+
+            def empirical_union_score(values):
+                calibrated = [
+                    np.searchsorted(references[j], values[:, j], side='right')
+                    / float(len(references[j]))
+                    for j in range(2)
+                ]
+                if aggregation_mode == 'calibrated_mean':
+                    return 0.5 * (calibrated[0] + calibrated[1])
+                return np.maximum(calibrated[0], calibrated[1])
+
+            train_model_energy = empirical_union_score(train_components)
+            test_model_energy = empirical_union_score(test_components)
+        elif model_scoring:
+            test_model_energy = np.asarray(attens_energy).reshape(-1)
+
+        if innovation_scoring:
+            if score_mode == 'innovation':
+                train_energy = train_innovation_energy
+                test_energy = test_innovation_energy
+            elif score_mode == 'innovation_hgat':
+                max_graph_weight = float(getattr(
+                    self.args, 'istad_hgat_fusion_max_weight', 0.20
+                ))
+                graph_weight, reliability = training_only_hgat_reliability_gate(
+                    train_innovation_energy,
+                    train_model_energy,
+                    entity_ids=train_entity_ids,
+                    max_weight=max_graph_weight,
+                    reference_fraction=float(getattr(
+                        self.args, 'istad_hgat_reliability_reference_fraction', 0.80
+                    )),
+                    tail_probability=float(getattr(
+                        self.args, 'istad_hgat_reliability_tail_probability', 0.01
+                    )),
+                    inflation_limit=float(getattr(
+                        self.args, 'istad_hgat_reliability_inflation_limit', 1.25
+                    )),
+                )
+                hgat_strategy = str(getattr(
+                    self.args, 'istad_hgat_fusion_strategy', 'rank_tiebreak'
+                )).lower()
+                if graph_weight == 0.0:
+                    # Exact numerical fallback matters for POT/SPOT, which is
+                    # not invariant to an otherwise monotone re-calibration.
+                    train_energy = train_innovation_energy.copy()
+                    test_energy = test_innovation_energy.copy()
+                    final_calibration = 'exact_v4_fallback'
+                    effective_weight = 0.0
+                elif hgat_strategy == 'rank_tiebreak':
+                    # A V4 ECDF rank step is 1/(n+1).  Half a step of bounded
+                    # HGAT evidence can resolve equal ranks but provably cannot
+                    # invert any distinct V4 training ranks.
+                    train_energy, effective_weight = rank_safe_hgat_refine(
+                        train_innovation_energy,
+                        train_model_energy,
+                        innovation_scorer.metadata.calibration_size,
+                    )
+                    test_energy, _ = rank_safe_hgat_refine(
+                        test_innovation_energy,
+                        test_model_energy,
+                        innovation_scorer.metadata.calibration_size,
+                    )
+                    final_calibration = 'rank_safe_no_recalibration'
+                else:
+                    train_energy = (
+                        (1.0 - graph_weight) * train_innovation_energy
+                        + graph_weight * train_model_energy
+                    )
+                    test_energy = (
+                        (1.0 - graph_weight) * test_innovation_energy
+                        + graph_weight * test_model_energy
+                    )
+                    train_energy, test_energy = training_ecdf_recalibrate(
+                        train_energy, test_energy
+                    )
+                    final_calibration = 'normal_train_ecdf'
+                    effective_weight = graph_weight
+                hgat_metadata.update({
+                    'reliability_gate': reliability,
+                    'fusion_strategy': hgat_strategy,
+                    'selected_weight': effective_weight,
+                    'reliability_mix_weight': graph_weight,
+                    'final_calibration': final_calibration,
+                })
+                innovation_metadata = dict(innovation_metadata)
+                innovation_metadata['fusion'] = 'hgat_validated_innovation'
+                innovation_metadata['hgat'] = hgat_metadata
+                print('HGAT-validated innovation:', json.dumps(
+                    hgat_metadata, sort_keys=True
+                ))
+            else:
+                evidence_weight = float(getattr(
+                    self.args, 'istad_innovation_fusion_weight', 0.001
+                ))
+                train_energy = (
+                    (1.0 - evidence_weight) * train_innovation_energy
+                    + evidence_weight * train_model_energy
+                )
+                test_energy = (
+                    (1.0 - evidence_weight) * test_innovation_energy
+                    + evidence_weight * test_model_energy
+                )
+                if bool(int(getattr(
+                    self.args, 'istad_fusion_recalibrate', 0
+                ) or 0)):
+                    train_energy, test_energy = training_ecdf_recalibrate(
+                        train_energy, test_energy
+                    )
+                    innovation_metadata = dict(innovation_metadata)
+                    innovation_metadata['fusion_recalibration'] = 'train_ecdf'
+        else:
+            train_energy = train_model_energy
+            test_energy = test_model_energy
+        combined_energy = np.concatenate([train_energy, test_energy], axis=0)
+        
+        # 默认阈值：百分位数方法
+        threshold_source = str(getattr(self.args, 'istad_threshold_source', 'combined')).lower()
+        threshold_pool = train_energy if threshold_source == 'train' else combined_energy
+        threshold_percentile = np.percentile(threshold_pool, 100 - self.args.anomaly_ratio)
+        print("Percentile Threshold Source:", threshold_source)
+        print("Percentile Threshold :", threshold_percentile)
+        
+        # 使用百分位数阈值
+        threshold = threshold_percentile
+
+        # (3) evaluation on the test set
+        pred_raw = (test_energy > threshold).astype(int)
+        test_labels = np.concatenate(test_labels, axis=0).reshape(-1)
+        test_labels = np.array(test_labels)
+        gt = test_labels.astype(int)
+        point_entity_ids = getattr(test_data, 'point_entity_ids', None)
+        if point_entity_ids is not None:
+            point_entity_ids = np.asarray(point_entity_ids).reshape(-1)
+            if len(point_entity_ids) != len(gt):
+                raise RuntimeError(
+                    f'Entity metadata has {len(point_entity_ids)} points, expected {len(gt)}'
+                )
+
+        if e1_audit is not None:
+            checkpoint_path = os.path.join(
+                self.args.checkpoints, setting, 'checkpoint.pth'
+            )
+            e1_report_path = os.path.join(
+                folder_path, 'e1_incidence_counterfactual.json'
+            )
+            e1_audit.evaluate_and_write(
+                dataset=self.args.data,
+                setting=setting,
+                label=gt,
+                train_base_score=train_innovation_energy,
+                test_base_score=test_innovation_energy,
+                train_learned_graph_raw=train_hgat_raw,
+                test_learned_graph_raw=test_hgat_raw,
+                expected_train_graph_score=train_model_energy,
+                expected_test_graph_score=test_model_energy,
+                expected_train_final_score=train_energy,
+                expected_test_final_score=test_energy,
+                epsilon=hgat_metadata['selected_weight'],
+                hgat_metadata=hgat_metadata,
+                checkpoint_path=checkpoint_path,
+                output_path=e1_report_path,
+            )
+            print(f'Saved E1 incidence counterfactual audit: {e1_report_path}')
+
+        if bool(int(getattr(self.args, 'istad_dump_scores', 0) or 0)):
+            score_dump_path = os.path.join(folder_path, f'point_scores{score_suffix}.npz')
+            # Statistical scores are intentionally serialized as float64.  The
+            # V4-HG rank-safe correction is smaller than one empirical V4 rank
+            # step (typically O(1e-6)); casting it to float32 can erase valid
+            # within-tie refinements and make AP depend on serialization rather
+            # than on the detector.  Neural reconstruction tensors remain
+            # float32 below because they do not carry this rank guarantee.
+            score_artifact = {
+                'score': np.asarray(test_energy, dtype=np.float64),
+                'train_score': np.asarray(train_energy, dtype=np.float64),
+                'label': gt.astype(np.int8),
+            }
+            if model_scoring:
+                # Preserve the neural branch separately so innovation-fusion
+                # experiments can report honest branch ablations without
+                # reconstructing a tiny component by float subtraction.
+                score_artifact['model_score'] = test_model_energy.astype(np.float32)
+                score_artifact['train_model_score'] = train_model_energy.astype(np.float32)
+            if innovation_scoring:
+                score_artifact['innovation_score'] = np.asarray(
+                    test_innovation_energy, dtype=np.float64
+                )
+                score_artifact['train_innovation_score'] = np.asarray(
+                    train_innovation_energy, dtype=np.float64
+                )
+                score_artifact['innovation_metadata_json'] = np.asarray(
+                    json.dumps(innovation_metadata, sort_keys=True)
+                )
+            if hgat_innovation_scoring:
+                score_artifact['hgat_score'] = np.asarray(
+                    test_model_energy, dtype=np.float64
+                )
+                score_artifact['train_hgat_score'] = np.asarray(
+                    train_model_energy, dtype=np.float64
+                )
+                score_artifact['hgat_raw_score'] = np.asarray(
+                    test_hgat_raw, dtype=np.float64
+                )
+                score_artifact['train_hgat_raw_score'] = np.asarray(
+                    train_hgat_raw, dtype=np.float64
+                )
+                score_artifact['hgat_metadata_json'] = np.asarray(
+                    json.dumps(hgat_metadata, sort_keys=True)
+                )
+            if v7_scoring:
+                score_artifact['v7_components'] = test_v7_components.astype(np.float32)
+                score_artifact['train_v7_components'] = train_v7_components.astype(np.float32)
+                score_artifact['v7_calibrated_components'] = test_v7_calibrated.astype(np.float32)
+                score_artifact['train_v7_calibrated_components'] = train_v7_calibrated.astype(np.float32)
+                score_artifact['v7_metadata_json'] = np.asarray(
+                    json.dumps(v7_metadata, sort_keys=True)
+                )
+            if point_entity_ids is not None:
+                score_artifact['entity_id'] = point_entity_ids.astype(np.int16)
+            np.savez_compressed(score_dump_path, **score_artifact)
+            print(f"Saved point scores and labels: {score_dump_path}")
+
+        print("pred_raw:", pred_raw.shape)
+        print("gt:     ", gt.shape)
+
+        raw_accuracy = accuracy_score(gt, pred_raw)
+        raw_precision, raw_recall, raw_f_score, _ = precision_recall_fscore_support(
+            gt, pred_raw, average='binary', zero_division=0
+        )
+
+        # (4) detection adjustment.  Never let a PA segment propagate across
+        # independent SMD entities merely because their arrays are concatenated.
+        gt_pa, pred_pa = adjustment(
+            gt.copy(), pred_raw.copy(), entity_ids=point_entity_ids
+        )
+
+        pred_pa = np.array(pred_pa)
+        gt_pa = np.array(gt_pa)
+        print("pred_pa:", pred_pa.shape)
+        print("gt_pa:  ", gt_pa.shape)
+
+        accuracy = accuracy_score(gt_pa, pred_pa)
+        precision, recall, f_score, support = precision_recall_fscore_support(
+            gt_pa, pred_pa, average='binary', zero_division=0
+        )
+        print("\n" + "="*60)
+        print("使用百分位数阈值的结果:")
+        print("="*60)
+        print("Raw point F1: {:0.4f} (P={:0.4f}, R={:0.4f})".format(
+            raw_f_score, raw_precision, raw_recall))
+        print("Accuracy : {:0.4f}, Precision : {:0.4f}, Recall : {:0.4f}, F-score : {:0.4f} ".format(
+            accuracy, precision, recall, f_score))
+        print("="*60 + "\n")
+
+
+
+        # (5) Best F1 搜索（可选）
+        use_bestf1 = bool(int(getattr(self.args, 'use_bestf1_threshold', 0)))
+        bestf1_results = None
+        if not use_bestf1:
+            percentile_results = {
+                "method": "percentile",
+                "threshold": float(threshold_percentile),
+                "anomaly_ratio": float(self.args.anomaly_ratio),
+                "threshold_source": threshold_source,
+                "eval_step": int(getattr(self.args, 'istad_eval_step', 0) or 0),
+                "score_mode": str(getattr(self.args, 'istad_score_mode', 'base_mean')),
+                "score_aggregate": str(getattr(self.args, 'istad_score_aggregate', 'calibrated')),
+                "evidence_transform": str(
+                    getattr(self.args, 'istad_evidence_transform', 'prob')
+                ),
+                "entity_aware": bool(int(
+                    getattr(self.args, 'istad_entity_aware', 0) or 0
+                )),
+                "evaluated_points": int(len(gt)),
+                "raw_accuracy": float(raw_accuracy),
+                "raw_precision": float(raw_precision),
+                "raw_recall": float(raw_recall),
+                "raw_f_score": float(raw_f_score),
+                "point_adjusted": True,
+                "accuracy": float(accuracy),
+                "precision": float(precision),
+                "recall": float(recall),
+                "f_score": float(f_score),
+                "roc_auc": float(roc_auc_score(gt, test_energy)),
+                "pr_auc": float(average_precision_score(gt, test_energy)),
+            }
+            if innovation_metadata is not None:
+                percentile_results["innovation"] = innovation_metadata
+            if v7_metadata is not None:
+                percentile_results["v7"] = v7_metadata
+            if point_entity_ids is not None:
+                per_entity = []
+                for entity_id in np.unique(point_entity_ids):
+                    keep = point_entity_ids == entity_id
+                    labels_entity = gt[keep]
+                    if np.unique(labels_entity).size < 2:
+                        continue
+                    per_entity.append({
+                        "entity_id": int(entity_id),
+                        "evaluated_points": int(keep.sum()),
+                        "roc_auc": float(roc_auc_score(labels_entity, test_energy[keep])),
+                        "pr_auc": float(average_precision_score(
+                            labels_entity, test_energy[keep]
+                        )),
+                    })
+                percentile_results["per_entity_ranking"] = per_entity
+                if per_entity:
+                    percentile_results["entity_macro_roc_auc"] = float(np.mean(
+                        [item["roc_auc"] for item in per_entity]
+                    ))
+                    percentile_results["entity_macro_pr_auc"] = float(np.mean(
+                        [item["pr_auc"] for item in per_entity]
+                    ))
+
+            percentile_summary_path = os.path.join(
+                folder_path, f'percentile_threshold_results{score_suffix}.json'
+            )
+            with open(percentile_summary_path, 'w') as f:
+                json.dump(percentile_results, f, indent=2)
+            print(f"Saved percentile threshold results: {percentile_summary_path}")
+        if use_bestf1:
+            search_mode = str(getattr(self.args, 'bestf1_search_mode', 'manual')).lower()
+            use_adjustment = bool(int(getattr(self.args, 'bestf1_use_adjustment', 1)))
+            
+            if search_mode == 'adaptive':
+                # 自适应搜索模式：自动确定搜索范围
+                from utils.tools import bf_search_adaptive
+                
+                coarse_step_num = int(getattr(self.args, 'bestf1_coarse_step_num', 50))
+                fine_step_num = int(getattr(self.args, 'bestf1_fine_step_num', 100))
+                
+                print(f"\n使用自适应 Best F1 搜索（两阶段）")
+                print(f"粗搜索步数: {coarse_step_num}, 精细搜索步数: {fine_step_num}")
+                
+                bestf1_results = bf_search_adaptive(
+                    score=test_energy,
+                    label=gt,
+                    coarse_step_num=coarse_step_num,
+                    fine_step_num=fine_step_num,
+                    verbose=True,
+                    use_adjustment=use_adjustment,
+                    entity_ids=point_entity_ids,
+                )
+            else:
+                # 手动搜索模式：用户指定搜索范围
+                from utils.tools import bf_search
+                
+                search_start = float(getattr(self.args, 'bestf1_search_start', 0.01))
+                search_end = float(getattr(self.args, 'bestf1_search_end', 2.0))
+                search_step_num = int(getattr(self.args, 'bestf1_search_step_num', 100))
+                
+                print(f"\n使用手动 Best F1 搜索")
+                print(f"搜索范围: [{search_start}, {search_end}], 步数: {search_step_num}")
+                
+                bestf1_results = bf_search(
+                    score=test_energy,
+                    label=gt,
+                    start=search_start,
+                    end=search_end,
+                    step_num=search_step_num,
+                    display_freq=max(1, search_step_num // 10),
+                    verbose=True,
+                    use_adjustment=use_adjustment,
+                    entity_ids=point_entity_ids,
+                )
+            
+            # 使用 Best F1 阈值重新预测
+            threshold_bestf1 = bestf1_results['threshold']
+            pred_bestf1 = (test_energy > threshold_bestf1).astype(int)
+            
+            if use_adjustment:
+                gt_bestf1, pred_bestf1 = adjustment(
+                    gt.copy(), pred_bestf1.copy(), entity_ids=point_entity_ids
+                )
+            else:
+                gt_bestf1 = gt
+            
+            # 保存 Best F1 结果到文件
+            bestf1_results["roc_auc"] = float(roc_auc_score(gt, test_energy))
+            bestf1_results["pr_auc"] = float(average_precision_score(gt, test_energy))
+            bestf1_results["entity_aware"] = point_entity_ids is not None
+            bestf1_results["evaluated_points"] = int(len(gt))
+            if innovation_metadata is not None:
+                bestf1_results["innovation"] = innovation_metadata
+            if v7_metadata is not None:
+                bestf1_results["v7"] = v7_metadata
+            
+            bestf1_summary_path = os.path.join(
+                folder_path, f'bestf1_threshold_results{score_suffix}.json'
+            )
+            with open(bestf1_summary_path, 'w') as f:
+                json.dump(bestf1_results, f, indent=2)
+            print(f"Saved Best F1 results: {bestf1_summary_path}")
+            
+            # 使用 Best F1 阈值更新可视化
+            threshold = threshold_bestf1
+            pred_raw = (test_energy > threshold_bestf1).astype(int)
+
+        plot_len = min(len(test_energy), len(gt), len(pred_raw))
+        if plot_len <= 0:
+            print("Skip plotting: empty aligned score/label arrays.")
+            return
+        score_for_plot = np.asarray(test_energy[:plot_len]).reshape(-1)
+        gt_for_plot = np.asarray(gt[:plot_len]).reshape(-1).astype(np.int8)
+        pred_for_plot = np.asarray(pred_raw[:plot_len]).reshape(-1).astype(np.int8)
+
+        plot_path = os.path.join(folder_path, f'anomaly_score_threshold{score_suffix}.png')
+        self._plot_anomaly_score_vs_threshold(
+            score=score_for_plot,
+            threshold=threshold,
+            gt=gt_for_plot,
+            pred=pred_for_plot,
+            save_path=plot_path
+        )
+        print(f"Saved anomaly score plot: {plot_path}")
+
+        # ISTAD-specific explainability outputs (saliency heatmap + feature summary)
+        self._run_istad_explainability(
+            test_loader=test_loader,
+            test_energy=test_energy,
+            threshold=threshold,
+            gt=gt,
+            pred=pred_raw,
+            folder_path=folder_path,
+            score_panel={
+                "score": score_for_plot,
+                "gt": gt_for_plot,
+                "pred": pred_for_plot,
+            },
+        )
+
+        f = open("result_anomaly_detection.txt", 'a')
+        f.write(setting + "  \n")
+        f.write("Percentile Threshold Method:\n")
+        f.write("Accuracy : {:0.4f}, Precision : {:0.4f}, Recall : {:0.4f}, F-score : {:0.4f} ".format(
+            accuracy, precision, recall, f_score))
+        f.write('\n')
+        if hasattr(self, "avg_epoch_train_time"):
+            train_time_summary_path = os.path.join(folder_path, 'train_time_summary.json')
+            train_time_summary = {
+                "avg_epoch_train_time": float(self.avg_epoch_train_time),
+                "unit": "seconds",
+            }
+            with open(train_time_summary_path, 'w') as time_f:
+                json.dump(train_time_summary, time_f, indent=2)
+            print(f"Saved train time summary: {train_time_summary_path}")
+        
+        if bestf1_results is not None:
+            f.write("\nBest F1 Threshold Method:\n")
+            f.write("Threshold: {:.6f}\n".format(bestf1_results['threshold']))
+            f.write("F1: {:.4f}, Precision: {:.4f}, Recall: {:.4f}\n".format(
+                bestf1_results['f1'], bestf1_results['precision'], bestf1_results['recall']))
+            f.write("TP: {}, TN: {}, FP: {}, FN: {}\n".format(
+                bestf1_results['TP'], bestf1_results['TN'], 
+                bestf1_results['FP'], bestf1_results['FN']))
+            f.write("ROC-AUC: {:.4f}, PR-AUC: {:.4f}\n".format(
+                bestf1_results['roc_auc'], bestf1_results['pr_auc']))
+        
+        f.write('\n')
+        f.close()
+        return

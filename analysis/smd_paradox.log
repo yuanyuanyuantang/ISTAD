@@ -1,0 +1,60 @@
+===== SMD seed 48 =====
+  n=708384 anom_frac=0.0416 n_seg=327 gate=0.119
+  ROC/AP: ISTAD 0.7652/0.1761 | TimesNet 0.7467/0.1471 | DLinear 0.7321/0.1459
+  [ISTAD gated]
+    normal tail: p90=0.3008 p99=1.296 p999=2.696 max=112.7
+    segmax     : p10=0.4051 p50=1.77 min=0.0271
+    bf+PA      : F1=0.8269 th=1.645 seg-hit 176/327 recall_pts=0.804 FP=4150
+    missed segs: 151 个，其中 segmax>0.5*th 的 near-miss 66 个
+  [TimesNet]
+    normal tail: p90=0.2022 p99=1.983 p999=12.76 max=1.567e+04
+    segmax     : p10=0.8323 p50=7.655 min=0.01876
+    bf+PA      : F1=0.8473 th=3.388 seg-hit 220/327 recall_pts=0.810 FP=3019
+    missed segs: 107 个，其中 segmax>0.5*th 的 near-miss 29 个
+  [DLinear]
+    normal tail: p90=0.1816 p99=2.452 p999=10.28 max=1.355e+04
+    segmax     : p10=1.026 p50=9.642 min=0.02143
+    bf+PA      : F1=0.8441 th=4.882 seg-hit 206/327 recall_pts=0.791 FP=2465
+    missed segs: 121 个，其中 segmax>0.5*th 的 near-miss 29 个
+    段交集: 共命中 170 | 仅 TimesNet 命中 50 (1081 pts) | 仅 ISTAD 命中 6 (898 pts)
+    ISTAD 的 151 个 miss 段: 自身 segmax/th 中位 0.462；同段在 TimesNet 的 segmax/th 中位 0.500
+===== SMD seed 2021 =====
+  n=708384 anom_frac=0.0416 n_seg=327 gate=0.093
+  ROC/AP: ISTAD 0.7857/0.2077 | TimesNet 0.7553/0.1530 | DLinear 0.7312/0.1456
+  [ISTAD gated]
+    normal tail: p90=0.2089 p99=0.8124 p999=2.148 max=48.54
+    segmax     : p10=0.3592 p50=1.664 min=0.02176
+    bf+PA      : F1=0.8583 th=1.031 seg-hit 214/327 recall_pts=0.848 FP=3783
+    missed segs: 113 个，其中 segmax>0.5*th 的 near-miss 61 个
+  [TimesNet]
+    normal tail: p90=0.1858 p99=1.747 p999=13.14 max=1.295e+04
+    segmax     : p10=0.8262 p50=7.197 min=0.01959
+    bf+PA      : F1=0.8509 th=3.428 seg-hit 220/327 recall_pts=0.814 FP=2921
+    missed segs: 107 个，其中 segmax>0.5*th 的 near-miss 30 个
+  [DLinear]
+    normal tail: p90=0.1821 p99=2.458 p999=10.37 max=1.362e+04
+    segmax     : p10=1.038 p50=9.723 min=0.009811
+    bf+PA      : F1=0.8447 th=5.033 seg-hit 202/327 recall_pts=0.790 FP=2363
+    missed segs: 125 个，其中 segmax>0.5*th 的 near-miss 33 个
+    段交集: 共命中 203 | 仅 TimesNet 命中 17 (337 pts) | 仅 ISTAD 命中 11 (1348 pts)
+    ISTAD 的 113 个 miss 段: 自身 segmax/th 中位 0.542；同段在 TimesNet 的 segmax/th 中位 0.331
+===== SMD seed 2022 =====
+  n=708384 anom_frac=0.0416 n_seg=327 gate=0.118
+  ROC/AP: ISTAD 0.7646/0.1587 | TimesNet 0.7498/0.1510 | DLinear 0.7321/0.1457
+  [ISTAD gated]
+    normal tail: p90=0.3732 p99=1.33 p999=2.438 max=61.19
+    segmax     : p10=0.4716 p50=2.01 min=0.02788
+    bf+PA      : F1=0.8578 th=2.162 seg-hit 158/327 recall_pts=0.776 FP=975
+    missed segs: 169 个，其中 segmax>0.5*th 的 near-miss 66 个
+  [TimesNet]
+    normal tail: p90=0.1918 p99=1.875 p999=14.08 max=1.014e+04
+    segmax     : p10=0.9303 p50=7.665 min=0.01369
+    bf+PA      : F1=0.8553 th=3.369 seg-hit 218/327 recall_pts=0.818 FP=2783
+    missed segs: 109 个，其中 segmax>0.5*th 的 near-miss 34 个
+  [DLinear]
+    normal tail: p90=0.1803 p99=2.455 p999=10.29 max=1.364e+04
+    segmax     : p10=1.054 p50=10.02 min=0.03313
+    bf+PA      : F1=0.8433 th=4.855 seg-hit 204/327 recall_pts=0.790 FP=2483
+    missed segs: 123 个，其中 segmax>0.5*th 的 near-miss 31 个
+    段交集: 共命中 157 | 仅 TimesNet 命中 61 (1437 pts) | 仅 ISTAD 命中 1 (203 pts)
+    ISTAD 的 169 个 miss 段: 自身 segmax/th 中位 0.410；同段在 TimesNet 的 segmax/th 中位 0.593

@@ -1,0 +1,38 @@
+{
+  "protocol": "masked_channel_relation_bottleneck_v1",
+  "scope": "smoke",
+  "artifacts": [
+    {
+      "dataset": "PSM",
+      "seed": 87,
+      "arm": "learned_dynamic",
+      "score_sha256": "7ddba5375bcef67a66ac79a180649d1b86a0afcfe32a32d6a0e1bfcd8128d92d",
+      "diagnostic_sha256": "62166fd19925192e604cc7d269e359e9edf85e5610a46d6e9179f3e6be532095",
+      "checkpoint_sha256": "9a7edd74319ce6e168721425db07ab9a217ecccb0f6f6e5f1e12f088fcd998b9"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 87,
+      "arm": "learned_static",
+      "score_sha256": "14619187da2a988fe957bec681288057f20377afa077c3e7b874729b6d9fcc78",
+      "diagnostic_sha256": "37225616497eb79ba4d03bc1d32528ac2115384706ddc3686f4112ece561f592",
+      "checkpoint_sha256": "680d5b0c7380a1996505ca4b6a61c630515c689c366dde923a7460c3618500fc"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 87,
+      "arm": "fixed_random",
+      "score_sha256": "436ca4426c60ba5ebdec0eae843a12a02689c38ff1d7a1f9262faeac5d9369a9",
+      "diagnostic_sha256": "4f104ae79109e1d62828e52b95c0f5db1f35422ed9dc2a589a2aafb124a1234d",
+      "checkpoint_sha256": "418cddfcb828ce826395e9c299a8fa270003c051ad4bdcaedda16f52f6976475"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 87,
+      "arm": "no_message",
+      "score_sha256": "1286a1065254cc3f69e61f6908b5eba1a1b1cc81f04a9128419d7d2af04f37de",
+      "diagnostic_sha256": "4bf5eb12453d9fd1a0c350b222034b85a59cf894ac7ab540c04e9f885fc3f3e8",
+      "checkpoint_sha256": "658950b19788c9bb4dbd18b284dbf1a4eaa5deabcff80bb614a937d29f500036"
+    }
+  ]
+}

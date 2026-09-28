@@ -1,0 +1,64 @@
+{
+  "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s90_0",
+  "score_artifact": {
+    "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s90_0/point_scores.npz",
+    "sha256": "06a83a3178453741c67dddc51ed10ab3f6d30f113612be6f6a6169d6b4988209",
+    "bytes": 9658146,
+    "stored_dtypes": {
+      "score": "float64",
+      "train_score": "float64",
+      "label": "int8",
+      "model_score": "float32",
+      "train_model_score": "float32",
+      "entity_id": "int16"
+    }
+  },
+  "checkpoint": {
+    "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s90_0/checkpoint.pth",
+    "sha256": "d41b5c063d07d86a68a19c9f5cee05e96a91d52077b05a3de020ca836b0e7440",
+    "bytes": 64802
+  },
+  "n_train": 565632,
+  "n_test": 706560,
+  "anomaly_rate": 0.04154919610507246,
+  "roc_auc": 0.7507635083318405,
+  "average_precision": 0.15379458284934905,
+  "train_threshold": {
+    "percentile": 99.0,
+    "value": 0.6870610326528472,
+    "point": {
+      "precision": 0.250975975975976,
+      "recall": 0.22774806690056887,
+      "f1": 0.23879850706287836,
+      "predicted_positive": 26640
+    },
+    "event": {
+      "event_precision": 0.129790102060466,
+      "event_recall": 0.852760736196319,
+      "event_f1": 0.2252909440908801,
+      "true_events": 326,
+      "predicted_events": 10386,
+      "detected_events": 278,
+      "correct_predicted_events": 1348,
+      "mean_detection_delay": 9.032374100719425,
+      "mean_normalized_detection_delay": 0.11687848297349403
+    }
+  },
+  "best_raw": {
+    "precision": 0.24653709867926554,
+    "recall": 0.23462887897264706,
+    "f1": 0.24043563250488692,
+    "threshold": 0.6613515019416808,
+    "selection": "exact_test_label_oracle_no_point_adjustment"
+  },
+  "train_time": {
+    "avg_epoch_train_time": 4.1481152176856995,
+    "unit": "seconds"
+  },
+  "score_statistics": {
+    "train_mean": 0.2149945914334836,
+    "train_std": 18.213476143040054,
+    "test_mean": 0.8896666227936696,
+    "test_std": 67.01084865162342
+  }
+}

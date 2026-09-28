@@ -1,0 +1,211 @@
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+test: (708420, 38)
+train: (708405, 38)
+train 7084
+[train-dump] SMD TimesNet s2021  n=708400  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SMD_TimesNet_SMD_ftM_sl100_ll48_pl0_dm64_nh8_el2_dl1_df64_expand2_dc4_fc1_ebtimeF_dtTrue_ms2021_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+test: (708420, 38)
+train: (708405, 38)
+train 7084
+[train-dump] SMD TimesNet s2022  n=708400  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SMD_TimesNet_SMD_ftM_sl100_ll48_pl0_dm64_nh8_el2_dl1_df64_expand2_dc4_fc1_ebtimeF_dtTrue_ms2022_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (708420, 38)
+train: (708405, 38)
+train 7084
+[train-dump] SMD DLinear s48  n=708400  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SMD_DLinear_SMD_ftM_sl100_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_ms48_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (708420, 38)
+train: (708405, 38)
+train 7084
+[train-dump] SMD DLinear s2021  n=708400  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SMD_DLinear_SMD_ftM_sl100_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_ms2021_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (708420, 38)
+train: (708405, 38)
+train 7084
+[train-dump] SMD DLinear s2022  n=708400  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SMD_DLinear_SMD_ftM_sl100_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_ms2022_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (708420, 38)
+train: (708405, 38)
+train 7084
+[train-dump] SMD KANAD s48  n=680064  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SMD_KANAD_SMD_ftM_sl96_ll48_pl96_dm4_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_ms48_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (708420, 38)
+train: (708405, 38)
+train 7084
+[train-dump] SMD KANAD s2021  n=680064  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SMD_KANAD_SMD_ftM_sl96_ll48_pl96_dm4_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_ms2021_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (708420, 38)
+train: (708405, 38)
+train 7084
+[train-dump] SMD KANAD s2022  n=680064  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SMD_KANAD_SMD_ftM_sl96_ll48_pl96_dm4_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_ms2022_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+test: (87841, 25)
+train: (132481, 25)
+train 132382
+[train-dump] PSM TimesNet s48  n=13238200  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_PSM_TimesNet_PSM_ftM_sl100_ll48_pl0_dm64_nh8_el2_dl1_df64_expand2_dc4_fc1_ebtimeF_dtTrue_ms48_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+test: (87841, 25)
+train: (132481, 25)
+train 132382
+[train-dump] PSM TimesNet s2021  n=13238200  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_PSM_TimesNet_PSM_ftM_sl100_ll48_pl0_dm64_nh8_el2_dl1_df64_expand2_dc4_fc1_ebtimeF_dtTrue_ms2021_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+test: (87841, 25)
+train: (132481, 25)
+train 132382
+[train-dump] PSM TimesNet s2022  n=13238200  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_PSM_TimesNet_PSM_ftM_sl100_ll48_pl0_dm64_nh8_el2_dl1_df64_expand2_dc4_fc1_ebtimeF_dtTrue_ms2022_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (87841, 25)
+train: (132481, 25)
+train 132382
+[train-dump] PSM DLinear s48  n=13238200  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_PSM_DLinear_PSM_ftM_sl100_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_ms48_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (87841, 25)
+train: (132481, 25)
+train 132382
+[train-dump] PSM DLinear s2021  n=13238200  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_PSM_DLinear_PSM_ftM_sl100_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_ms2021_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (87841, 25)
+train: (132481, 25)
+train 132382
+[train-dump] PSM DLinear s2022  n=13238200  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_PSM_DLinear_PSM_ftM_sl100_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_ms2022_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (87841, 25)
+train: (132481, 25)
+train 132418
+[train-dump] PSM KANAD s48  n=8474752  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_PSM_KANAD_PSM_ftM_sl64_ll48_pl96_dm6_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_ms48_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (87841, 25)
+train: (132481, 25)
+train 132418
+[train-dump] PSM KANAD s2021  n=8474752  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_PSM_KANAD_PSM_ftM_sl64_ll48_pl96_dm6_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_ms2021_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (87841, 25)
+train: (132481, 25)
+train 132418
+[train-dump] PSM KANAD s2022  n=8474752  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_PSM_KANAD_PSM_ftM_sl64_ll48_pl96_dm6_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_ms2022_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+test: (449919, 51)
+train: (495000, 51)
+train 4950
+[train-dump] SWAT TimesNet s48  n=495000  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SWAT_TimesNet_SWAT_ftM_sl100_ll48_pl0_dm64_nh8_el2_dl1_df64_expand2_dc4_fc1_ebtimeF_dtTrue_ms48_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+test: (449919, 51)
+train: (495000, 51)
+train 4950
+[train-dump] SWAT TimesNet s2021  n=495000  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SWAT_TimesNet_SWAT_ftM_sl100_ll48_pl0_dm64_nh8_el2_dl1_df64_expand2_dc4_fc1_ebtimeF_dtTrue_ms2021_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+test: (449919, 51)
+train: (495000, 51)
+train 4950
+[train-dump] SWAT TimesNet s2022  n=495000  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SWAT_TimesNet_SWAT_ftM_sl100_ll48_pl0_dm64_nh8_el2_dl1_df64_expand2_dc4_fc1_ebtimeF_dtTrue_ms2022_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (449919, 51)
+train: (495000, 51)
+train 4950
+[train-dump] SWAT DLinear s48  n=495000  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SWAT_DLinear_SWAT_ftM_sl100_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_ms48_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (449919, 51)
+train: (495000, 51)
+train 4950
+[train-dump] SWAT DLinear s2021  n=495000  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SWAT_DLinear_SWAT_ftM_sl100_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_ms2021_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (449919, 51)
+train: (495000, 51)
+train 4950
+[train-dump] SWAT DLinear s2022  n=495000  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SWAT_DLinear_SWAT_ftM_sl100_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_ms2022_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (449919, 51)
+train: (495000, 51)
+train 4950
+[train-dump] SWAT KANAD s48  n=396000  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SWAT_KANAD_SWAT_ftM_sl80_ll48_pl96_dm1_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_ms48_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (449919, 51)
+train: (495000, 51)
+train 4950
+[train-dump] SWAT KANAD s2021  n=396000  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SWAT_KANAD_SWAT_ftM_sl80_ll48_pl96_dm1_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_ms2021_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (449919, 51)
+train: (495000, 51)
+train 4950
+[train-dump] SWAT KANAD s2022  n=396000  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_SWAT_KANAD_SWAT_ftM_sl80_ll48_pl96_dm1_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_ms2022_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+test: (52844, 19)
+train: (88230, 19)
+train 882
+[train-dump] Exathlon TimesNet s48  n=84672  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_Exathlon_TimesNet_EXATHLON_ftM_sl96_ll48_pl0_dm64_nh8_el2_dl1_df64_expand2_dc4_fc1_ebtimeF_dtTrue_ms48_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+test: (52844, 19)
+train: (88230, 19)
+train 882
+[train-dump] Exathlon TimesNet s2021  n=84672  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_Exathlon_TimesNet_EXATHLON_ftM_sl96_ll48_pl0_dm64_nh8_el2_dl1_df64_expand2_dc4_fc1_ebtimeF_dtTrue_ms2021_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+test: (52844, 19)
+train: (88230, 19)
+train 882
+[train-dump] Exathlon TimesNet s2022  n=84672  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_Exathlon_TimesNet_EXATHLON_ftM_sl96_ll48_pl0_dm64_nh8_el2_dl1_df64_expand2_dc4_fc1_ebtimeF_dtTrue_ms2022_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (52844, 19)
+train: (88230, 19)
+train 882
+[train-dump] Exathlon DLinear s48  n=84672  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_Exathlon_DLinear_EXATHLON_ftM_sl96_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_ms48_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (52844, 19)
+train: (88230, 19)
+train 882
+[train-dump] Exathlon DLinear s2021  n=84672  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_Exathlon_DLinear_EXATHLON_ftM_sl96_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_ms2021_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (52844, 19)
+train: (88230, 19)
+train 882
+[train-dump] Exathlon DLinear s2022  n=84672  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_Exathlon_DLinear_EXATHLON_ftM_sl96_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_ms2022_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (52844, 19)
+train: (88230, 19)
+train 882
+[train-dump] Exathlon KANAD s48  n=84672  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_Exathlon_KANAD_EXATHLON_ftM_sl96_ll48_pl96_dm4_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_ms48_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (52844, 19)
+train: (88230, 19)
+train 882
+[train-dump] Exathlon KANAD s2021  n=84672  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_Exathlon_KANAD_EXATHLON_ftM_sl96_ll48_pl96_dm4_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_ms2021_0/train_scores.npy
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (52844, 19)
+train: (88230, 19)
+train 882
+[train-dump] Exathlon KANAD s2022  n=84672  -> /data/modeluse/TS/Time-Series-Library/test_results/anomaly_detection_Exathlon_KANAD_EXATHLON_ftM_sl96_ll48_pl96_dm4_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_ms2022_0/train_scores.npy
+ALL_DONE

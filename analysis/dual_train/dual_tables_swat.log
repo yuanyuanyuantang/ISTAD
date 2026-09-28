@@ -1,0 +1,16 @@
+s48   gate=0.737 revinROC=0.2388 | min_z: A=0.0000 C=0.0000 D=0.8638 ROC=0.8374 AP=0.5266 | base视角: D=0.8615 ROC=0.8488 | [sep]base: D=0.8710 ROC=0.8422
+s89   gate=0.730 revinROC=0.2430 | min_z: A=0.0000 C=0.0000 D=0.8943 ROC=0.6973 AP=0.1887 | base视角: D=0.8750 ROC=0.8426 | [sep]base: D=0.8714 ROC=0.8310
+s2021 gate=0.747 revinROC=0.2362 | min_z: A=0.0000 C=0.0000 D=0.8786 ROC=0.7583 AP=0.2411 | base视角: D=0.8780 ROC=0.8589 | [sep]base: D=0.8641 ROC=0.8507
+
+===== SWAT 双头联合 3 种子 mean±std =====
+A    dual_min_z=0.0000±0.0000  dual_base=0.7037±0.0680  sep_base=0.2583±0.3516
+C    dual_min_z=0.0000±0.0000  dual_base=0.8137±0.0095  sep_base=0.8125±0.0054
+D    dual_min_z=0.8789±0.0125  dual_base=0.8715±0.0072  sep_base=0.8689±0.0034
+ROC  dual_min_z=0.7643±0.0574  dual_base=0.8501±0.0067  sep_base=0.8413±0.0081
+AP   dual_min_z=0.3188±0.1485  dual_base=0.7484±0.0069  sep_base=0.7317±0.0048
+revin 第二视角单独: ROC=0.2393 AP=0.0890（分开训练 ~0.24/~0.09，诊断判据要求 >=0.7）
+当前 gated 采纳: AP=0.7317 ROC=0.8413 D=0.8689
+
+=== 预注册判定 ===
+AP 0.3188 < 0.7 | ROC 0.7643 < 0.82 | D 0.8789 >= 0.869
+>>> KEEP GATED：未全过预注册线（预期内——水平型异常被窗口归一化抹掉，第二视角反相关），SWAT 维持 gated，双头线在 SWAT 终止

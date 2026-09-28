@@ -1,0 +1,11 @@
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (87841, 25)
+train: (132481, 25)
+TEST 1372
+test: (87841, 25)
+train: (132481, 25)
+test errors: (87808, 25) (base + revin)
+train errors: (132480, 25) (base + revin)
+[dual] 联合训练新模型，无同权重参考，跳过回归校验
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/PSM_s2021_dual_l05.npz

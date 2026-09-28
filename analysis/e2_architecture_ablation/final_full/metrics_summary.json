@@ -1,0 +1,4895 @@
+{
+  "schema_version": "istad-e2-architecture-ablation-v1",
+  "status": "ANALYZED_FROM_48_TRAINED_MODELS",
+  "scope": "full",
+  "protocol": {
+    "score": "mean per-point reconstruction squared error",
+    "primary_metric": "average_precision",
+    "secondary_metric": "roc_auc",
+    "deployable_threshold": "normal-train percentile 99.0",
+    "point_adjustment": false,
+    "paired_seeds": [
+      87,
+      90,
+      98
+    ],
+    "decoder_shape_control": "identical across all arms"
+  },
+  "expected_runs": [
+    [
+      "EXA",
+      87,
+      "learned_dynamic"
+    ],
+    [
+      "EXA",
+      87,
+      "learned_static"
+    ],
+    [
+      "EXA",
+      87,
+      "fixed_random"
+    ],
+    [
+      "EXA",
+      87,
+      "no_message"
+    ],
+    [
+      "EXA",
+      90,
+      "learned_dynamic"
+    ],
+    [
+      "EXA",
+      90,
+      "learned_static"
+    ],
+    [
+      "EXA",
+      90,
+      "fixed_random"
+    ],
+    [
+      "EXA",
+      90,
+      "no_message"
+    ],
+    [
+      "EXA",
+      98,
+      "learned_dynamic"
+    ],
+    [
+      "EXA",
+      98,
+      "learned_static"
+    ],
+    [
+      "EXA",
+      98,
+      "fixed_random"
+    ],
+    [
+      "EXA",
+      98,
+      "no_message"
+    ],
+    [
+      "PSM",
+      87,
+      "learned_dynamic"
+    ],
+    [
+      "PSM",
+      87,
+      "learned_static"
+    ],
+    [
+      "PSM",
+      87,
+      "fixed_random"
+    ],
+    [
+      "PSM",
+      87,
+      "no_message"
+    ],
+    [
+      "PSM",
+      90,
+      "learned_dynamic"
+    ],
+    [
+      "PSM",
+      90,
+      "learned_static"
+    ],
+    [
+      "PSM",
+      90,
+      "fixed_random"
+    ],
+    [
+      "PSM",
+      90,
+      "no_message"
+    ],
+    [
+      "PSM",
+      98,
+      "learned_dynamic"
+    ],
+    [
+      "PSM",
+      98,
+      "learned_static"
+    ],
+    [
+      "PSM",
+      98,
+      "fixed_random"
+    ],
+    [
+      "PSM",
+      98,
+      "no_message"
+    ],
+    [
+      "SMD",
+      87,
+      "learned_dynamic"
+    ],
+    [
+      "SMD",
+      87,
+      "learned_static"
+    ],
+    [
+      "SMD",
+      87,
+      "fixed_random"
+    ],
+    [
+      "SMD",
+      87,
+      "no_message"
+    ],
+    [
+      "SMD",
+      90,
+      "learned_dynamic"
+    ],
+    [
+      "SMD",
+      90,
+      "learned_static"
+    ],
+    [
+      "SMD",
+      90,
+      "fixed_random"
+    ],
+    [
+      "SMD",
+      90,
+      "no_message"
+    ],
+    [
+      "SMD",
+      98,
+      "learned_dynamic"
+    ],
+    [
+      "SMD",
+      98,
+      "learned_static"
+    ],
+    [
+      "SMD",
+      98,
+      "fixed_random"
+    ],
+    [
+      "SMD",
+      98,
+      "no_message"
+    ],
+    [
+      "SWAT",
+      87,
+      "learned_dynamic"
+    ],
+    [
+      "SWAT",
+      87,
+      "learned_static"
+    ],
+    [
+      "SWAT",
+      87,
+      "fixed_random"
+    ],
+    [
+      "SWAT",
+      87,
+      "no_message"
+    ],
+    [
+      "SWAT",
+      90,
+      "learned_dynamic"
+    ],
+    [
+      "SWAT",
+      90,
+      "learned_static"
+    ],
+    [
+      "SWAT",
+      90,
+      "fixed_random"
+    ],
+    [
+      "SWAT",
+      90,
+      "no_message"
+    ],
+    [
+      "SWAT",
+      98,
+      "learned_dynamic"
+    ],
+    [
+      "SWAT",
+      98,
+      "learned_static"
+    ],
+    [
+      "SWAT",
+      98,
+      "fixed_random"
+    ],
+    [
+      "SWAT",
+      98,
+      "no_message"
+    ]
+  ],
+  "runs": {
+    "EXA": {
+      "87": {
+        "learned_dynamic": {
+          "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s87_0/point_scores.npz",
+            "sha256": "757a0f13b9e7852701a2dfa547cba840e51fe60fc0d2e0abf1132bb71fadbb1c",
+            "bytes": 953703,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s87_0/checkpoint.pth",
+            "sha256": "6cf3009f8661ae0ddebd3baa03723e31e1ca58e7ddf25cfac1e22f9f276a1db1",
+            "bytes": 25826
+          },
+          "n_train": 70500,
+          "n_test": 52800,
+          "anomaly_rate": 0.12859848484848485,
+          "roc_auc": 0.8869371709230145,
+          "average_precision": 0.5924270842066995,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 4.836761574745117,
+            "point": {
+              "precision": 0.7044079515989629,
+              "recall": 0.12002945508100148,
+              "f1": 0.2051088461054486,
+              "predicted_positive": 1157
+            },
+            "event": {
+              "event_precision": 0.5862944162436549,
+              "event_recall": 0.9157894736842105,
+              "event_f1": 0.7149031535136865,
+              "true_events": 95,
+              "predicted_events": 394,
+              "detected_events": 87,
+              "correct_predicted_events": 231,
+              "mean_detection_delay": 3.4597701149425286,
+              "mean_normalized_detection_delay": 0.0631300373965575
+            }
+          },
+          "best_raw": {
+            "precision": 0.6566536497446681,
+            "recall": 0.6438880706921944,
+            "f1": 0.6502082093991672,
+            "threshold": 0.6018613576889037,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 0.7732140302658081,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.7250652212291058,
+            "train_std": 6.8954255060568785,
+            "test_mean": 0.8204427608767715,
+            "test_std": 13.192233576657735
+          }
+        },
+        "learned_static": {
+          "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s87_0/point_scores.npz",
+            "sha256": "7b6f185668bc054b22a9e70c8628c45193ff3d12f457e7c300eab74ca22dd285",
+            "bytes": 953508,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s87_0/checkpoint.pth",
+            "sha256": "aa0fa49f9be5a7bee46fc0b9da17086db53ab0b9d8f20457e9eefb4443088a24",
+            "bytes": 25826
+          },
+          "n_train": 70500,
+          "n_test": 52800,
+          "anomaly_rate": 0.12859848484848485,
+          "roc_auc": 0.8849226796121352,
+          "average_precision": 0.5898384030120345,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 4.856638588905295,
+            "point": {
+              "precision": 0.7016622922134733,
+              "recall": 0.11811487481590574,
+              "f1": 0.20219336946930544,
+              "predicted_positive": 1143
+            },
+            "event": {
+              "event_precision": 0.5864661654135338,
+              "event_recall": 0.9157894736842105,
+              "event_f1": 0.715030820293978,
+              "true_events": 95,
+              "predicted_events": 399,
+              "detected_events": 87,
+              "correct_predicted_events": 234,
+              "mean_detection_delay": 3.4597701149425286,
+              "mean_normalized_detection_delay": 0.0631300373965575
+            }
+          },
+          "best_raw": {
+            "precision": 0.6524981357196122,
+            "recall": 0.6443298969072165,
+            "f1": 0.6483882919599852,
+            "threshold": 0.6021797657012938,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 0.7513810992240906,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.728640231665422,
+            "train_std": 6.880646575638746,
+            "test_mean": 0.8213781943948495,
+            "test_std": 13.193957249499364
+          }
+        },
+        "fixed_random": {
+          "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s87_0/point_scores.npz",
+            "sha256": "16f63063ce9df93ea5d8bc55575308288b3aa9fffb363ec03a115d01fb19a3c7",
+            "bytes": 953576,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s87_0/checkpoint.pth",
+            "sha256": "9bcc650d304dda2241ea892749bb4bd27aeecbfc8b5010ac05acbefbddc5f778",
+            "bytes": 25826
+          },
+          "n_train": 70500,
+          "n_test": 52800,
+          "anomaly_rate": 0.12859848484848485,
+          "roc_auc": 0.8871112110161107,
+          "average_precision": 0.5932520579400646,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 4.822455835342322,
+            "point": {
+              "precision": 0.7054263565891473,
+              "recall": 0.12061855670103093,
+              "f1": 0.2060118224122752,
+              "predicted_positive": 1161
+            },
+            "event": {
+              "event_precision": 0.5869017632241813,
+              "event_recall": 0.9157894736842105,
+              "event_f1": 0.7153544835374246,
+              "true_events": 95,
+              "predicted_events": 397,
+              "detected_events": 87,
+              "correct_predicted_events": 233,
+              "mean_detection_delay": 3.4597701149425286,
+              "mean_normalized_detection_delay": 0.0631300373965575
+            }
+          },
+          "best_raw": {
+            "precision": 0.6507678676904902,
+            "recall": 0.6490427098674522,
+            "f1": 0.6499041439315736,
+            "threshold": 0.5940328836441039,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 0.7411786079406738,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.7285574164824389,
+            "train_std": 6.904950892111034,
+            "test_mean": 0.825699693437394,
+            "test_std": 13.173862896260227
+          }
+        },
+        "no_message": {
+          "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s87_0/point_scores.npz",
+            "sha256": "b8021aad1bfb9379b9e02f6045ed1b2f08f37c450d70d01f648b7528352e0f76",
+            "bytes": 953753,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s87_0/checkpoint.pth",
+            "sha256": "bf69b306b375cf71b45ea66eaa758e2168a4cabe5db5953e7d8bc27f8bec8a98",
+            "bytes": 25826
+          },
+          "n_train": 70500,
+          "n_test": 52800,
+          "anomaly_rate": 0.12859848484848485,
+          "roc_auc": 0.8871723266281037,
+          "average_precision": 0.593308813891877,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 4.881722483634946,
+            "point": {
+              "precision": 0.7070446735395189,
+              "recall": 0.12120765832106038,
+              "f1": 0.2069399044505909,
+              "predicted_positive": 1164
+            },
+            "event": {
+              "event_precision": 0.5894206549118388,
+              "event_recall": 0.9157894736842105,
+              "event_f1": 0.7172224277334461,
+              "true_events": 95,
+              "predicted_events": 397,
+              "detected_events": 87,
+              "correct_predicted_events": 234,
+              "mean_detection_delay": 3.4597701149425286,
+              "mean_normalized_detection_delay": 0.0631300373965575
+            }
+          },
+          "best_raw": {
+            "precision": 0.6594709638187899,
+            "recall": 0.638880706921944,
+            "f1": 0.6490125673249552,
+            "threshold": 0.612379491329193,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 0.7210140824317932,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.7271623203747292,
+            "train_std": 6.912864346595058,
+            "test_mean": 0.8258987473768789,
+            "test_std": 13.196923075584753
+          }
+        }
+      },
+      "90": {
+        "learned_dynamic": {
+          "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s90_0/point_scores.npz",
+            "sha256": "96a6ed7a72884e9894da7f9cd7bb76985bfe8cba0559a0bbf9ab4e76df3a29d1",
+            "bytes": 953301,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s90_0/checkpoint.pth",
+            "sha256": "0a11285ed1a7d185ed1e9f8ae526d2da3cda3b7436444c876129a03a787632e0",
+            "bytes": 25826
+          },
+          "n_train": 70500,
+          "n_test": 52800,
+          "anomaly_rate": 0.12859848484848485,
+          "roc_auc": 0.8832105045999157,
+          "average_precision": 0.6010631039342178,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 4.836453671455347,
+            "point": {
+              "precision": 0.7157190635451505,
+              "recall": 0.12606774668630338,
+              "f1": 0.21437515652391687,
+              "predicted_positive": 1196
+            },
+            "event": {
+              "event_precision": 0.5945945945945946,
+              "event_recall": 0.9263157894736842,
+              "event_f1": 0.7242798353909465,
+              "true_events": 95,
+              "predicted_events": 407,
+              "detected_events": 88,
+              "correct_predicted_events": 242,
+              "mean_detection_delay": 3.340909090909091,
+              "mean_normalized_detection_delay": 0.06253102182008145
+            }
+          },
+          "best_raw": {
+            "precision": 0.7030784508440914,
+            "recall": 0.6256259204712813,
+            "f1": 0.6620947630922692,
+            "threshold": 0.7500514984130858,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 0.7853761981515324,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.7716545677574629,
+            "train_std": 6.932718582439135,
+            "test_mean": 0.8526955821346245,
+            "test_std": 13.179193734929134
+          }
+        },
+        "learned_static": {
+          "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s90_0/point_scores.npz",
+            "sha256": "e24413240f60d05e4af66cf68a9dec7d281fe9008356a203fb3252075fe4e6b5",
+            "bytes": 953337,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s90_0/checkpoint.pth",
+            "sha256": "cb2fed9a6b361c1cc41b3681c598a5ad4bd2a938bc6c87a46a2ca72477d9fef7",
+            "bytes": 25826
+          },
+          "n_train": 70500,
+          "n_test": 52800,
+          "anomaly_rate": 0.12859848484848485,
+          "roc_auc": 0.8827838780645432,
+          "average_precision": 0.5996801704308599,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 4.879443893432519,
+            "point": {
+              "precision": 0.7135678391959799,
+              "recall": 0.12547864506627393,
+              "f1": 0.21342685370741482,
+              "predicted_positive": 1194
+            },
+            "event": {
+              "event_precision": 0.5941320293398533,
+              "event_recall": 0.9263157894736842,
+              "event_f1": 0.7239365573742742,
+              "true_events": 95,
+              "predicted_events": 409,
+              "detected_events": 88,
+              "correct_predicted_events": 243,
+              "mean_detection_delay": 3.340909090909091,
+              "mean_normalized_detection_delay": 0.06253102182008145
+            }
+          },
+          "best_raw": {
+            "precision": 0.6981378634433192,
+            "recall": 0.6294550810014727,
+            "f1": 0.6620198265179679,
+            "threshold": 0.7469652295112609,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 0.7621853211346794,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.7772646038984841,
+            "train_std": 6.944446463965535,
+            "test_mean": 0.8571271299278879,
+            "test_std": 13.186225403568303
+          }
+        },
+        "fixed_random": {
+          "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s90_0/point_scores.npz",
+            "sha256": "b595adac05cf7a7fdad844f88f90f127d5e1660c289b6a4cef5766de9a6a137d",
+            "bytes": 953460,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s90_0/checkpoint.pth",
+            "sha256": "b299ed2e5984189be8d0b9bda698281da5278062bbe166629358bf29bdfb0e73",
+            "bytes": 25826
+          },
+          "n_train": 70500,
+          "n_test": 52800,
+          "anomaly_rate": 0.12859848484848485,
+          "roc_auc": 0.8789665546229785,
+          "average_precision": 0.5963552716699646,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 4.8226459217071485,
+            "point": {
+              "precision": 0.717948717948718,
+              "recall": 0.12783505154639174,
+              "f1": 0.21702712839104887,
+              "predicted_positive": 1209
+            },
+            "event": {
+              "event_precision": 0.5921375921375921,
+              "event_recall": 0.9263157894736842,
+              "event_f1": 0.7224540546064621,
+              "true_events": 95,
+              "predicted_events": 407,
+              "detected_events": 88,
+              "correct_predicted_events": 241,
+              "mean_detection_delay": 3.340909090909091,
+              "mean_normalized_detection_delay": 0.06253102182008145
+            }
+          },
+          "best_raw": {
+            "precision": 0.7024284763805722,
+            "recall": 0.6219440353460972,
+            "f1": 0.6597406655210123,
+            "threshold": 0.7446011900901793,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 0.7362918433021096,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.7646027038961332,
+            "train_std": 6.933148022996479,
+            "test_mean": 0.8548324522180624,
+            "test_std": 13.179000169785134
+          }
+        },
+        "no_message": {
+          "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s90_0/point_scores.npz",
+            "sha256": "524c942e9cf8a635861c63782edb80a6c9a0eb57cd20e646abec790c1a000321",
+            "bytes": 953631,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s90_0/checkpoint.pth",
+            "sha256": "9db82b343d0098cefc040840bbf778fb3d908dc4b770c70401f18cf8dfb66ba4",
+            "bytes": 25826
+          },
+          "n_train": 70500,
+          "n_test": 52800,
+          "anomaly_rate": 0.12859848484848485,
+          "roc_auc": 0.8841160338775045,
+          "average_precision": 0.599673570516184,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 4.954559874534562,
+            "point": {
+              "precision": 0.7164429530201343,
+              "recall": 0.12577319587628866,
+              "f1": 0.21398145828113255,
+              "predicted_positive": 1192
+            },
+            "event": {
+              "event_precision": 0.5889724310776943,
+              "event_recall": 0.9263157894736842,
+              "event_f1": 0.7200933196371677,
+              "true_events": 95,
+              "predicted_events": 399,
+              "detected_events": 88,
+              "correct_predicted_events": 235,
+              "mean_detection_delay": 3.6136363636363638,
+              "mean_normalized_detection_delay": 0.06566581805832597
+            }
+          },
+          "best_raw": {
+            "precision": 0.6873114181356201,
+            "recall": 0.6374079528718704,
+            "f1": 0.6614197295025598,
+            "threshold": 0.6974698901176452,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 0.6880659776575425,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.7714720179149023,
+            "train_std": 6.986412411302427,
+            "test_mean": 0.8508566785435665,
+            "test_std": 13.254386155553055
+          }
+        }
+      },
+      "98": {
+        "learned_dynamic": {
+          "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s98_0/point_scores.npz",
+            "sha256": "5e241fc453fa88de0467b61f1c3056d0b0c948d86d127bb1152456488e013c00",
+            "bytes": 953269,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s98_0/checkpoint.pth",
+            "sha256": "712121bdaad48a10dd2ea03264440793c581b67c977bf6828895aa2f75d9ee72",
+            "bytes": 25826
+          },
+          "n_train": 70500,
+          "n_test": 52800,
+          "anomaly_rate": 0.12859848484848485,
+          "roc_auc": 0.8811402016402273,
+          "average_precision": 0.5972208846256035,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 4.927972612380975,
+            "point": {
+              "precision": 0.7070879590093937,
+              "recall": 0.1219440353460972,
+              "f1": 0.2080140685843487,
+              "predicted_positive": 1171
+            },
+            "event": {
+              "event_precision": 0.5935960591133005,
+              "event_recall": 0.9157894736842105,
+              "event_f1": 0.720305065530687,
+              "true_events": 95,
+              "predicted_events": 406,
+              "detected_events": 87,
+              "correct_predicted_events": 241,
+              "mean_detection_delay": 3.586206896551724,
+              "mean_normalized_detection_delay": 0.06534301136934122
+            }
+          },
+          "best_raw": {
+            "precision": 0.6754740441405036,
+            "recall": 0.6400589101620029,
+            "f1": 0.6572897761645493,
+            "threshold": 0.6905062794685363,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 0.7876373880049762,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.7668164765203094,
+            "train_std": 6.945901590163323,
+            "test_mean": 0.8533042142437031,
+            "test_std": 13.285086767328623
+          }
+        },
+        "learned_static": {
+          "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s98_0/point_scores.npz",
+            "sha256": "f167330c3c2c225822c4e103a8c339ef7ad52e2a42903192b321dddbeb178fce",
+            "bytes": 953211,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s98_0/checkpoint.pth",
+            "sha256": "3cba7cc7880f4deadc6a0c7941d0d13fdfcb34b7d5ec5d29716e9e9bcaa61326",
+            "bytes": 25826
+          },
+          "n_train": 70500,
+          "n_test": 52800,
+          "anomaly_rate": 0.12859848484848485,
+          "roc_auc": 0.8818823835760875,
+          "average_precision": 0.5977965465368426,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 4.92898510932914,
+            "point": {
+              "precision": 0.7046232876712328,
+              "recall": 0.12120765832106038,
+              "f1": 0.2068358884141744,
+              "predicted_positive": 1168
+            },
+            "event": {
+              "event_precision": 0.5931372549019608,
+              "event_recall": 0.9263157894736842,
+              "event_f1": 0.7231976092641017,
+              "true_events": 95,
+              "predicted_events": 408,
+              "detected_events": 88,
+              "correct_predicted_events": 242,
+              "mean_detection_delay": 3.7954545454545454,
+              "mean_normalized_detection_delay": 0.06850672714923506
+            }
+          },
+          "best_raw": {
+            "precision": 0.6835123183828175,
+            "recall": 0.6374079528718704,
+            "f1": 0.6596555403139766,
+            "threshold": 0.7129579782485961,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 0.7629263401031494,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.7737052241133143,
+            "train_std": 6.943043815673115,
+            "test_mean": 0.8552539427315456,
+            "test_std": 13.310504368403981
+          }
+        },
+        "fixed_random": {
+          "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s98_0/point_scores.npz",
+            "sha256": "09ce41eefd093176b2da171f3b0deb70a662cdc4a785c8b5199a5c1ea7d71477",
+            "bytes": 953044,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s98_0/checkpoint.pth",
+            "sha256": "8487806131e397957213029ae3c37356dcd1aa6ca8d62e4b0864c911d1bac72e",
+            "bytes": 25826
+          },
+          "n_train": 70500,
+          "n_test": 52800,
+          "anomaly_rate": 0.12859848484848485,
+          "roc_auc": 0.880298808064713,
+          "average_precision": 0.5972152819644858,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 4.890376081466556,
+            "point": {
+              "precision": 0.7064377682403433,
+              "recall": 0.12120765832106038,
+              "f1": 0.20691389063482088,
+              "predicted_positive": 1165
+            },
+            "event": {
+              "event_precision": 0.5931372549019608,
+              "event_recall": 0.9263157894736842,
+              "event_f1": 0.7231976092641017,
+              "true_events": 95,
+              "predicted_events": 408,
+              "detected_events": 88,
+              "correct_predicted_events": 242,
+              "mean_detection_delay": 3.7954545454545454,
+              "mean_normalized_detection_delay": 0.06850672714923506
+            }
+          },
+          "best_raw": {
+            "precision": 0.6713318978775761,
+            "recall": 0.6428571428571429,
+            "f1": 0.6567860367138129,
+            "threshold": 0.6769816875457763,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 0.7383502090678495,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.7662713450234357,
+            "train_std": 6.930822826972841,
+            "test_mean": 0.8524801372350406,
+            "test_std": 13.316429731306675
+          }
+        },
+        "no_message": {
+          "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s98_0/point_scores.npz",
+            "sha256": "917b91211a487150fec2e88fd39e68fb640de91dcbcbc963133ab149b3e2b9f9",
+            "bytes": 953468,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s98_0/checkpoint.pth",
+            "sha256": "eab1a768b5279e5c09c53c59c51a12283f72cb04edeab96fccb82d87617f6308",
+            "bytes": 25826
+          },
+          "n_train": 70500,
+          "n_test": 52800,
+          "anomaly_rate": 0.12859848484848485,
+          "roc_auc": 0.881934826231987,
+          "average_precision": 0.5986266044745241,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 4.950697855949364,
+            "point": {
+              "precision": 0.7094017094017094,
+              "recall": 0.12223858615611193,
+              "f1": 0.20854271356783918,
+              "predicted_positive": 1170
+            },
+            "event": {
+              "event_precision": 0.5960591133004927,
+              "event_recall": 0.9263157894736842,
+              "event_f1": 0.725365305357812,
+              "true_events": 95,
+              "predicted_events": 406,
+              "detected_events": 88,
+              "correct_predicted_events": 242,
+              "mean_detection_delay": 3.7954545454545454,
+              "mean_normalized_detection_delay": 0.06850672714923506
+            }
+          },
+          "best_raw": {
+            "precision": 0.6692818346409173,
+            "recall": 0.6533136966126657,
+            "f1": 0.661201371292294,
+            "threshold": 0.6613440513610839,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 0.6877959335551542,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.7688945477117672,
+            "train_std": 6.988715875177714,
+            "test_mean": 0.850878081206818,
+            "test_std": 13.271365366249798
+          }
+        }
+      }
+    },
+    "PSM": {
+      "87": {
+        "learned_dynamic": {
+          "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s87_0/point_scores.npz",
+            "sha256": "f9873eb3c12a7e82f4c33d245bbd74cf5731c3ad2f33f98fe3b1fe49f1c55680",
+            "bytes": 1459359,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s87_0/checkpoint.pth",
+            "sha256": "c4df7b12626f5f00923131487b22706c3930cc1c21f89c8ea642fe4cedcf9e59",
+            "bytes": 36002
+          },
+          "n_train": 105984,
+          "n_test": 87808,
+          "anomaly_rate": 0.27735513848396504,
+          "roc_auc": 0.7731233791417009,
+          "average_precision": 0.5626393439958652,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.34171525061130475,
+            "point": {
+              "precision": 0.4764175940646529,
+              "recall": 0.47988010183132135,
+              "f1": 0.4781425795233712,
+              "predicted_positive": 24531
+            },
+            "event": {
+              "event_precision": 0.5085139318885449,
+              "event_recall": 0.7638888888888888,
+              "event_f1": 0.6105741610624852,
+              "true_events": 72,
+              "predicted_events": 1292,
+              "detected_events": 55,
+              "correct_predicted_events": 657,
+              "mean_detection_delay": 7.709090909090909,
+              "mean_normalized_detection_delay": 0.12937551771159167
+            }
+          },
+          "best_raw": {
+            "precision": 0.4497968416202404,
+            "recall": 0.881826394021516,
+            "f1": 0.5957281553398058,
+            "threshold": 0.16240030527114865,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 65.82481877009074,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.05724411855207755,
+            "train_std": 0.8962281024201906,
+            "test_mean": 0.53083401471432,
+            "test_std": 2.1844103480009425
+          }
+        },
+        "learned_static": {
+          "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s87_0/point_scores.npz",
+            "sha256": "89138d23e3a22f3f791740f7c27b755d394c5810994e31029fc4c1d7cecaa059",
+            "bytes": 1459616,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s87_0/checkpoint.pth",
+            "sha256": "fddc173f5e421ddbb142c91415b03d1de1121b4ef64d2916d346b81df27e0c9b",
+            "bytes": 36002
+          },
+          "n_train": 105984,
+          "n_test": 87808,
+          "anomaly_rate": 0.27735513848396504,
+          "roc_auc": 0.7792768743797605,
+          "average_precision": 0.5668065623900216,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.36027178704738605,
+            "point": {
+              "precision": 0.4836925255564898,
+              "recall": 0.4487969122115464,
+              "f1": 0.46559178718238164,
+              "predicted_positive": 22597
+            },
+            "event": {
+              "event_precision": 0.5740897544453852,
+              "event_recall": 0.7638888888888888,
+              "event_f1": 0.6555273312179729,
+              "true_events": 72,
+              "predicted_events": 1181,
+              "detected_events": 55,
+              "correct_predicted_events": 678,
+              "mean_detection_delay": 16.163636363636364,
+              "mean_normalized_detection_delay": 0.13306424972982517
+            }
+          },
+          "best_raw": {
+            "precision": 0.45820852470656104,
+            "recall": 0.8479510552681284,
+            "f1": 0.5949325151606816,
+            "threshold": 0.181239441037178,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 63.86832865079244,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.05849821687591161,
+            "train_std": 0.9314816108300685,
+            "test_mean": 0.5412167469565634,
+            "test_std": 2.2463072316179655
+          }
+        },
+        "fixed_random": {
+          "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s87_0/point_scores.npz",
+            "sha256": "10130495d48589dfc4c12e759a5d3f3836769af72da298c964cb86820428d5dc",
+            "bytes": 1458220,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s87_0/checkpoint.pth",
+            "sha256": "12466cdc32cdbc89c7f20ae51ac21791aaf53f9ea85ea944019a318eedbbd121",
+            "bytes": 36002
+          },
+          "n_train": 105984,
+          "n_test": 87808,
+          "anomaly_rate": 0.27735513848396504,
+          "roc_auc": 0.7773721978347453,
+          "average_precision": 0.5687264039138096,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.372253140211105,
+            "point": {
+              "precision": 0.4853730309849403,
+              "recall": 0.4605403629793874,
+              "f1": 0.47263073616788165,
+              "predicted_positive": 23108
+            },
+            "event": {
+              "event_precision": 0.560081466395112,
+              "event_recall": 0.75,
+              "event_f1": 0.6412747765254566,
+              "true_events": 72,
+              "predicted_events": 982,
+              "detected_events": 54,
+              "correct_predicted_events": 550,
+              "mean_detection_delay": 10.24074074074074,
+              "mean_normalized_detection_delay": 0.12053244695557509
+            }
+          },
+          "best_raw": {
+            "precision": 0.4547775269520454,
+            "recall": 0.8851112753551778,
+            "f1": 0.6008389893105515,
+            "threshold": 0.17025767266750333,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 60.661434173583984,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.05874498089355441,
+            "train_std": 0.9322149659761134,
+            "test_mean": 0.5299337667980241,
+            "test_std": 2.208466167366603
+          }
+        },
+        "no_message": {
+          "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s87_0/point_scores.npz",
+            "sha256": "e30dc9c36f815a6ab135b8deed853167b603b043d11690900b021634f72bbc62",
+            "bytes": 1459688,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s87_0/checkpoint.pth",
+            "sha256": "42e37859fa7fd0a3ff0acf036c0de76216c3bb5ba3eb90c2dc36a21e02cdd0ee",
+            "bytes": 36002
+          },
+          "n_train": 105984,
+          "n_test": 87808,
+          "anomaly_rate": 0.27735513848396504,
+          "roc_auc": 0.7689538333053282,
+          "average_precision": 0.5720332413670476,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.44223468065261823,
+            "point": {
+              "precision": 0.4714202754272441,
+              "recall": 0.46665845446333254,
+              "f1": 0.46902727910527836,
+              "predicted_positive": 24108
+            },
+            "event": {
+              "event_precision": 0.5756731662024142,
+              "event_recall": 0.7638888888888888,
+              "event_f1": 0.6565583634175691,
+              "true_events": 72,
+              "predicted_events": 1077,
+              "detected_events": 55,
+              "correct_predicted_events": 620,
+              "mean_detection_delay": 5.618181818181818,
+              "mean_normalized_detection_delay": 0.11538126475441295
+            }
+          },
+          "best_raw": {
+            "precision": 0.4428506843121943,
+            "recall": 0.8848649092551532,
+            "f1": 0.5902815821189876,
+            "threshold": 0.19861812889575955,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 56.84420029322306,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.0696724393455952,
+            "train_std": 1.0492937037948409,
+            "test_mean": 0.6378174239142785,
+            "test_std": 2.3737213511001674
+          }
+        }
+      },
+      "90": {
+        "learned_dynamic": {
+          "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s90_0/point_scores.npz",
+            "sha256": "9e9ba7858f9ea6b410f06838785d5ab9c35acf311b750ad0b0b584894767bd73",
+            "bytes": 1461397,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s90_0/checkpoint.pth",
+            "sha256": "d3d38ae33c7bd6938f0890773629363e43099a7c26d367e11b11e35bf1a1b232",
+            "bytes": 36002
+          },
+          "n_train": 105984,
+          "n_test": 87808,
+          "anomaly_rate": 0.27735513848396504,
+          "roc_auc": 0.7744101541664324,
+          "average_precision": 0.5605052123468635,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.40891960591077803,
+            "point": {
+              "precision": 0.45272418126709546,
+              "recall": 0.5029153321836248,
+              "f1": 0.47650171179582945,
+              "predicted_positive": 27054
+            },
+            "event": {
+              "event_precision": 0.5190505933791381,
+              "event_recall": 0.75,
+              "event_f1": 0.6135105204872647,
+              "true_events": 72,
+              "predicted_events": 1601,
+              "detected_events": 54,
+              "correct_predicted_events": 831,
+              "mean_detection_delay": 6.351851851851852,
+              "mean_normalized_detection_delay": 0.09459721867456228
+            }
+          },
+          "best_raw": {
+            "precision": 0.46139644175897954,
+            "recall": 0.9030138786236347,
+            "f1": 0.6107362048376795,
+            "threshold": 0.21573312580585477,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 65.08338912328084,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.06704463713371833,
+            "train_std": 1.0881764926702446,
+            "test_mean": 0.587591102292834,
+            "test_std": 2.29403433633142
+          }
+        },
+        "learned_static": {
+          "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s90_0/point_scores.npz",
+            "sha256": "d092f5a6f3098ae50252395123492c60fb1f1c213abbd43ab5b6bfb81bf96c99",
+            "bytes": 1459401,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s90_0/checkpoint.pth",
+            "sha256": "37a5cd892fcc664263e750dbf5d909d712df04a62bb32694ccb58801a77bcd05",
+            "bytes": 36002
+          },
+          "n_train": 105984,
+          "n_test": 87808,
+          "anomaly_rate": 0.27735513848396504,
+          "roc_auc": 0.7624731114533022,
+          "average_precision": 0.5577327547508533,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.39660923600196807,
+            "point": {
+              "precision": 0.488974786963015,
+              "recall": 0.45709123757904246,
+              "f1": 0.4724957555178268,
+              "predicted_positive": 22766
+            },
+            "event": {
+              "event_precision": 0.5166508087535681,
+              "event_recall": 0.75,
+              "event_f1": 0.6118309859154931,
+              "true_events": 72,
+              "predicted_events": 1051,
+              "detected_events": 54,
+              "correct_predicted_events": 543,
+              "mean_detection_delay": 9.444444444444445,
+              "mean_normalized_detection_delay": 0.12177443641039899
+            }
+          },
+          "best_raw": {
+            "precision": 0.4306885852492821,
+            "recall": 0.9176316005584298,
+            "f1": 0.5862308670959956,
+            "threshold": 0.1709303259849548,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 64.00593145688374,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.0664889297182078,
+            "train_std": 1.104374197032396,
+            "test_mean": 0.556972709556967,
+            "test_std": 2.35896697045072
+          }
+        },
+        "fixed_random": {
+          "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s90_0/point_scores.npz",
+            "sha256": "6b1dc04593092af45e6d9d3b29fd5f270c10a364e4f62e26749a14d7fc608f98",
+            "bytes": 1460574,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s90_0/checkpoint.pth",
+            "sha256": "6771a77efef9d851838737b6bb517b2f2338ecc586dc368bd25344c1b6ab3d47",
+            "bytes": 36002
+          },
+          "n_train": 105984,
+          "n_test": 87808,
+          "anomaly_rate": 0.27735513848396504,
+          "roc_auc": 0.7687204910422882,
+          "average_precision": 0.5634835837626976,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.41706609159708,
+            "point": {
+              "precision": 0.4723445685938152,
+              "recall": 0.41832963784183297,
+              "f1": 0.44369923567711167,
+              "predicted_positive": 21569
+            },
+            "event": {
+              "event_precision": 0.5303398058252428,
+              "event_recall": 0.7361111111111112,
+              "event_f1": 0.616508730834753,
+              "true_events": 72,
+              "predicted_events": 824,
+              "detected_events": 53,
+              "correct_predicted_events": 437,
+              "mean_detection_delay": 9.320754716981131,
+              "mean_normalized_detection_delay": 0.13389170445651014
+            }
+          },
+          "best_raw": {
+            "precision": 0.44554677771653706,
+            "recall": 0.8961977498562864,
+            "f1": 0.5951923208028251,
+            "threshold": 0.17262658476829526,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 61.003915230433144,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.06945522043525157,
+            "train_std": 1.0819444439726704,
+            "test_mean": 0.553169242705881,
+            "test_std": 2.329993404550377
+          }
+        },
+        "no_message": {
+          "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s90_0/point_scores.npz",
+            "sha256": "6792b2dc22d8367f72ce85fe836de45145bc7e436524cbffe01d13582e884850",
+            "bytes": 1459452,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s90_0/checkpoint.pth",
+            "sha256": "f34a9acdcf5d08e4a643bc1226d04bed2597cfb4a5902adc198a2cd936a56bfe",
+            "bytes": 36002
+          },
+          "n_train": 105984,
+          "n_test": 87808,
+          "anomaly_rate": 0.27735513848396504,
+          "roc_auc": 0.7557075660871997,
+          "average_precision": 0.5571189845511599,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.40709537833929044,
+            "point": {
+              "precision": 0.47919468911355056,
+              "recall": 0.45347786811201446,
+              "f1": 0.4659817303432417,
+              "predicted_positive": 23047
+            },
+            "event": {
+              "event_precision": 0.5297891842346472,
+              "event_recall": 0.75,
+              "event_f1": 0.6209489704565802,
+              "true_events": 72,
+              "predicted_events": 1091,
+              "detected_events": 54,
+              "correct_predicted_events": 578,
+              "mean_detection_delay": 11.203703703703704,
+              "mean_normalized_detection_delay": 0.12214569453468449
+            }
+          },
+          "best_raw": {
+            "precision": 0.4227308962532741,
+            "recall": 0.9145109632914511,
+            "f1": 0.5781931464174455,
+            "threshold": 0.17647227644920346,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 56.632827361424766,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.06870606184200431,
+            "train_std": 1.0138058033737134,
+            "test_mean": 0.6212846598841507,
+            "test_std": 2.275610928266629
+          }
+        }
+      },
+      "98": {
+        "learned_dynamic": {
+          "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s98_0/point_scores.npz",
+            "sha256": "2f27f8138c3b891132f241d2a199c554be2a2e0df36b3de20839ad98da08e659",
+            "bytes": 1458143,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s98_0/checkpoint.pth",
+            "sha256": "0cfafc3ce496d0c9a14f4f157750784767f38ed111dac26ed62017bde8a8275d",
+            "bytes": 36002
+          },
+          "n_train": 105984,
+          "n_test": 87808,
+          "anomaly_rate": 0.27735513848396504,
+          "roc_auc": 0.782155391162915,
+          "average_precision": 0.5709277757007845,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.33474502295255604,
+            "point": {
+              "precision": 0.4835876508161817,
+              "recall": 0.44764720374476474,
+              "f1": 0.4649238773508465,
+              "predicted_positive": 22544
+            },
+            "event": {
+              "event_precision": 0.5539170506912442,
+              "event_recall": 0.7916666666666666,
+              "event_f1": 0.65178800764862,
+              "true_events": 72,
+              "predicted_events": 1085,
+              "detected_events": 57,
+              "correct_predicted_events": 601,
+              "mean_detection_delay": 6.140350877192983,
+              "mean_normalized_detection_delay": 0.11786050505506646
+            }
+          },
+          "best_raw": {
+            "precision": 0.48180705967646925,
+            "recall": 0.8732035805206537,
+            "f1": 0.6209776324242248,
+            "threshold": 0.17679037153720853,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 65.44659304618835,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.05618375292035503,
+            "train_std": 0.9841574864000359,
+            "test_mean": 0.5467421050007006,
+            "test_std": 2.250186581519626
+          }
+        },
+        "learned_static": {
+          "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s98_0/point_scores.npz",
+            "sha256": "976250428404c30519d648ac55f738d0443766bfc184d076052c37ad37702c31",
+            "bytes": 1458375,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s98_0/checkpoint.pth",
+            "sha256": "64feb84f3a6c8fc04354acbafa62cab4ae7676df5778558fa785a45d94b01c54",
+            "bytes": 36002
+          },
+          "n_train": 105984,
+          "n_test": 87808,
+          "anomaly_rate": 0.27735513848396504,
+          "roc_auc": 0.7790528234869709,
+          "average_precision": 0.5671046368482122,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.28715332865715015,
+            "point": {
+              "precision": 0.46405812869132734,
+              "recall": 0.4903917220990392,
+              "f1": 0.4768616490317429,
+              "predicted_positive": 25736
+            },
+            "event": {
+              "event_precision": 0.5024906600249066,
+              "event_recall": 0.7916666666666666,
+              "event_f1": 0.6147708592277776,
+              "true_events": 72,
+              "predicted_events": 1606,
+              "detected_events": 57,
+              "correct_predicted_events": 807,
+              "mean_detection_delay": 5.526315789473684,
+              "mean_normalized_detection_delay": 0.09949553548597721
+            }
+          },
+          "best_raw": {
+            "precision": 0.47766821345707655,
+            "recall": 0.8791574279379157,
+            "f1": 0.6190118245685043,
+            "threshold": 0.16989593207836148,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 64.53423420588176,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.055498310986745375,
+            "train_std": 0.9993018742883675,
+            "test_mean": 0.5260874731778743,
+            "test_std": 2.234941792278955
+          }
+        },
+        "fixed_random": {
+          "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s98_0/point_scores.npz",
+            "sha256": "e1a96a094eee505781ca00e30fbd60f0340a53c07b7d9563c72583c37117828b",
+            "bytes": 1461404,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s98_0/checkpoint.pth",
+            "sha256": "5e6cb68d3eb25810c313021a8da99795f5d88e34a2dbd5c4b35f7276820d22ad",
+            "bytes": 36002
+          },
+          "n_train": 105984,
+          "n_test": 87808,
+          "anomaly_rate": 0.27735513848396504,
+          "roc_auc": 0.7792935889455973,
+          "average_precision": 0.5710702170292714,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.3102210888266561,
+            "point": {
+              "precision": 0.4591439688715953,
+              "recall": 0.49905559661657223,
+              "f1": 0.4782685686178062,
+              "predicted_positive": 26471
+            },
+            "event": {
+              "event_precision": 0.5023041474654378,
+              "event_recall": 0.75,
+              "event_f1": 0.6016559337626496,
+              "true_events": 72,
+              "predicted_events": 1519,
+              "detected_events": 54,
+              "correct_predicted_events": 763,
+              "mean_detection_delay": 5.388888888888889,
+              "mean_normalized_detection_delay": 0.09082332468536224
+            }
+          },
+          "best_raw": {
+            "precision": 0.47158852498840576,
+            "recall": 0.8768169499876817,
+            "f1": 0.6133122711280248,
+            "threshold": 0.17781822383403775,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 61.64009769757589,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.06850871056104257,
+            "train_std": 0.9942350217652657,
+            "test_mean": 0.518366001946306,
+            "test_std": 2.2062083414796434
+          }
+        },
+        "no_message": {
+          "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s98_0/point_scores.npz",
+            "sha256": "cb0a0df3bd9ba4f1b7ab147334fa144e0e9fc9946d1b077586d68f8eff3e561d",
+            "bytes": 1459333,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s98_0/checkpoint.pth",
+            "sha256": "933f720463be55ed8cbbe86f5fd0c57df88edb006ba23bf2eacd3dc7fd6503b8",
+            "bytes": 36002
+          },
+          "n_train": 105984,
+          "n_test": 87808,
+          "anomaly_rate": 0.27735513848396504,
+          "roc_auc": 0.7719565733500545,
+          "average_precision": 0.5752245767795927,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.4502172562479971,
+            "point": {
+              "precision": 0.4945256289940564,
+              "recall": 0.45438121047877145,
+              "f1": 0.473604245575742,
+              "predicted_positive": 22377
+            },
+            "event": {
+              "event_precision": 0.6140583554376657,
+              "event_recall": 0.7361111111111112,
+              "event_f1": 0.6695680646129498,
+              "true_events": 72,
+              "predicted_events": 754,
+              "detected_events": 53,
+              "correct_predicted_events": 463,
+              "mean_detection_delay": 6.754716981132075,
+              "mean_normalized_detection_delay": 0.1175507521832504
+            }
+          },
+          "best_raw": {
+            "precision": 0.4363831308077198,
+            "recall": 0.9024390243902439,
+            "f1": 0.5882919778366658,
+            "threshold": 0.18534536659717557,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 56.60747687021891,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.07026169294797159,
+            "train_std": 1.0504738301520729,
+            "test_mean": 0.5956517229144837,
+            "test_std": 2.36144543681168
+          }
+        }
+      }
+    },
+    "SMD": {
+      "87": {
+        "learned_dynamic": {
+          "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_hglite_bs128_e2_learned_dynamic_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_hglite_bs128_e2_learned_dynamic_s87_0/point_scores.npz",
+            "sha256": "a48a18ad39f033abdc0dce29ab2f9486fc76e77f6d2f20a30a75066c42fd6434",
+            "bytes": 9647680,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32",
+              "entity_id": "int16"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_hglite_bs128_e2_learned_dynamic_s87_0/checkpoint.pth",
+            "sha256": "611672119af7672368ef0f07213b7bf4ec3e0c0bc0d262b4f7d1bb2cc36dc620",
+            "bytes": 64802
+          },
+          "n_train": 565632,
+          "n_test": 706560,
+          "anomaly_rate": 0.04154919610507246,
+          "roc_auc": 0.7477651058608671,
+          "average_precision": 0.1471749312177107,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.7430654209852199,
+            "point": {
+              "precision": 0.24423742983399022,
+              "recall": 0.20897911911980108,
+              "f1": 0.22523680152727807,
+              "predicted_positive": 25119
+            },
+            "event": {
+              "event_precision": 0.1449814126394052,
+              "event_recall": 0.8282208588957055,
+              "event_f1": 0.2467660292463442,
+              "true_events": 326,
+              "predicted_events": 10222,
+              "detected_events": 270,
+              "correct_predicted_events": 1482,
+              "mean_detection_delay": 7.951851851851852,
+              "mean_normalized_detection_delay": 0.11073300681155893
+            }
+          },
+          "best_raw": {
+            "precision": 0.23024277299193027,
+            "recall": 0.23033688728412305,
+            "f1": 0.23028982052242616,
+            "threshold": 0.6584450602531432,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 4.757134354114532,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.22252458225069074,
+            "train_std": 18.215845262393884,
+            "test_mean": 0.9002359864565556,
+            "test_std": 67.02303883159308
+          }
+        },
+        "learned_static": {
+          "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relstatic_v3_ent_hglite_bs128_e2_learned_static_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relstatic_v3_ent_hglite_bs128_e2_learned_static_s87_0/point_scores.npz",
+            "sha256": "bdd601939381ebfaa1a5b70521298a45ead57ec74022b054a0d7a99de550dfd8",
+            "bytes": 9660099,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32",
+              "entity_id": "int16"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relstatic_v3_ent_hglite_bs128_e2_learned_static_s87_0/checkpoint.pth",
+            "sha256": "de6fc073b6ace027979fb198a5d4ba4cd020294e9811433f07553241817db2db",
+            "bytes": 64802
+          },
+          "n_train": 565632,
+          "n_test": 706560,
+          "anomaly_rate": 0.04154919610507246,
+          "roc_auc": 0.7423183787755834,
+          "average_precision": 0.14942480041339795,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.7339774584770191,
+            "point": {
+              "precision": 0.25707041154671345,
+              "recall": 0.22447797799502675,
+              "f1": 0.2396712249054408,
+              "predicted_positive": 25635
+            },
+            "event": {
+              "event_precision": 0.13847546259050683,
+              "event_recall": 0.8404907975460123,
+              "event_f1": 0.23777602300005232,
+              "true_events": 326,
+              "predicted_events": 9944,
+              "detected_events": 274,
+              "correct_predicted_events": 1377,
+              "mean_detection_delay": 9.277372262773723,
+              "mean_normalized_detection_delay": 0.11338486317437714
+            }
+          },
+          "best_raw": {
+            "precision": 0.24236846674769924,
+            "recall": 0.2377286507476922,
+            "f1": 0.2400261383959279,
+            "threshold": 0.6675711274147033,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 4.36667492389679,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.22035376634196027,
+            "train_std": 18.21643934073939,
+            "test_mean": 0.9019453195172623,
+            "test_std": 67.02591605084845
+          }
+        },
+        "fixed_random": {
+          "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s87_0/point_scores.npz",
+            "sha256": "92efda31dde13cd5f0eae3d2cd1a6377fa41932d77a17cf3f39e82a545e603f6",
+            "bytes": 9656483,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32",
+              "entity_id": "int16"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s87_0/checkpoint.pth",
+            "sha256": "f1f4ecdc373c96b4bd846eea5da4e3c80e20ad089944d24d0bea91d9defda229",
+            "bytes": 64802
+          },
+          "n_train": 565632,
+          "n_test": 706560,
+          "anomaly_rate": 0.04154919610507246,
+          "roc_auc": 0.745919959659851,
+          "average_precision": 0.14679460097646133,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.7580976748466349,
+            "point": {
+              "precision": 0.25236718038112593,
+              "recall": 0.21698402425315938,
+              "f1": 0.23334188065496905,
+              "predicted_positive": 25241
+            },
+            "event": {
+              "event_precision": 0.13732015268669864,
+              "event_recall": 0.8343558282208589,
+              "event_f1": 0.23582731687843478,
+              "true_events": 326,
+              "predicted_events": 10217,
+              "detected_events": 272,
+              "correct_predicted_events": 1403,
+              "mean_detection_delay": 10.654411764705882,
+              "mean_normalized_detection_delay": 0.11478692914634149
+            }
+          },
+          "best_raw": {
+            "precision": 0.24566182781654664,
+            "recall": 0.22423953401233096,
+            "f1": 0.23446237133596895,
+            "threshold": 0.7226240038871764,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 4.164404785633087,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.22048035072606964,
+            "train_std": 18.214607044825094,
+            "test_mean": 0.9021551522607751,
+            "test_std": 67.0155624759036
+          }
+        },
+        "no_message": {
+          "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relno_message_v3_ent_hglite_bs128_e2_no_message_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relno_message_v3_ent_hglite_bs128_e2_no_message_s87_0/point_scores.npz",
+            "sha256": "f434bf9c56643772db98028830f5df2b99248756611d973d0585e23b9a0a9a98",
+            "bytes": 9663875,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32",
+              "entity_id": "int16"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relno_message_v3_ent_hglite_bs128_e2_no_message_s87_0/checkpoint.pth",
+            "sha256": "965851835633f2fd01dc297df777cae8f5533a4b5c8fad5beabdba151605eb7a",
+            "bytes": 64802
+          },
+          "n_train": 565632,
+          "n_test": 706560,
+          "anomaly_rate": 0.04154919610507246,
+          "roc_auc": 0.7423329578523384,
+          "average_precision": 0.14487003669647508,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.7618034136295242,
+            "point": {
+              "precision": 0.24565509303663918,
+              "recall": 0.2181081173144395,
+              "f1": 0.23106347659774096,
+              "predicted_positive": 26065
+            },
+            "event": {
+              "event_precision": 0.13424866514111367,
+              "event_recall": 0.8343558282208589,
+              "event_f1": 0.23128357747458742,
+              "true_events": 326,
+              "predicted_events": 10488,
+              "detected_events": 272,
+              "correct_predicted_events": 1408,
+              "mean_detection_delay": 8.088235294117647,
+              "mean_normalized_detection_delay": 0.10919240377575183
+            }
+          },
+          "best_raw": {
+            "precision": 0.2360664995940842,
+            "recall": 0.22781619375276765,
+            "f1": 0.23186797947580087,
+            "threshold": 0.7134989500045775,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 3.5501582741737367,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.22236834278549464,
+            "train_std": 18.22515862557507,
+            "test_mean": 0.912401861218597,
+            "test_std": 67.01870751802055
+          }
+        }
+      },
+      "90": {
+        "learned_dynamic": {
+          "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_hglite_bs128_e2_learned_dynamic_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_hglite_bs128_e2_learned_dynamic_s90_0/point_scores.npz",
+            "sha256": "181a0d1f4f0efebc8f49ac7ae59ee4c8367cdfc48e6ac91656d34ce33a540273",
+            "bytes": 9660459,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32",
+              "entity_id": "int16"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_hglite_bs128_e2_learned_dynamic_s90_0/checkpoint.pth",
+            "sha256": "415d9fdfa3df19c7c0d50fdcfa78ef146f86dafb8ed32142cb39ee854a248b49",
+            "bytes": 64802
+          },
+          "n_train": 565632,
+          "n_test": 706560,
+          "anomaly_rate": 0.04154919610507246,
+          "roc_auc": 0.7520593573851337,
+          "average_precision": 0.15522316430760252,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.6915572249889372,
+            "point": {
+              "precision": 0.2475265937662724,
+              "recall": 0.22669210069148754,
+              "f1": 0.23665167220809702,
+              "predicted_positive": 26886
+            },
+            "event": {
+              "event_precision": 0.1263887570031336,
+              "event_recall": 0.8466257668711656,
+              "event_f1": 0.21994322940958463,
+              "true_events": 326,
+              "predicted_events": 10531,
+              "detected_events": 276,
+              "correct_predicted_events": 1331,
+              "mean_detection_delay": 8.630434782608695,
+              "mean_normalized_detection_delay": 0.11068391252037506
+            }
+          },
+          "best_raw": {
+            "precision": 0.2633488640580547,
+            "recall": 0.21756310249684913,
+            "f1": 0.238276440962507,
+            "threshold": 0.7548078894615172,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 4.747797524929046,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.2160870054763468,
+            "train_std": 18.21401946015218,
+            "test_mean": 0.888585748646005,
+            "test_std": 67.01012182226224
+          }
+        },
+        "learned_static": {
+          "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relstatic_v3_ent_hglite_bs128_e2_learned_static_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relstatic_v3_ent_hglite_bs128_e2_learned_static_s90_0/point_scores.npz",
+            "sha256": "673069592239b8853622e710e2b8d7652824485e985ef03c3c22f098d56c2a42",
+            "bytes": 9657386,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32",
+              "entity_id": "int16"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relstatic_v3_ent_hglite_bs128_e2_learned_static_s90_0/checkpoint.pth",
+            "sha256": "3ffe2d97d79ad959b7ab23589f47f308cd51b536eccfd88ad716042b19322342",
+            "bytes": 64802
+          },
+          "n_train": 565632,
+          "n_test": 706560,
+          "anomaly_rate": 0.04154919610507246,
+          "roc_auc": 0.7490125388123714,
+          "average_precision": 0.15554699244580789,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.6781148046255099,
+            "point": {
+              "precision": 0.2533762763971745,
+              "recall": 0.23582109888612596,
+              "f1": 0.24428369795342272,
+              "predicted_positive": 27323
+            },
+            "event": {
+              "event_precision": 0.12554730630116123,
+              "event_recall": 0.8588957055214724,
+              "event_f1": 0.21907218788056018,
+              "true_events": 326,
+              "predicted_events": 10506,
+              "detected_events": 280,
+              "correct_predicted_events": 1319,
+              "mean_detection_delay": 8.65,
+              "mean_normalized_detection_delay": 0.11372897403496426
+            }
+          },
+          "best_raw": {
+            "precision": 0.2574168414743782,
+            "recall": 0.23408386415505672,
+            "f1": 0.24519651044547128,
+            "threshold": 0.6908288598060607,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 4.368633139133453,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.216552167303891,
+            "train_std": 18.209984226089592,
+            "test_mean": 0.8907757624893603,
+            "test_std": 67.00392567766657
+          }
+        },
+        "fixed_random": {
+          "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s90_0/point_scores.npz",
+            "sha256": "06a83a3178453741c67dddc51ed10ab3f6d30f113612be6f6a6169d6b4988209",
+            "bytes": 9658146,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32",
+              "entity_id": "int16"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s90_0/checkpoint.pth",
+            "sha256": "d41b5c063d07d86a68a19c9f5cee05e96a91d52077b05a3de020ca836b0e7440",
+            "bytes": 64802
+          },
+          "n_train": 565632,
+          "n_test": 706560,
+          "anomaly_rate": 0.04154919610507246,
+          "roc_auc": 0.7507635083318405,
+          "average_precision": 0.15379458284934905,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.6870610326528472,
+            "point": {
+              "precision": 0.250975975975976,
+              "recall": 0.22774806690056887,
+              "f1": 0.23879850706287836,
+              "predicted_positive": 26640
+            },
+            "event": {
+              "event_precision": 0.129790102060466,
+              "event_recall": 0.852760736196319,
+              "event_f1": 0.2252909440908801,
+              "true_events": 326,
+              "predicted_events": 10386,
+              "detected_events": 278,
+              "correct_predicted_events": 1348,
+              "mean_detection_delay": 9.032374100719425,
+              "mean_normalized_detection_delay": 0.11687848297349403
+            }
+          },
+          "best_raw": {
+            "precision": 0.24653709867926554,
+            "recall": 0.23462887897264706,
+            "f1": 0.24043563250488692,
+            "threshold": 0.6613515019416808,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 4.1481152176856995,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.2149945914334836,
+            "train_std": 18.213476143040054,
+            "test_mean": 0.8896666227936696,
+            "test_std": 67.01084865162342
+          }
+        },
+        "no_message": {
+          "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relno_message_v3_ent_hglite_bs128_e2_no_message_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relno_message_v3_ent_hglite_bs128_e2_no_message_s90_0/point_scores.npz",
+            "sha256": "c37a626de15ebabbc12ec89ebbd8086afb6462085a75390c70e4815cc278a675",
+            "bytes": 9661738,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32",
+              "entity_id": "int16"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relno_message_v3_ent_hglite_bs128_e2_no_message_s90_0/checkpoint.pth",
+            "sha256": "57a41dfff8ae19cc9df7d1452040bf078cf0fccdef1a2e76d3c81d1a793233eb",
+            "bytes": 64802
+          },
+          "n_train": 565632,
+          "n_test": 706560,
+          "anomaly_rate": 0.04154919610507246,
+          "roc_auc": 0.7479652730991644,
+          "average_precision": 0.15377164984150954,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.7156175965070696,
+            "point": {
+              "precision": 0.2517967239429426,
+              "recall": 0.23510576693803864,
+              "f1": 0.2431651634723788,
+              "predicted_positive": 27411
+            },
+            "event": {
+              "event_precision": 0.11756007393715343,
+              "event_recall": 0.8588957055214724,
+              "event_f1": 0.20681293463466302,
+              "true_events": 326,
+              "predicted_events": 10820,
+              "detected_events": 280,
+              "correct_predicted_events": 1272,
+              "mean_detection_delay": 8.45357142857143,
+              "mean_normalized_detection_delay": 0.11597198178051339
+            }
+          },
+          "best_raw": {
+            "precision": 0.25238844760057105,
+            "recall": 0.23486732295534285,
+            "f1": 0.24331286611616912,
+            "threshold": 0.7178592085838317,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 3.5845003843307497,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.21833134936665033,
+            "train_std": 18.222831330558517,
+            "test_mean": 0.9001335903518708,
+            "test_std": 67.01162842517338
+          }
+        }
+      },
+      "98": {
+        "learned_dynamic": {
+          "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_hglite_bs128_e2_learned_dynamic_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_hglite_bs128_e2_learned_dynamic_s98_0/point_scores.npz",
+            "sha256": "dedf481e36c304b0ead95a929982e0b6618b5a568aaa056b16578a9b9398f9b4",
+            "bytes": 9667681,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32",
+              "entity_id": "int16"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_hglite_bs128_e2_learned_dynamic_s98_0/checkpoint.pth",
+            "sha256": "afe55464499e5e7c271d2fa389161ae1d49053639370e32408537c2ca6f93c5a",
+            "bytes": 64802
+          },
+          "n_train": 565632,
+          "n_test": 706560,
+          "anomaly_rate": 0.04154919610507246,
+          "roc_auc": 0.7470365571406817,
+          "average_precision": 0.15090178353839956,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.6656257182359682,
+            "point": {
+              "precision": 0.24777912017624903,
+              "recall": 0.23752427019109582,
+              "f1": 0.2425433485799753,
+              "predicted_positive": 28142
+            },
+            "event": {
+              "event_precision": 0.11463128441195054,
+              "event_recall": 0.8680981595092024,
+              "event_f1": 0.2025200478844597,
+              "true_events": 326,
+              "predicted_events": 11079,
+              "detected_events": 283,
+              "correct_predicted_events": 1270,
+              "mean_detection_delay": 9.473498233215548,
+              "mean_normalized_detection_delay": 0.12257983331749171
+            }
+          },
+          "best_raw": {
+            "precision": 0.24402619219033905,
+            "recall": 0.24246346697550838,
+            "f1": 0.2432423196528039,
+            "threshold": 0.6479351520538329,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 4.783566617965699,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.21327552865637917,
+            "train_std": 18.211294177812857,
+            "test_mean": 0.8886429992905241,
+            "test_std": 66.99883665122063
+          }
+        },
+        "learned_static": {
+          "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relstatic_v3_ent_hglite_bs128_e2_learned_static_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relstatic_v3_ent_hglite_bs128_e2_learned_static_s98_0/point_scores.npz",
+            "sha256": "40ae75f19bb241bd0af95cdea9092ec99d5d97d28ccdb3977d22f1691c580094",
+            "bytes": 9665795,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32",
+              "entity_id": "int16"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relstatic_v3_ent_hglite_bs128_e2_learned_static_s98_0/checkpoint.pth",
+            "sha256": "b254149d76ba6231f1293e507d8ebd3e83cf573926632fc018c8a2f487ee016f",
+            "bytes": 64802
+          },
+          "n_train": 565632,
+          "n_test": 706560,
+          "anomaly_rate": 0.04154919610507246,
+          "roc_auc": 0.7499251246883536,
+          "average_precision": 0.15245811945234514,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.652488212585446,
+            "point": {
+              "precision": 0.2434728767500258,
+              "recall": 0.2411009299315325,
+              "f1": 0.24228109810364892,
+              "predicted_positive": 29071
+            },
+            "event": {
+              "event_precision": 0.10840748138732523,
+              "event_recall": 0.8711656441717791,
+              "event_f1": 0.19282046616361787,
+              "true_events": 326,
+              "predicted_events": 11014,
+              "detected_events": 284,
+              "correct_predicted_events": 1194,
+              "mean_detection_delay": 8.679577464788732,
+              "mean_normalized_detection_delay": 0.11765351464608347
+            }
+          },
+          "best_raw": {
+            "precision": 0.2530040545521563,
+            "recall": 0.23381135674626155,
+            "f1": 0.24302936958946306,
+            "threshold": 0.6862996220588683,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 4.38683716058731,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.21287394622084171,
+            "train_std": 18.211992639589667,
+            "test_mean": 0.8886602420504407,
+            "test_std": 67.00037705332727
+          }
+        },
+        "fixed_random": {
+          "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s98_0/point_scores.npz",
+            "sha256": "cc9a17456cb40e89fe0fe41d59e6d4e10bdc1e8e7cb46490dd6eeb3617550bbd",
+            "bytes": 9668468,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32",
+              "entity_id": "int16"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s98_0/checkpoint.pth",
+            "sha256": "02ef8992d95984e5d18d50e436c6317531f5b1cd107992fc17788318493ebcc1",
+            "bytes": 64802
+          },
+          "n_train": 565632,
+          "n_test": 706560,
+          "anomaly_rate": 0.04154919610507246,
+          "roc_auc": 0.7517874212102204,
+          "average_precision": 0.1559454400357082,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.6624192702770226,
+            "point": {
+              "precision": 0.25621266868225057,
+              "recall": 0.23670674796471028,
+              "f1": 0.24607376192921263,
+              "predicted_positive": 27122
+            },
+            "event": {
+              "event_precision": 0.11123690914237193,
+              "event_recall": 0.8619631901840491,
+              "event_f1": 0.19704502935611046,
+              "true_events": 326,
+              "predicted_events": 10599,
+              "detected_events": 281,
+              "correct_predicted_events": 1179,
+              "mean_detection_delay": 8.9288256227758,
+              "mean_normalized_detection_delay": 0.11789204330187744
+            }
+          },
+          "best_raw": {
+            "precision": 0.2546771493047973,
+            "recall": 0.23834179241748135,
+            "f1": 0.24623884851577485,
+            "threshold": 0.6551274061203002,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 4.1557152509689335,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.21193032246285706,
+            "train_std": 18.205880360445764,
+            "test_mean": 0.8817899852750187,
+            "test_std": 66.98603232120273
+          }
+        },
+        "no_message": {
+          "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relno_message_v3_ent_hglite_bs128_e2_no_message_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relno_message_v3_ent_hglite_bs128_e2_no_message_s98_0/point_scores.npz",
+            "sha256": "55e49ba9a98d1f809e3c0052598676f7f0bf57c764ca2f44a4a0bc52ee693e6b",
+            "bytes": 9660885,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32",
+              "entity_id": "int16"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relno_message_v3_ent_hglite_bs128_e2_no_message_s98_0/checkpoint.pth",
+            "sha256": "6e0b67d0b3ecb8658277cdb80e7eb2ba9e43e46b0a30b3b270f2ad65c2041b62",
+            "bytes": 64802
+          },
+          "n_train": 565632,
+          "n_test": 706560,
+          "anomaly_rate": 0.04154919610507246,
+          "roc_auc": 0.7400592435634944,
+          "average_precision": 0.14917729206259964,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 0.6926229149103137,
+            "point": {
+              "precision": 0.23775029043941776,
+              "recall": 0.23701331879960486,
+              "f1": 0.23738123262200841,
+              "predicted_positive": 29266
+            },
+            "event": {
+              "event_precision": 0.11414704296243035,
+              "event_recall": 0.852760736196319,
+              "event_f1": 0.20134312390363635,
+              "true_events": 326,
+              "predicted_events": 11126,
+              "detected_events": 278,
+              "correct_predicted_events": 1270,
+              "mean_detection_delay": 7.906474820143885,
+              "mean_normalized_detection_delay": 0.11447743508075431
+            }
+          },
+          "best_raw": {
+            "precision": 0.2375643517097951,
+            "recall": 0.23735395306059884,
+            "f1": 0.23745910577971646,
+            "threshold": 0.6916016936302184,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 3.5746753334999086,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.21928935654601872,
+            "train_std": 18.212798519722174,
+            "test_mean": 0.8916831210686604,
+            "test_std": 67.0052436766227
+          }
+        }
+      }
+    },
+    "SWAT": {
+      "87": {
+        "learned_dynamic": {
+          "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s87_0/point_scores.npz",
+            "sha256": "2dc2f72160e6f93e6a67c6fc8a71f244b96dc067db995e266eb7041723b9f6b0",
+            "bytes": 6044234,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s87_0/checkpoint.pth",
+            "sha256": "18278305a6eadc94fc39e6fc607aefcac552d1aba2bb498f518206db3791f7b9",
+            "bytes": 186274
+          },
+          "n_train": 396000,
+          "n_test": 449856,
+          "anomaly_rate": 0.12141885403329065,
+          "roc_auc": 0.8231509910471089,
+          "average_precision": 0.7191999969134808,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 1.364039806127556,
+            "point": {
+              "precision": 0.1731558545205792,
+              "recall": 0.8897676717745922,
+              "f1": 0.2898957031611158,
+              "predicted_positive": 280672
+            },
+            "event": {
+              "event_precision": 0.1592920353982301,
+              "event_recall": 0.7428571428571429,
+              "event_f1": 0.2623318385650224,
+              "true_events": 35,
+              "predicted_events": 339,
+              "detected_events": 26,
+              "correct_predicted_events": 54,
+              "mean_detection_delay": 15.115384615384615,
+              "mean_normalized_detection_delay": 0.028068513036886282
+            }
+          },
+          "best_raw": {
+            "precision": 0.989881715832977,
+            "recall": 0.6358360337599092,
+            "f1": 0.7743071812364835,
+            "threshold": 9.601525306701658,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 3.89254101117452,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.0821452708694075,
+            "train_std": 0.32665011366643776,
+            "test_mean": 3.585116893124752,
+            "test_std": 3.7358866792636247
+          }
+        },
+        "learned_static": {
+          "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relstatic_v3_hglite_bs64_e2_learned_static_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relstatic_v3_hglite_bs64_e2_learned_static_s87_0/point_scores.npz",
+            "sha256": "67c46f793791b6411241bf9bd28b08cc015be56670a90b570921a2124f57d09e",
+            "bytes": 6059233,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relstatic_v3_hglite_bs64_e2_learned_static_s87_0/checkpoint.pth",
+            "sha256": "cbc3280e242488d89fc3b10ed7752ec88a0f808b4a0f9eac9f1a2de8e4ed7656",
+            "bytes": 186274
+          },
+          "n_train": 396000,
+          "n_test": 449856,
+          "anomaly_rate": 0.12141885403329065,
+          "roc_auc": 0.820509220220736,
+          "average_precision": 0.7170404103515848,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 1.376781828403475,
+            "point": {
+              "precision": 0.1716791493655167,
+              "recall": 0.8909393822888633,
+              "f1": 0.2878845243729295,
+              "predicted_positive": 283459
+            },
+            "event": {
+              "event_precision": 0.12777777777777777,
+              "event_recall": 0.7428571428571429,
+              "event_f1": 0.21804922515952596,
+              "true_events": 35,
+              "predicted_events": 360,
+              "detected_events": 26,
+              "correct_predicted_events": 46,
+              "mean_detection_delay": 14.807692307692308,
+              "mean_normalized_detection_delay": 0.027620967856385157
+            }
+          },
+          "best_raw": {
+            "precision": 0.989546542098667,
+            "recall": 0.6360374215045496,
+            "f1": 0.7743538878177625,
+            "threshold": 9.593852043151854,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 3.5459554394086203,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.08236718304861793,
+            "train_std": 0.3245280015194925,
+            "test_mean": 3.661012219136863,
+            "test_std": 3.743563683215519
+          }
+        },
+        "fixed_random": {
+          "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relfixed_random_v3_hglite_bs64_e2_fixed_random_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relfixed_random_v3_hglite_bs64_e2_fixed_random_s87_0/point_scores.npz",
+            "sha256": "d4e4731232bcc99a6e7931e6e96e01949958013c69e79d9cba67a5b4c910307f",
+            "bytes": 6068901,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relfixed_random_v3_hglite_bs64_e2_fixed_random_s87_0/checkpoint.pth",
+            "sha256": "60dc86ddc80d81e6ad48c4d580fc1a41802c899d12cc1c47e274106ad1a41378",
+            "bytes": 186274
+          },
+          "n_train": 396000,
+          "n_test": 449856,
+          "anomaly_rate": 0.12141885403329065,
+          "roc_auc": 0.8224171919726222,
+          "average_precision": 0.7179854025924886,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 1.3820939338207245,
+            "point": {
+              "precision": 0.171483241426544,
+              "recall": 0.8892916643781695,
+              "f1": 0.2875230481918083,
+              "predicted_positive": 283258
+            },
+            "event": {
+              "event_precision": 0.08528784648187633,
+              "event_recall": 0.7428571428571429,
+              "event_f1": 0.1530086803001324,
+              "true_events": 35,
+              "predicted_events": 469,
+              "detected_events": 26,
+              "correct_predicted_events": 40,
+              "mean_detection_delay": 15.038461538461538,
+              "mean_normalized_detection_delay": 0.02792753804890843
+            }
+          },
+          "best_raw": {
+            "precision": 0.989848873681209,
+            "recall": 0.6355431061313415,
+            "f1": 0.7740798965336545,
+            "threshold": 10.490597724914549,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 3.315457065900167,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.08211224075234283,
+            "train_std": 0.3249538556201286,
+            "test_mean": 3.8017259028949972,
+            "test_std": 3.7878044274466767
+          }
+        },
+        "no_message": {
+          "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relno_message_v3_hglite_bs64_e2_no_message_s87_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relno_message_v3_hglite_bs64_e2_no_message_s87_0/point_scores.npz",
+            "sha256": "126bf792ab3c6a387b2eb044973b0f49976f74e4a954ee941b525541f20816bd",
+            "bytes": 6062927,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relno_message_v3_hglite_bs64_e2_no_message_s87_0/checkpoint.pth",
+            "sha256": "4511ae256646c0dd9f1748830b7b2fd2994f313c95326879d90efb13b2a64a92",
+            "bytes": 186274
+          },
+          "n_train": 396000,
+          "n_test": 449856,
+          "anomaly_rate": 0.12141885403329065,
+          "roc_auc": 0.8227214002442773,
+          "average_precision": 0.720405491345905,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 1.3463489055633642,
+            "point": {
+              "precision": 0.17165660219056583,
+              "recall": 0.8914886215924278,
+              "f1": 0.28788147517529233,
+              "predicted_positive": 283671
+            },
+            "event": {
+              "event_precision": 0.1032258064516129,
+              "event_recall": 0.7428571428571429,
+              "event_f1": 0.18126361655773418,
+              "true_events": 35,
+              "predicted_events": 310,
+              "detected_events": 26,
+              "correct_predicted_events": 32,
+              "mean_detection_delay": 15.0,
+              "mean_normalized_detection_delay": 0.027887640187433803
+            }
+          },
+          "best_raw": {
+            "precision": 0.9899954395165887,
+            "recall": 0.6358909576902656,
+            "f1": 0.7743826988462181,
+            "threshold": 9.620693206787108,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 2.8738462328910828,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.08509567587437095,
+            "train_std": 0.3440383005189783,
+            "test_mean": 3.621173918374023,
+            "test_std": 3.741614067676159
+          }
+        }
+      },
+      "90": {
+        "learned_dynamic": {
+          "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s90_0/point_scores.npz",
+            "sha256": "4a3232f6d104f6396032854a8e67d3a78ebc932fe6a8278f706ae24258f004ba",
+            "bytes": 6018048,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s90_0/checkpoint.pth",
+            "sha256": "6588026229a72e17483c6eb54f57033b8049d142c6f73b4a2e92bffcd6f22ffc",
+            "bytes": 186274
+          },
+          "n_train": 396000,
+          "n_test": 449856,
+          "anomaly_rate": 0.12141885403329065,
+          "roc_auc": 0.8232417751685275,
+          "average_precision": 0.7175952818676704,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 1.8755567777156852,
+            "point": {
+              "precision": 0.17512407731250645,
+              "recall": 0.837864557587741,
+              "f1": 0.28969773698369994,
+              "predicted_positive": 261329
+            },
+            "event": {
+              "event_precision": 0.18181818181818182,
+              "event_recall": 0.7142857142857143,
+              "event_f1": 0.2898550724637682,
+              "true_events": 35,
+              "predicted_events": 341,
+              "detected_events": 25,
+              "correct_predicted_events": 62,
+              "mean_detection_delay": 78.16,
+              "mean_normalized_detection_delay": 0.09900351215018638
+            }
+          },
+          "best_raw": {
+            "precision": 0.9872812633376014,
+            "recall": 0.6352501785027737,
+            "f1": 0.7730766659982622,
+            "threshold": 9.14811038970947,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 3.8979748010635378,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.09890828949010595,
+            "train_std": 0.40466062161624344,
+            "test_mean": 3.4123639791515763,
+            "test_std": 3.603250736740245
+          }
+        },
+        "learned_static": {
+          "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relstatic_v3_hglite_bs64_e2_learned_static_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relstatic_v3_hglite_bs64_e2_learned_static_s90_0/point_scores.npz",
+            "sha256": "07849a658eaa4f309e990393b2558981ba8883494cc42e607a3035d09307b132",
+            "bytes": 6033058,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relstatic_v3_hglite_bs64_e2_learned_static_s90_0/checkpoint.pth",
+            "sha256": "37f570a28e0bae67b615af0b151fa0b4e52b2e30470625ca24d4018389dbf3df",
+            "bytes": 186274
+          },
+          "n_train": 396000,
+          "n_test": 449856,
+          "anomaly_rate": 0.12141885403329065,
+          "roc_auc": 0.8241814705530459,
+          "average_precision": 0.7170164290732179,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 1.8488712728023582,
+            "point": {
+              "precision": 0.17392569673669137,
+              "recall": 0.8315483055967485,
+              "f1": 0.287680473260347,
+              "predicted_positive": 261146
+            },
+            "event": {
+              "event_precision": 0.18904109589041096,
+              "event_recall": 0.7428571428571429,
+              "event_f1": 0.3013859722805544,
+              "true_events": 35,
+              "predicted_events": 365,
+              "detected_events": 26,
+              "correct_predicted_events": 69,
+              "mean_detection_delay": 57.96153846153846,
+              "mean_normalized_detection_delay": 0.0891526353095854
+            }
+          },
+          "best_raw": {
+            "precision": 0.9900450681727423,
+            "recall": 0.635451566247414,
+            "f1": 0.7740719677962511,
+            "threshold": 10.219237327575682,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 3.5275076389312745,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.0980420580986044,
+            "train_std": 0.39867742143686863,
+            "test_mean": 3.428210472806763,
+            "test_std": 3.6432298876061133
+          }
+        },
+        "fixed_random": {
+          "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relfixed_random_v3_hglite_bs64_e2_fixed_random_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relfixed_random_v3_hglite_bs64_e2_fixed_random_s90_0/point_scores.npz",
+            "sha256": "16e9202e577444c5c2f453efd5d093c43070f65ca5776b2bbaac7a3aef42a0d1",
+            "bytes": 6044269,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relfixed_random_v3_hglite_bs64_e2_fixed_random_s90_0/checkpoint.pth",
+            "sha256": "534658d5b60ff7cc77944dab07d4a400b9728f69f7fb1e44f3d48a12bd813d02",
+            "bytes": 186274
+          },
+          "n_train": 396000,
+          "n_test": 449856,
+          "anomaly_rate": 0.12141885403329065,
+          "roc_auc": 0.8220796683110352,
+          "average_precision": 0.7144244421214361,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 1.391966947317124,
+            "point": {
+              "precision": 0.1725239389578781,
+              "recall": 0.8889621207960309,
+              "f1": 0.2889670481393536,
+              "predicted_positive": 281445
+            },
+            "event": {
+              "event_precision": 0.212,
+              "event_recall": 0.7428571428571429,
+              "event_f1": 0.3298623578695392,
+              "true_events": 35,
+              "predicted_events": 250,
+              "detected_events": 26,
+              "correct_predicted_events": 53,
+              "mean_detection_delay": 14.884615384615385,
+              "mean_normalized_detection_delay": 0.02776794660300993
+            }
+          },
+          "best_raw": {
+            "precision": 0.9892889699179581,
+            "recall": 0.6357994178063382,
+            "f1": 0.7740986347171914,
+            "threshold": 10.371553421020506,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 3.3313100337982178,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.08419430083482916,
+            "train_std": 0.3448417282607562,
+            "test_mean": 3.6440351532239146,
+            "test_std": 3.729017143488911
+          }
+        },
+        "no_message": {
+          "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relno_message_v3_hglite_bs64_e2_no_message_s90_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relno_message_v3_hglite_bs64_e2_no_message_s90_0/point_scores.npz",
+            "sha256": "632ed39ec552d3f4a2dbb2665216865a4d117296e1b2154ceaf39d9401efb68c",
+            "bytes": 6021949,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relno_message_v3_hglite_bs64_e2_no_message_s90_0/checkpoint.pth",
+            "sha256": "34e443c7a2f28f2ff76a51ec0b0d451ce7dcd0d8ccc7cc76da2a49d61330e23f",
+            "bytes": 186274
+          },
+          "n_train": 396000,
+          "n_test": 449856,
+          "anomaly_rate": 0.12141885403329065,
+          "roc_auc": 0.8227166815865896,
+          "average_precision": 0.7167775106876312,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 1.6881933629512846,
+            "point": {
+              "precision": 0.17354364435354186,
+              "recall": 0.8574907087017813,
+              "f1": 0.28866557578110796,
+              "predicted_positive": 269886
+            },
+            "event": {
+              "event_precision": 0.12623762376237624,
+              "event_recall": 0.7428571428571429,
+              "event_f1": 0.21580275042721134,
+              "true_events": 35,
+              "predicted_events": 404,
+              "detected_events": 26,
+              "correct_predicted_events": 51,
+              "mean_detection_delay": 29.846153846153847,
+              "mean_normalized_detection_delay": 0.05308189605677717
+            }
+          },
+          "best_raw": {
+            "precision": 0.9899347038864019,
+            "recall": 0.6356163380384834,
+            "f1": 0.7741604602417161,
+            "threshold": 10.20818519592285,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 2.8638598680496217,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.09524197134388154,
+            "train_std": 0.37561495200634387,
+            "test_mean": 3.4180419723411983,
+            "test_std": 3.570440714290818
+          }
+        }
+      },
+      "98": {
+        "learned_dynamic": {
+          "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s98_0/point_scores.npz",
+            "sha256": "0d1cf03ef4dec09b5284b1de690c76ad11472bbc1867ab909b4b3c6b8551de79",
+            "bytes": 6035358,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s98_0/checkpoint.pth",
+            "sha256": "12452509fea52f711315f6e371f12da362403767753adf6bed19c6300c543254",
+            "bytes": 186274
+          },
+          "n_train": 396000,
+          "n_test": 449856,
+          "anomaly_rate": 0.12141885403329065,
+          "roc_auc": 0.8237539230952418,
+          "average_precision": 0.7160350787348099,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 1.3460338282585242,
+            "point": {
+              "precision": 0.1693499815085501,
+              "recall": 0.8802658318229253,
+              "f1": 0.2840525084481414,
+              "predicted_positive": 283915
+            },
+            "event": {
+              "event_precision": 0.21379310344827587,
+              "event_recall": 0.7428571428571429,
+              "event_f1": 0.3320288362512873,
+              "true_events": 35,
+              "predicted_events": 290,
+              "detected_events": 26,
+              "correct_predicted_events": 62,
+              "mean_detection_delay": 14.653846153846153,
+              "mean_normalized_detection_delay": 0.027446092724670697
+            }
+          },
+          "best_raw": {
+            "precision": 0.989514773342451,
+            "recall": 0.6358177257831237,
+            "f1": 0.7741813237031588,
+            "threshold": 10.19104480743408,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 3.90520578622818,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.08410172187250974,
+            "train_std": 0.3241166510910819,
+            "test_mean": 3.6253336407346723,
+            "test_std": 3.676588600474671
+          }
+        },
+        "learned_static": {
+          "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relstatic_v3_hglite_bs64_e2_learned_static_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relstatic_v3_hglite_bs64_e2_learned_static_s98_0/point_scores.npz",
+            "sha256": "8364a28251109d6fe8b165e4dc1941193d444064130828f67f3240e017a93ad3",
+            "bytes": 6029213,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relstatic_v3_hglite_bs64_e2_learned_static_s98_0/checkpoint.pth",
+            "sha256": "fc279acae144e282054f8c6a7b6ebdae609af19116e56e2be226b47e4e035a15",
+            "bytes": 186274
+          },
+          "n_train": 396000,
+          "n_test": 449856,
+          "anomaly_rate": 0.12141885403329065,
+          "roc_auc": 0.820233136431086,
+          "average_precision": 0.7157407280960616,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 1.3434808719158284,
+            "point": {
+              "precision": 0.16853115148192277,
+              "recall": 0.8779041028175977,
+              "f1": 0.28277753206545775,
+              "predicted_positive": 284529
+            },
+            "event": {
+              "event_precision": 0.15989159891598917,
+              "event_recall": 0.7428571428571429,
+              "event_f1": 0.26314435200274466,
+              "true_events": 35,
+              "predicted_events": 369,
+              "detected_events": 26,
+              "correct_predicted_events": 59,
+              "mean_detection_delay": 14.653846153846153,
+              "mean_normalized_detection_delay": 0.027446092724670697
+            }
+          },
+          "best_raw": {
+            "precision": 0.989909930452628,
+            "recall": 0.6358360337599092,
+            "f1": 0.7743158129424224,
+            "threshold": 10.014214515686033,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 3.557201941808065,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.08224566794742626,
+            "train_std": 0.3202907756910314,
+            "test_mean": 3.6358527511818424,
+            "test_std": 3.692393385315167
+          }
+        },
+        "fixed_random": {
+          "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relfixed_random_v3_hglite_bs64_e2_fixed_random_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relfixed_random_v3_hglite_bs64_e2_fixed_random_s98_0/point_scores.npz",
+            "sha256": "5d7a28dfb4f1e34e1b3e66b9af8d523a82f12a0c0d6b00508e8626c43b774558",
+            "bytes": 6046499,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relfixed_random_v3_hglite_bs64_e2_fixed_random_s98_0/checkpoint.pth",
+            "sha256": "2c20e13fcfaf17d2a66a82a7c63b727a77d08fc80dd43ef8afe25e1414b2eeb9",
+            "bytes": 186274
+          },
+          "n_train": 396000,
+          "n_test": 449856,
+          "anomaly_rate": 0.12141885403329065,
+          "roc_auc": 0.8208352521510218,
+          "average_precision": 0.712849855108845,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 1.3663533914089319,
+            "point": {
+              "precision": 0.17036219453896123,
+              "recall": 0.8873144028853371,
+              "f1": 0.28584319496091226,
+              "predicted_positive": 284488
+            },
+            "event": {
+              "event_precision": 0.16120218579234974,
+              "event_recall": 0.7428571428571429,
+              "event_f1": 0.2649166738623608,
+              "true_events": 35,
+              "predicted_events": 366,
+              "detected_events": 26,
+              "correct_predicted_events": 59,
+              "mean_detection_delay": 15.192307692307692,
+              "mean_normalized_detection_delay": 0.028004662785315444
+            }
+          },
+          "best_raw": {
+            "precision": 0.9896587089054755,
+            "recall": 0.6360008055509786,
+            "f1": 0.7743610891298776,
+            "threshold": 9.938134193420408,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 3.3554126024246216,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.08370517901076542,
+            "train_std": 0.319921892507655,
+            "test_mean": 3.6884870538874592,
+            "test_std": 3.6861508474322497
+          }
+        },
+        "no_message": {
+          "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relno_message_v3_hglite_bs64_e2_no_message_s98_0",
+          "score_artifact": {
+            "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relno_message_v3_hglite_bs64_e2_no_message_s98_0/point_scores.npz",
+            "sha256": "2dc19d4fff335a2b9fd855a2e94fd046681d9d71020ee1f53c9e7da5c7161b4f",
+            "bytes": 6073357,
+            "stored_dtypes": {
+              "score": "float64",
+              "train_score": "float64",
+              "label": "int8",
+              "model_score": "float32",
+              "train_model_score": "float32"
+            }
+          },
+          "checkpoint": {
+            "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relno_message_v3_hglite_bs64_e2_no_message_s98_0/checkpoint.pth",
+            "sha256": "c978ee05a8361177f6571a534f640d8a5ef2a8748d15ea9fbfeb8bd04bb8fb8f",
+            "bytes": 186274
+          },
+          "n_train": 396000,
+          "n_test": 449856,
+          "anomaly_rate": 0.12141885403329065,
+          "roc_auc": 0.8197004066623705,
+          "average_precision": 0.713170752010247,
+          "train_threshold": {
+            "percentile": 99.0,
+            "value": 1.3850336754322097,
+            "point": {
+              "precision": 0.166873231613116,
+              "recall": 0.8800095201479284,
+              "f1": 0.2805472384187518,
+              "predicted_positive": 288045
+            },
+            "event": {
+              "event_precision": 0.13126079447322972,
+              "event_recall": 0.7428571428571429,
+              "event_f1": 0.22310037258665466,
+              "true_events": 35,
+              "predicted_events": 579,
+              "detected_events": 26,
+              "correct_predicted_events": 76,
+              "mean_detection_delay": 14.653846153846153,
+              "mean_normalized_detection_delay": 0.027446092724670697
+            }
+          },
+          "best_raw": {
+            "precision": 0.989351403678606,
+            "recall": 0.6361655773420479,
+            "f1": 0.774389088842584,
+            "threshold": 9.974659919738768,
+            "selection": "exact_test_label_oracle_no_point_adjustment"
+          },
+          "train_time": {
+            "avg_epoch_train_time": 2.90117214123408,
+            "unit": "seconds"
+          },
+          "score_statistics": {
+            "train_mean": 0.08306196921371863,
+            "train_std": 0.32239330659243903,
+            "test_mean": 3.8504605735765436,
+            "test_std": 3.79456746406777
+          }
+        }
+      }
+    }
+  },
+  "per_dataset": {
+    "EXA": {
+      "arms": {
+        "learned_dynamic": {
+          "roc_auc": {
+            "mean": 0.8837626257210526,
+            "population_std": 0.002398588684441822,
+            "minimum": 0.8811402016402273,
+            "maximum": 0.8869371709230145
+          },
+          "average_precision": {
+            "mean": 0.5969036909221735,
+            "population_std": 0.0035327673824395167,
+            "minimum": 0.5924270842066995,
+            "maximum": 0.6010631039342178
+          },
+          "train_p99_point_f1": {
+            "mean": 0.20916602373790472,
+            "population_std": 0.003869657840146125,
+            "minimum": 0.2051088461054486,
+            "maximum": 0.21437515652391687
+          },
+          "train_p99_event_f1": {
+            "mean": 0.71982935147844,
+            "population_std": 0.0038427653802492407,
+            "minimum": 0.7149031535136865,
+            "maximum": 0.7242798353909465
+          },
+          "best_raw_f1": {
+            "mean": 0.656530916218662,
+            "population_std": 0.004882242721526878,
+            "minimum": 0.6502082093991672,
+            "maximum": 0.6620947630922692
+          }
+        },
+        "learned_static": {
+          "roc_auc": {
+            "mean": 0.883196313750922,
+            "population_std": 0.0012749973577099228,
+            "minimum": 0.8818823835760875,
+            "maximum": 0.8849226796121352
+          },
+          "average_precision": {
+            "mean": 0.5957717066599123,
+            "population_std": 0.004265370548730657,
+            "minimum": 0.5898384030120345,
+            "maximum": 0.5996801704308599
+          },
+          "train_p99_point_f1": {
+            "mean": 0.20748537053029822,
+            "population_std": 0.004608988486015594,
+            "minimum": 0.20219336946930544,
+            "maximum": 0.21342685370741482
+          },
+          "train_p99_event_f1": {
+            "mean": 0.7207216623107846,
+            "population_std": 0.004035325118877918,
+            "minimum": 0.715030820293978,
+            "maximum": 0.7239365573742742
+          },
+          "best_raw_f1": {
+            "mean": 0.6566878862639766,
+            "population_std": 0.005947543555773282,
+            "minimum": 0.6483882919599852,
+            "maximum": 0.6620198265179679
+          }
+        },
+        "fixed_random": {
+          "roc_auc": {
+            "mean": 0.8821255245679339,
+            "population_std": 0.0035671208584237405,
+            "minimum": 0.8789665546229785,
+            "maximum": 0.8871112110161107
+          },
+          "average_precision": {
+            "mean": 0.5956075371915049,
+            "population_std": 0.0017021782720277796,
+            "minimum": 0.5932520579400646,
+            "maximum": 0.5972152819644858
+          },
+          "train_p99_point_f1": {
+            "mean": 0.20998428047938167,
+            "population_std": 0.004993643412692327,
+            "minimum": 0.2060118224122752,
+            "maximum": 0.21702712839104887
+          },
+          "train_p99_event_f1": {
+            "mean": 0.7203353824693295,
+            "population_std": 0.0035350845354920573,
+            "minimum": 0.7153544835374246,
+            "maximum": 0.7231976092641017
+          },
+          "best_raw_f1": {
+            "mean": 0.6554769487221329,
+            "population_std": 0.004121049443393751,
+            "minimum": 0.6499041439315736,
+            "maximum": 0.6597406655210123
+          }
+        },
+        "no_message": {
+          "roc_auc": {
+            "mean": 0.8844077289125317,
+            "population_std": 0.0021481258645503565,
+            "minimum": 0.881934826231987,
+            "maximum": 0.8871723266281037
+          },
+          "average_precision": {
+            "mean": 0.597202996294195,
+            "population_std": 0.002786578177620951,
+            "minimum": 0.593308813891877,
+            "maximum": 0.599673570516184
+          },
+          "train_p99_point_f1": {
+            "mean": 0.20982135876652086,
+            "population_std": 0.003013532837627373,
+            "minimum": 0.2069399044505909,
+            "maximum": 0.21398145828113255
+          },
+          "train_p99_event_f1": {
+            "mean": 0.7208936842428085,
+            "population_std": 0.003372145867527228,
+            "minimum": 0.7172224277334461,
+            "maximum": 0.725365305357812
+          },
+          "best_raw_f1": {
+            "mean": 0.657211222706603,
+            "population_std": 0.00579801015448487,
+            "minimum": 0.6490125673249552,
+            "maximum": 0.6614197295025598
+          }
+        }
+      },
+      "dynamic_deltas": {
+        "learned_static": {
+          "roc_auc": {
+            "mean": 0.000566311970130536,
+            "population_std": 0.001129733261389581,
+            "minimum": -0.0007421819358601756,
+            "maximum": 0.002014491310879274,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "average_precision": {
+            "mean": 0.001131984262261317,
+            "population_std": 0.0013039679096705547,
+            "minimum": -0.0005756619112390338,
+            "maximum": 0.0025886811946650434,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "train_p99_point_f1": {
+            "mean": 0.001680653207606501,
+            "population_std": 0.0008781809130925595,
+            "minimum": 0.0009483028165020446,
+            "maximum": 0.002915476636143166,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          },
+          "train_p99_event_f1": {
+            "mean": -0.0008923108323446449,
+            "population_std": 0.0014273859544260872,
+            "minimum": -0.002892543733414743,
+            "maximum": 0.0003432780166723326,
+            "wins": 1,
+            "ties": 0,
+            "losses": 2
+          },
+          "best_raw_f1": {
+            "mean": -0.00015697004531460093,
+            "population_std": 0.001716647527493058,
+            "minimum": -0.0023657641494272408,
+            "maximum": 0.0018199174391820838,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          }
+        },
+        "fixed_random": {
+          "roc_auc": {
+            "mean": 0.0016371011531184736,
+            "population_std": 0.0018893600286024317,
+            "minimum": -0.00017404009309618385,
+            "maximum": 0.004243949976937222,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "average_precision": {
+            "mean": 0.0012961537306686033,
+            "population_std": 0.002436134519980299,
+            "minimum": -0.0008249737333650975,
+            "maximum": 0.004707832264253198,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "train_p99_point_f1": {
+            "mean": -0.0008182567414769248,
+            "population_std": 0.0015329796944143091,
+            "minimum": -0.002651971867132008,
+            "maximum": 0.0011001779495278252,
+            "wins": 1,
+            "ties": 0,
+            "losses": 2
+          },
+          "train_p99_event_f1": {
+            "mean": -0.0005060309908894537,
+            "population_std": 0.0019266362242533308,
+            "minimum": -0.002892543733414743,
+            "maximum": 0.0018257807844844764,
+            "wins": 1,
+            "ties": 0,
+            "losses": 2
+          },
+          "best_raw_f1": {
+            "mean": 0.0010539674965290107,
+            "population_std": 0.0009229377311227618,
+            "minimum": 0.0003040654675936505,
+            "maximum": 0.00235409757125693,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          }
+        },
+        "no_message": {
+          "roc_auc": {
+            "mean": -0.0006451031914792571,
+            "population_std": 0.0002933912842750272,
+            "minimum": -0.0009055292775888013,
+            "maximum": -0.00023515570508925165,
+            "wins": 0,
+            "ties": 0,
+            "losses": 3
+          },
+          "average_precision": {
+            "mean": -0.00029930537202138563,
+            "population_std": 0.0012131979137857832,
+            "minimum": -0.0014057198489205724,
+            "maximum": 0.0013895334180338281,
+            "wins": 1,
+            "ties": 0,
+            "losses": 2
+          },
+          "train_p99_point_f1": {
+            "mean": -0.0006553350286161533,
+            "population_std": 0.0009126603035562873,
+            "minimum": -0.0018310583451423001,
+            "maximum": 0.0003936982427843183,
+            "wins": 1,
+            "ties": 0,
+            "losses": 2
+          },
+          "train_p99_event_f1": {
+            "mean": -0.0010643327643686067,
+            "population_std": 0.003877867174585209,
+            "minimum": -0.0050602398271250015,
+            "maximum": 0.004186515753778819,
+            "wins": 1,
+            "ties": 0,
+            "losses": 2
+          },
+          "best_raw_f1": {
+            "mean": -0.0006803064879410403,
+            "population_std": 0.0022947299047784645,
+            "minimum": -0.003911595127744638,
+            "maximum": 0.0011956420742120777,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          }
+        }
+      },
+      "dynamic_score_differences": {
+        "learned_static": {
+          "max_abs": {
+            "mean": 2.2608439127604165,
+            "population_std": 0.4471478489928693,
+            "minimum": 1.857421875,
+            "maximum": 2.88427734375
+          },
+          "mean_abs": {
+            "mean": 0.01684672238841427,
+            "population_std": 0.0019516235584414946,
+            "minimum": 0.014138452755357845,
+            "maximum": 0.01866151810711899
+          },
+          "exactly_equal_runs": 0
+        },
+        "fixed_random": {
+          "max_abs": {
+            "mean": 3.3479207356770835,
+            "population_std": 0.7475129461079936,
+            "minimum": 2.5955810546875,
+            "maximum": 4.36724853515625
+          },
+          "mean_abs": {
+            "mean": 0.022477318587139097,
+            "population_std": 0.0019662507937085794,
+            "minimum": 0.021072416172669778,
+            "maximum": 0.025257966171043474
+          },
+          "exactly_equal_runs": 0
+        },
+        "no_message": {
+          "max_abs": {
+            "mean": 4.796712239583333,
+            "population_std": 3.6908512960924043,
+            "minimum": 1.375,
+            "maximum": 9.921142578125
+          },
+          "mean_abs": {
+            "mean": 0.023414354761086425,
+            "population_std": 0.005313657709234895,
+            "minimum": 0.01919713278694403,
+            "maximum": 0.030909403949044643
+          },
+          "exactly_equal_runs": 0
+        }
+      }
+    },
+    "PSM": {
+      "arms": {
+        "learned_dynamic": {
+          "roc_auc": {
+            "mean": 0.7765629748236828,
+            "population_std": 0.003989176011371413,
+            "minimum": 0.7731233791417009,
+            "maximum": 0.782155391162915
+          },
+          "average_precision": {
+            "mean": 0.5646907773478377,
+            "population_std": 0.00449545999239329,
+            "minimum": 0.5605052123468635,
+            "maximum": 0.5709277757007845
+          },
+          "train_p99_point_f1": {
+            "mean": 0.4731893895566824,
+            "population_std": 0.005882863857195089,
+            "minimum": 0.4649238773508465,
+            "maximum": 0.4781425795233712
+          },
+          "train_p99_event_f1": {
+            "mean": 0.6252908963994567,
+            "population_std": 0.018774596845751928,
+            "minimum": 0.6105741610624852,
+            "maximum": 0.65178800764862
+          },
+          "best_raw_f1": {
+            "mean": 0.6091473308672367,
+            "population_std": 0.010369101974282771,
+            "minimum": 0.5957281553398058,
+            "maximum": 0.6209776324242248
+          }
+        },
+        "learned_static": {
+          "roc_auc": {
+            "mean": 0.7736009364400113,
+            "population_std": 0.007869092128988304,
+            "minimum": 0.7624731114533022,
+            "maximum": 0.7792768743797605
+          },
+          "average_precision": {
+            "mean": 0.5638813179963623,
+            "population_std": 0.0043493934123948344,
+            "minimum": 0.5577327547508533,
+            "maximum": 0.5671046368482122
+          },
+          "train_p99_point_f1": {
+            "mean": 0.4716497305773171,
+            "population_std": 0.004639631104293767,
+            "minimum": 0.46559178718238164,
+            "maximum": 0.4768616490317429
+          },
+          "train_p99_event_f1": {
+            "mean": 0.6273763921204145,
+            "population_std": 0.019941869568471597,
+            "minimum": 0.6118309859154931,
+            "maximum": 0.6555273312179729
+          },
+          "best_raw_f1": {
+            "mean": 0.6000584022750605,
+            "population_std": 0.013864915728452248,
+            "minimum": 0.5862308670959956,
+            "maximum": 0.6190118245685043
+          }
+        },
+        "fixed_random": {
+          "roc_auc": {
+            "mean": 0.7751287592742102,
+            "population_std": 0.00459872172452384,
+            "minimum": 0.7687204910422882,
+            "maximum": 0.7792935889455973
+          },
+          "average_precision": {
+            "mean": 0.5677600682352596,
+            "population_std": 0.003171708746937552,
+            "minimum": 0.5634835837626976,
+            "maximum": 0.5710702170292714
+          },
+          "train_p99_point_f1": {
+            "mean": 0.46486618015426656,
+            "population_std": 0.015143226044617493,
+            "minimum": 0.44369923567711167,
+            "maximum": 0.4782685686178062
+          },
+          "train_p99_event_f1": {
+            "mean": 0.619813147040953,
+            "population_std": 0.01634222649689764,
+            "minimum": 0.6016559337626496,
+            "maximum": 0.6412747765254566
+          },
+          "best_raw_f1": {
+            "mean": 0.6031145270804671,
+            "population_std": 0.007570411880193406,
+            "minimum": 0.5951923208028251,
+            "maximum": 0.6133122711280248
+          }
+        },
+        "no_message": {
+          "roc_auc": {
+            "mean": 0.7655393242475275,
+            "population_std": 0.007059353763455955,
+            "minimum": 0.7557075660871997,
+            "maximum": 0.7719565733500545
+          },
+          "average_precision": {
+            "mean": 0.5681256008992668,
+            "population_std": 0.007891149388382328,
+            "minimum": 0.5571189845511599,
+            "maximum": 0.5752245767795927
+          },
+          "train_p99_point_f1": {
+            "mean": 0.46953775167475403,
+            "population_std": 0.003132743345223699,
+            "minimum": 0.4659817303432417,
+            "maximum": 0.473604245575742
+          },
+          "train_p99_event_f1": {
+            "mean": 0.649025132829033,
+            "population_std": 0.02055101378637279,
+            "minimum": 0.6209489704565802,
+            "maximum": 0.6695680646129498
+          },
+          "best_raw_f1": {
+            "mean": 0.5855889021243663,
+            "population_std": 0.005292292077943627,
+            "minimum": 0.5781931464174455,
+            "maximum": 0.5902815821189876
+          }
+        }
+      },
+      "dynamic_deltas": {
+        "learned_static": {
+          "roc_auc": {
+            "mean": 0.0029620383836715947,
+            "population_std": 0.007386099656442461,
+            "minimum": -0.006153495238059525,
+            "maximum": 0.01193704271313023,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "average_precision": {
+            "mean": 0.0008094593514753612,
+            "population_std": 0.003545088039679892,
+            "minimum": -0.004167218394156347,
+            "maximum": 0.0038231388525722387,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "train_p99_point_f1": {
+            "mean": 0.0015396589793652733,
+            "population_std": 0.010148379467923307,
+            "minimum": -0.01193777168089638,
+            "maximum": 0.012550792340989547,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "train_p99_event_f1": {
+            "mean": -0.002085495720957916,
+            "population_std": 0.033569975391760806,
+            "minimum": -0.04495317015548772,
+            "maximum": 0.03701714842084236,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "best_raw_f1": {
+            "mean": 0.009088928592176212,
+            "population_std": 0.010911510020664941,
+            "minimum": 0.0007956401791242573,
+            "maximum": 0.024505337741683952,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          }
+        },
+        "fixed_random": {
+          "roc_auc": {
+            "mean": 0.0014342155494725024,
+            "population_std": 0.004181057121375252,
+            "minimum": -0.004248818693044387,
+            "maximum": 0.005689663124144206,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "average_precision": {
+            "mean": -0.003069290887421805,
+            "population_std": 0.0024277317680317587,
+            "minimum": -0.006087059917944337,
+            "maximum": -0.000142441328486953,
+            "wins": 0,
+            "ties": 0,
+            "losses": 3
+          },
+          "train_p99_point_f1": {
+            "mean": 0.008323209402415876,
+            "population_std": 0.018944094923709805,
+            "minimum": -0.013344691266959696,
+            "maximum": 0.03280247611871778,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "train_p99_event_f1": {
+            "mean": 0.005477749358503574,
+            "population_std": 0.03353965152421664,
+            "minimum": -0.030700615462971426,
+            "maximum": 0.05013207388597041,
+            "wins": 1,
+            "ties": 0,
+            "losses": 2
+          },
+          "best_raw_f1": {
+            "mean": 0.006032803786769588,
+            "population_std": 0.008510905826797083,
+            "minimum": -0.005110833970745632,
+            "maximum": 0.015543884034854405,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          }
+        },
+        "no_message": {
+          "roc_auc": {
+            "mean": 0.011023650576155323,
+            "population_std": 0.005961688296880441,
+            "minimum": 0.0041695458363727456,
+            "maximum": 0.01870258807923275,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          },
+          "average_precision": {
+            "mean": -0.003434823551429026,
+            "population_std": 0.005252945444452886,
+            "minimum": -0.009393897371182347,
+            "maximum": 0.0033862277957035225,
+            "wins": 1,
+            "ties": 0,
+            "losses": 2
+          },
+          "train_p99_point_f1": {
+            "mean": 0.0036516378819283677,
+            "population_std": 0.00873888105599426,
+            "minimum": -0.008680368224895485,
+            "maximum": 0.010519981452587757,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "train_p99_event_f1": {
+            "mean": -0.023734236429576394,
+            "population_std": 0.016289729823307234,
+            "minimum": -0.045984202355083936,
+            "maximum": -0.007438449969315419,
+            "wins": 0,
+            "ties": 0,
+            "losses": 3
+          },
+          "best_raw_f1": {
+            "mean": 0.023558428742870435,
+            "population_std": 0.012807148166954897,
+            "minimum": 0.005446573220818207,
+            "maximum": 0.03268565458755901,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          }
+        }
+      },
+      "dynamic_score_differences": {
+        "learned_static": {
+          "max_abs": {
+            "mean": 10.758015950520834,
+            "population_std": 2.2758193634475097,
+            "minimum": 7.723724365234375,
+            "maximum": 13.20458984375
+          },
+          "mean_abs": {
+            "mean": 0.04054158497840885,
+            "population_std": 0.007129660988643377,
+            "minimum": 0.03502790605369429,
+            "maximum": 0.050609211488399496
+          },
+          "exactly_equal_runs": 0
+        },
+        "fixed_random": {
+          "max_abs": {
+            "mean": 10.043477376302084,
+            "population_std": 1.0323582466688936,
+            "minimum": 9.287628173828125,
+            "maximum": 11.503143310546875
+          },
+          "mean_abs": {
+            "mean": 0.04664131723846021,
+            "population_std": 0.017172256562411708,
+            "minimum": 0.02288319802112978,
+            "maximum": 0.06287852113217082
+          },
+          "exactly_equal_runs": 0
+        },
+        "no_message": {
+          "max_abs": {
+            "mean": 24.384318033854168,
+            "population_std": 11.05471243092624,
+            "minimum": 14.640472412109375,
+            "maximum": 39.8441162109375
+          },
+          "mean_abs": {
+            "mean": 0.08610159815718214,
+            "population_std": 0.021976362403240548,
+            "minimum": 0.05753987556530742,
+            "maximum": 0.11099432821674649
+          },
+          "exactly_equal_runs": 0
+        }
+      }
+    },
+    "SMD": {
+      "arms": {
+        "learned_dynamic": {
+          "roc_auc": {
+            "mean": 0.7489536734622275,
+            "population_std": 0.002216100220532992,
+            "minimum": 0.7470365571406817,
+            "maximum": 0.7520593573851337
+          },
+          "average_precision": {
+            "mean": 0.15109995968790427,
+            "population_std": 0.0032886642989702107,
+            "minimum": 0.1471749312177107,
+            "maximum": 0.15522316430760252
+          },
+          "train_p99_point_f1": {
+            "mean": 0.23481060743845014,
+            "population_std": 0.007184301512619121,
+            "minimum": 0.22523680152727807,
+            "maximum": 0.2425433485799753
+          },
+          "train_p99_event_f1": {
+            "mean": 0.22307643551346282,
+            "population_std": 0.018198707866880586,
+            "minimum": 0.2025200478844597,
+            "maximum": 0.2467660292463442
+          },
+          "best_raw_f1": {
+            "mean": 0.23726952704591234,
+            "population_std": 0.005335554651404295,
+            "minimum": 0.23028982052242616,
+            "maximum": 0.2432423196528039
+          }
+        },
+        "learned_static": {
+          "roc_auc": {
+            "mean": 0.7470853474254362,
+            "population_std": 0.00339128253288435,
+            "minimum": 0.7423183787755834,
+            "maximum": 0.7499251246883536
+          },
+          "average_precision": {
+            "mean": 0.15247663743718365,
+            "population_std": 0.0024994087310465755,
+            "minimum": 0.14942480041339795,
+            "maximum": 0.15554699244580789
+          },
+          "train_p99_point_f1": {
+            "mean": 0.24207867365417082,
+            "population_std": 0.0018884665115554851,
+            "minimum": 0.2396712249054408,
+            "maximum": 0.24428369795342272
+          },
+          "train_p99_event_f1": {
+            "mean": 0.2165562256814101,
+            "population_std": 0.018439054060320557,
+            "minimum": 0.19282046616361787,
+            "maximum": 0.23777602300005232
+          },
+          "best_raw_f1": {
+            "mean": 0.24275067281028742,
+            "population_std": 0.0021199749532666654,
+            "minimum": 0.2400261383959279,
+            "maximum": 0.24519651044547128
+          }
+        },
+        "fixed_random": {
+          "roc_auc": {
+            "mean": 0.7494902964006372,
+            "population_std": 0.002558981272249331,
+            "minimum": 0.745919959659851,
+            "maximum": 0.7517874212102204
+          },
+          "average_precision": {
+            "mean": 0.15217820795383952,
+            "population_std": 0.003906743291983289,
+            "minimum": 0.14679460097646133,
+            "maximum": 0.1559454400357082
+          },
+          "train_p99_point_f1": {
+            "mean": 0.23940471654901999,
+            "population_std": 0.0052154141830523,
+            "minimum": 0.23334188065496905,
+            "maximum": 0.24607376192921263
+          },
+          "train_p99_event_f1": {
+            "mean": 0.21938776344180844,
+            "population_std": 0.016373802504768376,
+            "minimum": 0.19704502935611046,
+            "maximum": 0.23582731687843478
+          },
+          "best_raw_f1": {
+            "mean": 0.24037895078554358,
+            "population_std": 0.004807893738745555,
+            "minimum": 0.23446237133596895,
+            "maximum": 0.24623884851577485
+          }
+        },
+        "no_message": {
+          "roc_auc": {
+            "mean": 0.743452491504999,
+            "population_std": 0.003323285769064637,
+            "minimum": 0.7400592435634944,
+            "maximum": 0.7479652730991644
+          },
+          "average_precision": {
+            "mean": 0.14927299286686144,
+            "population_std": 0.003634698348686342,
+            "minimum": 0.14487003669647508,
+            "maximum": 0.15377164984150954
+          },
+          "train_p99_point_f1": {
+            "mean": 0.23720329089737605,
+            "population_std": 0.00494209495025266,
+            "minimum": 0.23106347659774096,
+            "maximum": 0.2431651634723788
+          },
+          "train_p99_event_f1": {
+            "mean": 0.21314654533762892,
+            "population_std": 0.013017773962576765,
+            "minimum": 0.20134312390363635,
+            "maximum": 0.23128357747458742
+          },
+          "best_raw_f1": {
+            "mean": 0.2375466504572288,
+            "population_std": 0.00467276546280968,
+            "minimum": 0.23186797947580087,
+            "maximum": 0.24331286611616912
+          }
+        }
+      },
+      "dynamic_deltas": {
+        "learned_static": {
+          "roc_auc": {
+            "mean": 0.0018683260367913974,
+            "population_std": 0.0035034190583437116,
+            "minimum": -0.002888567547671861,
+            "maximum": 0.005446727085283709,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "average_precision": {
+            "mean": -0.0013766777492793998,
+            "population_std": 0.0007964991445381099,
+            "minimum": -0.0022498691956872596,
+            "maximum": -0.00032382813820536205,
+            "wins": 0,
+            "ties": 0,
+            "losses": 3
+          },
+          "train_p99_point_f1": {
+            "mean": -0.007268066215720681,
+            "population_std": 0.006005408978618008,
+            "minimum": -0.014434423378162725,
+            "maximum": 0.00026225047632638665,
+            "wins": 1,
+            "ties": 0,
+            "losses": 2
+          },
+          "train_p99_event_f1": {
+            "mean": 0.006520209832052722,
+            "population_std": 0.00400505524102354,
+            "minimum": 0.0008710415290244522,
+            "maximum": 0.009699581720841843,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          },
+          "best_raw_f1": {
+            "mean": -0.005481145764375056,
+            "population_std": 0.004187271125742076,
+            "minimum": -0.009736317873501737,
+            "maximum": 0.00021295006334084987,
+            "wins": 1,
+            "ties": 0,
+            "losses": 2
+          }
+        },
+        "fixed_random": {
+          "roc_auc": {
+            "mean": -0.0005366229384097624,
+            "population_std": 0.0029883443657648468,
+            "minimum": -0.004750864069538618,
+            "maximum": 0.0018451462010160569,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "average_precision": {
+            "mean": -0.0010782482659352683,
+            "population_std": 0.0028364360836056757,
+            "minimum": -0.005043656497308646,
+            "maximum": 0.001428581458253475,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "train_p99_point_f1": {
+            "mean": -0.004594109110569881,
+            "population_std": 0.0025460760931837554,
+            "minimum": -0.008105079127690984,
+            "maximum": -0.002146834854781343,
+            "wins": 0,
+            "ties": 0,
+            "losses": 3
+          },
+          "train_p99_event_f1": {
+            "mean": 0.0036886720716543995,
+            "population_std": 0.006767825931310478,
+            "minimum": -0.005347714681295468,
+            "maximum": 0.010938712367909414,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "best_raw_f1": {
+            "mean": -0.0031094237396312174,
+            "population_std": 0.0008258179091367406,
+            "minimum": -0.004172550813542786,
+            "maximum": -0.0021591915423799235,
+            "wins": 0,
+            "ties": 0,
+            "losses": 3
+          }
+        },
+        "no_message": {
+          "roc_auc": {
+            "mean": 0.0055011819572284475,
+            "population_std": 0.0011780851839571847,
+            "minimum": 0.004094084285969357,
+            "maximum": 0.0069773135771873385,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          },
+          "average_precision": {
+            "mean": 0.0018269668210428396,
+            "population_std": 0.0003558466682114642,
+            "minimum": 0.0014515144660929846,
+            "maximum": 0.002304894521235612,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          },
+          "train_p99_point_f1": {
+            "mean": -0.0023926834589259225,
+            "population_std": 0.005349403380635763,
+            "minimum": -0.006513491264281773,
+            "maximum": 0.005162115957966895,
+            "wins": 1,
+            "ties": 0,
+            "losses": 2
+          },
+          "train_p99_event_f1": {
+            "mean": 0.009929890175833919,
+            "population_std": 0.006263331038283506,
+            "minimum": 0.0011769239808233634,
+            "maximum": 0.015482451771756778,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          },
+          "best_raw_f1": {
+            "mean": -0.00027712341131646184,
+            "population_std": 0.004511885583549645,
+            "minimum": -0.005036425153662122,
+            "maximum": 0.005783213873087445,
+            "wins": 1,
+            "ties": 0,
+            "losses": 2
+          }
+        }
+      },
+      "dynamic_score_differences": {
+        "learned_static": {
+          "max_abs": {
+            "mean": 4.9819793701171875,
+            "population_std": 0.7910087011175536,
+            "minimum": 4.32861328125,
+            "maximum": 6.09503173828125
+          },
+          "mean_abs": {
+            "mean": 0.013393145132540711,
+            "population_std": 0.0007642150668682728,
+            "minimum": 0.012317075221738154,
+            "maximum": 0.014018313106607425
+          },
+          "exactly_equal_runs": 0
+        },
+        "fixed_random": {
+          "max_abs": {
+            "mean": 7.17181396484375,
+            "population_std": 1.8285253166632407,
+            "minimum": 5.615966796875,
+            "maximum": 9.738525390625
+          },
+          "mean_abs": {
+            "mean": 0.01520537196446231,
+            "population_std": 0.001421107154732943,
+            "minimum": 0.013196209480571085,
+            "maximum": 0.016251999643150883
+          },
+          "exactly_equal_runs": 0
+        },
+        "no_message": {
+          "max_abs": {
+            "mean": 10.983479817708334,
+            "population_std": 0.4648531566419644,
+            "minimum": 10.5062255859375,
+            "maximum": 11.6136474609375
+          },
+          "mean_abs": {
+            "mean": 0.021295396416370998,
+            "population_std": 0.0016738792424836068,
+            "minimum": 0.019853565439782117,
+            "maximum": 0.023642242454792906
+          },
+          "exactly_equal_runs": 0
+        }
+      }
+    },
+    "SWAT": {
+      "arms": {
+        "learned_dynamic": {
+          "roc_auc": {
+            "mean": 0.8233822297702927,
+            "population_std": 0.00026542718403132744,
+            "minimum": 0.8231509910471089,
+            "maximum": 0.8237539230952418
+          },
+          "average_precision": {
+            "mean": 0.717610119171987,
+            "population_std": 0.0012921150306429026,
+            "minimum": 0.7160350787348099,
+            "maximum": 0.7191999969134808
+          },
+          "train_p99_point_f1": {
+            "mean": 0.28788198286431904,
+            "population_std": 0.0027090531408556153,
+            "minimum": 0.2840525084481414,
+            "maximum": 0.2898957031611158
+          },
+          "train_p99_event_f1": {
+            "mean": 0.29473858242669265,
+            "population_std": 0.028662453649193995,
+            "minimum": 0.2623318385650224,
+            "maximum": 0.3320288362512873
+          },
+          "best_raw_f1": {
+            "mean": 0.7738550569793015,
+            "population_std": 0.0005527985885149233,
+            "minimum": 0.7730766659982622,
+            "maximum": 0.7743071812364835
+          }
+        },
+        "learned_static": {
+          "roc_auc": {
+            "mean": 0.8216412757349559,
+            "population_std": 0.0017997218025971188,
+            "minimum": 0.820233136431086,
+            "maximum": 0.8241814705530459
+          },
+          "average_precision": {
+            "mean": 0.7165991891736215,
+            "population_std": 0.0006071025952242101,
+            "minimum": 0.7157407280960616,
+            "maximum": 0.7170404103515848
+          },
+          "train_p99_point_f1": {
+            "mean": 0.28611417656624477,
+            "population_std": 0.002360834119205986,
+            "minimum": 0.28277753206545775,
+            "maximum": 0.2878845243729295
+          },
+          "train_p99_event_f1": {
+            "mean": 0.260859849814275,
+            "population_std": 0.034060412679682385,
+            "minimum": 0.21804922515952596,
+            "maximum": 0.3013859722805544
+          },
+          "best_raw_f1": {
+            "mean": 0.7742472228521452,
+            "population_std": 0.00012489508929605954,
+            "minimum": 0.7740719677962511,
+            "maximum": 0.7743538878177625
+          }
+        },
+        "fixed_random": {
+          "roc_auc": {
+            "mean": 0.8217773708115598,
+            "population_std": 0.0006802799587586907,
+            "minimum": 0.8208352521510218,
+            "maximum": 0.8224171919726222
+          },
+          "average_precision": {
+            "mean": 0.71508656660759,
+            "population_std": 0.002148219202900034,
+            "minimum": 0.712849855108845,
+            "maximum": 0.7179854025924886
+          },
+          "train_p99_point_f1": {
+            "mean": 0.2874444304306914,
+            "population_std": 0.0012765187645537562,
+            "minimum": 0.28584319496091226,
+            "maximum": 0.2889670481393536
+          },
+          "train_p99_event_f1": {
+            "mean": 0.24926257067734414,
+            "population_std": 0.07304379520694548,
+            "minimum": 0.1530086803001324,
+            "maximum": 0.3298623578695392
+          },
+          "best_raw_f1": {
+            "mean": 0.7741798734602412,
+            "population_std": 0.00012836697153575333,
+            "minimum": 0.7740798965336545,
+            "maximum": 0.7743610891298776
+          }
+        },
+        "no_message": {
+          "roc_auc": {
+            "mean": 0.8217128294977458,
+            "population_std": 0.0014229991374294674,
+            "minimum": 0.8197004066623705,
+            "maximum": 0.8227214002442773
+          },
+          "average_precision": {
+            "mean": 0.7167845846812609,
+            "population_std": 0.0029535742014005864,
+            "minimum": 0.713170752010247,
+            "maximum": 0.720405491345905
+          },
+          "train_p99_point_f1": {
+            "mean": 0.285698096458384,
+            "population_std": 0.003656246467653512,
+            "minimum": 0.2805472384187518,
+            "maximum": 0.28866557578110796
+          },
+          "train_p99_event_f1": {
+            "mean": 0.20672224652386673,
+            "population_std": 0.018246829900192635,
+            "minimum": 0.18126361655773418,
+            "maximum": 0.22310037258665466
+          },
+          "best_raw_f1": {
+            "mean": 0.7743107493101729,
+            "population_std": 0.00010630243360824532,
+            "minimum": 0.7741604602417161,
+            "maximum": 0.774389088842584
+          }
+        }
+      },
+      "dynamic_deltas": {
+        "learned_static": {
+          "roc_auc": {
+            "mean": 0.0017409540353367319,
+            "population_std": 0.0019291756780026874,
+            "minimum": -0.0009396953845184353,
+            "maximum": 0.003520786664155784,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "average_precision": {
+            "mean": 0.001010929998365569,
+            "population_std": 0.0008204853420816151,
+            "minimum": 0.00029435063874827527,
+            "maximum": 0.0021595865618959653,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          },
+          "train_p99_point_f1": {
+            "mean": 0.0017678062980742888,
+            "population_std": 0.0003484922292170055,
+            "minimum": 0.0012749763826836458,
+            "maximum": 0.0020172637233529245,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          },
+          "train_p99_event_f1": {
+            "mean": 0.03387873261241762,
+            "population_std": 0.03364361306658401,
+            "minimum": -0.011530899816786233,
+            "maximum": 0.06888448424854265,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "best_raw_f1": {
+            "mean": -0.0003921658728438156,
+            "population_std": 0.0004279845456019557,
+            "minimum": -0.0009953017979889012,
+            "maximum": -4.670658127903238e-05,
+            "wins": 0,
+            "ties": 0,
+            "losses": 3
+          }
+        },
+        "fixed_random": {
+          "roc_auc": {
+            "mean": 0.0016048589587329687,
+            "population_std": 0.0009453177029100513,
+            "minimum": 0.000733799074486674,
+            "maximum": 0.0029186709442199366,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          },
+          "average_precision": {
+            "mean": 0.0025235525643971433,
+            "population_std": 0.0009255918777489536,
+            "minimum": 0.001214594320992246,
+            "maximum": 0.0031852236259648503,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          },
+          "train_p99_point_f1": {
+            "mean": 0.00043755243362766,
+            "population_std": 0.0017122694084295254,
+            "minimum": -0.001790686512770867,
+            "maximum": 0.002372654969307497,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "train_p99_event_f1": {
+            "mean": 0.045476011749348504,
+            "population_std": 0.06285426324757402,
+            "minimum": -0.04000728540577103,
+            "maximum": 0.10932315826489,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "best_raw_f1": {
+            "mean": -0.00032481648093966403,
+            "population_std": 0.0005202168677206286,
+            "minimum": -0.0010219687189292337,
+            "maximum": 0.00022728470282895596,
+            "wins": 1,
+            "ties": 0,
+            "losses": 2
+          }
+        },
+        "no_message": {
+          "roc_auc": {
+            "mean": 0.00166940027254688,
+            "population_std": 0.0016862755003545548,
+            "minimum": 0.0004295908028315587,
+            "maximum": 0.004053516432871218,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          },
+          "average_precision": {
+            "mean": 0.0008255344907259395,
+            "population_std": 0.0016615065982835164,
+            "minimum": -0.0012054944324242367,
+            "maximum": 0.0028643267245628268,
+            "wins": 2,
+            "ties": 0,
+            "losses": 1
+          },
+          "train_p99_point_f1": {
+            "mean": 0.002183886405935013,
+            "population_std": 0.0010167447408050694,
+            "minimum": 0.0010321612025919746,
+            "maximum": 0.0035052700293896066,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          },
+          "train_p99_event_f1": {
+            "mean": 0.08801633590282591,
+            "population_std": 0.015061950487778213,
+            "minimum": 0.07405232203655684,
+            "maximum": 0.10892846366463266,
+            "wins": 3,
+            "ties": 0,
+            "losses": 0
+          },
+          "best_raw_f1": {
+            "mean": -0.00045569233087124533,
+            "population_std": 0.00044740463544003397,
+            "minimum": -0.0010837942434539505,
+            "maximum": -7.551760973467658e-05,
+            "wins": 0,
+            "ties": 0,
+            "losses": 3
+          }
+        }
+      },
+      "dynamic_score_differences": {
+        "learned_static": {
+          "max_abs": {
+            "mean": 6.043204307556152,
+            "population_std": 1.0476716643213713,
+            "minimum": 4.562955856323242,
+            "maximum": 6.838756561279297
+          },
+          "mean_abs": {
+            "mean": 0.0808279463071094,
+            "population_std": 0.019743089276743845,
+            "minimum": 0.06621432152332718,
+            "maximum": 0.10873854085891806
+          },
+          "exactly_equal_runs": 0
+        },
+        "fixed_random": {
+          "max_abs": {
+            "mean": 8.603679656982422,
+            "population_std": 2.8375744144306396,
+            "minimum": 4.855464935302734,
+            "maximum": 11.719120025634766
+          },
+          "mean_abs": {
+            "mean": 0.19223079109501232,
+            "population_std": 0.06684928497994976,
+            "minimum": 0.09772514678073245,
+            "maximum": 0.24166369307934127
+          },
+          "exactly_equal_runs": 0
+        },
+        "no_message": {
+          "max_abs": {
+            "mean": 9.505427042643229,
+            "population_std": 2.4302045002158845,
+            "minimum": 6.352375030517578,
+            "maximum": 12.266241073608398
+          },
+          "mean_abs": {
+            "mean": 0.1384293284284268,
+            "population_std": 0.07102912950840919,
+            "minimum": 0.08492608343495572,
+            "maximum": 0.23880674762346646
+          },
+          "exactly_equal_runs": 0
+        }
+      }
+    }
+  },
+  "macro": {
+    "arms": {
+      "learned_dynamic": {
+        "roc_auc": {
+          "mean": 0.8081653759443138,
+          "population_std": 0.05118076441957588,
+          "minimum": 0.7470365571406817,
+          "maximum": 0.8869371709230145
+        },
+        "average_precision": {
+          "mean": 0.5075761367824757,
+          "population_std": 0.2135861694784416,
+          "minimum": 0.1471749312177107,
+          "maximum": 0.7191999969134808
+        },
+        "train_p99_point_f1": {
+          "mean": 0.30126200089933913,
+          "population_std": 0.10337316389115486,
+          "minimum": 0.2051088461054486,
+          "maximum": 0.4781425795233712
+        },
+        "train_p99_event_f1": {
+          "mean": 0.46573381645451306,
+          "population_std": 0.21193451748992911,
+          "minimum": 0.2025200478844597,
+          "maximum": 0.7242798353909465
+        },
+        "best_raw_f1": {
+          "mean": 0.5692007077777782,
+          "population_std": 0.20090055854277236,
+          "minimum": 0.23028982052242616,
+          "maximum": 0.7743071812364835
+        }
+      },
+      "learned_static": {
+        "roc_auc": {
+          "mean": 0.8063809683378315,
+          "population_std": 0.051966968952347536,
+          "minimum": 0.7423183787755834,
+          "maximum": 0.8849226796121352
+        },
+        "average_precision": {
+          "mean": 0.5071822128167699,
+          "population_std": 0.21259005642662349,
+          "minimum": 0.14942480041339795,
+          "maximum": 0.7170404103515848
+        },
+        "train_p99_point_f1": {
+          "mean": 0.3018319878320077,
+          "population_std": 0.10199113550789668,
+          "minimum": 0.20219336946930544,
+          "maximum": 0.4768616490317429
+        },
+        "train_p99_event_f1": {
+          "mean": 0.4563785324817211,
+          "population_std": 0.22179603515230276,
+          "minimum": 0.19282046616361787,
+          "maximum": 0.7239365573742742
+        },
+        "best_raw_f1": {
+          "mean": 0.5684360460503673,
+          "population_std": 0.19839964882053307,
+          "minimum": 0.2400261383959279,
+          "maximum": 0.7743538878177625
+        }
+      },
+      "fixed_random": {
+        "roc_auc": {
+          "mean": 0.8071304877635854,
+          "population_std": 0.05056227045353043,
+          "minimum": 0.745919959659851,
+          "maximum": 0.8871112110161107
+        },
+        "average_precision": {
+          "mean": 0.5076580949970485,
+          "population_std": 0.21258686879280597,
+          "minimum": 0.14679460097646133,
+          "maximum": 0.7179854025924886
+        },
+        "train_p99_point_f1": {
+          "mean": 0.30042490190333987,
+          "population_std": 0.09924147251969151,
+          "minimum": 0.2060118224122752,
+          "maximum": 0.4782685686178062
+        },
+        "train_p99_event_f1": {
+          "mean": 0.4521997159073588,
+          "population_std": 0.22430946854746597,
+          "minimum": 0.1530086803001324,
+          "maximum": 0.7231976092641017
+        },
+        "best_raw_f1": {
+          "mean": 0.5682875750120963,
+          "population_std": 0.1992661752440468,
+          "minimum": 0.23446237133596895,
+          "maximum": 0.7743610891298776
+        }
+      },
+      "no_message": {
+        "roc_auc": {
+          "mean": 0.803778093540701,
+          "population_std": 0.0547532936616723,
+          "minimum": 0.7400592435634944,
+          "maximum": 0.8871723266281037
+        },
+        "average_precision": {
+          "mean": 0.5078465436853961,
+          "population_std": 0.21444125452701643,
+          "minimum": 0.14487003669647508,
+          "maximum": 0.720405491345905
+        },
+        "train_p99_point_f1": {
+          "mean": 0.30056512444925876,
+          "population_std": 0.10133930399389444,
+          "minimum": 0.2069399044505909,
+          "maximum": 0.473604245575742
+        },
+        "train_p99_event_f1": {
+          "mean": 0.4474469022333343,
+          "population_std": 0.2393679529119725,
+          "minimum": 0.18126361655773418,
+          "maximum": 0.725365305357812
+        },
+        "best_raw_f1": {
+          "mean": 0.5636643811495928,
+          "population_std": 0.20002489481994054,
+          "minimum": 0.23186797947580087,
+          "maximum": 0.774389088842584
+        }
+      }
+    },
+    "dynamic_deltas": {
+      "learned_static": {
+        "roc_auc": {
+          "mean": 0.001784407606482565,
+          "population_std": 0.004321629640952182,
+          "minimum": -0.006153495238059525,
+          "maximum": 0.01193704271313023,
+          "wins": 8,
+          "ties": 0,
+          "losses": 4
+        },
+        "average_precision": {
+          "mean": 0.00039392396570571187,
+          "population_std": 0.0022253493061752177,
+          "minimum": -0.004167218394156347,
+          "maximum": 0.0038231388525722387,
+          "wins": 7,
+          "ties": 0,
+          "losses": 5
+        },
+        "train_p99_point_f1": {
+          "mean": -0.0005699869326686544,
+          "population_std": 0.007067402662264182,
+          "minimum": -0.014434423378162725,
+          "maximum": 0.012550792340989547,
+          "wins": 9,
+          "ties": 0,
+          "losses": 3
+        },
+        "train_p99_event_f1": {
+          "mean": 0.009355283972791945,
+          "population_std": 0.02793857397926306,
+          "minimum": -0.04495317015548772,
+          "maximum": 0.06888448424854265,
+          "wins": 8,
+          "ties": 0,
+          "losses": 4
+        },
+        "best_raw_f1": {
+          "mean": 0.0007646617274106848,
+          "population_std": 0.007909101168874286,
+          "minimum": -0.009736317873501737,
+          "maximum": 0.024505337741683952,
+          "wins": 6,
+          "ties": 0,
+          "losses": 6
+        }
+      },
+      "fixed_random": {
+        "roc_auc": {
+          "mean": 0.0010348881807285455,
+          "population_std": 0.002923669965754254,
+          "minimum": -0.004750864069538618,
+          "maximum": 0.005689663124144206,
+          "wins": 9,
+          "ties": 0,
+          "losses": 3
+        },
+        "average_precision": {
+          "mean": -8.195821457283176e-05,
+          "population_std": 0.0031358950969039927,
+          "minimum": -0.006087059917944337,
+          "maximum": 0.004707832264253198,
+          "wins": 7,
+          "ties": 0,
+          "losses": 5
+        },
+        "train_p99_point_f1": {
+          "mean": 0.0008370989959991826,
+          "population_std": 0.010713109256984635,
+          "minimum": -0.013344691266959696,
+          "maximum": 0.03280247611871778,
+          "wins": 5,
+          "ties": 0,
+          "losses": 7
+        },
+        "train_p99_event_f1": {
+          "mean": 0.013534100547154254,
+          "population_std": 0.04032471409983533,
+          "minimum": -0.04000728540577103,
+          "maximum": 0.10932315826489,
+          "wins": 6,
+          "ties": 0,
+          "losses": 6
+        },
+        "best_raw_f1": {
+          "mean": 0.0009131327656819293,
+          "population_std": 0.0054356296281543185,
+          "minimum": -0.005110833970745632,
+          "maximum": 0.015543884034854405,
+          "wins": 6,
+          "ties": 0,
+          "losses": 6
+        }
+      },
+      "no_message": {
+        "roc_auc": {
+          "mean": 0.004387282403612848,
+          "population_std": 0.005428009726219713,
+          "minimum": -0.0009055292775888013,
+          "maximum": 0.01870258807923275,
+          "wins": 9,
+          "ties": 0,
+          "losses": 3
+        },
+        "average_precision": {
+          "mean": -0.00027040690292040825,
+          "population_std": 0.00344843979108608,
+          "minimum": -0.009393897371182347,
+          "maximum": 0.0033862277957035225,
+          "wins": 7,
+          "ties": 0,
+          "losses": 5
+        },
+        "train_p99_point_f1": {
+          "mean": 0.0006968764500803262,
+          "population_std": 0.0056825730831116415,
+          "minimum": -0.008680368224895485,
+          "maximum": 0.010519981452587757,
+          "wins": 7,
+          "ties": 0,
+          "losses": 5
+        },
+        "train_p99_event_f1": {
+          "mean": 0.018286914221178705,
+          "population_std": 0.043642767959285164,
+          "minimum": -0.045984202355083936,
+          "maximum": 0.10892846366463266,
+          "wins": 7,
+          "ties": 0,
+          "losses": 5
+        },
+        "best_raw_f1": {
+          "mean": 0.0055363266281854215,
+          "population_std": 0.012479876766551126,
+          "minimum": -0.005036425153662122,
+          "maximum": 0.03268565458755901,
+          "wins": 6,
+          "ties": 0,
+          "losses": 6
+        }
+      }
+    }
+  }
+}

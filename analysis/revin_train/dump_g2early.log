@@ -1,0 +1,40 @@
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (449919, 51)
+train: (495000, 51)
+TEST 4686
+test: (449919, 51)
+train: (495000, 51)
+train 5210
+[dump] SWAT s48  n=449856  anom_frac=0.1214  ROC=0.2459  -> /data/modeluse/TS/vus_diag/istad_scores/SWAT_s48_revin.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (449919, 51)
+train: (495000, 51)
+TEST 4686
+test: (449919, 51)
+train: (495000, 51)
+test errors: (449856, 51)
+train errors: (494976, 51)
+regression maxdelta vs istad_scores: 0.000004
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/SWAT_s48_revin.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (449919, 51)
+train: (495000, 51)
+TEST 4686
+test: (449919, 51)
+train: (495000, 51)
+train 5210
+[dump] SWAT s89  n=449856  anom_frac=0.1214  ROC=0.2408  -> /data/modeluse/TS/vus_diag/istad_scores/SWAT_s89_revin.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (449919, 51)
+train: (495000, 51)
+TEST 4686
+test: (449919, 51)
+train: (495000, 51)
+test errors: (449856, 51)
+train errors: (494976, 51)
+regression maxdelta vs istad_scores: 0.000006
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/SWAT_s89_revin.npz

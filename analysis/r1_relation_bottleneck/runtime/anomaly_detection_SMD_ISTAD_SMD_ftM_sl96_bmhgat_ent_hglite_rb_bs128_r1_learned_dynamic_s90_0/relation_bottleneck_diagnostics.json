@@ -1,0 +1,141 @@
+{
+  "protocol": "masked_channel_relation_bottleneck_v1",
+  "relation_mode": "dynamic",
+  "mask_ratio_requested": 0.2,
+  "mask_folds": 5,
+  "validation_batches": 8,
+  "validation_cells": 3735552,
+  "masked_validation_mse": 0.2579494589253476,
+  "frozen_no_message_masked_validation_mse": 0.33858319123586017,
+  "relative_loss_increase_without_message": 0.31259508217789495,
+  "hgat_output_variance_mean": 0.10557992663234472,
+  "incidence_entropy_normalized_mean": 0.5459743365645409,
+  "message_gate_mean": 0.33203479647636414,
+  "training": {
+    "protocol": "masked_channel_relation_bottleneck_v1",
+    "epochs": [
+      {
+        "epoch": 1,
+        "mean_hgat_gradient_norm": 0.026931620709040135,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 2,
+        "mean_hgat_gradient_norm": 0.04400114266321888,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 3,
+        "mean_hgat_gradient_norm": 0.03317678916504386,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 4,
+        "mean_hgat_gradient_norm": 0.043393885349850725,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 5,
+        "mean_hgat_gradient_norm": 0.062395802458923316,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 6,
+        "mean_hgat_gradient_norm": 0.07386797660469187,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 7,
+        "mean_hgat_gradient_norm": 0.07027995472719885,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 8,
+        "mean_hgat_gradient_norm": 0.08428223605733477,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 9,
+        "mean_hgat_gradient_norm": 0.07813721476534372,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 10,
+        "mean_hgat_gradient_norm": 0.07139260598390823,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 11,
+        "mean_hgat_gradient_norm": 0.0793198477189473,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 12,
+        "mean_hgat_gradient_norm": 0.07263537763942263,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 13,
+        "mean_hgat_gradient_norm": 0.06507766073789713,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 14,
+        "mean_hgat_gradient_norm": 0.07337295447816936,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 15,
+        "mean_hgat_gradient_norm": 0.07351861339356905,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 16,
+        "mean_hgat_gradient_norm": 0.06983970397654646,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 17,
+        "mean_hgat_gradient_norm": 0.07387990841867749,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 18,
+        "mean_hgat_gradient_norm": 0.07007709432693726,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 19,
+        "mean_hgat_gradient_norm": 0.06598854847639747,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      },
+      {
+        "epoch": 20,
+        "mean_hgat_gradient_norm": 0.07147230914104748,
+        "nonzero_gradient_steps": 47,
+        "steps": 47
+      }
+    ],
+    "mean_epoch_hgat_gradient_norm": 0.06515206233960831,
+    "relation_mode": "dynamic"
+  }
+}

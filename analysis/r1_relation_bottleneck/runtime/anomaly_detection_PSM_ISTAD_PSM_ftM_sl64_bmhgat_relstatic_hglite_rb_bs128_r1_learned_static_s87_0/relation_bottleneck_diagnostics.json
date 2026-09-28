@@ -1,0 +1,81 @@
+{
+  "protocol": "masked_channel_relation_bottleneck_v1",
+  "relation_mode": "static",
+  "mask_ratio_requested": 0.2,
+  "mask_folds": 5,
+  "validation_batches": 8,
+  "validation_cells": 1638400,
+  "masked_validation_mse": 0.21479399681091307,
+  "frozen_no_message_masked_validation_mse": 0.4333557891845703,
+  "relative_loss_increase_without_message": 1.017541437929762,
+  "hgat_output_variance_mean": 0.028329689521342516,
+  "incidence_entropy_normalized_mean": 0.47524625062942505,
+  "message_gate_mean": 0.39773988723754883,
+  "training": {
+    "protocol": "masked_channel_relation_bottleneck_v1",
+    "epochs": [
+      {
+        "epoch": 1,
+        "mean_hgat_gradient_norm": 0.070151549905977,
+        "nonzero_gradient_steps": 828,
+        "steps": 828
+      },
+      {
+        "epoch": 2,
+        "mean_hgat_gradient_norm": 0.05193318649766014,
+        "nonzero_gradient_steps": 828,
+        "steps": 828
+      },
+      {
+        "epoch": 3,
+        "mean_hgat_gradient_norm": 0.053780187436228824,
+        "nonzero_gradient_steps": 828,
+        "steps": 828
+      },
+      {
+        "epoch": 4,
+        "mean_hgat_gradient_norm": 0.06207728386560438,
+        "nonzero_gradient_steps": 828,
+        "steps": 828
+      },
+      {
+        "epoch": 5,
+        "mean_hgat_gradient_norm": 0.06138711753275822,
+        "nonzero_gradient_steps": 828,
+        "steps": 828
+      },
+      {
+        "epoch": 6,
+        "mean_hgat_gradient_norm": 0.06198282331803538,
+        "nonzero_gradient_steps": 828,
+        "steps": 828
+      },
+      {
+        "epoch": 7,
+        "mean_hgat_gradient_norm": 0.07414280735060794,
+        "nonzero_gradient_steps": 828,
+        "steps": 828
+      },
+      {
+        "epoch": 8,
+        "mean_hgat_gradient_norm": 0.06005967294025974,
+        "nonzero_gradient_steps": 828,
+        "steps": 828
+      },
+      {
+        "epoch": 9,
+        "mean_hgat_gradient_norm": 0.060682951762612077,
+        "nonzero_gradient_steps": 828,
+        "steps": 828
+      },
+      {
+        "epoch": 10,
+        "mean_hgat_gradient_norm": 0.050840762441861184,
+        "nonzero_gradient_steps": 828,
+        "steps": 828
+      }
+    ],
+    "mean_epoch_hgat_gradient_norm": 0.060703834305160485,
+    "relation_mode": "static"
+  }
+}

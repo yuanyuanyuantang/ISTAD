@@ -1,0 +1,69 @@
+=== POT(pointwise) on 50 runs ===
+TimesNet  EXA       s   48  POT-F1=0.9497  th=6.0256  OK
+DLinear   EXA       s   48  POT-F1=0.9546  th=5.9211  OK
+KANAD     EXA       s   48  POT-F1=0.9556  th=5.6094  OK
+KANAD     EXA       s 2021  POT-F1=0.9545  th=5.4041  OK
+TimesNet  EXA       s 2022  POT-F1=0.9536  th=6.9284  OK
+KANAD     EXA       s 2022  POT-F1=0.9533  th=5.2534  OK
+DLinear   EXA       s 2021  POT-F1=0.9546  th=5.8522  OK
+DLinear   EXA       s 2022  POT-F1=0.9543  th=5.8862  OK
+TimesNet  EXA       s 2021  POT-F1=0.9509  th=5.9684  OK
+TimesNet  PSM       s   48  POT-F1=0.9816  th=0.0236  OK
+KANAD     PSM       s 2021  POT-F1=0.9454  th=0.1598  OK
+DLinear   PSM       s   48  POT-F1=0.9789  th=0.1126  OK
+DLinear   PSM       s 2021  POT-F1=0.9787  th=0.1120  OK
+DLinear   PSM       s 2022  POT-F1=0.9789  th=0.1127  OK
+TimesNet  PSM       s 2022  POT-F1=0.9787  th=0.0357  OK
+KANAD     PSM       s   48  POT-F1=0.9031  th=0.1548  OK
+KANAD     PSM       s 2022  POT-F1=0.9438  th=0.1623  OK
+TimesNet  PSM       s 2021  POT-F1=0.9788  th=0.0329  OK
+TimesNet  SWAT      s   48  POT-F1=0.8221  th=9.8231  OK
+TimesNet  SMD       s   48  POT-F1=0.7741  th=1.2250  OK
+DLinear   SMD       s   48  POT-F1=0.7605  th=1.2410  OK
+TimesNet  SMD       s 2022  POT-F1=0.7716  th=1.2100  OK
+DLinear   SMD       s 2021  POT-F1=0.7624  th=1.2504  OK
+TimesNet  SMD       s 2021  POT-F1=0.7742  th=1.0824  OK
+KANAD     SMD       s   48  POT-F1=0.7632  th=0.5005  OK
+KANAD     SMD       s 2021  POT-F1=0.7589  th=0.5429  OK
+KANAD     SMD       s 2022  POT-F1=0.7776  th=0.4974  OK
+DLinear   SMD       s 2022  POT-F1=0.7623  th=1.2475  OK
+TimesNet  SWAT      s 2021  POT-F1=0.8140  th=9.5959  OK
+TimesNet  SWAT      s 2022  POT-F1=0.8283  th=11.3612  OK
+KANAD     SWAT      s   48  POT-F1=0.0000  th=77.8668  OK
+DLinear   SWAT      s 2021  POT-F1=0.8108  th=6.8110  OK
+KANAD     SWAT      s 2022  POT-F1=0.0000  th=76.8233  OK
+KANAD     SWAT      s 2021  POT-F1=0.0000  th=77.2323  OK
+DLinear   SWAT      s 2022  POT-F1=0.8108  th=6.7160  OK
+DLinear   SWAT      s   48  POT-F1=0.8108  th=6.7866  OK
+ISTAD     EXA       s   48  POT-F1=0.9582  th=5.9509  OK
+ISTAD     EXA       s   89  POT-F1=0.9539  th=5.9853  OK
+ISTAD     EXA       s 2021  POT-F1=0.9539  th=6.0134  OK
+ISTAD     SMD       s   48  POT-F1=0.7418  th=1.1288  OK
+ISTAD     SMD       s 2021  POT-F1=0.7303  th=0.6436  OK
+ISTAD     SWAT      s 2021  POT-F1=0.8168  th=27.0296  OK
+ISTAD     SMD       s 2022  POT-F1=0.7345  th=1.2953  OK
+ISTAD     SWAT      s   48  POT-F1=0.8108  th=22.8313  OK
+ISTAD     PSM       s   98  POT-F1=0.7949  th=0.0862  OK
+ISTAD     SWAT      s   89  POT-F1=0.8240  th=8.0037  OK
+ISTAD     SMD       s 2025  POT-F1=0.7004  th=1.0820  OK
+ISTAD     PSM       s   87  POT-F1=0.7992  th=0.1311  OK
+ISTAD     PSM       s   90  POT-F1=0.7453  th=0.0922  OK
+ISTAD     PSM       s 2021  POT-F1=0.8131  th=0.1212  OK
+
+=== POT aggregate mean±std ===
+DLinear   EXA       N=3  POT-F1 0.9545±0.0002
+DLinear   PSM       N=3  POT-F1 0.9788±0.0001
+DLinear   SMD       N=3  POT-F1 0.7617±0.0011
+DLinear   SWAT      N=3  POT-F1 0.8108±0.0000
+ISTAD     EXA       N=3  POT-F1 0.9553±0.0025
+ISTAD     PSM       N=4  POT-F1 0.7881±0.0296
+ISTAD     SMD       N=4  POT-F1 0.7268±0.0182
+ISTAD     SWAT      N=3  POT-F1 0.8172±0.0066
+KANAD     EXA       N=3  POT-F1 0.9545±0.0012
+KANAD     PSM       N=3  POT-F1 0.9307±0.0240
+KANAD     SMD       N=3  POT-F1 0.7665±0.0098
+KANAD     SWAT      N=3  POT-F1 0.0000±0.0000
+TimesNet  EXA       N=3  POT-F1 0.9514±0.0020
+TimesNet  PSM       N=3  POT-F1 0.9797±0.0016
+TimesNet  SMD       N=3  POT-F1 0.7733±0.0015
+TimesNet  SWAT      N=3  POT-F1 0.8215±0.0072

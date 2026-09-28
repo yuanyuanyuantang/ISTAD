@@ -1,0 +1,12 @@
+anomaly_detection_SWAT_DLinear_SWAT_ftM_sl100_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_test_0  
+Accuracy : 0.9665, Precision : 0.9100, Recall : 0.8036, F-score : 0.8535 
+Average epoch training time: 0.8972s
+Total epoch training time: 2.6916s
+Finished epochs: 3
+
+Best F1 Threshold Method:
+Threshold: 2.950237
+F1: 0.8764, Precision: 0.9637, Recall: 0.8036
+TP: 43891, TN: 393628, FP: 1651, FN: 10730
+ROC-AUC: 0.5705, PR-AUC: 0.1534
+

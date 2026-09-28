@@ -1,0 +1,17 @@
+__pycache__/
+checkpoints/
+results/
+logs/
+processed/
+dataset_tranad/
+plots/
+*.pt
+*.pth
+*.log
+*.csv
+*.json
+*.yaml
+*.ipynb
+*.pyc
+*.pyo
+*.swp   

@@ -1,0 +1,397 @@
+{
+  "status": "completed_v6_nasa_seed87_development_diagnostic",
+  "confirmatory": false,
+  "preregistration": "analysis/v6_nasa_target/preregistered_seed87.md",
+  "seed": 87,
+  "results": {
+    "MSL": {
+      "trecon": {
+        "artifact": "code/ISTAD/test_results/anomaly_detection_MSL_ISTAD_MSL_ftM_sl100_bmkan_tcn_v3_ent_trecon_bs128_v6nasa_trecon_s87_0/point_scores.npz",
+        "artifact_sha256": "e8599fc0308d750d6aba0e32458fd32686a20d5a010aefaf311bb50fe5b079a2",
+        "evaluated_points": 72600,
+        "entities": 27,
+        "target_error": {
+          "roc_auc": 0.6757801647783581,
+          "pr_auc": 0.24242373380329307,
+          "anomaly_prevalence": 0.10322314049586777,
+          "train_p99": {
+            "threshold": 0.7743893218040468,
+            "raw_f1": 0.11108587005906406,
+            "raw_precision": 0.3732824427480916,
+            "raw_recall": 0.06525220176140913,
+            "point_adjusted_f1": 0.8665485278080698,
+            "point_adjusted_precision": 0.8856227361382001,
+            "point_adjusted_recall": 0.8482786228983187
+          },
+          "best_raw": {
+            "f1": 0.3205504349130833,
+            "precision": 0.25391751753807007,
+            "recall": 0.43461435757323946,
+            "TP": 3257,
+            "TN": 55536,
+            "FP": 9570,
+            "FN": 4237,
+            "threshold": 0.028712225263401028,
+            "latency": 0.0,
+            "use_adjustment": false,
+            "search_method": "adaptive_two_stage",
+            "coarse_step_num": 200,
+            "fine_step_num": 500,
+            "auto_search_range": [
+              5.140684129401052e-07,
+              2.462411422729482
+            ],
+            "score_statistics": {
+              "min": 5.6843418860808015e-12,
+              "max": 56696.6640625,
+              "mean": 16.72136878967285,
+              "std": 428.8521728515625,
+              "median": 0.004578517284244299,
+              "p1": 1.0281368258802104e-06,
+              "p99": 1.231205711364741
+            }
+          },
+          "best_point_adjusted": {
+            "f1": 0.8890136941780411,
+            "precision": 0.8654283537207123,
+            "recall": 0.9139311436963823,
+            "TP": 6849,
+            "TN": 64041,
+            "FP": 1065,
+            "FN": 645,
+            "threshold": 0.6254528848683188,
+            "latency": 0.0,
+            "use_adjustment": true,
+            "search_method": "adaptive_two_stage",
+            "coarse_step_num": 200,
+            "fine_step_num": 500,
+            "auto_search_range": [
+              5.140684129401052e-07,
+              2.462411422729482
+            ],
+            "score_statistics": {
+              "min": 5.6843418860808015e-12,
+              "max": 56696.6640625,
+              "mean": 16.72136878967285,
+              "std": 428.8521728515625,
+              "median": 0.004578517284244299,
+              "p1": 1.0281368258802104e-06,
+              "p99": 1.231205711364741
+            }
+          }
+        }
+      },
+      "forecast": {
+        "artifact": "code/ISTAD/test_results/anomaly_detection_MSL_ISTAD_MSL_ftM_sl100_bmkan_tcn_v3_ent_tfcast_bs128_v6nasa_forecast_s87_0/point_scores.npz",
+        "artifact_sha256": "04b03639c852ae957bb5678ac059a2fe5f77407ef70991de4ddc48ee5ead58fb",
+        "evaluated_points": 72600,
+        "entities": 27,
+        "target_error": {
+          "roc_auc": 0.671366720958454,
+          "pr_auc": 0.23399209472536459,
+          "anomaly_prevalence": 0.10322314049586777,
+          "train_p99": {
+            "threshold": 0.8111188215017369,
+            "raw_f1": 0.11096953550330128,
+            "raw_precision": 0.42054433713784023,
+            "raw_recall": 0.06391780090739257,
+            "point_adjusted_f1": 0.7731888964116452,
+            "point_adjusted_precision": 0.8861872736678738,
+            "point_adjusted_recall": 0.6857485988791033
+          },
+          "best_raw": {
+            "f1": 0.3024041245595306,
+            "precision": 0.22862999642731124,
+            "recall": 0.44649052515813914,
+            "TP": 3346,
+            "TN": 53817,
+            "FP": 11289,
+            "FN": 4148,
+            "threshold": 0.020063462586446385,
+            "latency": 0.0,
+            "use_adjustment": false,
+            "search_method": "adaptive_two_stage",
+            "coarse_step_num": 200,
+            "fine_step_num": 500,
+            "auto_search_range": [
+              4.39648317751566e-14,
+              2.224330663681023
+            ],
+            "score_statistics": {
+              "min": 0.0,
+              "max": 52617.76171875,
+              "mean": 14.10805606842041,
+              "std": 375.36260986328125,
+              "median": 0.0030953730456531048,
+              "p1": 8.79296635503132e-14,
+              "p99": 1.1121653318405116
+            }
+          },
+          "best_point_adjusted": {
+            "f1": 0.8937597372429983,
+            "precision": 0.877669152459906,
+            "recall": 0.9104617014805689,
+            "TP": 6823,
+            "TN": 64155,
+            "FP": 951,
+            "FN": 671,
+            "threshold": 0.6495045537948918,
+            "latency": 0.0,
+            "use_adjustment": true,
+            "search_method": "adaptive_two_stage",
+            "coarse_step_num": 200,
+            "fine_step_num": 500,
+            "auto_search_range": [
+              4.39648317751566e-14,
+              2.224330663681023
+            ],
+            "score_statistics": {
+              "min": 0.0,
+              "max": 52617.76171875,
+              "mean": 14.10805606842041,
+              "std": 375.36260986328125,
+              "median": 0.0030953730456531048,
+              "p1": 8.79296635503132e-14,
+              "p99": 1.1121653318405116
+            }
+          }
+        }
+      }
+    },
+    "SMAP": {
+      "trecon": {
+        "artifact": "code/ISTAD/test_results/anomaly_detection_SMAP_ISTAD_SMAP_ftM_sl100_bmkan_tcn_v3_ent_trecon_bs128_v6nasa_trecon_s87_0/point_scores.npz",
+        "artifact_sha256": "ca19efbb51989d99c223b8b1dc8e0b9878e8654f4656bade9884415e536fbf6d",
+        "evaluated_points": 425400,
+        "entities": 53,
+        "target_error": {
+          "roc_auc": 0.5057952858538359,
+          "pr_auc": 0.12455231148723785,
+          "anomaly_prevalence": 0.12774565115185707,
+          "train_p99": {
+            "threshold": 0.4121496209502218,
+            "raw_f1": 0.028544681130619014,
+            "raw_precision": 0.13279339853300734,
+            "raw_recall": 0.01599102000257623,
+            "point_adjusted_f1": 0.6446105553171789,
+            "point_adjusted_precision": 0.8341564627838336,
+            "point_adjusted_recall": 0.5252562427543566
+          },
+          "best_raw": {
+            "f1": 0.229942407499477,
+            "precision": 0.13435980500344866,
+            "recall": 0.7967907548724231,
+            "TP": 43300,
+            "TN": 92088,
+            "FP": 278969,
+            "FN": 11043,
+            "threshold": 0.00028213912069484213,
+            "latency": 0.0,
+            "use_adjustment": false,
+            "search_method": "adaptive_two_stage",
+            "coarse_step_num": 200,
+            "fine_step_num": 500,
+            "auto_search_range": [
+              2.3953414427069217e-07,
+              1.342379223108294
+            ],
+            "score_statistics": {
+              "min": 5.684341886080802e-14,
+              "max": 6.98876953125,
+              "mean": 0.035805899649858475,
+              "std": 0.25922131538391113,
+              "median": 0.0017435289919376373,
+              "p1": 4.790682885413843e-07,
+              "p99": 0.671189611554147
+            }
+          },
+          "best_point_adjusted": {
+            "f1": 0.8117450346005141,
+            "precision": 0.8149948061999193,
+            "recall": 0.8085309974037997,
+            "TP": 43938,
+            "TN": 361083,
+            "FP": 9974,
+            "FN": 10405,
+            "threshold": 0.2051157482242724,
+            "latency": 0.0,
+            "use_adjustment": true,
+            "search_method": "adaptive_two_stage",
+            "coarse_step_num": 200,
+            "fine_step_num": 500,
+            "auto_search_range": [
+              2.3953414427069217e-07,
+              1.342379223108294
+            ],
+            "score_statistics": {
+              "min": 5.684341886080802e-14,
+              "max": 6.98876953125,
+              "mean": 0.035805899649858475,
+              "std": 0.25922131538391113,
+              "median": 0.0017435289919376373,
+              "p1": 4.790682885413843e-07,
+              "p99": 0.671189611554147
+            }
+          }
+        }
+      },
+      "forecast": {
+        "artifact": "code/ISTAD/test_results/anomaly_detection_SMAP_ISTAD_SMAP_ftM_sl100_bmkan_tcn_v3_ent_tfcast_bs128_v6nasa_forecast_s87_0/point_scores.npz",
+        "artifact_sha256": "02f9056d03c4d3be72a05ef7b37a49eb53ec6541574f491ff79c44e416b71c0d",
+        "evaluated_points": 425400,
+        "entities": 53,
+        "target_error": {
+          "roc_auc": 0.5073471361066302,
+          "pr_auc": 0.12646494997552132,
+          "anomaly_prevalence": 0.12774565115185707,
+          "train_p99": {
+            "threshold": 0.42518322557210797,
+            "raw_f1": 0.027990669776741087,
+            "raw_precision": 0.14796547472256474,
+            "raw_recall": 0.015457372614688185,
+            "point_adjusted_f1": 0.6978524907586693,
+            "point_adjusted_precision": 0.8676716001422592,
+            "point_adjusted_recall": 0.5836262260088696
+          },
+          "best_raw": {
+            "f1": 0.226353677946931,
+            "precision": 0.1322373721681984,
+            "recall": 0.7852529303157254,
+            "TP": 42673,
+            "TN": 91030,
+            "FP": 280027,
+            "FN": 11670,
+            "threshold": 0.00026433174494680826,
+            "latency": 0.0,
+            "use_adjustment": false,
+            "search_method": "adaptive_two_stage",
+            "coarse_step_num": 200,
+            "fine_step_num": 500,
+            "auto_search_range": [
+              1.7585932710058602e-15,
+              1.2587225949764287
+            ],
+            "score_statistics": {
+              "min": 0.0,
+              "max": 7.040217399597168,
+              "mean": 0.03732466325163841,
+              "std": 0.29378846287727356,
+              "median": 0.0016036038286983967,
+              "p1": 3.5171865420117204e-15,
+              "p99": 0.6293612974882143
+            }
+          },
+          "best_point_adjusted": {
+            "f1": 0.8399170138289188,
+            "precision": 0.8738489686215769,
+            "recall": 0.8085309974037997,
+            "TP": 43938,
+            "TN": 364714,
+            "FP": 6343,
+            "FN": 10405,
+            "threshold": 0.30461086798429887,
+            "latency": 0.0,
+            "use_adjustment": true,
+            "search_method": "adaptive_two_stage",
+            "coarse_step_num": 200,
+            "fine_step_num": 500,
+            "auto_search_range": [
+              1.7585932710058602e-15,
+              1.2587225949764287
+            ],
+            "score_statistics": {
+              "min": 0.0,
+              "max": 7.040217399597168,
+              "mean": 0.03732466325163841,
+              "std": 0.29378846287727356,
+              "median": 0.0016036038286983967,
+              "p1": 3.5171865420117204e-15,
+              "p99": 0.6293612974882143
+            }
+          }
+        }
+      }
+    }
+  },
+  "complexity": {
+    "MSL": {
+      "v5_none_total": 152107,
+      "v6_total": 146002,
+      "total_reduction_fraction": 0.04013621989783508,
+      "v5_decoder": 16738,
+      "v6_decoder": 10744,
+      "decoder_reduction_fraction": 0.35810730075277813
+    },
+    "SMAP": {
+      "v5_none_total": 88477,
+      "v6_total": 87202,
+      "total_reduction_fraction": 0.014410524769149044,
+      "v5_decoder": 11908,
+      "v6_decoder": 10684,
+      "decoder_reduction_fraction": 0.10278804165267047
+    }
+  },
+  "decisions": {
+    "continue_forecast_to_seeds_90_98": false,
+    "forecast_deltas_vs_target_reconstruct": {
+      "MSL": {
+        "roc_auc": -0.0044134438199041615,
+        "pr_auc": -0.008431639077928488
+      },
+      "SMAP": {
+        "roc_auc": 0.0015518502527942513,
+        "pr_auc": 0.0019126384882834774
+      }
+    },
+    "causal_forecast_benefit_gate": false,
+    "v5_neural_reference": {
+      "MSL": {
+        "roc_auc": 0.6216457678578993,
+        "pr_auc": 0.1544116865292471
+      },
+      "SMAP": {
+        "roc_auc": 0.4815785219037676,
+        "pr_auc": 0.12019568095622207
+      }
+    },
+    "literature_context_targets": {
+      "MSL": {
+        "roc_auc": 0.7314,
+        "pr_auc": 0.2186,
+        "pa_f1": 0.9513
+      },
+      "SMAP": {
+        "roc_auc": 0.6224,
+        "pr_auc": 0.1912,
+        "pa_f1": 0.9732
+      }
+    },
+    "literature_context_gate": {
+      "MSL": {
+        "trecon": {
+          "roc_target_met": false,
+          "pr_target_met": true,
+          "best_PA_target_met": false
+        },
+        "forecast": {
+          "roc_target_met": false,
+          "pr_target_met": true,
+          "best_PA_target_met": false
+        }
+      },
+      "SMAP": {
+        "trecon": {
+          "roc_target_met": false,
+          "pr_target_met": false,
+          "best_PA_target_met": false
+        },
+        "forecast": {
+          "roc_target_met": false,
+          "pr_target_met": false,
+          "best_PA_target_met": false
+        }
+      }
+    },
+    "warning": "MSL/SMAP labels were revealed before V6. This is a development diagnostic and cannot support an independent SOTA claim."
+  }
+}

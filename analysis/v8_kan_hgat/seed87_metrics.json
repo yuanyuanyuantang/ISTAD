@@ -1,0 +1,334 @@
+{
+  "status": "preregistered_development_screen_not_independent_confirmation",
+  "seed": 87,
+  "datasets": [
+    "EXA",
+    "PSM",
+    "SMD",
+    "SWAT"
+  ],
+  "runs": {
+    "EXA": {
+      "linear_result_dir": "code/ISTAD/test_results/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0",
+      "kan_result_dir": "code/ISTAD/test_results/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v8khg_s87_0",
+      "linear_score_sha256": "5188744821fe5b4394a622b33e9633ae5dbdac9ff90039d9276df3098b48d450",
+      "kan_score_sha256": "71b96185c9bdfbe25c69ea0f825c4eb3865e45bbce3bd73d8b73dbd1b9578ada",
+      "kan_best_sha256": "ef7be51b7ceee231ae1cd37cca0722fd8ba19bf1a70fcc55f17a486fb6cfcb3d",
+      "parameters": {
+        "linear": 4771,
+        "kan": 4843,
+        "added": 72
+      },
+      "finite": true,
+      "stored_dtypes": {
+        "score": "float64",
+        "train_score": "float64",
+        "innovation_score": "float64",
+        "train_innovation_score": "float64",
+        "hgat_score": "float64",
+        "train_hgat_score": "float64"
+      },
+      "metadata": {
+        "component_calibration": "normal_train_ecdf",
+        "final_calibration": "rank_safe_no_recalibration",
+        "fusion_strategy": "rank_tiebreak",
+        "message_gate": 0.26210153102874756,
+        "n_hyperedges": 9,
+        "pool": "sparse",
+        "reliability_gate": {
+          "allowed_graph_tail_rate": 0.0125,
+          "base_threshold": 0.9903618439716313,
+          "base_validation_tail_rate": 0.008156028368794326,
+          "graph_threshold": 0.9902272340425533,
+          "graph_validation_tail_rate": 0.008865248226950355,
+          "inflation_limit": 1.25,
+          "kill_switch": false,
+          "max_weight": 0.2,
+          "method": "normal_tail_stability",
+          "reference_fraction": 0.8,
+          "reference_size": 56400,
+          "reliability": 1.0,
+          "selected_weight": 0.2,
+          "tail_probability": 0.01,
+          "validation_size": 14100
+        },
+        "reliability_mix_weight": 0.2,
+        "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+        "selected_weight": 7.092198581560284e-06
+      },
+      "rank_safety": {
+        "distinct_rank_inversions": 0,
+        "changed_tie_groups": 12099,
+        "changed_values": 52800,
+        "score_dtype": "float64"
+      },
+      "ranking": {
+        "full_roc_auc": 0.8275473427528561,
+        "full_pr_auc": 0.426363998915473,
+        "linear_hgat_roc_auc": 0.8465484035454929,
+        "kan_hgat_roc_auc": 0.8778680340670002,
+        "delta_hgat_roc_auc": 0.031319630521507325,
+        "linear_hgat_pr_auc": 0.49831940050213774,
+        "kan_hgat_pr_auc": 0.5683034675909326,
+        "delta_hgat_pr_auc": 0.0699840670887949
+      },
+      "point_adjusted": {
+        "POT+PA": {
+          "linear": 0.9593254934529327,
+          "kan": 0.9593254934529327,
+          "delta": 0.0
+        },
+        "Best-F1+PA": {
+          "linear": 0.9627991102045644,
+          "kan": 0.9627991102045644,
+          "delta": 0.0
+        }
+      }
+    },
+    "PSM": {
+      "linear_result_dir": "code/ISTAD/test_results/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0",
+      "kan_result_dir": "code/ISTAD/test_results/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v8khg_s87_0",
+      "linear_score_sha256": "9a3f9b20c6b140fe9ed400f68aa67f3f39bd2858f8c2148130faa6dddc28125c",
+      "kan_score_sha256": "7ea4a03e6ed465465109dfaf2ed29e651774b127543cff54b42df379e249c2bb",
+      "kan_best_sha256": "fb7af566f155f920cd6dfc3dd604c6248215b60fd258e6d43d728ea960149b72",
+      "parameters": {
+        "linear": 7303,
+        "kan": 7375,
+        "added": 72
+      },
+      "finite": true,
+      "stored_dtypes": {
+        "score": "float64",
+        "train_score": "float64",
+        "innovation_score": "float64",
+        "train_innovation_score": "float64",
+        "hgat_score": "float64",
+        "train_hgat_score": "float64"
+      },
+      "metadata": {
+        "component_calibration": "normal_train_ecdf",
+        "final_calibration": "exact_v4_fallback",
+        "fusion_strategy": "rank_tiebreak",
+        "message_gate": 0.3608967065811157,
+        "n_hyperedges": 12,
+        "pool": "sparse",
+        "reliability_gate": {
+          "allowed_graph_tail_rate": 0.017101476624050573,
+          "base_threshold": 0.9892591334541063,
+          "base_validation_tail_rate": 0.01368118129924046,
+          "graph_threshold": 0.9884901494565217,
+          "graph_validation_tail_rate": 0.017549653252818796,
+          "inflation_limit": 1.25,
+          "kill_switch": true,
+          "max_weight": 0.2,
+          "method": "normal_tail_stability",
+          "reference_fraction": 0.8,
+          "reference_size": 84787,
+          "reliability": 0.0,
+          "selected_weight": 0.0,
+          "tail_probability": 0.01,
+          "validation_size": 21197
+        },
+        "reliability_mix_weight": 0.0,
+        "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+        "selected_weight": 0.0
+      },
+      "rank_safety": {
+        "distinct_rank_inversions": 0,
+        "changed_tie_groups": 0,
+        "changed_values": 0,
+        "score_dtype": "float64"
+      },
+      "ranking": {
+        "full_roc_auc": 0.655102538018105,
+        "full_pr_auc": 0.42766275405842274,
+        "linear_hgat_roc_auc": 0.6494537854601262,
+        "kan_hgat_roc_auc": 0.655455263242583,
+        "delta_hgat_roc_auc": 0.006001477782456743,
+        "linear_hgat_pr_auc": 0.412555881418198,
+        "kan_hgat_pr_auc": 0.40962742767677673,
+        "delta_hgat_pr_auc": -0.0029284537414212553
+      },
+      "point_adjusted": {
+        "POT+PA": {
+          "linear": 0.9697128396590672,
+          "kan": 0.9697128396590672,
+          "delta": 0.0
+        },
+        "Best-F1+PA": {
+          "linear": 0.9822430345933931,
+          "kan": 0.9822430345933931,
+          "delta": 0.0
+        }
+      }
+    },
+    "SMD": {
+      "linear_result_dir": "code/ISTAD/test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_innov_hglite_bs128_v4hg_s87_0",
+      "kan_result_dir": "code/ISTAD/test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_innov_hglite_bs128_v8khg_s87_0",
+      "linear_score_sha256": "d219f41e1ed42a7bc87f059c0732b55d6e0725d8da99e0aebce5d435b4d9d5fc",
+      "kan_score_sha256": "1a27551a7c81bae314cf1c9f9bd27c9d49ee2ebe273e69cd4389dcf1cabff857",
+      "kan_best_sha256": "ea8bfb00a2e5f528cf5d9d872c8a5096f43d1e0e87390175942c2493d3432864",
+      "parameters": {
+        "linear": 14522,
+        "kan": 14594,
+        "added": 72
+      },
+      "finite": true,
+      "stored_dtypes": {
+        "score": "float64",
+        "train_score": "float64",
+        "innovation_score": "float64",
+        "train_innovation_score": "float64",
+        "hgat_score": "float64",
+        "train_hgat_score": "float64"
+      },
+      "metadata": {
+        "component_calibration": "normal_train_ecdf",
+        "final_calibration": "rank_safe_no_recalibration",
+        "fusion_strategy": "rank_tiebreak",
+        "message_gate": 0.2756005823612213,
+        "n_hyperedges": 19,
+        "pool": "sparse",
+        "reliability_gate": {
+          "allowed_graph_tail_rate": 0.01659448470920983,
+          "base_threshold": 0.9893434287179215,
+          "base_validation_tail_rate": 0.013275587767367862,
+          "graph_threshold": 0.9892617284736366,
+          "graph_validation_tail_rate": 0.01369100229803783,
+          "inflation_limit": 1.25,
+          "kill_switch": false,
+          "max_weight": 0.2,
+          "method": "normal_tail_stability",
+          "reference_fraction": 0.8,
+          "reference_size": 452492,
+          "reliability": 0.9696578437701585,
+          "selected_weight": 0.19393156875403172,
+          "tail_probability": 0.01,
+          "validation_size": 113140
+        },
+        "reliability_mix_weight": 0.19393156875403172,
+        "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+        "selected_weight": 8.840091583348803e-07
+      },
+      "rank_safety": {
+        "distinct_rank_inversions": 0,
+        "changed_tie_groups": 172837,
+        "changed_values": 706560,
+        "score_dtype": "float64"
+      },
+      "ranking": {
+        "full_roc_auc": 0.6814713643150359,
+        "full_pr_auc": 0.11716632712541339,
+        "linear_hgat_roc_auc": 0.6904611025653097,
+        "kan_hgat_roc_auc": 0.7075611561674798,
+        "delta_hgat_roc_auc": 0.01710005360217015,
+        "linear_hgat_pr_auc": 0.12010952125547035,
+        "kan_hgat_pr_auc": 0.1464945221333114,
+        "delta_hgat_pr_auc": 0.026385000877841056
+      },
+      "point_adjusted": {
+        "POT+PA": {
+          "linear": 0.8477799567574127,
+          "kan": 0.8477799567574127,
+          "delta": 0.0
+        },
+        "Best-F1+PA": {
+          "linear": 0.8829375784876803,
+          "kan": 0.8829375784876803,
+          "delta": 0.0
+        }
+      }
+    },
+    "SWAT": {
+      "linear_result_dir": "code/ISTAD/test_results/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_innov_hglite_bs64_v4hg_s87_0",
+      "kan_result_dir": "code/ISTAD/test_results/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_innov_hglite_bs64_v8khg_s87_0",
+      "linear_score_sha256": "e6ea97fc1edb3fb90640fccc99c18d45c0483af4c972754da15c02c95af63912",
+      "kan_score_sha256": "f45b3cd418ac766e034033ec7c603b5d2fde47086ace6335299c396c8c9a0f76",
+      "kan_best_sha256": "df209345031ae0a92efd5f4869a61ea26ae1e5b5ce4ac08caa9f721e3527e0b2",
+      "parameters": {
+        "linear": 44867,
+        "kan": 44939,
+        "added": 72
+      },
+      "finite": true,
+      "stored_dtypes": {
+        "score": "float64",
+        "train_score": "float64",
+        "innovation_score": "float64",
+        "train_innovation_score": "float64",
+        "hgat_score": "float64",
+        "train_hgat_score": "float64"
+      },
+      "metadata": {
+        "component_calibration": "normal_train_ecdf",
+        "final_calibration": "rank_safe_no_recalibration",
+        "fusion_strategy": "rank_tiebreak",
+        "message_gate": 0.2731306254863739,
+        "n_hyperedges": 20,
+        "pool": "dense",
+        "reliability_gate": {
+          "allowed_graph_tail_rate": 0.013652146464646464,
+          "base_threshold": 0.9898144191919193,
+          "base_validation_tail_rate": 0.010921717171717171,
+          "graph_threshold": 0.9897525505050505,
+          "graph_validation_tail_rate": 0.011237373737373737,
+          "inflation_limit": 1.25,
+          "kill_switch": false,
+          "max_weight": 0.2,
+          "method": "normal_tail_stability",
+          "reference_fraction": 0.8,
+          "reference_size": 316800,
+          "reliability": 0.9719101123595313,
+          "selected_weight": 0.19438202247190628,
+          "tail_probability": 0.01,
+          "validation_size": 79200
+        },
+        "reliability_mix_weight": 0.19438202247190628,
+        "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+        "selected_weight": 1.2626262626262627e-06
+      },
+      "rank_safety": {
+        "distinct_rank_inversions": 0,
+        "changed_tie_groups": 77182,
+        "changed_values": 449856,
+        "score_dtype": "float64"
+      },
+      "ranking": {
+        "full_roc_auc": 0.8498440263883826,
+        "full_pr_auc": 0.527960451777091,
+        "linear_hgat_roc_auc": 0.8584153139425083,
+        "kan_hgat_roc_auc": 0.7795502328881906,
+        "delta_hgat_roc_auc": -0.07886508105431767,
+        "linear_hgat_pr_auc": 0.5570610026599506,
+        "kan_hgat_pr_auc": 0.2743472926905629,
+        "delta_hgat_pr_auc": -0.2827137099693877
+      },
+      "point_adjusted": {
+        "POT+PA": {
+          "linear": 0.8322632717841407,
+          "kan": 0.8322632717841407,
+          "delta": 0.0
+        },
+        "Best-F1+PA": {
+          "linear": 0.9524487504947322,
+          "kan": 0.9524487504947322,
+          "delta": 0.0
+        }
+      }
+    }
+  },
+  "diagnostic": {
+    "mean_hgat_pr_auc_delta": -0.04731827393604325,
+    "mean_hgat_roc_auc_delta": -0.0061109797870458615,
+    "datasets_with_hgat_pr_auc_gain_at_least_0.005": 2
+  },
+  "decision": {
+    "finite_artifacts_pass": true,
+    "parameter_budget_pass": true,
+    "rank_safety_pass": true,
+    "non_vacuous_pass": false,
+    "pa_compatibility_pass": true,
+    "hgat_ap_diagnostic_pass": false,
+    "promote": false
+  }
+}

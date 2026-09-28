@@ -1,0 +1,11 @@
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (87841, 25)
+train: (132481, 25)
+TEST 1372
+test: (87841, 25)
+train: (132481, 25)
+test errors: (87808, 25)
+train errors: (132480, 25)
+regression maxdelta vs istad_scores: 0.000004
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/PSM_s98.npz

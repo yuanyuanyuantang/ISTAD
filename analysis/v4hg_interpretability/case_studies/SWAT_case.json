@@ -1,0 +1,221 @@
+{
+  "anchors": {
+    "archive_field": "score",
+    "archive_max_abs_diff": 2.9799914091910296e-08,
+    "archive_tolerance": 1e-06,
+    "checkpoint": "checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_innov_hglite_bs64_v4hg_s87_0/checkpoint.pth",
+    "checkpoint_sha256": "df0d539eb06938cfb951c595bb35b81aface8ede91ed0ce4ab0ff05e5d94eedc",
+    "e1_passport": {
+      "e1_report": "analysis/e1_incidence_counterfactual/final/per_run/SWAT_s87.json",
+      "matched": true
+    },
+    "train_graph_cache": "reproduced_bitwise"
+  },
+  "dataset": "SWAT",
+  "event": {
+    "context": [
+      227636,
+      263919
+    ],
+    "end": 263727,
+    "entity": null,
+    "length": 35900,
+    "start": 227828,
+    "window_block": [
+      2371,
+      2749
+    ]
+  },
+  "model": {
+    "arch": "legacy",
+    "branch_mode": "hgat",
+    "device": "cuda:0",
+    "fusion_epsilon": 1.2626262626262627e-06,
+    "hgat_rank": 8,
+    "k_top": 10,
+    "kernel": 15,
+    "n_hyperedges": 20,
+    "pool": "dense",
+    "seed": 87,
+    "spatial_type": "lite"
+  },
+  "peak_point": {
+    "definition": "event point with maximal max-variable innovation evidence",
+    "g": 0.9966186868686868,
+    "global_index": 231756,
+    "hyperedge_evidence_ranking": [
+      {
+        "d": 20.064755288020645,
+        "hyperedge": 3,
+        "rank": 0
+      },
+      {
+        "d": 0.01172342685195489,
+        "hyperedge": 6,
+        "rank": 1
+      },
+      {
+        "d": 0.009096180137154698,
+        "hyperedge": 19,
+        "rank": 2
+      },
+      {
+        "d": 0.008870027469975247,
+        "hyperedge": 1,
+        "rank": 3
+      },
+      {
+        "d": 0.008867315794283221,
+        "hyperedge": 0,
+        "rank": 4
+      },
+      {
+        "d": 0.00866325645714378,
+        "hyperedge": 10,
+        "rank": 5
+      },
+      {
+        "d": 0.008605182429582818,
+        "hyperedge": 15,
+        "rank": 6
+      },
+      {
+        "d": 0.008604490255105797,
+        "hyperedge": 17,
+        "rank": 7
+      },
+      {
+        "d": 0.003879212700889796,
+        "hyperedge": 12,
+        "rank": 8
+      },
+      {
+        "d": 0.003797176813910373,
+        "hyperedge": 18,
+        "rank": 9
+      },
+      {
+        "d": 0.003726193898330744,
+        "hyperedge": 2,
+        "rank": 10
+      },
+      {
+        "d": 0.0036851140657610834,
+        "hyperedge": 4,
+        "rank": 11
+      },
+      {
+        "d": 0.003599195770218468,
+        "hyperedge": 7,
+        "rank": 12
+      },
+      {
+        "d": 0.003325118714574393,
+        "hyperedge": 16,
+        "rank": 13
+      },
+      {
+        "d": 0.0033228123737329006,
+        "hyperedge": 11,
+        "rank": 14
+      },
+      {
+        "d": 0.003207505082252962,
+        "hyperedge": 14,
+        "rank": 15
+      },
+      {
+        "d": 0.0031090155551088427,
+        "hyperedge": 13,
+        "rank": 16
+      },
+      {
+        "d": 0.003105169643029483,
+        "hyperedge": 9,
+        "rank": 17
+      },
+      {
+        "d": 0.0012574768062871122,
+        "hyperedge": 8,
+        "rank": 18
+      },
+      {
+        "d": 0.0005951232606437621,
+        "hyperedge": 5,
+        "rank": 19
+      }
+    ],
+    "q": 0.9999987373737373,
+    "s": 0.9999987331060022,
+    "top1_hyperedge_per_top_variable": [
+      {
+        "name": "P402",
+        "top1_hyperedge": 3,
+        "variable": 30,
+        "weight": 0.03684915229678154
+      },
+      {
+        "name": "UV401",
+        "top1_hyperedge": 3,
+        "variable": 33,
+        "weight": 0.036873914301395416
+      },
+      {
+        "name": "P501",
+        "top1_hyperedge": 3,
+        "variable": 42,
+        "weight": 0.036836132407188416
+      },
+      {
+        "name": "MV304",
+        "top1_hyperedge": 3,
+        "variable": 22,
+        "weight": 0.036826711148023605
+      },
+      {
+        "name": "MV302",
+        "top1_hyperedge": 16,
+        "variable": 20,
+        "weight": 0.10068719834089279
+      }
+    ]
+  },
+  "selection_rule": "longest maximal run of positive test labels; ties broken by earliest start; SMD runs are taken within one entity",
+  "top_variables": [
+    {
+      "max_event_evidence": 271.9764297229187,
+      "name": "P402",
+      "rank": 0,
+      "train_sigma": 0.02620074061858774,
+      "variable": 30
+    },
+    {
+      "max_event_evidence": 271.7632222441243,
+      "name": "UV401",
+      "rank": 1,
+      "train_sigma": 0.021384291051663108,
+      "variable": 33
+    },
+    {
+      "max_event_evidence": 252.65485168089234,
+      "name": "P501",
+      "rank": 2,
+      "train_sigma": 0.025029285588219152,
+      "variable": 42
+    },
+    {
+      "max_event_evidence": 90.48116075463173,
+      "name": "MV304",
+      "rank": 3,
+      "train_sigma": 0.34087251395658363,
+      "variable": 22
+    },
+    {
+      "max_event_evidence": 23.89507002644998,
+      "name": "MV302",
+      "rank": 4,
+      "train_sigma": 0.15456461582445907,
+      "variable": 20
+    }
+  ]
+}

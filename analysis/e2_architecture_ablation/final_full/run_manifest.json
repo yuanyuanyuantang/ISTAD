@@ -1,0 +1,391 @@
+{
+  "status": "ANALYZED_FROM_48_TRAINED_MODELS",
+  "expected_runs": 48,
+  "found_runs": 48,
+  "sources": [
+    {
+      "dataset": "EXA",
+      "seed": 87,
+      "arm": "learned_dynamic",
+      "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s87_0",
+      "score_sha256": "757a0f13b9e7852701a2dfa547cba840e51fe60fc0d2e0abf1132bb71fadbb1c",
+      "checkpoint_sha256": "6cf3009f8661ae0ddebd3baa03723e31e1ca58e7ddf25cfac1e22f9f276a1db1"
+    },
+    {
+      "dataset": "EXA",
+      "seed": 87,
+      "arm": "learned_static",
+      "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s87_0",
+      "score_sha256": "7b6f185668bc054b22a9e70c8628c45193ff3d12f457e7c300eab74ca22dd285",
+      "checkpoint_sha256": "aa0fa49f9be5a7bee46fc0b9da17086db53ab0b9d8f20457e9eefb4443088a24"
+    },
+    {
+      "dataset": "EXA",
+      "seed": 87,
+      "arm": "fixed_random",
+      "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s87_0",
+      "score_sha256": "16f63063ce9df93ea5d8bc55575308288b3aa9fffb363ec03a115d01fb19a3c7",
+      "checkpoint_sha256": "9bcc650d304dda2241ea892749bb4bd27aeecbfc8b5010ac05acbefbddc5f778"
+    },
+    {
+      "dataset": "EXA",
+      "seed": 87,
+      "arm": "no_message",
+      "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s87_0",
+      "score_sha256": "b8021aad1bfb9379b9e02f6045ed1b2f08f37c450d70d01f648b7528352e0f76",
+      "checkpoint_sha256": "bf69b306b375cf71b45ea66eaa758e2168a4cabe5db5953e7d8bc27f8bec8a98"
+    },
+    {
+      "dataset": "EXA",
+      "seed": 90,
+      "arm": "learned_dynamic",
+      "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s90_0",
+      "score_sha256": "96a6ed7a72884e9894da7f9cd7bb76985bfe8cba0559a0bbf9ab4e76df3a29d1",
+      "checkpoint_sha256": "0a11285ed1a7d185ed1e9f8ae526d2da3cda3b7436444c876129a03a787632e0"
+    },
+    {
+      "dataset": "EXA",
+      "seed": 90,
+      "arm": "learned_static",
+      "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s90_0",
+      "score_sha256": "e24413240f60d05e4af66cf68a9dec7d281fe9008356a203fb3252075fe4e6b5",
+      "checkpoint_sha256": "cb2fed9a6b361c1cc41b3681c598a5ad4bd2a938bc6c87a46a2ca72477d9fef7"
+    },
+    {
+      "dataset": "EXA",
+      "seed": 90,
+      "arm": "fixed_random",
+      "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s90_0",
+      "score_sha256": "b595adac05cf7a7fdad844f88f90f127d5e1660c289b6a4cef5766de9a6a137d",
+      "checkpoint_sha256": "b299ed2e5984189be8d0b9bda698281da5278062bbe166629358bf29bdfb0e73"
+    },
+    {
+      "dataset": "EXA",
+      "seed": 90,
+      "arm": "no_message",
+      "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s90_0",
+      "score_sha256": "524c942e9cf8a635861c63782edb80a6c9a0eb57cd20e646abec790c1a000321",
+      "checkpoint_sha256": "9db82b343d0098cefc040840bbf778fb3d908dc4b770c70401f18cf8dfb66ba4"
+    },
+    {
+      "dataset": "EXA",
+      "seed": 98,
+      "arm": "learned_dynamic",
+      "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s98_0",
+      "score_sha256": "5e241fc453fa88de0467b61f1c3056d0b0c948d86d127bb1152456488e013c00",
+      "checkpoint_sha256": "712121bdaad48a10dd2ea03264440793c581b67c977bf6828895aa2f75d9ee72"
+    },
+    {
+      "dataset": "EXA",
+      "seed": 98,
+      "arm": "learned_static",
+      "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s98_0",
+      "score_sha256": "f167330c3c2c225822c4e103a8c339ef7ad52e2a42903192b321dddbeb178fce",
+      "checkpoint_sha256": "3cba7cc7880f4deadc6a0c7941d0d13fdfcb34b7d5ec5d29716e9e9bcaa61326"
+    },
+    {
+      "dataset": "EXA",
+      "seed": 98,
+      "arm": "fixed_random",
+      "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s98_0",
+      "score_sha256": "09ce41eefd093176b2da171f3b0deb70a662cdc4a785c8b5199a5c1ea7d71477",
+      "checkpoint_sha256": "8487806131e397957213029ae3c37356dcd1aa6ca8d62e4b0864c911d1bac72e"
+    },
+    {
+      "dataset": "EXA",
+      "seed": 98,
+      "arm": "no_message",
+      "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s98_0",
+      "score_sha256": "917b91211a487150fec2e88fd39e68fb640de91dcbcbc963133ab149b3e2b9f9",
+      "checkpoint_sha256": "eab1a768b5279e5c09c53c59c51a12283f72cb04edeab96fccb82d87617f6308"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 87,
+      "arm": "learned_dynamic",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s87_0",
+      "score_sha256": "f9873eb3c12a7e82f4c33d245bbd74cf5731c3ad2f33f98fe3b1fe49f1c55680",
+      "checkpoint_sha256": "c4df7b12626f5f00923131487b22706c3930cc1c21f89c8ea642fe4cedcf9e59"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 87,
+      "arm": "learned_static",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s87_0",
+      "score_sha256": "89138d23e3a22f3f791740f7c27b755d394c5810994e31029fc4c1d7cecaa059",
+      "checkpoint_sha256": "fddc173f5e421ddbb142c91415b03d1de1121b4ef64d2916d346b81df27e0c9b"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 87,
+      "arm": "fixed_random",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s87_0",
+      "score_sha256": "10130495d48589dfc4c12e759a5d3f3836769af72da298c964cb86820428d5dc",
+      "checkpoint_sha256": "12466cdc32cdbc89c7f20ae51ac21791aaf53f9ea85ea944019a318eedbbd121"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 87,
+      "arm": "no_message",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s87_0",
+      "score_sha256": "e30dc9c36f815a6ab135b8deed853167b603b043d11690900b021634f72bbc62",
+      "checkpoint_sha256": "42e37859fa7fd0a3ff0acf036c0de76216c3bb5ba3eb90c2dc36a21e02cdd0ee"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 90,
+      "arm": "learned_dynamic",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s90_0",
+      "score_sha256": "9e9ba7858f9ea6b410f06838785d5ab9c35acf311b750ad0b0b584894767bd73",
+      "checkpoint_sha256": "d3d38ae33c7bd6938f0890773629363e43099a7c26d367e11b11e35bf1a1b232"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 90,
+      "arm": "learned_static",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s90_0",
+      "score_sha256": "d092f5a6f3098ae50252395123492c60fb1f1c213abbd43ab5b6bfb81bf96c99",
+      "checkpoint_sha256": "37a5cd892fcc664263e750dbf5d909d712df04a62bb32694ccb58801a77bcd05"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 90,
+      "arm": "fixed_random",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s90_0",
+      "score_sha256": "6b1dc04593092af45e6d9d3b29fd5f270c10a364e4f62e26749a14d7fc608f98",
+      "checkpoint_sha256": "6771a77efef9d851838737b6bb517b2f2338ecc586dc368bd25344c1b6ab3d47"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 90,
+      "arm": "no_message",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s90_0",
+      "score_sha256": "6792b2dc22d8367f72ce85fe836de45145bc7e436524cbffe01d13582e884850",
+      "checkpoint_sha256": "f34a9acdcf5d08e4a643bc1226d04bed2597cfb4a5902adc198a2cd936a56bfe"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 98,
+      "arm": "learned_dynamic",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s98_0",
+      "score_sha256": "2f27f8138c3b891132f241d2a199c554be2a2e0df36b3de20839ad98da08e659",
+      "checkpoint_sha256": "0cfafc3ce496d0c9a14f4f157750784767f38ed111dac26ed62017bde8a8275d"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 98,
+      "arm": "learned_static",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s98_0",
+      "score_sha256": "976250428404c30519d648ac55f738d0443766bfc184d076052c37ad37702c31",
+      "checkpoint_sha256": "64feb84f3a6c8fc04354acbafa62cab4ae7676df5778558fa785a45d94b01c54"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 98,
+      "arm": "fixed_random",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s98_0",
+      "score_sha256": "e1a96a094eee505781ca00e30fbd60f0340a53c07b7d9563c72583c37117828b",
+      "checkpoint_sha256": "5e6cb68d3eb25810c313021a8da99795f5d88e34a2dbd5c4b35f7276820d22ad"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 98,
+      "arm": "no_message",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s98_0",
+      "score_sha256": "cb0a0df3bd9ba4f1b7ab147334fa144e0e9fc9946d1b077586d68f8eff3e561d",
+      "checkpoint_sha256": "933f720463be55ed8cbbe86f5fd0c57df88edb006ba23bf2eacd3dc7fd6503b8"
+    },
+    {
+      "dataset": "SMD",
+      "seed": 87,
+      "arm": "learned_dynamic",
+      "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_hglite_bs128_e2_learned_dynamic_s87_0",
+      "score_sha256": "a48a18ad39f033abdc0dce29ab2f9486fc76e77f6d2f20a30a75066c42fd6434",
+      "checkpoint_sha256": "611672119af7672368ef0f07213b7bf4ec3e0c0bc0d262b4f7d1bb2cc36dc620"
+    },
+    {
+      "dataset": "SMD",
+      "seed": 87,
+      "arm": "learned_static",
+      "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relstatic_v3_ent_hglite_bs128_e2_learned_static_s87_0",
+      "score_sha256": "bdd601939381ebfaa1a5b70521298a45ead57ec74022b054a0d7a99de550dfd8",
+      "checkpoint_sha256": "de6fc073b6ace027979fb198a5d4ba4cd020294e9811433f07553241817db2db"
+    },
+    {
+      "dataset": "SMD",
+      "seed": 87,
+      "arm": "fixed_random",
+      "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s87_0",
+      "score_sha256": "92efda31dde13cd5f0eae3d2cd1a6377fa41932d77a17cf3f39e82a545e603f6",
+      "checkpoint_sha256": "f1f4ecdc373c96b4bd846eea5da4e3c80e20ad089944d24d0bea91d9defda229"
+    },
+    {
+      "dataset": "SMD",
+      "seed": 87,
+      "arm": "no_message",
+      "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relno_message_v3_ent_hglite_bs128_e2_no_message_s87_0",
+      "score_sha256": "f434bf9c56643772db98028830f5df2b99248756611d973d0585e23b9a0a9a98",
+      "checkpoint_sha256": "965851835633f2fd01dc297df777cae8f5533a4b5c8fad5beabdba151605eb7a"
+    },
+    {
+      "dataset": "SMD",
+      "seed": 90,
+      "arm": "learned_dynamic",
+      "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_hglite_bs128_e2_learned_dynamic_s90_0",
+      "score_sha256": "181a0d1f4f0efebc8f49ac7ae59ee4c8367cdfc48e6ac91656d34ce33a540273",
+      "checkpoint_sha256": "415d9fdfa3df19c7c0d50fdcfa78ef146f86dafb8ed32142cb39ee854a248b49"
+    },
+    {
+      "dataset": "SMD",
+      "seed": 90,
+      "arm": "learned_static",
+      "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relstatic_v3_ent_hglite_bs128_e2_learned_static_s90_0",
+      "score_sha256": "673069592239b8853622e710e2b8d7652824485e985ef03c3c22f098d56c2a42",
+      "checkpoint_sha256": "3ffe2d97d79ad959b7ab23589f47f308cd51b536eccfd88ad716042b19322342"
+    },
+    {
+      "dataset": "SMD",
+      "seed": 90,
+      "arm": "fixed_random",
+      "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s90_0",
+      "score_sha256": "06a83a3178453741c67dddc51ed10ab3f6d30f113612be6f6a6169d6b4988209",
+      "checkpoint_sha256": "d41b5c063d07d86a68a19c9f5cee05e96a91d52077b05a3de020ca836b0e7440"
+    },
+    {
+      "dataset": "SMD",
+      "seed": 90,
+      "arm": "no_message",
+      "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relno_message_v3_ent_hglite_bs128_e2_no_message_s90_0",
+      "score_sha256": "c37a626de15ebabbc12ec89ebbd8086afb6462085a75390c70e4815cc278a675",
+      "checkpoint_sha256": "57a41dfff8ae19cc9df7d1452040bf078cf0fccdef1a2e76d3c81d1a793233eb"
+    },
+    {
+      "dataset": "SMD",
+      "seed": 98,
+      "arm": "learned_dynamic",
+      "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_hglite_bs128_e2_learned_dynamic_s98_0",
+      "score_sha256": "dedf481e36c304b0ead95a929982e0b6618b5a568aaa056b16578a9b9398f9b4",
+      "checkpoint_sha256": "afe55464499e5e7c271d2fa389161ae1d49053639370e32408537c2ca6f93c5a"
+    },
+    {
+      "dataset": "SMD",
+      "seed": 98,
+      "arm": "learned_static",
+      "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relstatic_v3_ent_hglite_bs128_e2_learned_static_s98_0",
+      "score_sha256": "40ae75f19bb241bd0af95cdea9092ec99d5d97d28ccdb3977d22f1691c580094",
+      "checkpoint_sha256": "b254149d76ba6231f1293e507d8ebd3e83cf573926632fc018c8a2f487ee016f"
+    },
+    {
+      "dataset": "SMD",
+      "seed": 98,
+      "arm": "fixed_random",
+      "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relfixed_random_v3_ent_hglite_bs128_e2_fixed_random_s98_0",
+      "score_sha256": "cc9a17456cb40e89fe0fe41d59e6d4e10bdc1e8e7cb46490dd6eeb3617550bbd",
+      "checkpoint_sha256": "02ef8992d95984e5d18d50e436c6317531f5b1cd107992fc17788318493ebcc1"
+    },
+    {
+      "dataset": "SMD",
+      "seed": 98,
+      "arm": "no_message",
+      "setting": "anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_relno_message_v3_ent_hglite_bs128_e2_no_message_s98_0",
+      "score_sha256": "55e49ba9a98d1f809e3c0052598676f7f0bf57c764ca2f44a4a0bc52ee693e6b",
+      "checkpoint_sha256": "6e0b67d0b3ecb8658277cdb80e7eb2ba9e43e46b0a30b3b270f2ad65c2041b62"
+    },
+    {
+      "dataset": "SWAT",
+      "seed": 87,
+      "arm": "learned_dynamic",
+      "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s87_0",
+      "score_sha256": "2dc2f72160e6f93e6a67c6fc8a71f244b96dc067db995e266eb7041723b9f6b0",
+      "checkpoint_sha256": "18278305a6eadc94fc39e6fc607aefcac552d1aba2bb498f518206db3791f7b9"
+    },
+    {
+      "dataset": "SWAT",
+      "seed": 87,
+      "arm": "learned_static",
+      "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relstatic_v3_hglite_bs64_e2_learned_static_s87_0",
+      "score_sha256": "67c46f793791b6411241bf9bd28b08cc015be56670a90b570921a2124f57d09e",
+      "checkpoint_sha256": "cbc3280e242488d89fc3b10ed7752ec88a0f808b4a0f9eac9f1a2de8e4ed7656"
+    },
+    {
+      "dataset": "SWAT",
+      "seed": 87,
+      "arm": "fixed_random",
+      "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relfixed_random_v3_hglite_bs64_e2_fixed_random_s87_0",
+      "score_sha256": "d4e4731232bcc99a6e7931e6e96e01949958013c69e79d9cba67a5b4c910307f",
+      "checkpoint_sha256": "60dc86ddc80d81e6ad48c4d580fc1a41802c899d12cc1c47e274106ad1a41378"
+    },
+    {
+      "dataset": "SWAT",
+      "seed": 87,
+      "arm": "no_message",
+      "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relno_message_v3_hglite_bs64_e2_no_message_s87_0",
+      "score_sha256": "126bf792ab3c6a387b2eb044973b0f49976f74e4a954ee941b525541f20816bd",
+      "checkpoint_sha256": "4511ae256646c0dd9f1748830b7b2fd2994f313c95326879d90efb13b2a64a92"
+    },
+    {
+      "dataset": "SWAT",
+      "seed": 90,
+      "arm": "learned_dynamic",
+      "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s90_0",
+      "score_sha256": "4a3232f6d104f6396032854a8e67d3a78ebc932fe6a8278f706ae24258f004ba",
+      "checkpoint_sha256": "6588026229a72e17483c6eb54f57033b8049d142c6f73b4a2e92bffcd6f22ffc"
+    },
+    {
+      "dataset": "SWAT",
+      "seed": 90,
+      "arm": "learned_static",
+      "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relstatic_v3_hglite_bs64_e2_learned_static_s90_0",
+      "score_sha256": "07849a658eaa4f309e990393b2558981ba8883494cc42e607a3035d09307b132",
+      "checkpoint_sha256": "37f570a28e0bae67b615af0b151fa0b4e52b2e30470625ca24d4018389dbf3df"
+    },
+    {
+      "dataset": "SWAT",
+      "seed": 90,
+      "arm": "fixed_random",
+      "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relfixed_random_v3_hglite_bs64_e2_fixed_random_s90_0",
+      "score_sha256": "16e9202e577444c5c2f453efd5d093c43070f65ca5776b2bbaac7a3aef42a0d1",
+      "checkpoint_sha256": "534658d5b60ff7cc77944dab07d4a400b9728f69f7fb1e44f3d48a12bd813d02"
+    },
+    {
+      "dataset": "SWAT",
+      "seed": 90,
+      "arm": "no_message",
+      "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relno_message_v3_hglite_bs64_e2_no_message_s90_0",
+      "score_sha256": "632ed39ec552d3f4a2dbb2665216865a4d117296e1b2154ceaf39d9401efb68c",
+      "checkpoint_sha256": "34e443c7a2f28f2ff76a51ec0b0d451ce7dcd0d8ccc7cc76da2a49d61330e23f"
+    },
+    {
+      "dataset": "SWAT",
+      "seed": 98,
+      "arm": "learned_dynamic",
+      "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s98_0",
+      "score_sha256": "0d1cf03ef4dec09b5284b1de690c76ad11472bbc1867ab909b4b3c6b8551de79",
+      "checkpoint_sha256": "12452509fea52f711315f6e371f12da362403767753adf6bed19c6300c543254"
+    },
+    {
+      "dataset": "SWAT",
+      "seed": 98,
+      "arm": "learned_static",
+      "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relstatic_v3_hglite_bs64_e2_learned_static_s98_0",
+      "score_sha256": "8364a28251109d6fe8b165e4dc1941193d444064130828f67f3240e017a93ad3",
+      "checkpoint_sha256": "fc279acae144e282054f8c6a7b6ebdae609af19116e56e2be226b47e4e035a15"
+    },
+    {
+      "dataset": "SWAT",
+      "seed": 98,
+      "arm": "fixed_random",
+      "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relfixed_random_v3_hglite_bs64_e2_fixed_random_s98_0",
+      "score_sha256": "5d7a28dfb4f1e34e1b3e66b9af8d523a82f12a0c0d6b00508e8626c43b774558",
+      "checkpoint_sha256": "2c20e13fcfaf17d2a66a82a7c63b727a77d08fc80dd43ef8afe25e1414b2eeb9"
+    },
+    {
+      "dataset": "SWAT",
+      "seed": 98,
+      "arm": "no_message",
+      "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_relno_message_v3_hglite_bs64_e2_no_message_s98_0",
+      "score_sha256": "2dc19d4fff335a2b9fd855a2e94fd046681d9d71020ee1f53c9e7da5c7161b4f",
+      "checkpoint_sha256": "c978ee05a8361177f6571a534f640d8a5ef2a8748d15ea9fbfeb8bd04bb8fb8f"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+=== preparing frozen Stage C v2 inputs: EXA ===
+test: (52844, 19)
+train: (70584, 19)
+test: (52844, 19)
+train: (70584, 19)
+test: (52844, 19)
+train: (70584, 19)
+EXA: forwarding seed 87
+EXA: forwarding seed 90
+EXA: forwarding seed 98
+EXA: permutation-invariant comparison 87-90
+EXA: permutation-invariant comparison 87-98
+EXA: permutation-invariant comparison 90-98
+Stage C v2 result: /data/modeluse/TS/ISTAD-release/analysis/v4hg_interpretability/stage_c_v2_smoke/stability_v2.json

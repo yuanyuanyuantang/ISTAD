@@ -1,0 +1,12 @@
+anomaly_detection_PSM_DLinear_PSM_ftM_sl100_ll48_pl100_dm128_nh8_el3_dl1_df128_expand2_dc4_fc1_ebtimeF_dtTrue_ms48_0  
+Accuracy : 0.9817, Precision : 0.9865, Recall : 0.9470, F-score : 0.9663 
+Average epoch training time: 4.0913s
+Total epoch training time: 12.2739s
+Finished epochs: 3
+
+Best F1 Threshold Method:
+Threshold: 0.095812
+F1: 0.9710, Precision: 0.9693, Recall: 0.9728
+TP: 2367401, TN: 6265502, FP: 74996, FN: 66301
+ROC-AUC: 0.5658, PR-AUC: 0.3577
+

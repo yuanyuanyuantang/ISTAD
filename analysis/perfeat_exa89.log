@@ -1,0 +1,11 @@
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (52844, 19)
+train: (88230, 19)
+TEST 528
+test: (52844, 19)
+train: (88230, 19)
+test errors: (52800, 19)
+train errors: (88200, 19)
+regression maxdelta vs istad_scores: 0.000122
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/EXA_s89.npz

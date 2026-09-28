@@ -1,0 +1,126 @@
+{
+  "scope": "model_forward_with_dynamic_incidence_return; excludes_data_loading_and_VAR_fit",
+  "device": "cuda:0",
+  "gpu_name": "NVIDIA RTX A6000",
+  "torch_version": "2.6.0+cu124",
+  "warmup": 30,
+  "repeats": 100,
+  "results": {
+    "EXA": {
+      "parameters": 4771,
+      "hgat_parameters": 274,
+      "checkpoint_bytes": 25826,
+      "production_batch_size": 128,
+      "batch_1": {
+        "mean_ms_per_batch": 1.0696508777141571,
+        "population_std_ms_per_batch": 0.010951272389053992,
+        "median_ms_per_batch": 1.06496000289917,
+        "mean_microseconds_per_window": 1069.650877714157,
+        "peak_allocated_bytes": 9798656
+      },
+      "production_batch": {
+        "mean_ms_per_batch": 3.8384924793243407,
+        "population_std_ms_per_batch": 0.08319908046174834,
+        "median_ms_per_batch": 3.787775993347168,
+        "mean_microseconds_per_window": 29.988222494721413,
+        "peak_allocated_bytes": 65736192
+      },
+      "observed_epoch_train_seconds": {
+        "values": [
+          0.8693134427070618,
+          0.7856830288382137,
+          0.8655036056742949
+        ],
+        "mean": 0.8401666924065235,
+        "population_std": 0.03855715161871298
+      }
+    },
+    "PSM": {
+      "parameters": 7303,
+      "hgat_parameters": 346,
+      "checkpoint_bytes": 36002,
+      "production_batch_size": 128,
+      "batch_1": {
+        "mean_ms_per_batch": 1.0671932744979857,
+        "population_std_ms_per_batch": 0.01049112987567469,
+        "median_ms_per_batch": 1.063423991203308,
+        "mean_microseconds_per_window": 1067.1932744979858,
+        "peak_allocated_bytes": 9812480
+      },
+      "production_batch": {
+        "mean_ms_per_batch": 3.1500589275360107,
+        "population_std_ms_per_batch": 0.35988540491930415,
+        "median_ms_per_batch": 3.111936092376709,
+        "mean_microseconds_per_window": 24.609835371375084,
+        "peak_allocated_bytes": 69119488
+      },
+      "observed_epoch_train_seconds": {
+        "values": [
+          66.48191515604655,
+          63.79753017425537,
+          65.32198095321655
+        ],
+        "mean": 65.20047542783949,
+        "population_std": 1.099258349112218
+      }
+    },
+    "SMD": {
+      "parameters": 14522,
+      "hgat_parameters": 506,
+      "checkpoint_bytes": 64802,
+      "production_batch_size": 128,
+      "batch_1": {
+        "mean_ms_per_batch": 1.1186985599994659,
+        "population_std_ms_per_batch": 0.016761981575877632,
+        "median_ms_per_batch": 1.1136000156402588,
+        "mean_microseconds_per_window": 1118.698559999466,
+        "peak_allocated_bytes": 10303488
+      },
+      "production_batch": {
+        "mean_ms_per_batch": 7.027066230773926,
+        "population_std_ms_per_batch": 0.020209849266520523,
+        "median_ms_per_batch": 7.0307841300964355,
+        "mean_microseconds_per_window": 54.898954927921295,
+        "peak_allocated_bytes": 207690752
+      },
+      "observed_epoch_train_seconds": {
+        "values": [
+          4.744179594516754,
+          4.844734120368957,
+          4.78376727104187
+        ],
+        "mean": 4.79089366197586,
+        "population_std": 0.04135933794721901
+      }
+    },
+    "SWAT": {
+      "parameters": 44867,
+      "hgat_parameters": 618,
+      "checkpoint_bytes": 186274,
+      "production_batch_size": 64,
+      "batch_1": {
+        "mean_ms_per_batch": 1.115964162349701,
+        "population_std_ms_per_batch": 0.006531640988516575,
+        "median_ms_per_batch": 1.1141120195388794,
+        "mean_microseconds_per_window": 1115.964162349701,
+        "peak_allocated_bytes": 10871296
+      },
+      "production_batch": {
+        "mean_ms_per_batch": 4.533216667175293,
+        "population_std_ms_per_batch": 0.01427791779437495,
+        "median_ms_per_batch": 4.529664039611816,
+        "mean_microseconds_per_window": 70.83151042461395,
+        "peak_allocated_bytes": 148831744
+      },
+      "observed_epoch_train_seconds": {
+        "values": [
+          3.977418601512909,
+          4.000792717933654,
+          3.9128356178601584
+        ],
+        "mean": 3.9636823124355742,
+        "population_std": 0.03719880904497555
+      }
+    }
+  }
+}

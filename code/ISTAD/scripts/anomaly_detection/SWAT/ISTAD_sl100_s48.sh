@@ -1,0 +1,44 @@
+export CUDA_VISIBLE_DEVICES=0,1
+
+python -u run.py \
+  --task_name anomaly_detection \
+  --is_training 1 \
+  --root_path ./dataset/SWAT \
+  --model_id SWAT_BestF1_Adaptive_2GPU \
+  --model ISTAD \
+  --data SWAT \
+  --features M \
+  --seq_len 100 \
+  --enc_in 51 \
+  --c_out 51 \
+  --istad_recon_type kanad \
+  --istad_branch_mode hgat_kan_tcn \
+  --istad_kanad_order 6 \
+  --istad_feat_gat_embed_dim 256 \
+  --istad_gru_hid_dim 256 \
+  --istad_recon_n_layers 2 \
+  --istad_recon_hid_dim 256 \
+  --istad_dropout 0.1 \
+  --istad_n_hyperedges 20 \
+  --istad_k_top 10 \
+  --istad_enable_explain 0 \
+  --istad_kernel_size 15 \
+  --istad_tcn_type kan \
+  --istad_kan_grid_size 10 \
+  --istad_kan_spline_order 3 \
+  --anomaly_ratio 1 \
+  --use_bestf1_threshold 1 \
+  --bestf1_search_mode adaptive \
+  --bestf1_coarse_step_num 200 \
+  --bestf1_fine_step_num 500 \
+  --bestf1_use_adjustment 1 \
+  --learning_rate 0.001 \
+  --lradj cosine \
+  --batch_size 128 \
+  --num_workers 4 \
+  --patience 10 \
+  --train_epochs 30 \
+  --use_multi_gpu \
+  --devices 0,1 \
+  --seed 48 \
+  --des SWAT_sl100_s48

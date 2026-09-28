@@ -1,0 +1,229 @@
+===== SWAT dual s48 START Wed Sep  2 04:54:14 PM CST 2026 =====
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          anomaly_detection   Is Training:        1                   
+  Model ID:           SWAT_BestF1_Adaptive_2GPUModel:              ISTAD               
+  Seed:               48                  Itr:                1                   
+
+[1mData Loader[0m
+  Data:               SWAT                Root Path:          ./dataset/SWAT      
+  Features:           M                   Seq Len:            96                  
+  Enc In:             51                  C Out:              51                  
+  Checkpoints:        ./checkpoints/      
+
+[1mAnomaly Detection Task[0m
+  Anomaly Ratio:      1.0                 
+
+[1mISTAD Parameters[0m
+  Kernel Size:        15                  Branch Mode:        hgat_kan_tcn        
+  TCN Type:           kan                 
+  Feat GAT Dim:       256                 GRU Layers:         1                   
+  GRU Hidden:         256                 Recon Layers:       2                   
+  Recon Hidden:       256                 ISTAD Dropout:      0.1                 
+  Recon Type:         kanad               KANAD Order:        6                   
+  Leaky Alpha:        0.2                 H Init:             normal              
+  Hyperedges:         20                  Top-K Nodes:        10                  
+  KAN Grid:           10                  KAN Order:          3                   
+  Arch:               legacy              Ablation:           full                
+  Explainability:     0                   Explain Batches:    0                   
+  Explain Points:     20000               Explain TopK:       10                  
+  SmoothGrad:         0                   SG Samples:         20                  
+  SG Noise:           0.1                 Quad Mode:          quantile            
+  Quad Value:         0.75                Err Agg:            sum                 
+  Sal Agg:            sum                 
+
+[1mRun Parameters[0m
+  Num Workers:        4                   Batch Size:         128                 
+  Train Epochs:       30                  Patience:           10                  
+  Learning Rate:      0.001               Lradj:              cosine              
+  Des:                SWAT_dual_s48       
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      1                   Devices:            0,1                 
+
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+>>>>>>>start training : anomaly_detection_SWAT_BestF1_Adaptive_2GPU_ISTAD_SWAT_ftM_sl96_bmhgat_kan_tcn_bs128_SWAT_dual_s48_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+test: (449919, 51)
+train: (495000, 51)
+train 5210
+test: (449919, 51)
+train: (495000, 51)
+val 1042
+test: (449919, 51)
+train: (495000, 51)
+test 4735
+Epoch: 1 cost time: 16.573732376098633
+Epoch: 1, Steps: 41 | Train Loss: 0.8575959 Vali Loss: 0.4594398 Test Loss: 12.0240857
+Validation loss decreased (inf --> 0.459440).  Saving model ...
+Updating learning rate to 0.0009972609476841367
+Epoch: 2 cost time: 14.423673152923584
+Epoch: 2, Steps: 41 | Train Loss: 0.6439460 Vali Loss: 0.3121609 Test Loss: 7.5002191
+Validation loss decreased (0.459440 --> 0.312161).  Saving model ...
+Updating learning rate to 0.0009890738003669028
+Epoch: 3 cost time: 14.443068981170654
+Epoch: 3, Steps: 41 | Train Loss: 0.5056356 Vali Loss: 0.2826461 Test Loss: 7.5559684
+Validation loss decreased (0.312161 --> 0.282646).  Saving model ...
+Updating learning rate to 0.0009755282581475768
+Epoch: 4 cost time: 14.748120784759521
+Epoch: 4, Steps: 41 | Train Loss: 0.4661052 Vali Loss: 0.2382401 Test Loss: 7.1558571
+Validation loss decreased (0.282646 --> 0.238240).  Saving model ...
+Updating learning rate to 0.0009567727288213005
+Epoch: 5 cost time: 14.221811532974243
+Epoch: 5, Steps: 41 | Train Loss: 0.4002088 Vali Loss: 0.2495100 Test Loss: 6.5225199
+EarlyStopping counter: 1 out of 10
+Updating learning rate to 0.0009330127018922195
+Epoch: 6 cost time: 14.360727548599243
+Epoch: 6, Steps: 41 | Train Loss: 0.3622750 Vali Loss: 0.2087681 Test Loss: 6.6130650
+Validation loss decreased (0.238240 --> 0.208768).  Saving model ...
+Updating learning rate to 0.0009045084971874737
+Epoch: 7 cost time: 14.337148189544678
+Epoch: 7, Steps: 41 | Train Loss: 0.3278698 Vali Loss: 0.1940308 Test Loss: 6.4762892
+Validation loss decreased (0.208768 --> 0.194031).  Saving model ...
+Updating learning rate to 0.0008715724127386971
+Epoch: 8 cost time: 14.604710817337036
+Epoch: 8, Steps: 41 | Train Loss: 0.2914777 Vali Loss: 0.1834476 Test Loss: 6.6546821
+Validation loss decreased (0.194031 --> 0.183448).  Saving model ...
+Updating learning rate to 0.0008345653031794292
+Epoch: 9 cost time: 14.358600378036499
+Epoch: 9, Steps: 41 | Train Loss: 0.2667669 Vali Loss: 0.1625940 Test Loss: 6.7085367
+Validation loss decreased (0.183448 --> 0.162594).  Saving model ...
+Updating learning rate to 0.0007938926261462366
+Epoch: 10 cost time: 14.375943183898926
+Epoch: 10, Steps: 41 | Train Loss: 0.2500718 Vali Loss: 0.1388794 Test Loss: 6.2951128
+Validation loss decreased (0.162594 --> 0.138879).  Saving model ...
+Updating learning rate to 0.00075
+Epoch: 11 cost time: 14.163637161254883
+Epoch: 11, Steps: 41 | Train Loss: 0.2365785 Vali Loss: 0.1384340 Test Loss: 6.1810245
+Validation loss decreased (0.138879 --> 0.138434).  Saving model ...
+Updating learning rate to 0.0007033683215379002
+Epoch: 12 cost time: 14.426204442977905
+Epoch: 12, Steps: 41 | Train Loss: 0.2282000 Vali Loss: 0.1423417 Test Loss: 6.1510737
+EarlyStopping counter: 1 out of 10
+Updating learning rate to 0.0006545084971874737
+Epoch: 13 cost time: 14.351484060287476
+Epoch: 13, Steps: 41 | Train Loss: 0.2212308 Vali Loss: 0.1244231 Test Loss: 6.1398040
+Validation loss decreased (0.138434 --> 0.124423).  Saving model ...
+Updating learning rate to 0.0006039558454088796
+Epoch: 14 cost time: 14.34767746925354
+Epoch: 14, Steps: 41 | Train Loss: 0.2173908 Vali Loss: 0.1228969 Test Loss: 6.0427475
+Validation loss decreased (0.124423 --> 0.122897).  Saving model ...
+Updating learning rate to 0.0005522642316338268
+Epoch: 15 cost time: 14.474270582199097
+Epoch: 15, Steps: 41 | Train Loss: 0.2099609 Vali Loss: 0.1211058 Test Loss: 5.9440881
+Validation loss decreased (0.122897 --> 0.121106).  Saving model ...
+Updating learning rate to 0.0005
+Epoch: 16 cost time: 14.611262559890747
+Epoch: 16, Steps: 41 | Train Loss: 0.2080923 Vali Loss: 0.1139968 Test Loss: 5.9266046
+Validation loss decreased (0.121106 --> 0.113997).  Saving model ...
+Updating learning rate to 0.00044773576836617336
+Epoch: 17 cost time: 14.314066886901855
+Epoch: 17, Steps: 41 | Train Loss: 0.2080292 Vali Loss: 0.1210098 Test Loss: 5.6622813
+EarlyStopping counter: 1 out of 10
+Updating learning rate to 0.0003960441545911204
+Epoch: 18 cost time: 14.32654356956482
+Epoch: 18, Steps: 41 | Train Loss: 0.1999834 Vali Loss: 0.1170900 Test Loss: 5.7901798
+EarlyStopping counter: 2 out of 10
+Updating learning rate to 0.00034549150281252633
+Epoch: 19 cost time: 14.393970251083374
+Epoch: 19, Steps: 41 | Train Loss: 0.1968125 Vali Loss: 0.1314761 Test Loss: 5.7192280
+EarlyStopping counter: 3 out of 10
+Updating learning rate to 0.0002966316784621
+Epoch: 20 cost time: 14.369099855422974
+Epoch: 20, Steps: 41 | Train Loss: 0.1943145 Vali Loss: 0.1084613 Test Loss: 5.7358598
+Validation loss decreased (0.113997 --> 0.108461).  Saving model ...
+Updating learning rate to 0.0002500000000000001
+Epoch: 21 cost time: 14.530349731445312
+Epoch: 21, Steps: 41 | Train Loss: 0.1941295 Vali Loss: 0.1063731 Test Loss: 5.7215452
+Validation loss decreased (0.108461 --> 0.106373).  Saving model ...
+Updating learning rate to 0.00020610737385376348
+Epoch: 22 cost time: 14.358831405639648
+Epoch: 22, Steps: 41 | Train Loss: 0.1906867 Vali Loss: 0.1133803 Test Loss: 5.7088937
+EarlyStopping counter: 1 out of 10
+Updating learning rate to 0.00016543469682057105
+Epoch: 23 cost time: 14.379925012588501
+Epoch: 23, Steps: 41 | Train Loss: 0.1911247 Vali Loss: 0.1109936 Test Loss: 5.7548540
+EarlyStopping counter: 2 out of 10
+Updating learning rate to 0.00012842758726130281
+Epoch: 24 cost time: 14.353538751602173
+Epoch: 24, Steps: 41 | Train Loss: 0.1886149 Vali Loss: 0.1255178 Test Loss: 5.8315152
+EarlyStopping counter: 3 out of 10
+Updating learning rate to 9.549150281252633e-05
+Epoch: 25 cost time: 14.314030170440674
+Epoch: 25, Steps: 41 | Train Loss: 0.1885875 Vali Loss: 0.1036619 Test Loss: 5.7864609
+Validation loss decreased (0.106373 --> 0.103662).  Saving model ...
+Updating learning rate to 6.698729810778065e-05
+Epoch: 26 cost time: 14.336440801620483
+Epoch: 26, Steps: 41 | Train Loss: 0.1909729 Vali Loss: 0.0992711 Test Loss: 5.7756815
+Validation loss decreased (0.103662 --> 0.099271).  Saving model ...
+Updating learning rate to 4.322727117869951e-05
+Epoch: 27 cost time: 14.407832860946655
+Epoch: 27, Steps: 41 | Train Loss: 0.1858076 Vali Loss: 0.0982311 Test Loss: 5.7990560
+Validation loss decreased (0.099271 --> 0.098231).  Saving model ...
+Updating learning rate to 2.4471741852423235e-05
+Epoch: 28 cost time: 14.329580545425415
+Epoch: 28, Steps: 41 | Train Loss: 0.1870116 Vali Loss: 0.1302551 Test Loss: 5.7954832
+EarlyStopping counter: 1 out of 10
+Updating learning rate to 1.0926199633097156e-05
+Epoch: 29 cost time: 14.402136325836182
+Epoch: 29, Steps: 41 | Train Loss: 0.1859399 Vali Loss: 0.1069034 Test Loss: 5.7778072
+EarlyStopping counter: 2 out of 10
+Updating learning rate to 2.739052315863355e-06
+Epoch: 30 cost time: 14.354373931884766
+Epoch: 30, Steps: 41 | Train Loss: 0.1871011 Vali Loss: 0.1040833 Test Loss: 5.7783469
+EarlyStopping counter: 3 out of 10
+Updating learning rate to 0.0
+>>>>>>>testing : anomaly_detection_SWAT_BestF1_Adaptive_2GPU_ISTAD_SWAT_ftM_sl96_bmhgat_kan_tcn_bs128_SWAT_dual_s48_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test: (449919, 51)
+train: (495000, 51)
+test 4735
+test: (449919, 51)
+train: (495000, 51)
+train 5210
+Traceback (most recent call last):
+  File "/data/modeluse/TS/ISTAD/run.py", line 218, in <module>
+    exp.test(setting)
+  File "/data/modeluse/TS/ISTAD/exp/exp_anomaly_detection.py", line 1040, in test
+    outputs = self.model(batch_x, None, None, None)
+  File "/data/zenghaoyang/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data/zenghaoyang/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/zenghaoyang/miniconda3/lib/python3.10/site-packages/torch/nn/parallel/data_parallel.py", line 193, in forward
+    outputs = self.parallel_apply(replicas, inputs, module_kwargs)
+  File "/data/zenghaoyang/miniconda3/lib/python3.10/site-packages/torch/nn/parallel/data_parallel.py", line 212, in parallel_apply
+    return parallel_apply(
+  File "/data/zenghaoyang/miniconda3/lib/python3.10/site-packages/torch/nn/parallel/parallel_apply.py", line 126, in parallel_apply
+    output.reraise()
+  File "/data/zenghaoyang/miniconda3/lib/python3.10/site-packages/torch/_utils.py", line 733, in reraise
+    raise exception
+torch.OutOfMemoryError: Caught OutOfMemoryError in replica 0 on device 0.
+Original Traceback (most recent call last):
+  File "/data/zenghaoyang/miniconda3/lib/python3.10/site-packages/torch/nn/parallel/parallel_apply.py", line 96, in _worker
+    output = module(*input, **kwargs)
+  File "/data/zenghaoyang/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data/zenghaoyang/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/modeluse/TS/ISTAD/models/ISTAD.py", line 340, in forward
+    return self.anomaly_detection(x_enc)
+  File "/data/modeluse/TS/ISTAD/models/ISTAD.py", line 329, in anomaly_detection
+    base = self.backbone(x_enc)
+  File "/data/zenghaoyang/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data/zenghaoyang/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/modeluse/TS/ISTAD/models/ISTAD.py", line 158, in forward
+    h_feat = self.feature_gat(x_spatial)
+  File "/data/zenghaoyang/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/data/zenghaoyang/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/data/modeluse/TS/ISTAD/models/istad_layers/hypergraph_attention.py", line 130, in forward
+    att = self._compute_attention(Xn, E, H)
+  File "/data/modeluse/TS/ISTAD/models/istad_layers/hypergraph_attention.py", line 181, in _compute_attention
+    att_in = torch.cat([
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 11.95 GiB. GPU 0 has a total capacity of 47.40 GiB of which 5.98 GiB is free. Including non-PyTorch memory, this process has 41.40 GiB memory in use. Of the allocated memory 29.41 GiB is allocated by PyTorch, and 11.50 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+

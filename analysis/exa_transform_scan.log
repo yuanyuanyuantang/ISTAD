@@ -1,0 +1,17 @@
+===== EXA gated 分数单调变换扫描（V0 lm_table, level 0.99/1.0）=====
+  identity   A=0.2410 C=0.9434 D=0.9606 ROC=0.8744 AP=0.6252  
+  log1p      A=0.2469 C=0.9429 D=0.9607 ROC=0.8744 AP=0.6252  
+  sqrt       A=0.2459 C=0.9430 D=0.9607 ROC=0.8744 AP=0.6252  
+  pow025     A=0.2466 C=0.9429 D=0.9606 ROC=0.8744 AP=0.6252  
+  winsor999  A=0.2411 C=0.9434 D=0.9606 ROC=0.8744 AP=0.6252  
+  gaussrank  A=0.2486 C=0.9428 D=0.9606 ROC=0.8744 AP=0.6253  
+
+===== 变换 × level 组合（最优变换若未达标再看）=====
+  log1p      level=0.980 A=0.4197 C=0.9586
+  log1p      level=0.985 A=0.3551 C=0.9558
+  log1p      level=0.990 A=0.2469 C=0.9429
+  gaussrank  level=0.980 A=0.4207 C=0.9585
+  gaussrank  level=0.985 A=0.3566 C=0.9557
+  gaussrank  level=0.990 A=0.2486 C=0.9428
+
+[done]

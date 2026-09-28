@@ -1,0 +1,12 @@
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (449919, 51)
+train: (495000, 51)
+TEST 4499
+test: (449919, 51)
+train: (495000, 51)
+test errors: (449900, 51)
+train errors: (495000, 51)
+label 从原始 csv 补足: 449900
+[warn] /data/modeluse/TS/vus_diag/istad_scores/SWAT_s89_sl100.npz 不存在，跳过回归校验
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/SWAT_s89_sl100.npz

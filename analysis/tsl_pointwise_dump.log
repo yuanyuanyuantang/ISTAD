@@ -1,0 +1,275 @@
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (52844, 19)
+train: (88230, 19)
+test: (708420, 38)
+train: (708405, 38)
+test: (87841, 25)
+train: (132481, 25)
+test: (52844, 19)
+train: (88230, 19)
+[pw-dump] TimesNet  Exathlon  s   48 n_test=52800 n_train=88224 old_n=50688 old_shape=(50688,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/TimesNet_Exathlon_s48.npz
+test: (87841, 25)
+train: (132481, 25)
+[done rc=0] TimesNet Exathlon s48 GPU0
+[pw-dump] DLinear   PSM       s   48 n_test=87800 n_train=132400 old_n=8774200 REG shape=(8774200,) maxdelta=nan -> /data/modeluse/TS/vus_diag/tsl_pointwise/DLinear_PSM_s48.npz
+[done rc=0] DLinear PSM s48 GPU1
+test: (708420, 38)
+train: (708405, 38)
+[pw-dump] KANAD     SMD       s   48 n_test=708384 n_train=708384 old_n=680064 old_shape=(680064,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/KANAD_SMD_s48.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+[done rc=0] KANAD SMD s48 GPU2
+test: (52844, 19)
+train: (88230, 19)
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (52844, 19)
+train: (88230, 19)
+[pw-dump] TimesNet  Exathlon  s 2021 n_test=52800 n_train=88224 old_n=50688 old_shape=(50688,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/TimesNet_Exathlon_s2021.npz
+test: (87841, 25)
+train: (132481, 25)
+[done rc=0] TimesNet Exathlon s2021 GPU0
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (87841, 25)
+train: (132481, 25)
+[pw-dump] DLinear   PSM       s 2021 n_test=87800 n_train=132400 old_n=8774200 REG shape=(8774200,) maxdelta=nan -> /data/modeluse/TS/vus_diag/tsl_pointwise/DLinear_PSM_s2021.npz
+test: (708420, 38)
+train: (708405, 38)
+[done rc=0] DLinear PSM s2021 GPU1
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+test: (52844, 19)
+train: (88230, 19)
+test: (708420, 38)
+train: (708405, 38)
+[pw-dump] KANAD     SMD       s 2021 n_test=708384 n_train=708384 old_n=680064 old_shape=(680064,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/KANAD_SMD_s2021.npz
+test: (52844, 19)
+train: (88230, 19)
+[pw-dump] TimesNet  Exathlon  s 2022 n_test=52800 n_train=88224 old_n=50688 old_shape=(50688,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/TimesNet_Exathlon_s2022.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+[done rc=0] KANAD SMD s2021 GPU2
+[done rc=0] TimesNet Exathlon s2022 GPU0
+test: (87841, 25)
+train: (132481, 25)
+test: (87841, 25)
+train: (132481, 25)
+[pw-dump] DLinear   PSM       s 2022 n_test=87800 n_train=132400 old_n=8774200 REG shape=(8774200,) maxdelta=nan -> /data/modeluse/TS/vus_diag/tsl_pointwise/DLinear_PSM_s2022.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+[done rc=0] DLinear PSM s2022 GPU1
+test: (52844, 19)
+train: (88230, 19)
+test: (708420, 38)
+train: (708405, 38)
+test: (52844, 19)
+train: (88230, 19)
+[pw-dump] DLinear   Exathlon  s   48 n_test=52800 n_train=88224 old_n=50688 old_shape=(50688,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/DLinear_Exathlon_s48.npz
+[done rc=0] DLinear Exathlon s48 GPU0
+test: (708420, 38)
+train: (708405, 38)
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+[pw-dump] KANAD     SMD       s 2022 n_test=708384 n_train=708384 old_n=680064 old_shape=(680064,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/KANAD_SMD_s2022.npz
+test: (87841, 25)
+train: (132481, 25)
+[done rc=0] KANAD SMD s2022 GPU2
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (52844, 19)
+train: (88230, 19)
+test: (52844, 19)
+train: (88230, 19)
+[pw-dump] DLinear   Exathlon  s 2021 n_test=52800 n_train=88224 old_n=50688 old_shape=(50688,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/DLinear_Exathlon_s2021.npz
+test: (87841, 25)
+train: (132481, 25)
+[done rc=0] DLinear Exathlon s2021 GPU0
+[pw-dump] KANAD     PSM       s   48 n_test=87808 n_train=132480 old_n=5617792 old_shape=(5617792,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/KANAD_PSM_s48.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+[done rc=0] KANAD PSM s48 GPU1
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (52844, 19)
+train: (88230, 19)
+test: (52844, 19)
+train: (88230, 19)
+[pw-dump] DLinear   Exathlon  s 2022 n_test=52800 n_train=88224 old_n=50688 old_shape=(50688,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/DLinear_Exathlon_s2022.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+[done rc=0] DLinear Exathlon s2022 GPU0
+test: (87841, 25)
+train: (132481, 25)
+test: (449919, 51)
+train: (495000, 51)
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (87841, 25)
+train: (132481, 25)
+test: (52844, 19)
+train: (88230, 19)
+[pw-dump] KANAD     PSM       s 2021 n_test=87808 n_train=132480 old_n=5617792 old_shape=(5617792,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/KANAD_PSM_s2021.npz
+[done rc=0] KANAD PSM s2021 GPU1
+test: (52844, 19)
+train: (88230, 19)
+[pw-dump] KANAD     Exathlon  s   48 n_test=52800 n_train=88224 old_n=50688 old_shape=(50688,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/KANAD_Exathlon_s48.npz
+[done rc=0] KANAD Exathlon s48 GPU0
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (449919, 51)
+train: (495000, 51)
+test: (87841, 25)
+train: (132481, 25)
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+[pw-dump] TimesNet  SWAT      s   48 n_test=449900 n_train=495000 old_n=449900 REG shape=(449900,) maxdelta=3.546e-04 -> /data/modeluse/TS/vus_diag/tsl_pointwise/TimesNet_SWAT_s48.npz
+test: (52844, 19)
+train: (88230, 19)
+[done rc=0] TimesNet SWAT s48 GPU2
+test: (52844, 19)
+train: (88230, 19)
+test: (87841, 25)
+train: (132481, 25)
+[pw-dump] KANAD     Exathlon  s 2021 n_test=52800 n_train=88224 old_n=50688 old_shape=(50688,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/KANAD_Exathlon_s2021.npz
+[pw-dump] KANAD     PSM       s 2022 n_test=87808 n_train=132480 old_n=5617792 old_shape=(5617792,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/KANAD_PSM_s2022.npz
+[done rc=0] KANAD PSM s2022 GPU1
+[skip] TimesNet SMD s48
+[done rc=0] KANAD Exathlon s2021 GPU0
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (52844, 19)
+train: (88230, 19)
+test: (708420, 38)
+train: (708405, 38)
+test: (52844, 19)
+train: (88230, 19)
+[pw-dump] KANAD     Exathlon  s 2022 n_test=52800 n_train=88224 old_n=50688 old_shape=(50688,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/KANAD_Exathlon_s2022.npz
+test: (449919, 51)
+train: (495000, 51)
+[done rc=0] KANAD Exathlon s2022 GPU0
+[skip] TimesNet PSM s48
+test: (708420, 38)
+train: (708405, 38)
+[pw-dump] TimesNet  SMD       s 2021 n_test=708400 n_train=708400 old_n=708400 REG shape=(708400,) maxdelta=2.585e+00 -> /data/modeluse/TS/vus_diag/tsl_pointwise/TimesNet_SMD_s2021.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+[done rc=0] TimesNet SMD s2021 GPU1
+test: (87841, 25)
+train: (132481, 25)
+test: (449919, 51)
+train: (495000, 51)
+test: (87841, 25)
+train: (132481, 25)
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+[pw-dump] TimesNet  PSM       s 2021 n_test=87800 n_train=132400 old_n=8774200 REG shape=(8774200,) maxdelta=nan -> /data/modeluse/TS/vus_diag/tsl_pointwise/TimesNet_PSM_s2021.npz
+[pw-dump] TimesNet  SWAT      s 2021 n_test=449900 n_train=495000 old_n=449900 REG shape=(449900,) maxdelta=5.276e-03 -> /data/modeluse/TS/vus_diag/tsl_pointwise/TimesNet_SWAT_s2021.npz
+test: (708420, 38)
+train: (708405, 38)
+[done rc=0] TimesNet PSM s2021 GPU0
+[done rc=0] TimesNet SWAT s2021 GPU2
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+test: (708420, 38)
+train: (708405, 38)
+Use GPU: cuda:0
+🚀 Lazy Loading: TimesNet ...
+test: (87841, 25)
+train: (132481, 25)
+[pw-dump] TimesNet  SMD       s 2022 n_test=708400 n_train=708400 old_n=708400 REG shape=(708400,) maxdelta=4.184e+00 -> /data/modeluse/TS/vus_diag/tsl_pointwise/TimesNet_SMD_s2022.npz
+[done rc=0] TimesNet SMD s2022 GPU1
+test: (87841, 25)
+train: (132481, 25)
+[pw-dump] TimesNet  PSM       s 2022 n_test=87800 n_train=132400 old_n=8774200 REG shape=(8774200,) maxdelta=nan -> /data/modeluse/TS/vus_diag/tsl_pointwise/TimesNet_PSM_s2022.npz
+[done rc=0] TimesNet PSM s2022 GPU0
+test: (449919, 51)
+train: (495000, 51)
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (708420, 38)
+train: (708405, 38)
+test: (708420, 38)
+train: (708405, 38)
+[pw-dump] DLinear   SMD       s   48 n_test=708400 n_train=708400 old_n=708400 REG shape=(708400,) maxdelta=0.000e+00 -> /data/modeluse/TS/vus_diag/tsl_pointwise/DLinear_SMD_s48.npz
+[done rc=0] DLinear SMD s48 GPU1
+test: (449919, 51)
+train: (495000, 51)
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+[pw-dump] TimesNet  SWAT      s 2022 n_test=449900 n_train=495000 old_n=449900 REG shape=(449900,) maxdelta=1.401e-03 -> /data/modeluse/TS/vus_diag/tsl_pointwise/TimesNet_SWAT_s2022.npz
+test: (708420, 38)
+train: (708405, 38)
+[done rc=0] TimesNet SWAT s2022 GPU2
+test: (708420, 38)
+train: (708405, 38)
+[pw-dump] DLinear   SMD       s 2021 n_test=708400 n_train=708400 old_n=708400 REG shape=(708400,) maxdelta=0.000e+00 -> /data/modeluse/TS/vus_diag/tsl_pointwise/DLinear_SMD_s2021.npz
+[done rc=0] DLinear SMD s2021 GPU1
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (708420, 38)
+train: (708405, 38)
+test: (708420, 38)
+train: (708405, 38)
+test: (449919, 51)
+train: (495000, 51)
+[pw-dump] DLinear   SMD       s 2022 n_test=708400 n_train=708400 old_n=708400 REG shape=(708400,) maxdelta=0.000e+00 -> /data/modeluse/TS/vus_diag/tsl_pointwise/DLinear_SMD_s2022.npz
+[done rc=0] DLinear SMD s2022 GPU1
+test: (449919, 51)
+train: (495000, 51)
+[pw-dump] DLinear   SWAT      s   48 n_test=449900 n_train=495000 old_n=449900 REG shape=(449900,) maxdelta=0.000e+00 -> /data/modeluse/TS/vus_diag/tsl_pointwise/DLinear_SWAT_s48.npz
+[done rc=0] DLinear SWAT s48 GPU2
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (449919, 51)
+train: (495000, 51)
+test: (449919, 51)
+train: (495000, 51)
+[pw-dump] DLinear   SWAT      s 2021 n_test=449900 n_train=495000 old_n=449900 REG shape=(449900,) maxdelta=0.000e+00 -> /data/modeluse/TS/vus_diag/tsl_pointwise/DLinear_SWAT_s2021.npz
+[done rc=0] DLinear SWAT s2021 GPU2
+Use GPU: cuda:0
+🚀 Lazy Loading: DLinear ...
+test: (449919, 51)
+train: (495000, 51)
+test: (449919, 51)
+train: (495000, 51)
+[pw-dump] DLinear   SWAT      s 2022 n_test=449900 n_train=495000 old_n=449900 REG shape=(449900,) maxdelta=0.000e+00 -> /data/modeluse/TS/vus_diag/tsl_pointwise/DLinear_SWAT_s2022.npz
+[done rc=0] DLinear SWAT s2022 GPU2
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (449919, 51)
+train: (495000, 51)
+test: (449919, 51)
+train: (495000, 51)
+[pw-dump] KANAD     SWAT      s   48 n_test=449840 n_train=494960 old_n=359920 old_shape=(359920,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/KANAD_SWAT_s48.npz
+[done rc=0] KANAD SWAT s48 GPU2
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (449919, 51)
+train: (495000, 51)
+test: (449919, 51)
+train: (495000, 51)
+[pw-dump] KANAD     SWAT      s 2021 n_test=449840 n_train=494960 old_n=359920 old_shape=(359920,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/KANAD_SWAT_s2021.npz
+[done rc=0] KANAD SWAT s2021 GPU2
+Use GPU: cuda:0
+🚀 Lazy Loading: KANAD ...
+test: (449919, 51)
+train: (495000, 51)
+test: (449919, 51)
+train: (495000, 51)
+[pw-dump] KANAD     SWAT      s 2022 n_test=449840 n_train=494960 old_n=359920 old_shape=(359920,) (surface changed) -> /data/modeluse/TS/vus_diag/tsl_pointwise/KANAD_SWAT_s2022.npz
+[done rc=0] KANAD SWAT s2022 GPU2
+ALL_DONE

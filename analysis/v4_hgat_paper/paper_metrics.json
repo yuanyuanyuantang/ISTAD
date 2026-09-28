@@ -1,0 +1,3142 @@
+{
+  "status": "frozen_development_benchmarks_not_independent_confirmation",
+  "datasets": [
+    "EXA",
+    "PSM",
+    "SMD",
+    "SWAT"
+  ],
+  "seeds": [
+    87,
+    90,
+    98
+  ],
+  "metric_protocol": {
+    "POT": "training-score-derived threshold",
+    "Best-point": "exact test-label oracle without point adjustment",
+    "Best-F1+PA": "adaptive test-label oracle with point adjustment",
+    "event": "overlap event precision/recall; entity-safe; no point adjustment",
+    "random_tie_control_repeats": 100
+  },
+  "runs": {
+    "EXA": {
+      "87": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0",
+        "score_sha256": "5188744821fe5b4394a622b33e9633ae5dbdac9ff90039d9276df3098b48d450",
+        "best_sha256": "49198b3a50ceaf3ca3acf8a24923c47dcd6531c9ee1f2f1644731b04e4c97607",
+        "stored_dtypes": {
+          "train_innovation_score": "float64",
+          "hgat_score": "float64",
+          "train_score": "float64",
+          "score": "float64",
+          "innovation_score": "float64",
+          "label": "int8",
+          "train_hgat_score": "float64"
+        },
+        "metadata": {
+          "component_calibration": "normal_train_ecdf",
+          "final_calibration": "rank_safe_no_recalibration",
+          "fusion_strategy": "rank_tiebreak",
+          "message_gate": 0.26126331090927124,
+          "n_hyperedges": 9,
+          "pool": "sparse",
+          "reliability_gate": {
+            "allowed_graph_tail_rate": 0.0125,
+            "base_threshold": 0.9903618439716313,
+            "base_validation_tail_rate": 0.008156028368794326,
+            "graph_threshold": 0.9903263829787234,
+            "graph_validation_tail_rate": 0.008368794326241135,
+            "inflation_limit": 1.25,
+            "kill_switch": false,
+            "max_weight": 0.2,
+            "method": "normal_tail_stability",
+            "reference_fraction": 0.8,
+            "reference_size": 56400,
+            "reliability": 1.0,
+            "selected_weight": 0.2,
+            "tail_probability": 0.01,
+            "validation_size": 14100
+          },
+          "reliability_mix_weight": 0.2,
+          "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+          "selected_weight": 7.092198581560284e-06
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 12098,
+          "changed_values": 52800,
+          "score_dtype": "float64"
+        },
+        "arms": {
+          "V4-HG": {
+            "ranking": {
+              "roc_auc": 0.8275449788561685,
+              "pr_auc": 0.4263482368820395
+            },
+            "POT": {
+              "threshold": 4.795826076940404,
+              "raw_spot_threshold": 4.611371227827312,
+              "effective_level": 0.99,
+              "point": {
+                "precision": 0.5630498533724341,
+                "recall": 0.05655375552282769,
+                "f1": 0.10278372591006424,
+                "predicted_positive": 682
+              },
+              "point_adjusted": {
+                "f1": 0.9593254934529327,
+                "precision": 0.9563817316212212,
+                "recall": 0.9622974949008873,
+                "TP": 6534,
+                "TN": 45712,
+                "FP": 298,
+                "FN": 256,
+                "threshold": 4.795826076940404
+              },
+              "event": {
+                "event_precision": 0.5452196382428941,
+                "event_recall": 0.9157894736842105,
+                "event_f1": 0.6835089548348661,
+                "true_events": 95,
+                "predicted_events": 387,
+                "detected_events": 87,
+                "correct_predicted_events": 211,
+                "mean_detection_delay": 9.60919540229885,
+                "mean_normalized_detection_delay": 0.10767130030850945
+              }
+            },
+            "Best-point": {
+              "precision": 0.48922895821071216,
+              "recall": 0.6120765832106039,
+              "f1": 0.5438011122015048,
+              "threshold": 0.8445891026073403,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9627991102045644,
+              "precision": 0.9668795470564688,
+              "recall": 0.9587628851859162,
+              "threshold": 0.9931751086643793,
+              "TP": 6510,
+              "TN": 45787,
+              "FP": 223,
+              "FN": 280
+            }
+          },
+          "V4": {
+            "ranking": {
+              "roc_auc": 0.8275410561000538,
+              "pr_auc": 0.42626295096718
+            },
+            "POT": {
+              "threshold": 4.795829511235858,
+              "raw_spot_threshold": 4.611374530034479,
+              "effective_level": 0.99,
+              "point": {
+                "precision": 0.5630498533724341,
+                "recall": 0.05655375552282769,
+                "f1": 0.10278372591006424,
+                "predicted_positive": 682
+              },
+              "point_adjusted": {
+                "f1": 0.9593254934529327,
+                "precision": 0.9563817316212212,
+                "recall": 0.9622974949008873,
+                "TP": 6534,
+                "TN": 45712,
+                "FP": 298,
+                "FN": 256,
+                "threshold": 4.795829511235858
+              },
+              "event": {
+                "event_precision": 0.5452196382428941,
+                "event_recall": 0.9157894736842105,
+                "event_f1": 0.6835089548348661,
+                "true_events": 95,
+                "predicted_events": 387,
+                "detected_events": 87,
+                "correct_predicted_events": 211,
+                "mean_detection_delay": 9.60919540229885,
+                "mean_normalized_detection_delay": 0.10767130030850945
+              }
+            },
+            "Best-point": {
+              "precision": 0.4891713747645951,
+              "recall": 0.6120765832106039,
+              "f1": 0.5437655370927647,
+              "threshold": 0.8445886524822694,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9627991102045644,
+              "precision": 0.9668795470564688,
+              "recall": 0.9587628851859162,
+              "threshold": 0.9931751086643793,
+              "TP": 6510,
+              "TN": 45787,
+              "FP": 223,
+              "FN": 280,
+              "source": "rank_equivalent_to_full"
+            }
+          },
+          "HGAT-only": {
+            "ranking": {
+              "roc_auc": 0.8465484035454929,
+              "pr_auc": 0.49831940050213774
+            },
+            "POT": {
+              "threshold": 4.796624573630689,
+              "raw_spot_threshold": 4.6121390131064315,
+              "effective_level": 0.99,
+              "point": {
+                "precision": 0.6382428940568475,
+                "recall": 0.07275405007363771,
+                "f1": 0.13061872025383395,
+                "predicted_positive": 774
+              },
+              "point_adjusted": {
+                "f1": 0.9519665375173957,
+                "precision": 0.9582214250101143,
+                "recall": 0.9458026495643554,
+                "TP": 6422,
+                "TN": 45730,
+                "FP": 280,
+                "FN": 368,
+                "threshold": 4.796624573630689
+              },
+              "event": {
+                "event_precision": 0.6121372031662269,
+                "event_recall": 0.8947368421052632,
+                "event_f1": 0.7269376094369183,
+                "true_events": 95,
+                "predicted_events": 379,
+                "detected_events": 85,
+                "correct_predicted_events": 232,
+                "mean_detection_delay": 7.752941176470588,
+                "mean_normalized_detection_delay": 0.09602423281890145
+              }
+            },
+            "Best-point": {
+              "precision": 0.4890795631825273,
+              "recall": 0.6463917525773196,
+              "f1": 0.5568383658969804,
+              "threshold": 0.7779574468085105,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            }
+          }
+        },
+        "random_tie_control": {
+          "repeats": 100,
+          "random_seed": 20260997,
+          "learned_delta_roc_auc": 3.922756114715931e-06,
+          "learned_delta_pr_auc": 8.528591485951198e-05,
+          "random_delta_roc_auc": {
+            "mean": -3.1049150672757264e-09,
+            "population_std": 1.9668147317115522e-07
+          },
+          "random_delta_pr_auc": {
+            "mean": 7.517376989155445e-05,
+            "population_std": 8.695726195401246e-05
+          },
+          "learned_roc_percentile_among_random": 1.0,
+          "learned_pr_percentile_among_random": 0.55
+        }
+      },
+      "90": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v4hg_s90_0",
+        "score_sha256": "0254c810911423d4cea0ca747049b51ead26e7bffff8a6b86da3b7e5eb815015",
+        "best_sha256": "222398931628c0a7963e0e9938126ca563d3c9d94abd3bbb16028213cb7505ab",
+        "stored_dtypes": {
+          "train_innovation_score": "float64",
+          "hgat_score": "float64",
+          "train_score": "float64",
+          "score": "float64",
+          "innovation_score": "float64",
+          "label": "int8",
+          "train_hgat_score": "float64"
+        },
+        "metadata": {
+          "component_calibration": "normal_train_ecdf",
+          "final_calibration": "rank_safe_no_recalibration",
+          "fusion_strategy": "rank_tiebreak",
+          "message_gate": 0.2620074152946472,
+          "n_hyperedges": 9,
+          "pool": "sparse",
+          "reliability_gate": {
+            "allowed_graph_tail_rate": 0.0125,
+            "base_threshold": 0.9903618439716313,
+            "base_validation_tail_rate": 0.008156028368794326,
+            "graph_threshold": 0.9902270921985816,
+            "graph_validation_tail_rate": 0.008865248226950355,
+            "inflation_limit": 1.25,
+            "kill_switch": false,
+            "max_weight": 0.2,
+            "method": "normal_tail_stability",
+            "reference_fraction": 0.8,
+            "reference_size": 56400,
+            "reliability": 1.0,
+            "selected_weight": 0.2,
+            "tail_probability": 0.01,
+            "validation_size": 14100
+          },
+          "reliability_mix_weight": 0.2,
+          "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+          "selected_weight": 7.092198581560284e-06
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 12099,
+          "changed_values": 52800,
+          "score_dtype": "float64"
+        },
+        "arms": {
+          "V4-HG": {
+            "ranking": {
+              "roc_auc": 0.8275459375387114,
+              "pr_auc": 0.426356106993368
+            },
+            "POT": {
+              "threshold": 4.7958262866137105,
+              "raw_spot_threshold": 4.61137142943626,
+              "effective_level": 0.99,
+              "point": {
+                "precision": 0.5630498533724341,
+                "recall": 0.05655375552282769,
+                "f1": 0.10278372591006424,
+                "predicted_positive": 682
+              },
+              "point_adjusted": {
+                "f1": 0.9593254934529327,
+                "precision": 0.9563817316212212,
+                "recall": 0.9622974949008873,
+                "TP": 6534,
+                "TN": 45712,
+                "FP": 298,
+                "FN": 256,
+                "threshold": 4.7958262866137105
+              },
+              "event": {
+                "event_precision": 0.5452196382428941,
+                "event_recall": 0.9157894736842105,
+                "event_f1": 0.6835089548348661,
+                "true_events": 95,
+                "predicted_events": 387,
+                "detected_events": 87,
+                "correct_predicted_events": 211,
+                "mean_detection_delay": 9.60919540229885,
+                "mean_normalized_detection_delay": 0.10767130030850945
+              }
+            },
+            "Best-point": {
+              "precision": 0.48922895821071216,
+              "recall": 0.6120765832106039,
+              "f1": 0.5438011122015048,
+              "threshold": 0.8445878542886447,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9627991102045644,
+              "precision": 0.9668795470564688,
+              "recall": 0.9587628851859162,
+              "threshold": 0.993175108666988,
+              "TP": 6510,
+              "TN": 45787,
+              "FP": 223,
+              "FN": 280
+            }
+          },
+          "V4": {
+            "ranking": {
+              "roc_auc": 0.8275410561000538,
+              "pr_auc": 0.42626295096718
+            },
+            "POT": {
+              "threshold": 4.795829511235858,
+              "raw_spot_threshold": 4.611374530034479,
+              "effective_level": 0.99,
+              "point": {
+                "precision": 0.5630498533724341,
+                "recall": 0.05655375552282769,
+                "f1": 0.10278372591006424,
+                "predicted_positive": 682
+              },
+              "point_adjusted": {
+                "f1": 0.9593254934529327,
+                "precision": 0.9563817316212212,
+                "recall": 0.9622974949008873,
+                "TP": 6534,
+                "TN": 45712,
+                "FP": 298,
+                "FN": 256,
+                "threshold": 4.795829511235858
+              },
+              "event": {
+                "event_precision": 0.5452196382428941,
+                "event_recall": 0.9157894736842105,
+                "event_f1": 0.6835089548348661,
+                "true_events": 95,
+                "predicted_events": 387,
+                "detected_events": 87,
+                "correct_predicted_events": 211,
+                "mean_detection_delay": 9.60919540229885,
+                "mean_normalized_detection_delay": 0.10767130030850945
+              }
+            },
+            "Best-point": {
+              "precision": 0.4891713747645951,
+              "recall": 0.6120765832106039,
+              "f1": 0.5437655370927647,
+              "threshold": 0.8445886524822694,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9627991102045644,
+              "precision": 0.9668795470564688,
+              "recall": 0.9587628851859162,
+              "threshold": 0.993175108666988,
+              "TP": 6510,
+              "TN": 45787,
+              "FP": 223,
+              "FN": 280,
+              "source": "rank_equivalent_to_full"
+            }
+          },
+          "HGAT-only": {
+            "ranking": {
+              "roc_auc": 0.8588182453132588,
+              "pr_auc": 0.5491782740496413
+            },
+            "POT": {
+              "threshold": 4.796624573630689,
+              "raw_spot_threshold": 4.6121390131064315,
+              "effective_level": 0.99,
+              "point": {
+                "precision": 0.6291989664082688,
+                "recall": 0.07172312223858615,
+                "f1": 0.12876784769962982,
+                "predicted_positive": 774
+              },
+              "point_adjusted": {
+                "f1": 0.9527141996199274,
+                "precision": 0.9573234186508203,
+                "recall": 0.9481590560410029,
+                "TP": 6438,
+                "TN": 45723,
+                "FP": 287,
+                "FN": 352,
+                "threshold": 4.796624573630689
+              },
+              "event": {
+                "event_precision": 0.6293333333333333,
+                "event_recall": 0.8947368421052632,
+                "event_f1": 0.7389262363016852,
+                "true_events": 95,
+                "predicted_events": 375,
+                "detected_events": 85,
+                "correct_predicted_events": 236,
+                "mean_detection_delay": 9.51764705882353,
+                "mean_normalized_detection_delay": 0.1155785689334751
+              }
+            },
+            "Best-point": {
+              "precision": 0.6290474693492613,
+              "recall": 0.5893961708394698,
+              "f1": 0.6085766423357665,
+              "threshold": 0.8497872340425531,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            }
+          }
+        },
+        "random_tie_control": {
+          "repeats": 100,
+          "random_seed": 20261000,
+          "learned_delta_roc_auc": 4.881438657622361e-06,
+          "learned_delta_pr_auc": 9.315602618803487e-05,
+          "random_delta_roc_auc": {
+            "mean": 1.0243018838673735e-08,
+            "population_std": 1.919287894118328e-07
+          },
+          "random_delta_pr_auc": {
+            "mean": 6.833790028753783e-05,
+            "population_std": 8.098894088053515e-05
+          },
+          "learned_roc_percentile_among_random": 1.0,
+          "learned_pr_percentile_among_random": 0.57
+        }
+      },
+      "98": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v4hg_s98_0",
+        "score_sha256": "41624c889b4171691e3109020682e08ed6efb31e54e2cbb8a9d2df92bac62226",
+        "best_sha256": "5a15db28b09bde722edb49f8c4b93718fca16dbd91ebbc4a8a87eb5510d84abc",
+        "stored_dtypes": {
+          "train_innovation_score": "float64",
+          "hgat_score": "float64",
+          "train_score": "float64",
+          "score": "float64",
+          "innovation_score": "float64",
+          "label": "int8",
+          "train_hgat_score": "float64"
+        },
+        "metadata": {
+          "component_calibration": "normal_train_ecdf",
+          "final_calibration": "rank_safe_no_recalibration",
+          "fusion_strategy": "rank_tiebreak",
+          "message_gate": 0.25975218415260315,
+          "n_hyperedges": 9,
+          "pool": "sparse",
+          "reliability_gate": {
+            "allowed_graph_tail_rate": 0.0125,
+            "base_threshold": 0.9903618439716313,
+            "base_validation_tail_rate": 0.008156028368794326,
+            "graph_threshold": 0.9901428368794328,
+            "graph_validation_tail_rate": 0.00929078014184397,
+            "inflation_limit": 1.25,
+            "kill_switch": false,
+            "max_weight": 0.2,
+            "method": "normal_tail_stability",
+            "reference_fraction": 0.8,
+            "reference_size": 56400,
+            "reliability": 1.0,
+            "selected_weight": 0.2,
+            "tail_probability": 0.01,
+            "validation_size": 14100
+          },
+          "reliability_mix_weight": 0.2,
+          "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+          "selected_weight": 7.092198581560284e-06
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 12100,
+          "changed_values": 52800,
+          "score_dtype": "float64"
+        },
+        "arms": {
+          "V4-HG": {
+            "ranking": {
+              "roc_auc": 0.8275460127608809,
+              "pr_auc": 0.42633045979043177
+            },
+            "POT": {
+              "threshold": 4.795832990236491,
+              "raw_spot_threshold": 4.611377875227395,
+              "effective_level": 0.99,
+              "point": {
+                "precision": 0.5630498533724341,
+                "recall": 0.05655375552282769,
+                "f1": 0.10278372591006424,
+                "predicted_positive": 682
+              },
+              "point_adjusted": {
+                "f1": 0.9593254934529327,
+                "precision": 0.9563817316212212,
+                "recall": 0.9622974949008873,
+                "TP": 6534,
+                "TN": 45712,
+                "FP": 298,
+                "FN": 256,
+                "threshold": 4.795832990236491
+              },
+              "event": {
+                "event_precision": 0.5452196382428941,
+                "event_recall": 0.9157894736842105,
+                "event_f1": 0.6835089548348661,
+                "true_events": 95,
+                "predicted_events": 387,
+                "detected_events": 87,
+                "correct_predicted_events": 211,
+                "mean_detection_delay": 9.60919540229885,
+                "mean_normalized_detection_delay": 0.10767130030850945
+              }
+            },
+            "Best-point": {
+              "precision": 0.48911636663136837,
+              "recall": 0.6122238586156112,
+              "f1": 0.5437896526914775,
+              "threshold": 0.8444028226548969,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9627991102045644,
+              "precision": 0.9668795470564688,
+              "recall": 0.9587628851859162,
+              "threshold": 0.9931751086484455,
+              "TP": 6510,
+              "TN": 45787,
+              "FP": 223,
+              "FN": 280
+            }
+          },
+          "V4": {
+            "ranking": {
+              "roc_auc": 0.8275410561000538,
+              "pr_auc": 0.42626295096718
+            },
+            "POT": {
+              "threshold": 4.795829511235858,
+              "raw_spot_threshold": 4.611374530034479,
+              "effective_level": 0.99,
+              "point": {
+                "precision": 0.5630498533724341,
+                "recall": 0.05655375552282769,
+                "f1": 0.10278372591006424,
+                "predicted_positive": 682
+              },
+              "point_adjusted": {
+                "f1": 0.9593254934529327,
+                "precision": 0.9563817316212212,
+                "recall": 0.9622974949008873,
+                "TP": 6534,
+                "TN": 45712,
+                "FP": 298,
+                "FN": 256,
+                "threshold": 4.795829511235858
+              },
+              "event": {
+                "event_precision": 0.5452196382428941,
+                "event_recall": 0.9157894736842105,
+                "event_f1": 0.6835089548348661,
+                "true_events": 95,
+                "predicted_events": 387,
+                "detected_events": 87,
+                "correct_predicted_events": 211,
+                "mean_detection_delay": 9.60919540229885,
+                "mean_normalized_detection_delay": 0.10767130030850945
+              }
+            },
+            "Best-point": {
+              "precision": 0.4891713747645951,
+              "recall": 0.6120765832106039,
+              "f1": 0.5437655370927647,
+              "threshold": 0.8445886524822694,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9627991102045644,
+              "precision": 0.9668795470564688,
+              "recall": 0.9587628851859162,
+              "threshold": 0.9931751086484455,
+              "TP": 6510,
+              "TN": 45787,
+              "FP": 223,
+              "FN": 280,
+              "source": "rank_equivalent_to_full"
+            }
+          },
+          "HGAT-only": {
+            "ranking": {
+              "roc_auc": 0.8633295284786331,
+              "pr_auc": 0.5354945237008496
+            },
+            "POT": {
+              "threshold": 4.811740028990072,
+              "raw_spot_threshold": 4.626673104798146,
+              "effective_level": 0.99,
+              "point": {
+                "precision": 0.6303099885189437,
+                "recall": 0.08085419734904271,
+                "f1": 0.1433233259365618,
+                "predicted_positive": 871
+              },
+              "point_adjusted": {
+                "f1": 0.9587065654117537,
+                "precision": 0.9531295473753573,
+                "recall": 0.9643593505679539,
+                "TP": 6548,
+                "TN": 45688,
+                "FP": 322,
+                "FN": 242,
+                "threshold": 4.811740028990072
+              },
+              "event": {
+                "event_precision": 0.615,
+                "event_recall": 0.9052631578947369,
+                "event_f1": 0.7324216721481739,
+                "true_events": 95,
+                "predicted_events": 400,
+                "detected_events": 86,
+                "correct_predicted_events": 246,
+                "mean_detection_delay": 12.534883720930232,
+                "mean_normalized_detection_delay": 0.14340390354048482
+              }
+            },
+            "Best-point": {
+              "precision": 0.602173256866888,
+              "recall": 0.5876288659793815,
+              "f1": 0.5948121645796065,
+              "threshold": 0.863063829787234,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            }
+          }
+        },
+        "random_tie_control": {
+          "repeats": 100,
+          "random_seed": 20261008,
+          "learned_delta_roc_auc": 4.956660827115655e-06,
+          "learned_delta_pr_auc": 6.750882325179397e-05,
+          "random_delta_roc_auc": {
+            "mean": 6.753990547947453e-09,
+            "population_std": 1.924014057763435e-07
+          },
+          "random_delta_pr_auc": {
+            "mean": 6.99608859478501e-05,
+            "population_std": 8.171565358124387e-05
+          },
+          "learned_roc_percentile_among_random": 1.0,
+          "learned_pr_percentile_among_random": 0.52
+        }
+      }
+    },
+    "PSM": {
+      "87": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0",
+        "score_sha256": "9a3f9b20c6b140fe9ed400f68aa67f3f39bd2858f8c2148130faa6dddc28125c",
+        "best_sha256": "2431e82afd1a61e8e47b5de23006081141fbe485dd6ca9ca7632afdd51b35964",
+        "stored_dtypes": {
+          "train_innovation_score": "float64",
+          "hgat_score": "float64",
+          "train_score": "float64",
+          "score": "float64",
+          "innovation_score": "float64",
+          "label": "int8",
+          "train_hgat_score": "float64"
+        },
+        "metadata": {
+          "component_calibration": "normal_train_ecdf",
+          "final_calibration": "rank_safe_no_recalibration",
+          "fusion_strategy": "rank_tiebreak",
+          "message_gate": 0.35305002331733704,
+          "n_hyperedges": 12,
+          "pool": "sparse",
+          "reliability_gate": {
+            "allowed_graph_tail_rate": 0.017101476624050573,
+            "base_threshold": 0.9892591334541063,
+            "base_validation_tail_rate": 0.01368118129924046,
+            "graph_threshold": 0.9888581295289856,
+            "graph_validation_tail_rate": 0.015709770250507148,
+            "inflation_limit": 1.25,
+            "kill_switch": false,
+            "max_weight": 0.2,
+            "method": "normal_tail_stability",
+            "reference_fraction": 0.8,
+            "reference_size": 84787,
+            "reliability": 0.8708708708708586,
+            "selected_weight": 0.17417417417417172,
+            "tail_probability": 0.01,
+            "validation_size": 21197
+          },
+          "reliability_mix_weight": 0.17417417417417172,
+          "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+          "selected_weight": 4.717693236714976e-06
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 21406,
+          "changed_values": 87808,
+          "score_dtype": "float64"
+        },
+        "arms": {
+          "V4-HG": {
+            "ranking": {
+              "roc_auc": 0.6551032527388935,
+              "pr_auc": 0.42768295207121687
+            },
+            "POT": {
+              "threshold": 3.663481003221717,
+              "raw_spot_threshold": 3.5225778877131892,
+              "effective_level": 0.98,
+              "point": {
+                "precision": 0.6184070796460177,
+                "recall": 0.07173359612384003,
+                "f1": 0.12855513447882555,
+                "predicted_positive": 2825
+              },
+              "point_adjusted": {
+                "f1": 0.9697128396590672,
+                "precision": 0.9569058561035755,
+                "recall": 0.9828775556447082,
+                "TP": 23937,
+                "TN": 62376,
+                "FP": 1078,
+                "FN": 417,
+                "threshold": 3.663481003221717
+              },
+              "event": {
+                "event_precision": 0.5680473372781065,
+                "event_recall": 0.8472222222222222,
+                "event_f1": 0.6800998780558621,
+                "true_events": 72,
+                "predicted_events": 1859,
+                "detected_events": 61,
+                "correct_predicted_events": 1056,
+                "mean_detection_delay": 15.262295081967213,
+                "mean_normalized_detection_delay": 0.13690636202280915
+              }
+            },
+            "Best-point": {
+              "precision": 0.34430540273400345,
+              "recall": 0.7580684897758069,
+              "f1": 0.47353638986854757,
+              "threshold": 0.5259721308743236,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9822430345933931,
+              "precision": 0.9818651782784782,
+              "recall": 0.9826311895447848,
+              "threshold": 0.9873451892649632,
+              "TP": 23931,
+              "TN": 63012,
+              "FP": 442,
+              "FN": 423
+            }
+          },
+          "V4": {
+            "ranking": {
+              "roc_auc": 0.655102538018105,
+              "pr_auc": 0.42766275405842274
+            },
+            "POT": {
+              "threshold": 3.6635155741978713,
+              "raw_spot_threshold": 3.522611129036415,
+              "effective_level": 0.98,
+              "point": {
+                "precision": 0.6184070796460177,
+                "recall": 0.07173359612384003,
+                "f1": 0.12855513447882555,
+                "predicted_positive": 2825
+              },
+              "point_adjusted": {
+                "f1": 0.9697128396590672,
+                "precision": 0.9569058561035755,
+                "recall": 0.9828775556447082,
+                "TP": 23937,
+                "TN": 62376,
+                "FP": 1078,
+                "FN": 417,
+                "threshold": 3.6635155741978713
+              },
+              "event": {
+                "event_precision": 0.5680473372781065,
+                "event_recall": 0.8472222222222222,
+                "event_f1": 0.6800998780558621,
+                "true_events": 72,
+                "predicted_events": 1859,
+                "detected_events": 61,
+                "correct_predicted_events": 1056,
+                "mean_detection_delay": 15.262295081967213,
+                "mean_normalized_detection_delay": 0.13690636202280915
+              }
+            },
+            "Best-point": {
+              "precision": 0.3442989817612174,
+              "recall": 0.7580684897758069,
+              "f1": 0.47353031702062176,
+              "threshold": 0.5259709012681159,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9822430345933931,
+              "precision": 0.9818651782784782,
+              "recall": 0.9826311895447848,
+              "threshold": 0.9873451892649632,
+              "TP": 23931,
+              "TN": 63012,
+              "FP": 442,
+              "FN": 423,
+              "source": "rank_equivalent_to_full"
+            }
+          },
+          "HGAT-only": {
+            "ranking": {
+              "roc_auc": 0.6494537854601262,
+              "pr_auc": 0.412555881418198
+            },
+            "POT": {
+              "threshold": 3.6637424031273675,
+              "raw_spot_threshold": 3.522829233776315,
+              "effective_level": 0.98,
+              "point": {
+                "precision": 0.5436170212765957,
+                "recall": 0.08392871807505954,
+                "f1": 0.1454079817884328,
+                "predicted_positive": 3760
+              },
+              "point_adjusted": {
+                "f1": 0.965389084147347,
+                "precision": 0.9341064430788317,
+                "recall": 0.9988502911230803,
+                "TP": 24326,
+                "TN": 61738,
+                "FP": 1716,
+                "FN": 28,
+                "threshold": 3.6637424031273675
+              },
+              "event": {
+                "event_precision": 0.5031185031185031,
+                "event_recall": 0.8194444444444444,
+                "event_f1": 0.6234526122743052,
+                "true_events": 72,
+                "predicted_events": 2886,
+                "detected_events": 59,
+                "correct_predicted_events": 1452,
+                "mean_detection_delay": 9.508474576271187,
+                "mean_normalized_detection_delay": 0.10787788974084571
+              }
+            },
+            "Best-point": {
+              "precision": 0.33740959435379614,
+              "recall": 0.7930524759793053,
+              "f1": 0.4734055590960341,
+              "threshold": 0.5712937801932366,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            }
+          }
+        },
+        "random_tie_control": {
+          "repeats": 100,
+          "random_seed": 20261997,
+          "learned_delta_roc_auc": 7.147207884417028e-07,
+          "learned_delta_pr_auc": 2.019801279412592e-05,
+          "random_delta_roc_auc": {
+            "mean": -1.151836108714832e-09,
+            "population_std": 7.649484625387881e-08
+          },
+          "random_delta_pr_auc": {
+            "mean": 1.7919022130333806e-05,
+            "population_std": 3.2025704245969976e-06
+          },
+          "learned_roc_percentile_among_random": 1.0,
+          "learned_pr_percentile_among_random": 0.77
+        }
+      },
+      "90": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s90_0",
+        "score_sha256": "801ea5743a8ab5279147d6c64ad9a647d48f871c61c56a1a8c009a7a0893e86f",
+        "best_sha256": "312c105df191f90c90762efe4c2a799efca84eaedf4bdfe8f4cc6f49eb63eef8",
+        "stored_dtypes": {
+          "train_innovation_score": "float64",
+          "hgat_score": "float64",
+          "train_score": "float64",
+          "score": "float64",
+          "innovation_score": "float64",
+          "label": "int8",
+          "train_hgat_score": "float64"
+        },
+        "metadata": {
+          "component_calibration": "normal_train_ecdf",
+          "final_calibration": "rank_safe_no_recalibration",
+          "fusion_strategy": "rank_tiebreak",
+          "message_gate": 0.3261118233203888,
+          "n_hyperedges": 12,
+          "pool": "sparse",
+          "reliability_gate": {
+            "allowed_graph_tail_rate": 0.017101476624050573,
+            "base_threshold": 0.9892591334541063,
+            "base_validation_tail_rate": 0.01368118129924046,
+            "graph_threshold": 0.9887165987318841,
+            "graph_validation_tail_rate": 0.01641741755908855,
+            "inflation_limit": 1.25,
+            "kill_switch": false,
+            "max_weight": 0.2,
+            "method": "normal_tail_stability",
+            "reference_fraction": 0.8,
+            "reference_size": 84787,
+            "reliability": 0.8333333333333222,
+            "selected_weight": 0.16666666666666444,
+            "tail_probability": 0.01,
+            "validation_size": 21197
+          },
+          "reliability_mix_weight": 0.16666666666666444,
+          "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+          "selected_weight": 4.717693236714976e-06
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 21407,
+          "changed_values": 87808,
+          "score_dtype": "float64"
+        },
+        "arms": {
+          "V4-HG": {
+            "ranking": {
+              "roc_auc": 0.6551030789928259,
+              "pr_auc": 0.42768272245280464
+            },
+            "POT": {
+              "threshold": 3.663501253687918,
+              "raw_spot_threshold": 3.5225973593153057,
+              "effective_level": 0.98,
+              "point": {
+                "precision": 0.6184070796460177,
+                "recall": 0.07173359612384003,
+                "f1": 0.12855513447882555,
+                "predicted_positive": 2825
+              },
+              "point_adjusted": {
+                "f1": 0.9697128396590672,
+                "precision": 0.9569058561035755,
+                "recall": 0.9828775556447082,
+                "TP": 23937,
+                "TN": 62376,
+                "FP": 1078,
+                "FN": 417,
+                "threshold": 3.663501253687918
+              },
+              "event": {
+                "event_precision": 0.5680473372781065,
+                "event_recall": 0.8472222222222222,
+                "event_f1": 0.6800998780558621,
+                "true_events": 72,
+                "predicted_events": 1859,
+                "detected_events": 61,
+                "correct_predicted_events": 1056,
+                "mean_detection_delay": 15.262295081967213,
+                "mean_normalized_detection_delay": 0.13690636202280915
+              }
+            },
+            "Best-point": {
+              "precision": 0.34430540273400345,
+              "recall": 0.7580684897758069,
+              "f1": 0.47353638986854757,
+              "threshold": 0.5259709779418427,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9822430345933931,
+              "precision": 0.9818651782784782,
+              "recall": 0.9826311895447848,
+              "threshold": 0.9873451903377801,
+              "TP": 23931,
+              "TN": 63012,
+              "FP": 442,
+              "FN": 423
+            }
+          },
+          "V4": {
+            "ranking": {
+              "roc_auc": 0.655102538018105,
+              "pr_auc": 0.42766275405842274
+            },
+            "POT": {
+              "threshold": 3.6635155741978713,
+              "raw_spot_threshold": 3.522611129036415,
+              "effective_level": 0.98,
+              "point": {
+                "precision": 0.6184070796460177,
+                "recall": 0.07173359612384003,
+                "f1": 0.12855513447882555,
+                "predicted_positive": 2825
+              },
+              "point_adjusted": {
+                "f1": 0.9697128396590672,
+                "precision": 0.9569058561035755,
+                "recall": 0.9828775556447082,
+                "TP": 23937,
+                "TN": 62376,
+                "FP": 1078,
+                "FN": 417,
+                "threshold": 3.6635155741978713
+              },
+              "event": {
+                "event_precision": 0.5680473372781065,
+                "event_recall": 0.8472222222222222,
+                "event_f1": 0.6800998780558621,
+                "true_events": 72,
+                "predicted_events": 1859,
+                "detected_events": 61,
+                "correct_predicted_events": 1056,
+                "mean_detection_delay": 15.262295081967213,
+                "mean_normalized_detection_delay": 0.13690636202280915
+              }
+            },
+            "Best-point": {
+              "precision": 0.3442989817612174,
+              "recall": 0.7580684897758069,
+              "f1": 0.47353031702062176,
+              "threshold": 0.5259709012681159,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9822430345933931,
+              "precision": 0.9818651782784782,
+              "recall": 0.9826311895447848,
+              "threshold": 0.9873451903377801,
+              "TP": 23931,
+              "TN": 63012,
+              "FP": 442,
+              "FN": 423,
+              "source": "rank_equivalent_to_full"
+            }
+          },
+          "HGAT-only": {
+            "ranking": {
+              "roc_auc": 0.6460997771342042,
+              "pr_auc": 0.40097195510759764
+            },
+            "POT": {
+              "threshold": 3.6692706489934057,
+              "raw_spot_threshold": 3.5281448548013516,
+              "effective_level": 0.98,
+              "point": {
+                "precision": 0.5142036386849664,
+                "recall": 0.06614929785661493,
+                "f1": 0.11721904900498417,
+                "predicted_positive": 3133
+              },
+              "point_adjusted": {
+                "f1": 0.9608608133536933,
+                "precision": 0.9401941133481889,
+                "recall": 0.9824669454781692,
+                "TP": 23927,
+                "TN": 61932,
+                "FP": 1522,
+                "FN": 427,
+                "threshold": 3.6692706489934057
+              },
+              "event": {
+                "event_precision": 0.4754030591153369,
+                "event_recall": 0.8055555555555556,
+                "event_f1": 0.5979327841077176,
+                "true_events": 72,
+                "predicted_events": 2419,
+                "detected_events": 58,
+                "correct_predicted_events": 1150,
+                "mean_detection_delay": 10.517241379310345,
+                "mean_normalized_detection_delay": 0.12322930017528425
+              }
+            },
+            "Best-point": {
+              "precision": 0.35060823859677065,
+              "recall": 0.7230845035723085,
+              "f1": 0.47223823762084177,
+              "threshold": 0.6293591485507245,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            }
+          }
+        },
+        "random_tie_control": {
+          "repeats": 100,
+          "random_seed": 20262000,
+          "learned_delta_roc_auc": 5.409747209084159e-07,
+          "learned_delta_pr_auc": 1.9968394381897348e-05,
+          "random_delta_roc_auc": {
+            "mean": -4.244969087352501e-09,
+            "population_std": 7.877096559818604e-08
+          },
+          "random_delta_pr_auc": {
+            "mean": 1.8018795753224625e-05,
+            "population_std": 3.4855008465431915e-06
+          },
+          "learned_roc_percentile_among_random": 1.0,
+          "learned_pr_percentile_among_random": 0.68
+        }
+      },
+      "98": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s98_0",
+        "score_sha256": "b00617882b8ec3a8daa0eee6d66b398c5dcd79be32de91406d8a388981568d2c",
+        "best_sha256": "556a5ba3871ad60c91ba60429ddde6f576dd09beb6e5658756d4d85d6d192aaa",
+        "stored_dtypes": {
+          "train_innovation_score": "float64",
+          "hgat_score": "float64",
+          "train_score": "float64",
+          "score": "float64",
+          "innovation_score": "float64",
+          "label": "int8",
+          "train_hgat_score": "float64"
+        },
+        "metadata": {
+          "component_calibration": "normal_train_ecdf",
+          "final_calibration": "rank_safe_no_recalibration",
+          "fusion_strategy": "rank_tiebreak",
+          "message_gate": 0.3303990364074707,
+          "n_hyperedges": 12,
+          "pool": "sparse",
+          "reliability_gate": {
+            "allowed_graph_tail_rate": 0.017101476624050573,
+            "base_threshold": 0.9892591334541063,
+            "base_validation_tail_rate": 0.01368118129924046,
+            "graph_threshold": 0.9889632397342994,
+            "graph_validation_tail_rate": 0.015190828890880786,
+            "inflation_limit": 1.25,
+            "kill_switch": false,
+            "max_weight": 0.2,
+            "method": "normal_tail_stability",
+            "reference_fraction": 0.8,
+            "reference_size": 84787,
+            "reliability": 0.9006211180124092,
+            "selected_weight": 0.18012422360248184,
+            "tail_probability": 0.01,
+            "validation_size": 21197
+          },
+          "reliability_mix_weight": 0.18012422360248184,
+          "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+          "selected_weight": 4.717693236714976e-06
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 21405,
+          "changed_values": 87808,
+          "score_dtype": "float64"
+        },
+        "arms": {
+          "V4-HG": {
+            "ranking": {
+              "roc_auc": 0.6551030126651837,
+              "pr_auc": 0.42767946672283585
+            },
+            "POT": {
+              "threshold": 3.6634883091234376,
+              "raw_spot_threshold": 3.5225849126186897,
+              "effective_level": 0.98,
+              "point": {
+                "precision": 0.6184070796460177,
+                "recall": 0.07173359612384003,
+                "f1": 0.12855513447882555,
+                "predicted_positive": 2825
+              },
+              "point_adjusted": {
+                "f1": 0.9697128396590672,
+                "precision": 0.9569058561035755,
+                "recall": 0.9828775556447082,
+                "TP": 23937,
+                "TN": 62376,
+                "FP": 1078,
+                "FN": 417,
+                "threshold": 3.6634883091234376
+              },
+              "event": {
+                "event_precision": 0.5680473372781065,
+                "event_recall": 0.8472222222222222,
+                "event_f1": 0.6800998780558621,
+                "true_events": 72,
+                "predicted_events": 1859,
+                "detected_events": 61,
+                "correct_predicted_events": 1056,
+                "mean_detection_delay": 15.262295081967213,
+                "mean_normalized_detection_delay": 0.13690636202280915
+              }
+            },
+            "Best-point": {
+              "precision": 0.34430540273400345,
+              "recall": 0.7580684897758069,
+              "f1": 0.47353638986854757,
+              "threshold": 0.525972244026494,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9822430345933931,
+              "precision": 0.9818651782784782,
+              "recall": 0.9826311895447848,
+              "threshold": 0.9873451935458808,
+              "TP": 23931,
+              "TN": 63012,
+              "FP": 442,
+              "FN": 423
+            }
+          },
+          "V4": {
+            "ranking": {
+              "roc_auc": 0.655102538018105,
+              "pr_auc": 0.42766275405842274
+            },
+            "POT": {
+              "threshold": 3.6635155741978713,
+              "raw_spot_threshold": 3.522611129036415,
+              "effective_level": 0.98,
+              "point": {
+                "precision": 0.6184070796460177,
+                "recall": 0.07173359612384003,
+                "f1": 0.12855513447882555,
+                "predicted_positive": 2825
+              },
+              "point_adjusted": {
+                "f1": 0.9697128396590672,
+                "precision": 0.9569058561035755,
+                "recall": 0.9828775556447082,
+                "TP": 23937,
+                "TN": 62376,
+                "FP": 1078,
+                "FN": 417,
+                "threshold": 3.6635155741978713
+              },
+              "event": {
+                "event_precision": 0.5680473372781065,
+                "event_recall": 0.8472222222222222,
+                "event_f1": 0.6800998780558621,
+                "true_events": 72,
+                "predicted_events": 1859,
+                "detected_events": 61,
+                "correct_predicted_events": 1056,
+                "mean_detection_delay": 15.262295081967213,
+                "mean_normalized_detection_delay": 0.13690636202280915
+              }
+            },
+            "Best-point": {
+              "precision": 0.3442989817612174,
+              "recall": 0.7580684897758069,
+              "f1": 0.47353031702062176,
+              "threshold": 0.5259709012681159,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9822430345933931,
+              "precision": 0.9818651782784782,
+              "recall": 0.9826311895447848,
+              "threshold": 0.9873451935458808,
+              "TP": 23931,
+              "TN": 63012,
+              "FP": 442,
+              "FN": 423,
+              "source": "rank_equivalent_to_full"
+            }
+          },
+          "HGAT-only": {
+            "ranking": {
+              "roc_auc": 0.6430799892676827,
+              "pr_auc": 0.4059218563369949
+            },
+            "POT": {
+              "threshold": 3.6637424031273675,
+              "raw_spot_threshold": 3.522829233776315,
+              "effective_level": 0.98,
+              "point": {
+                "precision": 0.5540921919096896,
+                "recall": 0.07255481645725548,
+                "f1": 0.12830846313037794,
+                "predicted_positive": 3189
+              },
+              "point_adjusted": {
+                "f1": 0.9627940278580297,
+                "precision": 0.9439031121764554,
+                "recall": 0.9824669454781692,
+                "TP": 23927,
+                "TN": 62032,
+                "FP": 1422,
+                "FN": 427,
+                "threshold": 3.6637424031273675
+              },
+              "event": {
+                "event_precision": 0.5014912654452492,
+                "event_recall": 0.8055555555555556,
+                "event_f1": 0.6181554760718975,
+                "true_events": 72,
+                "predicted_events": 2347,
+                "detected_events": 58,
+                "correct_predicted_events": 1177,
+                "mean_detection_delay": 12.53448275862069,
+                "mean_normalized_detection_delay": 0.11492013395934395
+              }
+            },
+            "Best-point": {
+              "precision": 0.3375799592609799,
+              "recall": 0.7757657879609099,
+              "f1": 0.47044322709163344,
+              "threshold": 0.5576030344202897,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            }
+          }
+        },
+        "random_tie_control": {
+          "repeats": 100,
+          "random_seed": 20262008,
+          "learned_delta_roc_auc": 4.7464707864097733e-07,
+          "learned_delta_pr_auc": 1.6712664413109923e-05,
+          "random_delta_roc_auc": {
+            "mean": 2.7889964904215247e-09,
+            "population_std": 9.058815326727748e-08
+          },
+          "random_delta_pr_auc": {
+            "mean": 1.8070444572939604e-05,
+            "population_std": 3.2751871996119074e-06
+          },
+          "learned_roc_percentile_among_random": 1.0,
+          "learned_pr_percentile_among_random": 0.32
+        }
+      }
+    },
+    "SMD": {
+      "87": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_innov_hglite_bs128_v4hg_s87_0",
+        "score_sha256": "d219f41e1ed42a7bc87f059c0732b55d6e0725d8da99e0aebce5d435b4d9d5fc",
+        "best_sha256": "e86ca2a44a428248ef3a64ac4e000a71a77f40a6649c2181785e8a02d97af69f",
+        "stored_dtypes": {
+          "train_innovation_score": "float64",
+          "hgat_score": "float64",
+          "train_score": "float64",
+          "score": "float64",
+          "innovation_score": "float64",
+          "label": "int8",
+          "train_hgat_score": "float64"
+        },
+        "metadata": {
+          "component_calibration": "normal_train_ecdf",
+          "final_calibration": "rank_safe_no_recalibration",
+          "fusion_strategy": "rank_tiebreak",
+          "message_gate": 0.2673893868923187,
+          "n_hyperedges": 19,
+          "pool": "sparse",
+          "reliability_gate": {
+            "allowed_graph_tail_rate": 0.01659448470920983,
+            "base_threshold": 0.9893434287179215,
+            "base_validation_tail_rate": 0.013275587767367862,
+            "graph_threshold": 0.9892263697952025,
+            "graph_validation_tail_rate": 0.013867774438748454,
+            "inflation_limit": 1.25,
+            "kill_switch": false,
+            "max_weight": 0.2,
+            "method": "normal_tail_stability",
+            "reference_fraction": 0.8,
+            "reference_size": 452492,
+            "reliability": 0.9572976418100547,
+            "selected_weight": 0.19145952836201097,
+            "tail_probability": 0.01,
+            "validation_size": 113140
+          },
+          "reliability_mix_weight": 0.19145952836201097,
+          "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+          "selected_weight": 8.840091583348803e-07
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 172838,
+          "changed_values": 706560,
+          "score_dtype": "float64"
+        },
+        "arms": {
+          "V4-HG": {
+            "ranking": {
+              "roc_auc": 0.6814710859035942,
+              "pr_auc": 0.11717848019704843
+            },
+            "POT": {
+              "threshold": 4.599768334627357,
+              "raw_spot_threshold": 4.42285416791092,
+              "effective_level": 0.988,
+              "point": {
+                "precision": 0.2463621665319321,
+                "recall": 0.08304663283033008,
+                "f1": 0.12421980485567982,
+                "predicted_positive": 9896
+              },
+              "point_adjusted": {
+                "f1": 0.8477799567574127,
+                "precision": 0.7841139348161541,
+                "recall": 0.9227100858661613,
+                "TP": 27088,
+                "TN": 669745,
+                "FP": 7458,
+                "FN": 2269,
+                "threshold": 4.599768334627357
+              },
+              "event": {
+                "event_precision": 0.17891794112810394,
+                "event_recall": 0.803680981595092,
+                "event_f1": 0.2926788198633407,
+                "true_events": 326,
+                "predicted_events": 6081,
+                "detected_events": 262,
+                "correct_predicted_events": 1088,
+                "mean_detection_delay": 14.33206106870229,
+                "mean_normalized_detection_delay": 0.13444666558053522
+              }
+            },
+            "Best-point": {
+              "precision": 0.11798391569606212,
+              "recall": 0.28984569267976973,
+              "f1": 0.16770302630152648,
+              "threshold": 0.9142343490438847,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.8829375784876803,
+              "precision": 0.8763505802038956,
+              "recall": 0.8896344991349134,
+              "threshold": 0.9945916260368917,
+              "TP": 26117,
+              "TN": 673518,
+              "FP": 3685,
+              "FN": 3240
+            }
+          },
+          "V4": {
+            "ranking": {
+              "roc_auc": 0.6814708604330817,
+              "pr_auc": 0.11712957275224742
+            },
+            "POT": {
+              "threshold": 4.59976754477987,
+              "raw_spot_threshold": 4.422853408442182,
+              "effective_level": 0.988,
+              "point": {
+                "precision": 0.2463621665319321,
+                "recall": 0.08304663283033008,
+                "f1": 0.12421980485567982,
+                "predicted_positive": 9896
+              },
+              "point_adjusted": {
+                "f1": 0.8477799567574127,
+                "precision": 0.7841139348161541,
+                "recall": 0.9227100858661613,
+                "TP": 27088,
+                "TN": 669745,
+                "FP": 7458,
+                "FN": 2269,
+                "threshold": 4.59976754477987
+              },
+              "event": {
+                "event_precision": 0.17891794112810394,
+                "event_recall": 0.803680981595092,
+                "event_f1": 0.2926788198633407,
+                "true_events": 326,
+                "predicted_events": 6081,
+                "detected_events": 262,
+                "correct_predicted_events": 1088,
+                "mean_detection_delay": 14.33206106870229,
+                "mean_normalized_detection_delay": 0.13444666558053522
+              }
+            },
+            "Best-point": {
+              "precision": 0.11797651560312201,
+              "recall": 0.28987975610586914,
+              "f1": 0.16770125135481329,
+              "threshold": 0.9142184033026581,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.8829375784876803,
+              "precision": 0.8763505802038956,
+              "recall": 0.8896344991349134,
+              "threshold": 0.9945916260368917,
+              "TP": 26117,
+              "TN": 673518,
+              "FP": 3685,
+              "FN": 3240,
+              "source": "rank_equivalent_to_full"
+            }
+          },
+          "HGAT-only": {
+            "ranking": {
+              "roc_auc": 0.6904611025653097,
+              "pr_auc": 0.12010952125547035
+            },
+            "POT": {
+              "threshold": 4.599893840911999,
+              "raw_spot_threshold": 4.422974847030768,
+              "effective_level": 0.988,
+              "point": {
+                "precision": 0.22535737643651313,
+                "recall": 0.08216098375174576,
+                "f1": 0.12041937094358462,
+                "predicted_positive": 10703
+              },
+              "point_adjusted": {
+                "f1": 0.8275619139442632,
+                "precision": 0.7621970455292708,
+                "recall": 0.9052014848570353,
+                "TP": 26574,
+                "TN": 668912,
+                "FP": 8291,
+                "FN": 2783,
+                "threshold": 4.599893840911999
+              },
+              "event": {
+                "event_precision": 0.16334817919832328,
+                "event_recall": 0.7944785276073619,
+                "event_f1": 0.27098142069900594,
+                "true_events": 326,
+                "predicted_events": 7634,
+                "detected_events": 259,
+                "correct_predicted_events": 1247,
+                "mean_detection_delay": 14.532818532818533,
+                "mean_normalized_detection_delay": 0.15399736675434816
+              }
+            },
+            "Best-point": {
+              "precision": 0.11649040141875186,
+              "recall": 0.3065367714684743,
+              "f1": 0.16882410325679123,
+              "threshold": 0.9090168165874631,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            }
+          }
+        },
+        "random_tie_control": {
+          "repeats": 100,
+          "random_seed": 20262997,
+          "learned_delta_roc_auc": 2.254705124826728e-07,
+          "learned_delta_pr_auc": 4.8907444801016275e-05,
+          "random_delta_roc_auc": {
+            "mean": 1.0060045019244513e-11,
+            "population_std": 1.1570393876047541e-08
+          },
+          "random_delta_pr_auc": {
+            "mean": 2.3396882556784433e-05,
+            "population_std": 2.406712996114667e-05
+          },
+          "learned_roc_percentile_among_random": 1.0,
+          "learned_pr_percentile_among_random": 0.86
+        }
+      },
+      "90": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_innov_hglite_bs128_v4hg_s90_0",
+        "score_sha256": "a293304d4e0885639c3a78bba6bb2a287adbf15e02ba084275e956d865eb3d95",
+        "best_sha256": "b0cd3ee381ece6220ce44b217f4fcae331a7484292c2c02d49a4251f2d45ca2b",
+        "stored_dtypes": {
+          "train_innovation_score": "float64",
+          "hgat_score": "float64",
+          "train_score": "float64",
+          "score": "float64",
+          "innovation_score": "float64",
+          "label": "int8",
+          "train_hgat_score": "float64"
+        },
+        "metadata": {
+          "component_calibration": "normal_train_ecdf",
+          "final_calibration": "rank_safe_no_recalibration",
+          "fusion_strategy": "rank_tiebreak",
+          "message_gate": 0.2765718996524811,
+          "n_hyperedges": 19,
+          "pool": "sparse",
+          "reliability_gate": {
+            "allowed_graph_tail_rate": 0.01659448470920983,
+            "base_threshold": 0.9893434287179215,
+            "base_validation_tail_rate": 0.013275587767367862,
+            "graph_threshold": 0.9890389687995021,
+            "graph_validation_tail_rate": 0.01480466678451476,
+            "inflation_limit": 1.25,
+            "kill_switch": false,
+            "max_weight": 0.2,
+            "method": "normal_tail_stability",
+            "reference_fraction": 0.8,
+            "reference_size": 452492,
+            "reliability": 0.8967164179104343,
+            "selected_weight": 0.17934328358208687,
+            "tail_probability": 0.01,
+            "validation_size": 113140
+          },
+          "reliability_mix_weight": 0.17934328358208687,
+          "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+          "selected_weight": 8.840091583348803e-07
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 172839,
+          "changed_values": 706560,
+          "score_dtype": "float64"
+        },
+        "arms": {
+          "V4-HG": {
+            "ranking": {
+              "roc_auc": 0.6814714171805145,
+              "pr_auc": 0.11716510520220545
+            },
+            "POT": {
+              "threshold": 4.599767932578188,
+              "raw_spot_threshold": 4.4228537813251805,
+              "effective_level": 0.988,
+              "point": {
+                "precision": 0.2463621665319321,
+                "recall": 0.08304663283033008,
+                "f1": 0.12421980485567982,
+                "predicted_positive": 9896
+              },
+              "point_adjusted": {
+                "f1": 0.8477799567574127,
+                "precision": 0.7841139348161541,
+                "recall": 0.9227100858661613,
+                "TP": 27088,
+                "TN": 669745,
+                "FP": 7458,
+                "FN": 2269,
+                "threshold": 4.599767932578188
+              },
+              "event": {
+                "event_precision": 0.17891794112810394,
+                "event_recall": 0.803680981595092,
+                "event_f1": 0.2926788198633407,
+                "true_events": 326,
+                "predicted_events": 6081,
+                "detected_events": 262,
+                "correct_predicted_events": 1088,
+                "mean_detection_delay": 14.33206106870229,
+                "mean_normalized_detection_delay": 0.13444666558053522
+              }
+            },
+            "Best-point": {
+              "precision": 0.11824621704321583,
+              "recall": 0.28827877507919747,
+              "f1": 0.16770370957514266,
+              "threshold": 0.9150352816054539,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.8829375784876803,
+              "precision": 0.8763505802038956,
+              "recall": 0.8896344991349134,
+              "threshold": 0.9945916260712467,
+              "TP": 26117,
+              "TN": 673518,
+              "FP": 3685,
+              "FN": 3240
+            }
+          },
+          "V4": {
+            "ranking": {
+              "roc_auc": 0.6814708604330817,
+              "pr_auc": 0.11712957275224742
+            },
+            "POT": {
+              "threshold": 4.59976754477987,
+              "raw_spot_threshold": 4.422853408442182,
+              "effective_level": 0.988,
+              "point": {
+                "precision": 0.2463621665319321,
+                "recall": 0.08304663283033008,
+                "f1": 0.12421980485567982,
+                "predicted_positive": 9896
+              },
+              "point_adjusted": {
+                "f1": 0.8477799567574127,
+                "precision": 0.7841139348161541,
+                "recall": 0.9227100858661613,
+                "TP": 27088,
+                "TN": 669745,
+                "FP": 7458,
+                "FN": 2269,
+                "threshold": 4.59976754477987
+              },
+              "event": {
+                "event_precision": 0.17891794112810394,
+                "event_recall": 0.803680981595092,
+                "event_f1": 0.2926788198633407,
+                "true_events": 326,
+                "predicted_events": 6081,
+                "detected_events": 262,
+                "correct_predicted_events": 1088,
+                "mean_detection_delay": 14.33206106870229,
+                "mean_normalized_detection_delay": 0.13444666558053522
+              }
+            },
+            "Best-point": {
+              "precision": 0.11797651560312201,
+              "recall": 0.28987975610586914,
+              "f1": 0.16770125135481329,
+              "threshold": 0.9142184033026581,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.8829375784876803,
+              "precision": 0.8763505802038956,
+              "recall": 0.8896344991349134,
+              "threshold": 0.9945916260712467,
+              "TP": 26117,
+              "TN": 673518,
+              "FP": 3685,
+              "FN": 3240,
+              "source": "rank_equivalent_to_full"
+            }
+          },
+          "HGAT-only": {
+            "ranking": {
+              "roc_auc": 0.7077093476364,
+              "pr_auc": 0.15343348086642766
+            },
+            "POT": {
+              "threshold": 4.599893840911999,
+              "raw_spot_threshold": 4.422974847030768,
+              "effective_level": 0.988,
+              "point": {
+                "precision": 0.34330985915492956,
+                "recall": 0.10627788943011889,
+                "f1": 0.16230979321108077,
+                "predicted_positive": 9088
+              },
+              "point_adjusted": {
+                "f1": 0.8626801403457777,
+                "precision": 0.8178432985935832,
+                "recall": 0.9127295020224377,
+                "TP": 26795,
+                "TN": 671235,
+                "FP": 5968,
+                "FN": 2562,
+                "threshold": 4.599893840911999
+              },
+              "event": {
+                "event_precision": 0.22810159557147508,
+                "event_recall": 0.8098159509202454,
+                "event_f1": 0.3559440943040514,
+                "true_events": 326,
+                "predicted_events": 6142,
+                "detected_events": 264,
+                "correct_predicted_events": 1401,
+                "mean_detection_delay": 13.121212121212121,
+                "mean_normalized_detection_delay": 0.13809515434250166
+              }
+            },
+            "Best-point": {
+              "precision": 0.20230444537399703,
+              "recall": 0.18121742684879244,
+              "f1": 0.19118122686599348,
+              "threshold": 0.9702969421814889,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            }
+          }
+        },
+        "random_tie_control": {
+          "repeats": 100,
+          "random_seed": 20263000,
+          "learned_delta_roc_auc": 5.567474328227462e-07,
+          "learned_delta_pr_auc": 3.553244995803395e-05,
+          "random_delta_roc_auc": {
+            "mean": -1.5190651303509384e-09,
+            "population_std": 1.16921996177845e-08
+          },
+          "random_delta_pr_auc": {
+            "mean": 2.3737499274249924e-05,
+            "population_std": 2.1711699558315602e-05
+          },
+          "learned_roc_percentile_among_random": 1.0,
+          "learned_pr_percentile_among_random": 0.66
+        }
+      },
+      "98": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_innov_hglite_bs128_v4hg_s98_0",
+        "score_sha256": "1e195878de55f853fb259d99f0e669eda23f4d19321fe10ba71ba764709c31d5",
+        "best_sha256": "92433855f3e317e7d4eef1bafa9a8f7dc268fcece56281a359eee9d29846aaaf",
+        "stored_dtypes": {
+          "train_innovation_score": "float64",
+          "hgat_score": "float64",
+          "train_score": "float64",
+          "score": "float64",
+          "innovation_score": "float64",
+          "label": "int8",
+          "train_hgat_score": "float64"
+        },
+        "metadata": {
+          "component_calibration": "normal_train_ecdf",
+          "final_calibration": "rank_safe_no_recalibration",
+          "fusion_strategy": "rank_tiebreak",
+          "message_gate": 0.2629287540912628,
+          "n_hyperedges": 19,
+          "pool": "sparse",
+          "reliability_gate": {
+            "allowed_graph_tail_rate": 0.01659448470920983,
+            "base_threshold": 0.9893434287179215,
+            "base_validation_tail_rate": 0.013275587767367862,
+            "graph_threshold": 0.9890285203100248,
+            "graph_validation_tail_rate": 0.014857698426727947,
+            "inflation_limit": 1.25,
+            "kill_switch": false,
+            "max_weight": 0.2,
+            "method": "normal_tail_stability",
+            "reference_fraction": 0.8,
+            "reference_size": 452492,
+            "reliability": 0.8935157644259236,
+            "selected_weight": 0.17870315288518474,
+            "tail_probability": 0.01,
+            "validation_size": 113140
+          },
+          "reliability_mix_weight": 0.17870315288518474,
+          "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+          "selected_weight": 8.840091583348803e-07
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 172840,
+          "changed_values": 706560,
+          "score_dtype": "float64"
+        },
+        "arms": {
+          "V4-HG": {
+            "ranking": {
+              "roc_auc": 0.6814711699300284,
+              "pr_auc": 0.11717317546761566
+            },
+            "POT": {
+              "threshold": 4.599768061979179,
+              "raw_spot_threshold": 4.422853905749211,
+              "effective_level": 0.988,
+              "point": {
+                "precision": 0.2463621665319321,
+                "recall": 0.08304663283033008,
+                "f1": 0.12421980485567982,
+                "predicted_positive": 9896
+              },
+              "point_adjusted": {
+                "f1": 0.8477799567574127,
+                "precision": 0.7841139348161541,
+                "recall": 0.9227100858661613,
+                "TP": 27088,
+                "TN": 669745,
+                "FP": 7458,
+                "FN": 2269,
+                "threshold": 4.599768061979179
+              },
+              "event": {
+                "event_precision": 0.17891794112810394,
+                "event_recall": 0.803680981595092,
+                "event_f1": 0.2926788198633407,
+                "true_events": 326,
+                "predicted_events": 6081,
+                "detected_events": 262,
+                "correct_predicted_events": 1088,
+                "mean_detection_delay": 14.33206106870229,
+                "mean_normalized_detection_delay": 0.13444666558053522
+              }
+            },
+            "Best-point": {
+              "precision": 0.11798391569606212,
+              "recall": 0.28984569267976973,
+              "f1": 0.16770302630152648,
+              "threshold": 0.9142343609591934,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.8829375784876803,
+              "precision": 0.8763505802038956,
+              "recall": 0.8896344991349134,
+              "threshold": 0.9945916259925695,
+              "TP": 26117,
+              "TN": 673518,
+              "FP": 3685,
+              "FN": 3240
+            }
+          },
+          "V4": {
+            "ranking": {
+              "roc_auc": 0.6814708604330817,
+              "pr_auc": 0.11712957275224742
+            },
+            "POT": {
+              "threshold": 4.59976754477987,
+              "raw_spot_threshold": 4.422853408442182,
+              "effective_level": 0.988,
+              "point": {
+                "precision": 0.2463621665319321,
+                "recall": 0.08304663283033008,
+                "f1": 0.12421980485567982,
+                "predicted_positive": 9896
+              },
+              "point_adjusted": {
+                "f1": 0.8477799567574127,
+                "precision": 0.7841139348161541,
+                "recall": 0.9227100858661613,
+                "TP": 27088,
+                "TN": 669745,
+                "FP": 7458,
+                "FN": 2269,
+                "threshold": 4.59976754477987
+              },
+              "event": {
+                "event_precision": 0.17891794112810394,
+                "event_recall": 0.803680981595092,
+                "event_f1": 0.2926788198633407,
+                "true_events": 326,
+                "predicted_events": 6081,
+                "detected_events": 262,
+                "correct_predicted_events": 1088,
+                "mean_detection_delay": 14.33206106870229,
+                "mean_normalized_detection_delay": 0.13444666558053522
+              }
+            },
+            "Best-point": {
+              "precision": 0.11797651560312201,
+              "recall": 0.28987975610586914,
+              "f1": 0.16770125135481329,
+              "threshold": 0.9142184033026581,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.8829375784876803,
+              "precision": 0.8763505802038956,
+              "recall": 0.8896344991349134,
+              "threshold": 0.9945916259925695,
+              "TP": 26117,
+              "TN": 673518,
+              "FP": 3685,
+              "FN": 3240,
+              "source": "rank_equivalent_to_full"
+            }
+          },
+          "HGAT-only": {
+            "ranking": {
+              "roc_auc": 0.6898539410575951,
+              "pr_auc": 0.1282499595044785
+            },
+            "POT": {
+              "threshold": 4.599893840911999,
+              "raw_spot_threshold": 4.422974847030768,
+              "effective_level": 0.988,
+              "point": {
+                "precision": 0.28678745028722935,
+                "recall": 0.08842865415403481,
+                "f1": 0.13517665130568357,
+                "predicted_positive": 9052
+              },
+              "point_adjusted": {
+                "f1": 0.8387057347392292,
+                "precision": 0.8002537047739074,
+                "recall": 0.8810505157607894,
+                "TP": 25865,
+                "TN": 670747,
+                "FP": 6456,
+                "FN": 3492,
+                "threshold": 4.599893840911999
+              },
+              "event": {
+                "event_precision": 0.15480427046263345,
+                "event_recall": 0.7668711656441718,
+                "event_f1": 0.2576068031884024,
+                "true_events": 326,
+                "predicted_events": 6182,
+                "detected_events": 250,
+                "correct_predicted_events": 957,
+                "mean_detection_delay": 12.572,
+                "mean_normalized_detection_delay": 0.12736878180971262
+              }
+            },
+            "Best-point": {
+              "precision": 0.12677124306904886,
+              "recall": 0.27335899444766154,
+              "f1": 0.17321390028059575,
+              "threshold": 0.9247089980764878,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            }
+          }
+        },
+        "random_tie_control": {
+          "repeats": 100,
+          "random_seed": 20263008,
+          "learned_delta_roc_auc": 3.0949694673765293e-07,
+          "learned_delta_pr_auc": 4.360271536824056e-05,
+          "random_delta_roc_auc": {
+            "mean": -3.5562219391493954e-10,
+            "population_std": 1.0490054965257047e-08
+          },
+          "random_delta_pr_auc": {
+            "mean": 2.6652978336010462e-05,
+            "population_std": 2.241279277427528e-05
+          },
+          "learned_roc_percentile_among_random": 1.0,
+          "learned_pr_percentile_among_random": 0.76
+        }
+      }
+    },
+    "SWAT": {
+      "87": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_innov_hglite_bs64_v4hg_s87_0",
+        "score_sha256": "e6ea97fc1edb3fb90640fccc99c18d45c0483af4c972754da15c02c95af63912",
+        "best_sha256": "e6be1113f0bbd8009d1f4fb8640ce15c0e81e4e8f977fc34eddb47ba668d73c1",
+        "stored_dtypes": {
+          "train_innovation_score": "float64",
+          "hgat_score": "float64",
+          "train_score": "float64",
+          "score": "float64",
+          "innovation_score": "float64",
+          "label": "int8",
+          "train_hgat_score": "float64"
+        },
+        "metadata": {
+          "component_calibration": "normal_train_ecdf",
+          "final_calibration": "rank_safe_no_recalibration",
+          "fusion_strategy": "rank_tiebreak",
+          "message_gate": 0.2591799199581146,
+          "n_hyperedges": 20,
+          "pool": "dense",
+          "reliability_gate": {
+            "allowed_graph_tail_rate": 0.013652146464646464,
+            "base_threshold": 0.9898144191919193,
+            "base_validation_tail_rate": 0.010921717171717171,
+            "graph_threshold": 0.9898611363636364,
+            "graph_validation_tail_rate": 0.010694444444444444,
+            "inflation_limit": 1.25,
+            "kill_switch": false,
+            "max_weight": 0.2,
+            "method": "normal_tail_stability",
+            "reference_fraction": 0.8,
+            "reference_size": 316800,
+            "reliability": 1.0,
+            "selected_weight": 0.2,
+            "tail_probability": 0.01,
+            "validation_size": 79200
+          },
+          "reliability_mix_weight": 0.2,
+          "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+          "selected_weight": 1.2626262626262627e-06
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 77184,
+          "changed_values": 449856,
+          "score_dtype": "float64"
+        },
+        "arms": {
+          "V4-HG": {
+            "ranking": {
+              "roc_auc": 0.8500226172775898,
+              "pr_auc": 0.5287901573756483
+            },
+            "POT": {
+              "threshold": 11.517715481999804,
+              "raw_spot_threshold": 11.074726424999811,
+              "effective_level": 0.9999,
+              "point": {
+                "precision": 0.775,
+                "recall": 0.0005675472803500485,
+                "f1": 0.0011342639176012148,
+                "predicted_positive": 40
+              },
+              "point_adjusted": {
+                "f1": 0.8322632717841407,
+                "precision": 0.9997689046091233,
+                "recall": 0.7128393839891545,
+                "TP": 38936,
+                "TN": 395226,
+                "FP": 9,
+                "FN": 15685,
+                "threshold": 11.517715481999804
+              },
+              "event": {
+                "event_precision": 0.7096774193548387,
+                "event_recall": 0.2,
+                "event_f1": 0.3120567375886525,
+                "true_events": 35,
+                "predicted_events": 31,
+                "detected_events": 7,
+                "correct_predicted_events": 22,
+                "mean_detection_delay": 751.1428571428571,
+                "mean_normalized_detection_delay": 0.4858527974256782
+              }
+            },
+            "Best-point": {
+              "precision": 0.811098852603707,
+              "recall": 0.6729829186576591,
+              "f1": 0.7356140122672377,
+              "threshold": 0.9824507594330273,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9524487504947322,
+              "precision": 0.946844695153632,
+              "recall": 0.9581296569161806,
+              "threshold": 0.9938155906452376,
+              "TP": 52334,
+              "TN": 392297,
+              "FP": 2938,
+              "FN": 2287
+            }
+          },
+          "V4": {
+            "ranking": {
+              "roc_auc": 0.8499346909533648,
+              "pr_auc": 0.5325448076037615
+            },
+            "POT": {
+              "threshold": 11.517719871492965,
+              "raw_spot_threshold": 11.074730645666312,
+              "effective_level": 0.9999,
+              "point": {
+                "precision": 0.775,
+                "recall": 0.0005675472803500485,
+                "f1": 0.0011342639176012148,
+                "predicted_positive": 40
+              },
+              "point_adjusted": {
+                "f1": 0.8322632717841407,
+                "precision": 0.9997689046091233,
+                "recall": 0.7128393839891545,
+                "TP": 38936,
+                "TN": 395226,
+                "FP": 9,
+                "FN": 15685,
+                "threshold": 11.517719871492965
+              },
+              "event": {
+                "event_precision": 0.7096774193548387,
+                "event_recall": 0.2,
+                "event_f1": 0.3120567375886525,
+                "true_events": 35,
+                "predicted_events": 31,
+                "detected_events": 7,
+                "correct_predicted_events": 22,
+                "mean_detection_delay": 751.1428571428571,
+                "mean_normalized_detection_delay": 0.4858527974256782
+              }
+            },
+            "Best-point": {
+              "precision": 0.8110451647066611,
+              "recall": 0.6729829186576591,
+              "f1": 0.7355919314816297,
+              "threshold": 0.9824507575757575,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9524487504947322,
+              "precision": 0.946844695153632,
+              "recall": 0.9581296569161806,
+              "threshold": 0.9938155906452376,
+              "TP": 52334,
+              "TN": 392297,
+              "FP": 2938,
+              "FN": 2287,
+              "source": "rank_equivalent_to_full"
+            }
+          },
+          "HGAT-only": {
+            "ranking": {
+              "roc_auc": 0.8584153139425083,
+              "pr_auc": 0.5570610026599506
+            },
+            "POT": {
+              "threshold": 11.535571603414494,
+              "raw_spot_threshold": 11.091895772513936,
+              "effective_level": 0.9999,
+              "point": {
+                "precision": 0.9166666666666666,
+                "recall": 0.0002013877446403398,
+                "f1": 0.00040268702066516575,
+                "predicted_positive": 12
+              },
+              "point_adjusted": {
+                "f1": 0.07336531174208609,
+                "precision": 0.9995194569941399,
+                "recall": 0.03808059170683792,
+                "TP": 2080,
+                "TN": 395234,
+                "FP": 1,
+                "FN": 52541,
+                "threshold": 11.535571603414494
+              },
+              "event": {
+                "event_precision": 0.8888888888888888,
+                "event_recall": 0.08571428571428572,
+                "event_f1": 0.1563517915309446,
+                "true_events": 35,
+                "predicted_events": 9,
+                "detected_events": 3,
+                "correct_predicted_events": 8,
+                "mean_detection_delay": 296.3333333333333,
+                "mean_normalized_detection_delay": 0.5347637864386062
+              }
+            },
+            "Best-point": {
+              "precision": 0.8251338476455461,
+              "recall": 0.7166840592446129,
+              "f1": 0.767094833583179,
+              "threshold": 0.9838964646464645,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            }
+          }
+        },
+        "random_tie_control": {
+          "repeats": 100,
+          "random_seed": 20263997,
+          "learned_delta_roc_auc": 8.792632422494062e-05,
+          "learned_delta_pr_auc": -0.0037546502281132765,
+          "random_delta_roc_auc": {
+            "mean": -5.77521047839813e-08,
+            "population_std": 1.165808030984795e-06
+          },
+          "random_delta_pr_auc": {
+            "mean": -0.005054204485222226,
+            "population_std": 1.3701937578921229e-05
+          },
+          "learned_roc_percentile_among_random": 1.0,
+          "learned_pr_percentile_among_random": 1.0
+        }
+      },
+      "90": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_innov_hglite_bs64_v4hg_s90_0",
+        "score_sha256": "a67d8141c933f997a4a3a1df989ec256a337c8cd5bfeddf55b7247599ea34f84",
+        "best_sha256": "8b61fc5f825d44952573c5807e3c58a9944ee31037d1fb5028f723754f4bcc4f",
+        "stored_dtypes": {
+          "train_innovation_score": "float64",
+          "hgat_score": "float64",
+          "train_score": "float64",
+          "score": "float64",
+          "innovation_score": "float64",
+          "label": "int8",
+          "train_hgat_score": "float64"
+        },
+        "metadata": {
+          "component_calibration": "normal_train_ecdf",
+          "final_calibration": "rank_safe_no_recalibration",
+          "fusion_strategy": "rank_tiebreak",
+          "message_gate": 0.25202223658561707,
+          "n_hyperedges": 20,
+          "pool": "dense",
+          "reliability_gate": {
+            "allowed_graph_tail_rate": 0.013652146464646464,
+            "base_threshold": 0.9898144191919193,
+            "base_validation_tail_rate": 0.010921717171717171,
+            "graph_threshold": 0.9896212373737374,
+            "graph_validation_tail_rate": 0.011893939393939394,
+            "inflation_limit": 1.25,
+            "kill_switch": false,
+            "max_weight": 0.2,
+            "method": "normal_tail_stability",
+            "reference_fraction": 0.8,
+            "reference_size": 316800,
+            "reliability": 0.9182590233545476,
+            "selected_weight": 0.18365180467090952,
+            "tail_probability": 0.01,
+            "validation_size": 79200
+          },
+          "reliability_mix_weight": 0.18365180467090952,
+          "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+          "selected_weight": 1.2626262626262627e-06
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 77187,
+          "changed_values": 449856,
+          "score_dtype": "float64"
+        },
+        "arms": {
+          "V4-HG": {
+            "ranking": {
+              "roc_auc": 0.8500213257808833,
+              "pr_auc": 0.5297480386695905
+            },
+            "POT": {
+              "threshold": 11.51769958378371,
+              "raw_spot_threshold": 11.074711138253567,
+              "effective_level": 0.9999,
+              "point": {
+                "precision": 0.775,
+                "recall": 0.0005675472803500485,
+                "f1": 0.0011342639176012148,
+                "predicted_positive": 40
+              },
+              "point_adjusted": {
+                "f1": 0.8322632717841407,
+                "precision": 0.9997689046091233,
+                "recall": 0.7128393839891545,
+                "TP": 38936,
+                "TN": 395226,
+                "FP": 9,
+                "FN": 15685,
+                "threshold": 11.51769958378371
+              },
+              "event": {
+                "event_precision": 0.7096774193548387,
+                "event_recall": 0.2,
+                "event_f1": 0.3120567375886525,
+                "true_events": 35,
+                "predicted_events": 31,
+                "detected_events": 7,
+                "correct_predicted_events": 22,
+                "mean_detection_delay": 751.1428571428571,
+                "mean_normalized_detection_delay": 0.4858527974256782
+              }
+            },
+            "Best-point": {
+              "precision": 0.811134648484046,
+              "recall": 0.6729829186576591,
+              "f1": 0.7356287335274518,
+              "threshold": 0.9824507610495695,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9524487504947322,
+              "precision": 0.946844695153632,
+              "recall": 0.9581296569161806,
+              "threshold": 0.9938155906952651,
+              "TP": 52334,
+              "TN": 392297,
+              "FP": 2938,
+              "FN": 2287
+            }
+          },
+          "V4": {
+            "ranking": {
+              "roc_auc": 0.8499346909533648,
+              "pr_auc": 0.5325448076037615
+            },
+            "POT": {
+              "threshold": 11.517719871492965,
+              "raw_spot_threshold": 11.074730645666312,
+              "effective_level": 0.9999,
+              "point": {
+                "precision": 0.775,
+                "recall": 0.0005675472803500485,
+                "f1": 0.0011342639176012148,
+                "predicted_positive": 40
+              },
+              "point_adjusted": {
+                "f1": 0.8322632717841407,
+                "precision": 0.9997689046091233,
+                "recall": 0.7128393839891545,
+                "TP": 38936,
+                "TN": 395226,
+                "FP": 9,
+                "FN": 15685,
+                "threshold": 11.517719871492965
+              },
+              "event": {
+                "event_precision": 0.7096774193548387,
+                "event_recall": 0.2,
+                "event_f1": 0.3120567375886525,
+                "true_events": 35,
+                "predicted_events": 31,
+                "detected_events": 7,
+                "correct_predicted_events": 22,
+                "mean_detection_delay": 751.1428571428571,
+                "mean_normalized_detection_delay": 0.4858527974256782
+              }
+            },
+            "Best-point": {
+              "precision": 0.8110451647066611,
+              "recall": 0.6729829186576591,
+              "f1": 0.7355919314816297,
+              "threshold": 0.9824507575757575,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9524487504947322,
+              "precision": 0.946844695153632,
+              "recall": 0.9581296569161806,
+              "threshold": 0.9938155906952651,
+              "TP": 52334,
+              "TN": 392297,
+              "FP": 2938,
+              "FN": 2287,
+              "source": "rank_equivalent_to_full"
+            }
+          },
+          "HGAT-only": {
+            "ranking": {
+              "roc_auc": 0.8626315467082839,
+              "pr_auc": 0.5968430621032248
+            },
+            "POT": {
+              "threshold": 11.564120713941419,
+              "raw_spot_threshold": 11.119346840328287,
+              "effective_level": 0.9999,
+              "point": {
+                "precision": 0.45,
+                "recall": 0.00016477179106936892,
+                "f1": 0.0003294229607803664,
+                "predicted_positive": 20
+              },
+              "point_adjusted": {
+                "f1": 0.8200893256538021,
+                "precision": 0.9997103964932441,
+                "recall": 0.6951904943711776,
+                "TP": 37972,
+                "TN": 395224,
+                "FP": 11,
+                "FN": 16649,
+                "threshold": 11.564120713941419
+              },
+              "event": {
+                "event_precision": 0.45,
+                "event_recall": 0.17142857142857143,
+                "event_f1": 0.24827586206896554,
+                "true_events": 35,
+                "predicted_events": 20,
+                "detected_events": 6,
+                "correct_predicted_events": 9,
+                "mean_detection_delay": 850.1666666666666,
+                "mean_normalized_detection_delay": 0.5396844185733881
+              }
+            },
+            "Best-point": {
+              "precision": 0.8524016683858815,
+              "recall": 0.6959228135698724,
+              "f1": 0.7662551025550572,
+              "threshold": 0.9851792929292928,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            }
+          }
+        },
+        "random_tie_control": {
+          "repeats": 100,
+          "random_seed": 20264000,
+          "learned_delta_roc_auc": 8.663482751847251e-05,
+          "learned_delta_pr_auc": -0.0027967689341710233,
+          "random_delta_roc_auc": {
+            "mean": -4.3291380922294567e-08,
+            "population_std": 1.3241115288867398e-06
+          },
+          "random_delta_pr_auc": {
+            "mean": -0.005053594748710597,
+            "population_std": 1.4669682127442189e-05
+          },
+          "learned_roc_percentile_among_random": 1.0,
+          "learned_pr_percentile_among_random": 1.0
+        }
+      },
+      "98": {
+        "result_dir": "code/ISTAD/test_results/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_innov_hglite_bs64_v4hg_s98_0",
+        "score_sha256": "c22986f9c9be79f8e28d4d5318baa01293f734590538174cbe997c5ad067d454",
+        "best_sha256": "d0a6c9d4886f08f58c5d9fb6f2f5cf5e65b80f21582c7a07d65d61a4dc1d73a7",
+        "stored_dtypes": {
+          "train_innovation_score": "float64",
+          "hgat_score": "float64",
+          "train_score": "float64",
+          "score": "float64",
+          "innovation_score": "float64",
+          "label": "int8",
+          "train_hgat_score": "float64"
+        },
+        "metadata": {
+          "component_calibration": "normal_train_ecdf",
+          "final_calibration": "rank_safe_no_recalibration",
+          "fusion_strategy": "rank_tiebreak",
+          "message_gate": 0.25380146503448486,
+          "n_hyperedges": 20,
+          "pool": "dense",
+          "reliability_gate": {
+            "allowed_graph_tail_rate": 0.013652146464646464,
+            "base_threshold": 0.9898144191919193,
+            "base_validation_tail_rate": 0.010921717171717171,
+            "graph_threshold": 0.9897929545454546,
+            "graph_validation_tail_rate": 0.011035353535353535,
+            "inflation_limit": 1.25,
+            "kill_switch": false,
+            "max_weight": 0.2,
+            "method": "normal_tail_stability",
+            "reference_fraction": 0.8,
+            "reference_size": 316800,
+            "reliability": 0.9897025171624514,
+            "selected_weight": 0.19794050343249028,
+            "tail_probability": 0.01,
+            "validation_size": 79200
+          },
+          "reliability_mix_weight": 0.19794050343249028,
+          "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+          "selected_weight": 1.2626262626262627e-06
+        },
+        "rank_safety": {
+          "distinct_rank_inversions": 0,
+          "changed_tie_groups": 77188,
+          "changed_values": 449856,
+          "score_dtype": "float64"
+        },
+        "arms": {
+          "V4-HG": {
+            "ranking": {
+              "roc_auc": 0.8500212344807144,
+              "pr_auc": 0.5292529418141889
+            },
+            "POT": {
+              "threshold": 11.51765871548124,
+              "raw_spot_threshold": 11.074671841808884,
+              "effective_level": 0.9999,
+              "point": {
+                "precision": 0.775,
+                "recall": 0.0005675472803500485,
+                "f1": 0.0011342639176012148,
+                "predicted_positive": 40
+              },
+              "point_adjusted": {
+                "f1": 0.8322632717841407,
+                "precision": 0.9997689046091233,
+                "recall": 0.7128393839891545,
+                "TP": 38936,
+                "TN": 395226,
+                "FP": 9,
+                "FN": 15685,
+                "threshold": 11.51765871548124
+              },
+              "event": {
+                "event_precision": 0.7096774193548387,
+                "event_recall": 0.2,
+                "event_f1": 0.3120567375886525,
+                "true_events": 35,
+                "predicted_events": 31,
+                "detected_events": 7,
+                "correct_predicted_events": 22,
+                "mean_detection_delay": 751.1428571428571,
+                "mean_normalized_detection_delay": 0.4858527974256782
+              }
+            },
+            "Best-point": {
+              "precision": 0.811134648484046,
+              "recall": 0.6729829186576591,
+              "f1": 0.7356287335274518,
+              "threshold": 0.982450758658235,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9524487504947322,
+              "precision": 0.946844695153632,
+              "recall": 0.9581296569161806,
+              "threshold": 0.9938155908249209,
+              "TP": 52334,
+              "TN": 392297,
+              "FP": 2938,
+              "FN": 2287
+            }
+          },
+          "V4": {
+            "ranking": {
+              "roc_auc": 0.8499346909533648,
+              "pr_auc": 0.5325448076037615
+            },
+            "POT": {
+              "threshold": 11.517719871492965,
+              "raw_spot_threshold": 11.074730645666312,
+              "effective_level": 0.9999,
+              "point": {
+                "precision": 0.775,
+                "recall": 0.0005675472803500485,
+                "f1": 0.0011342639176012148,
+                "predicted_positive": 40
+              },
+              "point_adjusted": {
+                "f1": 0.8322632717841407,
+                "precision": 0.9997689046091233,
+                "recall": 0.7128393839891545,
+                "TP": 38936,
+                "TN": 395226,
+                "FP": 9,
+                "FN": 15685,
+                "threshold": 11.517719871492965
+              },
+              "event": {
+                "event_precision": 0.7096774193548387,
+                "event_recall": 0.2,
+                "event_f1": 0.3120567375886525,
+                "true_events": 35,
+                "predicted_events": 31,
+                "detected_events": 7,
+                "correct_predicted_events": 22,
+                "mean_detection_delay": 751.1428571428571,
+                "mean_normalized_detection_delay": 0.4858527974256782
+              }
+            },
+            "Best-point": {
+              "precision": 0.8110451647066611,
+              "recall": 0.6729829186576591,
+              "f1": 0.7355919314816297,
+              "threshold": 0.9824507575757575,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            },
+            "Best-F1+PA": {
+              "f1": 0.9524487504947322,
+              "precision": 0.946844695153632,
+              "recall": 0.9581296569161806,
+              "threshold": 0.9938155908249209,
+              "TP": 52334,
+              "TN": 392297,
+              "FP": 2938,
+              "FN": 2287,
+              "source": "rank_equivalent_to_full"
+            }
+          },
+          "HGAT-only": {
+            "ranking": {
+              "roc_auc": 0.8469870050146608,
+              "pr_auc": 0.5634925546908245
+            },
+            "POT": {
+              "threshold": 11.535578593892097,
+              "raw_spot_threshold": 11.091902494127016,
+              "effective_level": 0.9999,
+              "point": {
+                "precision": 0.1568627450980392,
+                "recall": 0.00014646381428388348,
+                "f1": 0.000292654375182909,
+                "predicted_positive": 51
+              },
+              "point_adjusted": {
+                "f1": 0.829397146051057,
+                "precision": 0.9988910091816962,
+                "recall": 0.709086248748817,
+                "TP": 38731,
+                "TN": 395192,
+                "FP": 43,
+                "FN": 15890,
+                "threshold": 11.535578593892097
+              },
+              "event": {
+                "event_precision": 0.1568627450980392,
+                "event_recall": 0.17142857142857143,
+                "event_f1": 0.16382252559726965,
+                "true_events": 35,
+                "predicted_events": 51,
+                "detected_events": 6,
+                "correct_predicted_events": 8,
+                "mean_detection_delay": 844.0,
+                "mean_normalized_detection_delay": 0.29452749922670585
+              }
+            },
+            "Best-point": {
+              "precision": 0.806633492515751,
+              "recall": 0.7359989747533,
+              "f1": 0.7696991163997358,
+              "threshold": 0.981131313131313,
+              "selection": "exact_test_label_oracle_no_point_adjustment"
+            }
+          }
+        },
+        "random_tie_control": {
+          "repeats": 100,
+          "random_seed": 20264008,
+          "learned_delta_roc_auc": 8.654352734960291e-05,
+          "learned_delta_pr_auc": -0.0032918657895726344,
+          "random_delta_roc_auc": {
+            "mean": -2.0711473416756832e-07,
+            "population_std": 1.4675898018068475e-06
+          },
+          "random_delta_pr_auc": {
+            "mean": -0.00505619846545121,
+            "population_std": 1.3941356435652683e-05
+          },
+          "learned_roc_percentile_among_random": 1.0,
+          "learned_pr_percentile_among_random": 1.0
+        }
+      }
+    }
+  },
+  "aggregate": {
+    "EXA": {
+      "V4-HG": {
+        "ROC-AUC": {
+          "mean": 0.8275456430519202,
+          "population_std": 4.706602392359972e-07
+        },
+        "AUC-PR": {
+          "mean": 0.4263449345552797,
+          "population_std": 1.0727651999520087e-05
+        },
+        "POT raw F1": {
+          "mean": 0.10278372591006424,
+          "population_std": 0.0
+        },
+        "POT event F1": {
+          "mean": 0.6835089548348661,
+          "population_std": 0.0
+        },
+        "Best raw F1": {
+          "mean": 0.543797292364829,
+          "population_std": 5.4020648329406545e-06
+        },
+        "POT+PA": {
+          "mean": 0.9593254934529328,
+          "population_std": 1.1102230246251565e-16
+        },
+        "Best-F1+PA": {
+          "mean": 0.9627991102045644,
+          "population_std": 0.0
+        }
+      },
+      "V4": {
+        "ROC-AUC": {
+          "mean": 0.8275410561000539,
+          "population_std": 1.1102230246251565e-16
+        },
+        "AUC-PR": {
+          "mean": 0.42626295096718,
+          "population_std": 0.0
+        },
+        "POT raw F1": {
+          "mean": 0.10278372591006424,
+          "population_std": 0.0
+        },
+        "POT event F1": {
+          "mean": 0.6835089548348661,
+          "population_std": 0.0
+        },
+        "Best raw F1": {
+          "mean": 0.5437655370927647,
+          "population_std": 0.0
+        },
+        "POT+PA": {
+          "mean": 0.9593254934529328,
+          "population_std": 1.1102230246251565e-16
+        },
+        "Best-F1+PA": {
+          "mean": 0.9627991102045644,
+          "population_std": 0.0
+        }
+      },
+      "HGAT-only": {
+        "ROC-AUC": {
+          "mean": 0.8562320591124616,
+          "population_std": 0.007090736106795045
+        },
+        "AUC-PR": {
+          "mean": 0.5276640660842095,
+          "population_std": 0.0214886528892923
+        },
+        "POT raw F1": {
+          "mean": 0.13423663129667518,
+          "population_std": 0.006469541298107856
+        },
+        "POT event F1": {
+          "mean": 0.7327618392955925,
+          "population_std": 0.004900243449176082
+        },
+        "Best raw F1": {
+          "mean": 0.5867423909374511,
+          "population_std": 0.021879263351261467
+        },
+        "POT+PA": {
+          "mean": 0.9544624341830256,
+          "population_std": 0.003016536321665334
+        }
+      }
+    },
+    "PSM": {
+      "V4-HG": {
+        "ROC-AUC": {
+          "mean": 0.6551031147989677,
+          "population_std": 1.0122715832858392e-07
+        },
+        "AUC-PR": {
+          "mean": 0.4276817137489524,
+          "population_std": 1.5916502820080153e-06
+        },
+        "POT raw F1": {
+          "mean": 0.12855513447882555,
+          "population_std": 0.0
+        },
+        "POT event F1": {
+          "mean": 0.6800998780558621,
+          "population_std": 0.0
+        },
+        "Best raw F1": {
+          "mean": 0.47353638986854757,
+          "population_std": 0.0
+        },
+        "POT+PA": {
+          "mean": 0.9697128396590672,
+          "population_std": 0.0
+        },
+        "Best-F1+PA": {
+          "mean": 0.9822430345933931,
+          "population_std": 0.0
+        }
+      },
+      "V4": {
+        "ROC-AUC": {
+          "mean": 0.655102538018105,
+          "population_std": 0.0
+        },
+        "AUC-PR": {
+          "mean": 0.42766275405842274,
+          "population_std": 0.0
+        },
+        "POT raw F1": {
+          "mean": 0.12855513447882555,
+          "population_std": 0.0
+        },
+        "POT event F1": {
+          "mean": 0.6800998780558621,
+          "population_std": 0.0
+        },
+        "Best raw F1": {
+          "mean": 0.47353031702062176,
+          "population_std": 0.0
+        },
+        "POT+PA": {
+          "mean": 0.9697128396590672,
+          "population_std": 0.0
+        },
+        "Best-F1+PA": {
+          "mean": 0.9822430345933931,
+          "population_std": 0.0
+        }
+      },
+      "HGAT-only": {
+        "ROC-AUC": {
+          "mean": 0.6462111839540045,
+          "population_std": 0.0026032835785247937
+        },
+        "AUC-PR": {
+          "mean": 0.4064832309542635,
+          "population_std": 0.004745748503523256
+        },
+        "POT raw F1": {
+          "mean": 0.13031183130793164,
+          "population_std": 0.011594944182949523
+        },
+        "POT event F1": {
+          "mean": 0.6131802908179734,
+          "population_std": 0.010996355718939711
+        },
+        "Best raw F1": {
+          "mean": 0.47202900793616975,
+          "population_std": 0.001218382950686432
+        },
+        "POT+PA": {
+          "mean": 0.9630146417863568,
+          "population_std": 0.0018552290018922506
+        }
+      }
+    },
+    "SMD": {
+      "V4-HG": {
+        "ROC-AUC": {
+          "mean": 0.6814712243380457,
+          "population_std": 1.4060885165471732e-07
+        },
+        "AUC-PR": {
+          "mean": 0.11717225362228985,
+          "population_std": 5.499089067957205e-06
+        },
+        "POT raw F1": {
+          "mean": 0.12421980485567981,
+          "population_std": 1.3877787807814457e-17
+        },
+        "POT event F1": {
+          "mean": 0.2926788198633407,
+          "population_std": 0.0
+        },
+        "Best raw F1": {
+          "mean": 0.16770325405939854,
+          "population_std": 3.2209827160759286e-07
+        },
+        "POT+PA": {
+          "mean": 0.8477799567574126,
+          "population_std": 1.1102230246251565e-16
+        },
+        "Best-F1+PA": {
+          "mean": 0.8829375784876804,
+          "population_std": 1.1102230246251565e-16
+        }
+      },
+      "V4": {
+        "ROC-AUC": {
+          "mean": 0.6814708604330817,
+          "population_std": 0.0
+        },
+        "AUC-PR": {
+          "mean": 0.1171295727522474,
+          "population_std": 1.3877787807814457e-17
+        },
+        "POT raw F1": {
+          "mean": 0.12421980485567981,
+          "population_std": 1.3877787807814457e-17
+        },
+        "POT event F1": {
+          "mean": 0.2926788198633407,
+          "population_std": 0.0
+        },
+        "Best raw F1": {
+          "mean": 0.16770125135481329,
+          "population_std": 0.0
+        },
+        "POT+PA": {
+          "mean": 0.8477799567574126,
+          "population_std": 1.1102230246251565e-16
+        },
+        "Best-F1+PA": {
+          "mean": 0.8829375784876804,
+          "population_std": 1.1102230246251565e-16
+        }
+      },
+      "HGAT-only": {
+        "ROC-AUC": {
+          "mean": 0.6960081304197683,
+          "population_std": 0.008277722091542337
+        },
+        "AUC-PR": {
+          "mean": 0.13393098720879218,
+          "population_std": 0.014185136067284493
+        },
+        "POT raw F1": {
+          "mean": 0.139301938486783,
+          "population_std": 0.01734868612089864
+        },
+        "POT event F1": {
+          "mean": 0.2948441060638199,
+          "population_std": 0.043547878024124624
+        },
+        "Best raw F1": {
+          "mean": 0.1777397434677935,
+          "population_std": 0.00967204516241232
+        },
+        "POT+PA": {
+          "mean": 0.84298259634309,
+          "population_std": 0.014652442692396427
+        }
+      }
+    },
+    "SWAT": {
+      "V4-HG": {
+        "ROC-AUC": {
+          "mean": 0.8500217258463958,
+          "population_std": 6.314380995524183e-07
+        },
+        "AUC-PR": {
+          "mean": 0.5292637126198092,
+          "population_std": 0.0003911275589126088
+        },
+        "POT raw F1": {
+          "mean": 0.0011342639176012148,
+          "population_std": 0.0
+        },
+        "POT event F1": {
+          "mean": 0.3120567375886525,
+          "population_std": 0.0
+        },
+        "Best raw F1": {
+          "mean": 0.7356238264407139,
+          "population_std": 6.939668616705064e-06
+        },
+        "POT+PA": {
+          "mean": 0.8322632717841407,
+          "population_std": 0.0
+        },
+        "Best-F1+PA": {
+          "mean": 0.9524487504947322,
+          "population_std": 0.0
+        }
+      },
+      "V4": {
+        "ROC-AUC": {
+          "mean": 0.8499346909533648,
+          "population_std": 0.0
+        },
+        "AUC-PR": {
+          "mean": 0.5325448076037615,
+          "population_std": 0.0
+        },
+        "POT raw F1": {
+          "mean": 0.0011342639176012148,
+          "population_std": 0.0
+        },
+        "POT event F1": {
+          "mean": 0.3120567375886525,
+          "population_std": 0.0
+        },
+        "Best raw F1": {
+          "mean": 0.7355919314816296,
+          "population_std": 1.1102230246251565e-16
+        },
+        "POT+PA": {
+          "mean": 0.8322632717841407,
+          "population_std": 0.0
+        },
+        "Best-F1+PA": {
+          "mean": 0.9524487504947322,
+          "population_std": 0.0
+        }
+      },
+      "HGAT-only": {
+        "ROC-AUC": {
+          "mean": 0.856011288555151,
+          "population_std": 0.006609206949307973
+        },
+        "AUC-PR": {
+          "mean": 0.572465539818,
+          "population_std": 0.01743633963797896
+        },
+        "POT raw F1": {
+          "mean": 0.0003415881188761471,
+          "population_std": 4.5736849268961116e-05
+        },
+        "POT event F1": {
+          "mean": 0.1894833930657266,
+          "population_std": 0.04168427981461793
+        },
+        "Best raw F1": {
+          "mean": 0.7676830175126573,
+          "population_std": 0.001466237382271772
+        },
+        "POT+PA": {
+          "mean": 0.5742839278156483,
+          "population_std": 0.35422333240196224
+        }
+      }
+    }
+  },
+  "macro": {
+    "V4-HG": {
+      "ROC-AUC": {
+        "mean": 0.7535354270088324,
+        "dataset_population_std": 0.08612387493557264
+      },
+      "AUC-PR": {
+        "mean": 0.37511565363658284,
+        "dataset_population_std": 0.1546641939803892
+      },
+      "POT raw F1": {
+        "mean": 0.0891732322905427,
+        "dataset_population_std": 0.051757371352469515
+      },
+      "POT event F1": {
+        "mean": 0.49208609758568034,
+        "dataset_population_std": 0.18984580900938108
+      },
+      "Best raw F1": {
+        "mean": 0.48016519068337227,
+        "dataset_population_std": 0.20431872270208631
+      },
+      "POT+PA": {
+        "mean": 0.9022703904133883,
+        "dataset_population_std": 0.06259786889722135
+      },
+      "Best-F1+PA": {
+        "mean": 0.9451071184450925,
+        "dataset_population_std": 0.037453418069180934
+      }
+    },
+    "V4": {
+      "ROC-AUC": {
+        "mean": 0.7535122863761514,
+        "dataset_population_std": 0.08609875793977986
+      },
+      "AUC-PR": {
+        "mean": 0.3759000213454029,
+        "dataset_population_std": 0.15549561031186493
+      },
+      "POT raw F1": {
+        "mean": 0.0891732322905427,
+        "dataset_population_std": 0.051757371352469515
+      },
+      "POT event F1": {
+        "mean": 0.49208609758568034,
+        "dataset_population_std": 0.18984580900938108
+      },
+      "Best raw F1": {
+        "mean": 0.4801472592374574,
+        "dataset_population_std": 0.20430709582715786
+      },
+      "POT+PA": {
+        "mean": 0.9022703904133883,
+        "dataset_population_std": 0.06259786889722135
+      },
+      "Best-F1+PA": {
+        "mean": 0.9451071184450925,
+        "dataset_population_std": 0.037453418069180934
+      }
+    },
+    "HGAT-only": {
+      "ROC-AUC": {
+        "mean": 0.7636156655103463,
+        "dataset_population_std": 0.0941665261813304
+      },
+      "AUC-PR": {
+        "mean": 0.41013595601631625,
+        "dataset_population_std": 0.1706357799727998
+      },
+      "POT raw F1": {
+        "mean": 0.10104799730256649,
+        "dataset_population_std": 0.058230151712593964
+      },
+      "POT event F1": {
+        "mean": 0.45756740731077805,
+        "dataset_population_std": 0.22265177765477073
+      },
+      "Best raw F1": {
+        "mean": 0.501048539963518,
+        "dataset_population_std": 0.2143642296671982
+      },
+      "POT+PA": {
+        "mean": 0.8336859000320301,
+        "dataset_population_std": 0.15707379348361433
+      }
+    }
+  },
+  "decision": {
+    "float64_scores_pass": true,
+    "rank_safety_pass": true,
+    "non_vacuous_pass": true
+  }
+}

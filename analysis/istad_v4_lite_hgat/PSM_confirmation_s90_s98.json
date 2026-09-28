@@ -1,0 +1,60 @@
+{
+  "status": "completed_preregistered_confirmation",
+  "dataset": "PSM",
+  "confirmation_seeds": [90, 98],
+  "development_pilot_seed": 87,
+  "decision": "do_not_promote_hgat_lite",
+  "decision_reason": "HGAT-Lite improves mean PR-AUC but fails the ROC, train-p99 raw-F1, and no-spatial-branch guards.",
+  "neural_model_score": {
+    "seed_90": {
+      "legacy": {"roc_auc": 0.7734531708558986, "pr_auc": 0.5399035462015414, "train_p99_raw_f1": 0.4212396258361784, "best_raw_f1": 0.564124974415779, "best_f1_point_adjusted": 0.9507270338662127},
+      "lite": {"roc_auc": 0.7308480958540113, "pr_auc": 0.5733877829255218, "train_p99_raw_f1": 0.314958522879315, "best_raw_f1": 0.5328952471383576, "best_f1_point_adjusted": 0.9561858726728042},
+      "none": {"roc_auc": 0.7622487010970468, "pr_auc": 0.5623980192005524, "train_p99_raw_f1": 0.1263593603010348, "best_raw_f1": 0.5561637363317301, "best_f1_point_adjusted": 0.9743380068365789}
+    },
+    "seed_98": {
+      "legacy": {"roc_auc": 0.7272946988704205, "pr_auc": 0.4993933640361229, "train_p99_raw_f1": 0.3803123571946991, "best_raw_f1": 0.5365403209038649, "best_f1_point_adjusted": 0.95979006303516},
+      "lite": {"roc_auc": 0.7530349267464189, "pr_auc": 0.5604378182271254, "train_p99_raw_f1": 0.3617511520737327, "best_raw_f1": 0.5359837626363739, "best_f1_point_adjusted": 0.9684721162700841},
+      "none": {"roc_auc": 0.7623512879581804, "pr_auc": 0.6031729137355415, "train_p99_raw_f1": 0.4068169650823865, "best_raw_f1": 0.5378538280108679, "best_f1_point_adjusted": 0.9631667478110436}
+    },
+    "confirmation_mean": {
+      "legacy": {"roc_auc": 0.7503739348631595, "pr_auc": 0.5196484551188321, "train_p99_raw_f1": 0.40077599151543875, "best_raw_f1": 0.550332647659822, "best_f1_point_adjusted": 0.9552585484506864},
+      "lite": {"roc_auc": 0.7419415113002151, "pr_auc": 0.5669128005763235, "train_p99_raw_f1": 0.33835483747652384, "best_raw_f1": 0.5344395048873658, "best_f1_point_adjusted": 0.9623289944714442},
+      "none": {"roc_auc": 0.7622999945276137, "pr_auc": 0.582785466468047, "train_p99_raw_f1": 0.26658816269171065, "best_raw_f1": 0.547008782171299, "best_f1_point_adjusted": 0.9687523773238113}
+    },
+    "lite_minus_legacy_mean": {
+      "roc_auc": -0.00843242356294438,
+      "pr_auc": 0.047264345457491475,
+      "train_p99_raw_f1": -0.062421154038914906,
+      "best_raw_f1": -0.015893142772456237,
+      "best_f1_point_adjusted": 0.007070446020757792
+    },
+    "lite_minus_none_mean": {
+      "roc_auc": -0.020358483227398527,
+      "pr_auc": -0.015872665891723425,
+      "train_p99_raw_f1": 0.07176667478481319,
+      "best_raw_f1": -0.0125692772839332,
+      "best_f1_point_adjusted": -0.006423382852367099
+    }
+  },
+  "innovation_fused_weight_0.001_confirmation_mean": {
+    "legacy": {"pot_point_adjusted_f1": 0.9694870066136296, "best_f1_point_adjusted": 0.9823640002722208},
+    "lite": {"pot_point_adjusted_f1": 0.9694182955643974, "best_f1_point_adjusted": 0.9823639990306663},
+    "none": {"pot_point_adjusted_f1": 0.9694870066136296, "best_f1_point_adjusted": 0.9823539172470499}
+  },
+  "promotion_gate": {
+    "mean_pr_auc_gain_at_least_0.005": true,
+    "mean_roc_auc_non_decreasing": false,
+    "mean_train_p99_raw_f1_drop_at_most_0.010": false,
+    "pr_auc_direction_agrees_in_at_least_two_of_three_seeds_including_pilot": true,
+    "lite_improves_over_no_spatial_branch": false,
+    "passed": false
+  },
+  "efficiency": {
+    "legacy_spatial_parameters": 2905,
+    "lite_spatial_parameters": 690,
+    "spatial_parameter_reduction": 0.7624784853700517,
+    "legacy_total_parameters": 86564,
+    "lite_total_parameters": 84349,
+    "no_spatial_total_parameters": 83034
+  }
+}

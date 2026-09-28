@@ -1,0 +1,80 @@
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (708420, 38)
+train: (708405, 38)
+TEST 7379
+test: (708420, 38)
+train: (708405, 38)
+train 7456
+[dump] SMD s48  n=708384  anom_frac=0.0416  ROC=0.7346  -> /data/modeluse/TS/vus_diag/istad_scores/SMD_s48_revin.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (708420, 38)
+train: (708405, 38)
+TEST 7379
+test: (708420, 38)
+train: (708405, 38)
+test errors: (708384, 38)
+train errors: (708384, 38)
+regression maxdelta vs istad_scores: 0.002441
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/SMD_s48_revin.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (708420, 38)
+train: (708405, 38)
+TEST 7379
+test: (708420, 38)
+train: (708405, 38)
+train 7456
+[dump] SMD s2021  n=708384  anom_frac=0.0416  ROC=0.7306  -> /data/modeluse/TS/vus_diag/istad_scores/SMD_s2021_revin.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (708420, 38)
+train: (708405, 38)
+TEST 7379
+test: (708420, 38)
+train: (708405, 38)
+test errors: (708384, 38)
+train errors: (708384, 38)
+regression maxdelta vs istad_scores: 0.001953
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/SMD_s2021_revin.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (708420, 38)
+train: (708405, 38)
+TEST 7379
+test: (708420, 38)
+train: (708405, 38)
+train 7456
+[dump] SMD s2022  n=708384  anom_frac=0.0416  ROC=0.7337  -> /data/modeluse/TS/vus_diag/istad_scores/SMD_s2022_revin.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (708420, 38)
+train: (708405, 38)
+TEST 7379
+test: (708420, 38)
+train: (708405, 38)
+test errors: (708384, 38)
+train errors: (708384, 38)
+regression maxdelta vs istad_scores: 0.004883
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/SMD_s2022_revin.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (708420, 38)
+train: (708405, 38)
+TEST 7379
+test: (708420, 38)
+train: (708405, 38)
+train 7456
+[dump] SMD s2025  n=708384  anom_frac=0.0416  ROC=0.7669  -> /data/modeluse/TS/vus_diag/istad_scores/SMD_s2025_revin.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (708420, 38)
+train: (708405, 38)
+TEST 7379
+test: (708420, 38)
+train: (708405, 38)
+test errors: (708384, 38)
+train errors: (708384, 38)
+regression maxdelta vs istad_scores: 0.003906
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/SMD_s2025_revin.npz

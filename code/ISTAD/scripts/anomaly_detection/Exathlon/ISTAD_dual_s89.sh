@@ -1,0 +1,35 @@
+export CUDA_VISIBLE_DEVICES=2
+
+python -u run.py \
+  --task_name anomaly_detection \
+  --is_training 1 \
+  --root_path ./dataset/EXATHLON \
+  --model_id EXATHLON \
+  --model ISTAD \
+  --data EXATHLON \
+  --features M \
+  --seq_len 100 \
+  --enc_in 19 \
+  --c_out 19 \
+  --istad_recon_type kanad \
+  --istad_branch_mode hgat_kan_tcn \
+  --istad_kan_grid_size 10 \
+  --istad_kan_spline_order 3 \
+  --istad_dual 1 \
+  --istad_dual_lambda 1.0 \
+  --istad_kanad_order 4 \
+  --anomaly_ratio 1 \
+  --use_bestf1_threshold 1 \
+  --bestf1_search_mode adaptive \
+  --bestf1_coarse_step_num 200 \
+  --bestf1_fine_step_num 500 \
+  --bestf1_use_adjustment 1 \
+  --istad_dropout 0.1 \
+  --learning_rate 0.0001 \
+  --lradj cosine \
+  --batch_size 64 \
+  --num_workers 4 \
+  --patience 5 \
+  --train_epochs 40 \
+  --seed 89 \
+  --des EXA_dual_s89

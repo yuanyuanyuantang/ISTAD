@@ -1,0 +1,63 @@
+{
+  "setting": "anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s90_0",
+  "score_artifact": {
+    "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s90_0/point_scores.npz",
+    "sha256": "b595adac05cf7a7fdad844f88f90f127d5e1660c289b6a4cef5766de9a6a137d",
+    "bytes": 953460,
+    "stored_dtypes": {
+      "score": "float64",
+      "train_score": "float64",
+      "label": "int8",
+      "model_score": "float32",
+      "train_model_score": "float32"
+    }
+  },
+  "checkpoint": {
+    "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s90_0/checkpoint.pth",
+    "sha256": "b299ed2e5984189be8d0b9bda698281da5278062bbe166629358bf29bdfb0e73",
+    "bytes": 25826
+  },
+  "n_train": 70500,
+  "n_test": 52800,
+  "anomaly_rate": 0.12859848484848485,
+  "roc_auc": 0.8789665546229785,
+  "average_precision": 0.5963552716699646,
+  "train_threshold": {
+    "percentile": 99.0,
+    "value": 4.8226459217071485,
+    "point": {
+      "precision": 0.717948717948718,
+      "recall": 0.12783505154639174,
+      "f1": 0.21702712839104887,
+      "predicted_positive": 1209
+    },
+    "event": {
+      "event_precision": 0.5921375921375921,
+      "event_recall": 0.9263157894736842,
+      "event_f1": 0.7224540546064621,
+      "true_events": 95,
+      "predicted_events": 407,
+      "detected_events": 88,
+      "correct_predicted_events": 241,
+      "mean_detection_delay": 3.340909090909091,
+      "mean_normalized_detection_delay": 0.06253102182008145
+    }
+  },
+  "best_raw": {
+    "precision": 0.7024284763805722,
+    "recall": 0.6219440353460972,
+    "f1": 0.6597406655210123,
+    "threshold": 0.7446011900901793,
+    "selection": "exact_test_label_oracle_no_point_adjustment"
+  },
+  "train_time": {
+    "avg_epoch_train_time": 0.7362918433021096,
+    "unit": "seconds"
+  },
+  "score_statistics": {
+    "train_mean": 0.7646027038961332,
+    "train_std": 6.933148022996479,
+    "test_mean": 0.8548324522180624,
+    "test_std": 13.179000169785134
+  }
+}

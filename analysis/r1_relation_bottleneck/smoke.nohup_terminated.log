@@ -1,0 +1,50 @@
+=== R1 PSM seed 87 learned_dynamic ===
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          anomaly_detection   Is Training:        1                   
+  Model ID:           PSM                 Model:              ISTAD               
+  Seed:               87                  Itr:                1                   
+
+[1mData Loader[0m
+  Data:               PSM                 Root Path:          /data/modeluse/TS/ISTAD/dataset/PSM
+  Features:           M                   Seq Len:            64                  
+  Enc In:             25                  C Out:              25                  
+  Checkpoints:        /data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_r1_relation_bottleneck
+  Eval Step:          64                  
+
+[1mAnomaly Detection Task[0m
+  Anomaly Ratio:      1.0                 Threshold Source:   train               
+
+[1mISTAD Parameters[0m
+  Kernel Size:        7                   Branch Mode:        hgat                
+  TCN Type:           kan                 
+  Feat GAT Dim:       -1                  GRU Layers:         1                   
+  GRU Hidden:         150                 Recon Layers:       1                   
+  Recon Hidden:       32                  ISTAD Dropout:      0.3                 
+  Recon Type:         pointwise           KANAD Order:        3                   
+  Objective:          reconstruct         Target / Lag:       ('', 1)             
+  Leaky Alpha:        0.2                 H Init:             normal              
+  Hyperedges:         -1                  Top-K Nodes:        -1                  
+  Spatial Type:       lite                HGAT Rank:          8                   
+  HGAT Projection:    linear              Relation Mode:      dynamic             
+  KAN Grid:           5                   KAN Order:          3                   
+  Arch:               legacy              Ablation:           full                
+  Relation bottleneck:1                   Mask ratio/folds:   (0.2, 8)            
+  Explainability:     0                   Explain Batches:    0                   
+  Explain Points:     20000               Explain TopK:       10                  
+  SmoothGrad:         0                   SG Samples:         20                  
+  SG Noise:           0.1                 Quad Mode:          quantile            
+  Quad Value:         0.75                Err Agg:            sum                 
+  Sal Agg:            sum                 
+
+[1mRun Parameters[0m
+  Num Workers:        4                   Batch Size:         128                 
+  Train Epochs:       10                  Patience:           4                   
+  Learning Rate:      0.001               Lradj:              cosine              
+  Des:                r1_learned_dynamic_s87
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+

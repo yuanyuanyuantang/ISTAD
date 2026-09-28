@@ -1,0 +1,166 @@
+{
+  "anchors": {
+    "archive_field": "score",
+    "archive_max_abs_diff": 2.980063151802881e-08,
+    "archive_tolerance": 1e-06,
+    "checkpoint": "checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0/checkpoint.pth",
+    "checkpoint_sha256": "5411446a370f19ca3cefaa5a9a34e5918aebd02c6818b7e877325533385deeae",
+    "e1_passport": {
+      "e1_report": "analysis/e1_incidence_counterfactual/final/per_run/EXA_s87.json",
+      "matched": true
+    },
+    "train_graph_cache": "reproduced_bitwise"
+  },
+  "dataset": "EXA",
+  "event": {
+    "context": [
+      7773,
+      8844
+    ],
+    "end": 8644,
+    "entity": null,
+    "length": 672,
+    "start": 7973,
+    "window_block": [
+      77,
+      88
+    ]
+  },
+  "model": {
+    "arch": "legacy",
+    "branch_mode": "hgat",
+    "device": "cuda:0",
+    "fusion_epsilon": 7.092198581560284e-06,
+    "hgat_rank": 8,
+    "k_top": 3,
+    "kernel": 7,
+    "n_hyperedges": 9,
+    "pool": "sparse",
+    "seed": 87,
+    "spatial_type": "lite"
+  },
+  "peak_point": {
+    "definition": "event point with maximal max-variable innovation evidence",
+    "g": 1.0,
+    "global_index": 8640,
+    "hyperedge_evidence_ranking": [
+      {
+        "d": 33.25159275464531,
+        "hyperedge": 4,
+        "rank": 0
+      },
+      {
+        "d": 33.13315778233675,
+        "hyperedge": 6,
+        "rank": 1
+      },
+      {
+        "d": 33.0308747017546,
+        "hyperedge": 8,
+        "rank": 2
+      },
+      {
+        "d": 30.910086182899022,
+        "hyperedge": 3,
+        "rank": 3
+      },
+      {
+        "d": 23.76941448365034,
+        "hyperedge": 0,
+        "rank": 4
+      },
+      {
+        "d": 17.73792870758733,
+        "hyperedge": 5,
+        "rank": 5
+      },
+      {
+        "d": 15.467831158339,
+        "hyperedge": 1,
+        "rank": 6
+      },
+      {
+        "d": 14.481432531644089,
+        "hyperedge": 2,
+        "rank": 7
+      },
+      {
+        "d": 2.3472169697619103,
+        "hyperedge": 7,
+        "rank": 8
+      }
+    ],
+    "q": 0.9999361702127659,
+    "s": 0.9999361706654563,
+    "top1_hyperedge_per_top_variable": [
+      {
+        "name": "var_16",
+        "top1_hyperedge": 0,
+        "variable": 16,
+        "weight": 0.3315788805484772
+      },
+      {
+        "name": "var_17",
+        "top1_hyperedge": 6,
+        "variable": 17,
+        "weight": 0.3406387269496918
+      },
+      {
+        "name": "var_3",
+        "top1_hyperedge": 1,
+        "variable": 3,
+        "weight": 0.16665904223918915
+      },
+      {
+        "name": "var_14",
+        "top1_hyperedge": 4,
+        "variable": 14,
+        "weight": 0.3336954116821289
+      },
+      {
+        "name": "var_13",
+        "top1_hyperedge": 1,
+        "variable": 13,
+        "weight": 0.16666212677955627
+      }
+    ]
+  },
+  "selection_rule": "longest maximal run of positive test labels; ties broken by earliest start; SMD runs are taken within one entity",
+  "top_variables": [
+    {
+      "max_event_evidence": 52.55865200602969,
+      "name": "var_16",
+      "rank": 0,
+      "train_sigma": 0.7731012154741619,
+      "variable": 16
+    },
+    {
+      "max_event_evidence": 50.74676300163297,
+      "name": "var_17",
+      "rank": 1,
+      "train_sigma": 0.7474873209052484,
+      "variable": 17
+    },
+    {
+      "max_event_evidence": 47.890439065013005,
+      "name": "var_3",
+      "rank": 2,
+      "train_sigma": 0.871292834819837,
+      "variable": 3
+    },
+    {
+      "max_event_evidence": 46.95459260993503,
+      "name": "var_14",
+      "rank": 3,
+      "train_sigma": 0.8564648290844774,
+      "variable": 14
+    },
+    {
+      "max_event_evidence": 46.15522604052259,
+      "name": "var_13",
+      "rank": 4,
+      "train_sigma": 0.8943275779960228,
+      "variable": 13
+    }
+  ]
+}

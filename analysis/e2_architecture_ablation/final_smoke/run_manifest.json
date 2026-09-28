@@ -1,0 +1,39 @@
+{
+  "status": "SMOKE_ANALYZED_FROM_4_TRAINED_MODELS",
+  "expected_runs": 4,
+  "found_runs": 4,
+  "sources": [
+    {
+      "dataset": "PSM",
+      "seed": 87,
+      "arm": "learned_dynamic",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_hglite_bs128_e2_learned_dynamic_s87_0",
+      "score_sha256": "f9873eb3c12a7e82f4c33d245bbd74cf5731c3ad2f33f98fe3b1fe49f1c55680",
+      "checkpoint_sha256": "c4df7b12626f5f00923131487b22706c3930cc1c21f89c8ea642fe4cedcf9e59"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 87,
+      "arm": "learned_static",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relstatic_v3_hglite_bs128_e2_learned_static_s87_0",
+      "score_sha256": "89138d23e3a22f3f791740f7c27b755d394c5810994e31029fc4c1d7cecaa059",
+      "checkpoint_sha256": "fddc173f5e421ddbb142c91415b03d1de1121b4ef64d2916d346b81df27e0c9b"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 87,
+      "arm": "fixed_random",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relfixed_random_v3_hglite_bs128_e2_fixed_random_s87_0",
+      "score_sha256": "10130495d48589dfc4c12e759a5d3f3836769af72da298c964cb86820428d5dc",
+      "checkpoint_sha256": "12466cdc32cdbc89c7f20ae51ac21791aaf53f9ea85ea944019a318eedbbd121"
+    },
+    {
+      "dataset": "PSM",
+      "seed": 87,
+      "arm": "no_message",
+      "setting": "anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_relno_message_v3_hglite_bs128_e2_no_message_s87_0",
+      "score_sha256": "e30dc9c36f815a6ab135b8deed853167b603b043d11690900b021634f72bbc62",
+      "checkpoint_sha256": "42e37859fa7fd0a3ff0acf036c0de76216c3bb5ba3eb90c2dc36a21e02cdd0ee"
+    }
+  ]
+}

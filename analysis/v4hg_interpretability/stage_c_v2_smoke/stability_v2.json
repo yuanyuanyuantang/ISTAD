@@ -1,0 +1,399 @@
+{
+  "analysis_scope": "descriptive methodological correction",
+  "datasets": {
+    "EXA": {
+      "event": {
+        "end": 8644,
+        "entity": null,
+        "selection": "frozen v1 longest-event rule; no reselection",
+        "start": 7973
+      },
+      "n_event_points": 672,
+      "n_hyperedges": 9,
+      "n_variables": 19,
+      "one_step_residual_evidence": {
+        "definition": "training-calibrated one-step residual evidence; its computation contains no model seed or checkpoint input",
+        "event_array_sha256_float64_c_order": "c1e6a97829c11280fdb6dfe69044c957b1e8febf901dd0e237c9e44a188162fc",
+        "repeat_max_abs_diff": 0.0,
+        "seed_input_absent_by_construction": true
+      },
+      "pairs": {
+        "87-90": {
+          "hungarian_aligned_auxiliary": {
+            "a_to_b_hyperedge_match": [
+              8,
+              1,
+              5,
+              0,
+              7,
+              4,
+              6,
+              2,
+              3
+            ],
+            "aligned_peak_edge_evidence_cosine": 0.819768634086378,
+            "aligned_peak_edge_evidence_kendall_tau_b": 0.0,
+            "aligned_top1_assignment_agreement": {
+              "count": 672,
+              "max": 0.47368421052631576,
+              "mean": 0.1862468671679198,
+              "median": 0.21052631578947367,
+              "min": 0.0,
+              "p05": 0.05263157894736842,
+              "p95": 0.3157894736842105
+            },
+            "aligned_top1_assignment_jaccard": {
+              "count": 672,
+              "max": 0.3103448275862069,
+              "mean": 0.10479218737458665,
+              "median": 0.11764705882352941,
+              "min": 0.0,
+              "p05": 0.02702702702702703,
+              "p95": 0.1875
+            },
+            "matched_incidence_column_cosine": {
+              "count": 9,
+              "max": 0.504487535846316,
+              "mean": 0.35540233325328857,
+              "median": 0.3285148000873003,
+              "min": 0.27778142374377074,
+              "p05": 0.2870339814626205,
+              "p95": 0.4752742465985592
+            }
+          },
+          "permutation_invariant": {
+            "co_membership_cosine": {
+              "count": 672,
+              "max": 0.4711870125645555,
+              "mean": 0.15348903303033187,
+              "median": 0.14511773613965487,
+              "min": 0.03241039055856551,
+              "p05": 0.06432568196428207,
+              "p95": 0.26868784510201094
+            },
+            "co_membership_relative_frobenius": {
+              "count": 672,
+              "max": 1.3957308734768277,
+              "mean": 1.309415864958476,
+              "median": 1.3174460739503022,
+              "min": 1.0521845859599723,
+              "p05": 1.2115929280205755,
+              "p95": 1.3761858793983894
+            },
+            "neighbor_k": 5,
+            "top1_partition_ari": {
+              "count": 672,
+              "max": 0.2904564315352697,
+              "mean": -0.0064114900456527495,
+              "median": -0.02131928203687329,
+              "min": -0.15506607929515417,
+              "p05": -0.10092445114076624,
+              "p95": 0.12345151644596326
+            },
+            "top1_partition_nmi": {
+              "count": 672,
+              "max": 0.7420512443038151,
+              "mean": 0.6174871410366801,
+              "median": 0.6180386855612315,
+              "min": 0.4290462704987895,
+              "p05": 0.5516784034665869,
+              "p95": 0.6792130341188005
+            },
+            "top5_neighbor_jaccard": {
+              "count": 12768,
+              "max": 1.0,
+              "mean": 0.2380899545490711,
+              "median": 0.25,
+              "min": 0.0,
+              "p05": 0.0,
+              "p95": 0.6666666666666666
+            }
+          }
+        },
+        "87-98": {
+          "hungarian_aligned_auxiliary": {
+            "a_to_b_hyperedge_match": [
+              7,
+              5,
+              2,
+              0,
+              4,
+              6,
+              3,
+              8,
+              1
+            ],
+            "aligned_peak_edge_evidence_cosine": 0.9242247155994049,
+            "aligned_peak_edge_evidence_kendall_tau_b": 0.16666666666666666,
+            "aligned_top1_assignment_agreement": {
+              "count": 672,
+              "max": 0.47368421052631576,
+              "mean": 0.23261278195488724,
+              "median": 0.21052631578947367,
+              "min": 0.05263157894736842,
+              "p05": 0.10526315789473684,
+              "p95": 0.3684210526315789
+            },
+            "aligned_top1_assignment_jaccard": {
+              "count": 672,
+              "max": 0.3103448275862069,
+              "mean": 0.13376970204149943,
+              "median": 0.11764705882352941,
+              "min": 0.02702702702702703,
+              "p05": 0.05555555555555555,
+              "p95": 0.22580645161290322
+            },
+            "matched_incidence_column_cosine": {
+              "count": 9,
+              "max": 0.4641995551828335,
+              "mean": 0.30328693441725385,
+              "median": 0.3337821563725322,
+              "min": 0.07815754349405515,
+              "p05": 0.10752897907746162,
+              "p95": 0.44752606816578494
+            }
+          },
+          "permutation_invariant": {
+            "co_membership_cosine": {
+              "count": 672,
+              "max": 0.5211269794404674,
+              "mean": 0.1783607034429687,
+              "median": 0.1656880240594626,
+              "min": 0.06735452004938242,
+              "p05": 0.10142684331572249,
+              "p95": 0.30329429209793984
+            },
+            "co_membership_relative_frobenius": {
+              "count": 672,
+              "max": 1.4015136400473287,
+              "mean": 1.2962777034015749,
+              "median": 1.3061198130736904,
+              "min": 0.9792684168787277,
+              "p05": 1.2009358423366765,
+              "p95": 1.358517652572897
+            },
+            "neighbor_k": 5,
+            "top1_partition_ari": {
+              "count": 672,
+              "max": 0.3971797884841363,
+              "mean": -0.002793819442256661,
+              "median": -0.02263989747970952,
+              "min": -0.1317191283292978,
+              "p05": -0.10278113663845223,
+              "p95": 0.1331424197430347
+            },
+            "top1_partition_nmi": {
+              "count": 672,
+              "max": 0.7380301209759506,
+              "mean": 0.6001017540971153,
+              "median": 0.5994762373689304,
+              "min": 0.34250823285094667,
+              "p05": 0.5282859429927876,
+              "p95": 0.6733637688399957
+            },
+            "top5_neighbor_jaccard": {
+              "count": 12768,
+              "max": 1.0,
+              "mean": 0.23416832010582012,
+              "median": 0.25,
+              "min": 0.0,
+              "p05": 0.0,
+              "p95": 0.6666666666666666
+            }
+          }
+        },
+        "90-98": {
+          "hungarian_aligned_auxiliary": {
+            "a_to_b_hyperedge_match": [
+              5,
+              6,
+              8,
+              4,
+              3,
+              2,
+              0,
+              7,
+              1
+            ],
+            "aligned_peak_edge_evidence_cosine": 0.8759542186732675,
+            "aligned_peak_edge_evidence_kendall_tau_b": -0.1111111111111111,
+            "aligned_top1_assignment_agreement": {
+              "count": 672,
+              "max": 0.47368421052631576,
+              "mean": 0.25070488721804507,
+              "median": 0.2631578947368421,
+              "min": 0.0,
+              "p05": 0.10526315789473684,
+              "p95": 0.3684210526315789
+            },
+            "aligned_top1_assignment_jaccard": {
+              "count": 672,
+              "max": 0.3103448275862069,
+              "mean": 0.14591885396533608,
+              "median": 0.15151515151515152,
+              "min": 0.0,
+              "p05": 0.05555555555555555,
+              "p95": 0.22580645161290322
+            },
+            "matched_incidence_column_cosine": {
+              "count": 9,
+              "max": 0.6265748234803489,
+              "mean": 0.33396042318921965,
+              "median": 0.32317435669238054,
+              "min": 0.07516995203249159,
+              "p05": 0.12566964091230226,
+              "p95": 0.5561928957466217
+            }
+          },
+          "permutation_invariant": {
+            "co_membership_cosine": {
+              "count": 672,
+              "max": 0.48119633319191246,
+              "mean": 0.2020545283580719,
+              "median": 0.1827800670659143,
+              "min": 0.06822299747353695,
+              "p05": 0.10827751868411285,
+              "p95": 0.3336798630063131
+            },
+            "co_membership_relative_frobenius": {
+              "count": 672,
+              "max": 1.3776087111628246,
+              "mean": 1.2721090679651725,
+              "median": 1.2885816031227393,
+              "min": 1.0243778093462277,
+              "p05": 1.1614077626915973,
+              "p95": 1.344245964292809
+            },
+            "neighbor_k": 5,
+            "top1_partition_ari": {
+              "count": 672,
+              "max": 0.30769230769230765,
+              "mean": 0.01457485564315477,
+              "median": 0.005326626775836611,
+              "min": -0.17706237424547286,
+              "p05": -0.10668758580113746,
+              "p95": 0.16225749559082892
+            },
+            "top1_partition_nmi": {
+              "count": 672,
+              "max": 0.7595627150149192,
+              "mean": 0.6034539681842209,
+              "median": 0.5994931308197814,
+              "min": 0.4455405162507436,
+              "p05": 0.5292726607871171,
+              "p95": 0.6862155304695
+            },
+            "top5_neighbor_jaccard": {
+              "count": 12768,
+              "max": 1.0,
+              "mean": 0.1990613314039066,
+              "median": 0.1111111111111111,
+              "min": 0.0,
+              "p05": 0.0,
+              "p95": 0.42857142857142855
+            }
+          }
+        }
+      },
+      "seed_runs": {
+        "87": {
+          "checkpoint": "checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0/checkpoint.pth",
+          "checkpoint_sha256": "5411446a370f19ca3cefaa5a9a34e5918aebd02c6818b7e877325533385deeae",
+          "event_incidence_npy_sha256": "b5f2c91b634268eb72151ace8f38d4337728edd3a876e73892b5027052bf4127",
+          "event_incidence_shape": [
+            672,
+            19,
+            9
+          ],
+          "peak_edge_evidence": [
+            23.76941448365034,
+            15.467831158339,
+            14.481432531644089,
+            30.910086182899022,
+            33.25159275464531,
+            17.73792870758733,
+            33.13315778233675,
+            2.3472169697619103,
+            33.0308747017546
+          ]
+        },
+        "90": {
+          "checkpoint": "checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v4hg_s90_0/checkpoint.pth",
+          "checkpoint_sha256": "f19c3abecb643cf0206ca850dd9f096d1c70a8d6c287f3a4056fbd935de584a4",
+          "event_incidence_npy_sha256": "8eab862463262f5a8833bd2933752cbf71b0cc7262a38df80371603aab734d8b",
+          "event_incidence_shape": [
+            672,
+            19,
+            9
+          ],
+          "peak_edge_evidence": [
+            24.031387586546398,
+            22.998574515010436,
+            38.4338461089003,
+            38.94692000689795,
+            24.653713941615138,
+            16.075732657205652,
+            26.21027243178676,
+            14.618147469600002,
+            9.662811301530693
+          ]
+        },
+        "98": {
+          "checkpoint": "checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v4hg_s98_0/checkpoint.pth",
+          "checkpoint_sha256": "58bba8fb386544eaa40e5e74e4dbdf83306eab2b496697a8c6ffb06a58c5f9ef",
+          "event_incidence_npy_sha256": "99f7cd4f5885b0dd73cfed92c1069914a7b80ad3cd95f9a5700c6c3732bf7066",
+          "event_incidence_shape": [
+            672,
+            19,
+            9
+          ],
+          "peak_edge_evidence": [
+            24.967618822198812,
+            24.542432919979905,
+            23.15589810932539,
+            14.434319128861057,
+            21.67399862115225,
+            14.234990065654122,
+            13.679048122505776,
+            24.254232900650365,
+            16.455182953184515
+          ]
+        }
+      }
+    }
+  },
+  "datasets_requested": [
+    "EXA"
+  ],
+  "definitions": {
+    "aligned_peak_edge_evidence": "cosine and Kendall tau-b between d vectors at the shared, seed-independent residual-evidence peak after matching",
+    "co_membership": "row-normalize H over hyperedges, form P=H H^T, exclude the diagonal, and compare upper triangles at each event point",
+    "hungarian_alignment": "one event-wide maximum-cosine matching between flattened hyperedge incidence columns for each seed pair",
+    "neighbor_jaccard": "Jaccard overlap of each variable's top-k neighbors induced by P",
+    "top1_partition_ari_nmi": "ARI and arithmetic-mean NMI between per-variable top-1 hyperedge partitions at each event point; invariant to labels"
+  },
+  "label_use": "frozen test labels locate the previously selected demonstration events only; no threshold, score, model, or metric is selected",
+  "neighbor_k_requested": 5,
+  "old_stability_preserved": {
+    "path": "analysis/v4hg_interpretability/stability.json",
+    "sha256": "143fcc29b816c63ce4f87e338cb8058a7603fc40077ff704381cc2ce6361a68c"
+  },
+  "protocol": "istad_interpretability_stage_c_v2_permutation_invariant",
+  "revision_reason": "Stage C v1 compared non-identifiable latent hyperedge IDs directly; v2 uses permutation-invariant induced relations and event-wide Hungarian alignment",
+  "seeds": [
+    87,
+    90,
+    98
+  ],
+  "source_sha256": {
+    "analysis/evaluate_v4hg_interpretability.py": "7b2311f80d7a25ccb7299a173abcf1031d2a785c7cc18db7162ba8dd07a72dba",
+    "analysis/v4hg_interpretability/PREREGISTERED_PROTOCOL.md": "a248c8f673bf86115938539c910593057ca251cfdd71668b806ff7e21d483450",
+    "analysis/v4hg_interpretability/stability.json": "143fcc29b816c63ce4f87e338cb8058a7603fc40077ff704381cc2ce6361a68c",
+    "code/ISTAD/data_provider/data_factory.py": "d163ef87f9bfe8d6606ddfb908d415f588578c05d8f96beb1c275362607f7914",
+    "code/ISTAD/data_provider/data_loader.py": "4facaac1eb3d20cea100b6cae0e56ee2ae04b1e58e6b448cbbedfd619d4e6704",
+    "code/ISTAD/models/ISTAD.py": "0504cd4cb9f82eca1738b4564060e08209847366fc3e32229be70fbbc5535fef",
+    "code/ISTAD/models/istad_layers/hypergraph_attention.py": "f931c1dadb14c97e98b7ebf0cde866d0d601308a590e57210f2df13430e79d0b",
+    "code/ISTAD/utils/innovation.py": "fc13b6fe5a96a0dc7a04ae61a46f3fb9098a7ea84178aeb057a09cc19b47674e"
+  },
+  "status": "COMPLETED"
+}

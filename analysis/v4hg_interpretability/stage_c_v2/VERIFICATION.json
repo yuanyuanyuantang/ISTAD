@@ -1,0 +1,25 @@
+{
+  "checkpoint_count": 12,
+  "dataset_count": 4,
+  "datasets": [
+    "EXA",
+    "PSM",
+    "SMD",
+    "SWAT"
+  ],
+  "frozen_source_checks": {
+    "analysis/evaluate_v4hg_interpretability.py": "PASS",
+    "analysis/v4hg_interpretability/PREREGISTERED_PROTOCOL.md": "PASS",
+    "analysis/v4hg_interpretability/stability.json": "PASS",
+    "code/ISTAD/data_provider/data_factory.py": "PASS",
+    "code/ISTAD/data_provider/data_loader.py": "PASS",
+    "code/ISTAD/models/ISTAD.py": "PASS",
+    "code/ISTAD/models/istad_layers/hypergraph_attention.py": "PASS",
+    "code/ISTAD/utils/innovation.py": "PASS"
+  },
+  "old_stability_preserved": true,
+  "pair_count": 12,
+  "protocol": "istad_interpretability_stage_c_v2_permutation_invariant",
+  "result_sha256": "683c6e0ade74a5e2790f7c86a2407e7383306dda71d569dd999b18fd37d81812",
+  "status": "PASS"
+}

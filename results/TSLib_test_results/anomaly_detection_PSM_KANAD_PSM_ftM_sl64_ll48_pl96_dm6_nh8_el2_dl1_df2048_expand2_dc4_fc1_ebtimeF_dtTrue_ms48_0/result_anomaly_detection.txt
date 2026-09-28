@@ -1,0 +1,12 @@
+anomaly_detection_PSM_KANAD_PSM_ftM_sl64_ll48_pl96_dm6_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_ms48_0  
+Accuracy : 0.9456, Precision : 0.9886, Recall : 0.8134, F-score : 0.8925 
+Average epoch training time: 5.2891s
+Total epoch training time: 68.7584s
+Finished epochs: 13
+
+Best F1 Threshold Method:
+Threshold: 0.023227
+F1: 0.9411, Precision: 0.9414, Recall: 0.9408
+TP: 1466411, TN: 3967814, FP: 91247, FN: 92320
+ROC-AUC: 0.6570, PR-AUC: 0.4375
+

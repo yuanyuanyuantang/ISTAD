@@ -1,0 +1,40 @@
+{
+  "status": "completed_four_dataset_single_seed_evaluation",
+  "seed": 87,
+  "architecture": "Causal Conv + HGAT-Lite(rank=16) + KAN-TCN + KANAD",
+  "score_mode": "innovation_fused",
+  "innovation_fusion_weight": 0.001,
+  "selection_warning": "This is a single-seed exploratory evaluation. The PSM artifact reuses the earlier identical seed-87 pilot run.",
+  "results": {
+    "EXA": {
+      "neural_model_score": {"roc_auc": 0.8741671897541644, "pr_auc": 0.6246034796957365, "train_p99_raw_f1": 0.3855932203389831, "best_raw_f1": 0.6576519775150027, "best_f1_point_adjusted": 0.9158358749853343},
+      "innovation_fused": {"roc_auc": 0.8276797881871745, "pr_auc": 0.42715437765503844, "train_p99_raw_f1": 0.12702985856469357, "train_p99_point_adjusted_f1": 0.9557535046728972, "pot_point_adjusted_f1": 0.9593254934529327, "best_f1_point_adjusted": 0.963155229509503}
+    },
+    "PSM": {
+      "neural_model_score": {"roc_auc": 0.7559739838423378, "pr_auc": 0.530338151935636, "train_p99_raw_f1": 0.3274003351142866, "best_raw_f1": 0.5537857452247763, "best_f1_point_adjusted": 0.9586212432021901},
+      "innovation_fused": {"roc_auc": 0.6551667632358311, "pr_auc": 0.4277999291687007, "train_p99_raw_f1": 0.06672932330827068, "train_p99_point_adjusted_f1": 0.9335291957399926, "pot_point_adjusted_f1": 0.969457557771654, "best_f1_point_adjusted": 0.9823639986168151}
+    },
+    "SMD": {
+      "neural_model_score": {"roc_auc": 0.7878253302877383, "pr_auc": 0.20476103879373747, "train_p99_raw_f1": 0.27718268051881007, "best_raw_f1": 0.2874067642003133, "best_f1_point_adjusted": 0.8231516231006224},
+      "innovation_fused": {"roc_auc": 0.6816214350234612, "pr_auc": 0.11822504769733258, "train_p99_raw_f1": 0.1247835387592951, "train_p99_point_adjusted_f1": 0.8477992145081288, "pot_point_adjusted_f1": 0.8487229426724496, "best_f1_point_adjusted": 0.885266946746958}
+    },
+    "SWAT": {
+      "neural_model_score": {"roc_auc": 0.8510885376469486, "pr_auc": 0.7326563584000224, "train_p99_raw_f1": 0.2832169640548229, "best_raw_f1": 0.7604787524353623, "best_f1_point_adjusted": 0.8616453174587915},
+      "innovation_fused": {"roc_auc": 0.8498530666568795, "pr_auc": 0.5324344769282024, "train_p99_raw_f1": 0.0877020515382508, "train_p99_point_adjusted_f1": 0.9383080570840603, "pot_point_adjusted_f1": 0.8201158943609557, "best_f1_point_adjusted": 0.952544098145928}
+    }
+  },
+  "macro_f1": {
+    "pot_point_adjusted": 0.899405472064498,
+    "best_f1_point_adjusted": 0.945832568254801
+  },
+  "comparison_to_formal_v4": {
+    "formal_v4_macro_pot_point_adjusted": 0.9022703904133884,
+    "delta_macro_pot_point_adjusted": -0.0028649183488904,
+    "formal_v4_macro_best_f1_point_adjusted": 0.9451071184450925,
+    "delta_macro_best_f1_point_adjusted": 0.0007254498097085,
+    "pot_point_adjusted_delta": {"EXA": 0.0, "PSM": -0.0002552818874132, "SMD": 0.0009429859150369, "SWAT": -0.012147377423185},
+    "best_f1_point_adjusted_delta": {"EXA": 0.0003561193049386, "PSM": 0.000120964023422, "SMD": 0.0023293682592777, "SWAT": 0.0000953476511958}
+  },
+  "decision": "do_not_replace_formal_v4",
+  "decision_reason": "Best-F1+PA improves slightly on all four datasets, but SWAT POT+PA falls below both formal V4 and the stored TimesNet baseline."
+}

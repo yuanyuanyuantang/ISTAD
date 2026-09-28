@@ -1,0 +1,269 @@
+{
+  "status": "development_screen_not_independent_confirmation",
+  "seed": 87,
+  "runs": {
+    "EXA": {
+      "result_dir": "code/ISTAD/test_results/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_hginnov_bs128_v10ibrk_s87_0",
+      "baseline": {
+        "ap": 0.4263482368820395,
+        "roc": 0.8275449788561685,
+        "pot_pa": 0.9593254934529327,
+        "best_pa": 0.9627991102045644
+      },
+      "candidate": {
+        "ap": 0.4548496709209344,
+        "roc": 0.8368945727684863,
+        "pot_pa": 0.9612307470549183,
+        "best_pa": 0.9635116123541226
+      },
+      "delta": {
+        "ap": 0.028501434038894935,
+        "roc": 0.009349593912317822,
+        "pot_pa": 0.0019052536019855681,
+        "best_pa": 0.0007125021495582029
+      },
+      "graph_ap": 0.5333831631502284,
+      "graph_roc": 0.8541063398204719,
+      "parameters": {
+        "baseline": 4771,
+        "candidate": 4835,
+        "added": 64
+      },
+      "spline_l2_norm": 0.1477869153022766,
+      "metadata": {
+        "component_calibration": "normal_train_ecdf",
+        "final_calibration": "normal_train_ecdf",
+        "fusion_strategy": "reliability_mix",
+        "message_gate": 0.26170533895492554,
+        "n_hyperedges": 9,
+        "pool": "sparse",
+        "relation_input": "signed_standardized_var_innovation",
+        "reliability_gate": {
+          "allowed_graph_tail_rate": 0.0125,
+          "base_threshold": 0.9903618439716313,
+          "base_validation_tail_rate": 0.008156028368794326,
+          "graph_threshold": 0.9903689361702128,
+          "graph_validation_tail_rate": 0.008156028368794326,
+          "inflation_limit": 1.25,
+          "kill_switch": false,
+          "max_weight": 0.2,
+          "method": "normal_tail_stability",
+          "reference_fraction": 0.8,
+          "reference_size": 56400,
+          "reliability": 0.9999999999999812,
+          "selected_weight": 0.19999999999999626,
+          "tail_probability": 0.01,
+          "validation_size": 14100
+        },
+        "reliability_mix_weight": 0.19999999999999626,
+        "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+        "selected_weight": 0.19999999999999626
+      },
+      "finite": true
+    },
+    "PSM": {
+      "result_dir": "code/ISTAD/test_results/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_hginnov_bs128_v10ibrk_s87_0",
+      "baseline": {
+        "ap": 0.42768295207121687,
+        "roc": 0.6551032527388935,
+        "pot_pa": 0.9697128396590672,
+        "best_pa": 0.9822430345933931
+      },
+      "candidate": {
+        "ap": 0.4288050979560385,
+        "roc": 0.6580215641660768,
+        "pot_pa": 0.966599749835022,
+        "best_pa": 0.9794256061112964
+      },
+      "delta": {
+        "ap": 0.0011221458848216237,
+        "roc": 0.002918311427183351,
+        "pot_pa": -0.0031130898240452343,
+        "best_pa": -0.002817428482096762
+      },
+      "graph_ap": 0.4093582514208093,
+      "graph_roc": 0.6488968772218708,
+      "parameters": {
+        "baseline": 7303,
+        "candidate": 7367,
+        "added": 64
+      },
+      "spline_l2_norm": 4.103806495666504,
+      "metadata": {
+        "component_calibration": "normal_train_ecdf",
+        "final_calibration": "normal_train_ecdf",
+        "fusion_strategy": "reliability_mix",
+        "message_gate": 0.4428219497203827,
+        "n_hyperedges": 12,
+        "pool": "sparse",
+        "relation_input": "signed_standardized_var_innovation",
+        "reliability_gate": {
+          "allowed_graph_tail_rate": 0.017101476624050573,
+          "base_threshold": 0.9892591334541063,
+          "base_validation_tail_rate": 0.01368118129924046,
+          "graph_threshold": 0.988801517210145,
+          "graph_validation_tail_rate": 0.01599282917393971,
+          "inflation_limit": 1.25,
+          "kill_switch": false,
+          "max_weight": 0.2,
+          "method": "normal_tail_stability",
+          "reference_fraction": 0.8,
+          "reference_size": 84787,
+          "reliability": 0.8554572271386311,
+          "selected_weight": 0.17109144542772625,
+          "tail_probability": 0.01,
+          "validation_size": 21197
+        },
+        "reliability_mix_weight": 0.17109144542772625,
+        "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+        "selected_weight": 0.17109144542772625
+      },
+      "finite": true
+    },
+    "SMD": {
+      "result_dir": "code/ISTAD/test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_innov_hglite_hginnov_bs128_v10ibrk_s87_0",
+      "baseline": {
+        "ap": 0.11717848019704843,
+        "roc": 0.6814710859035942,
+        "pot_pa": 0.8477799567574127,
+        "best_pa": 0.8829375784876803
+      },
+      "candidate": {
+        "ap": 0.12728248393951794,
+        "roc": 0.6896045053308263,
+        "pot_pa": 0.8404398941574773,
+        "best_pa": 0.8900558668398055
+      },
+      "delta": {
+        "ap": 0.010104003742469503,
+        "roc": 0.008133419427232114,
+        "pot_pa": -0.00734006259993536,
+        "best_pa": 0.007118288352125246
+      },
+      "graph_ap": 0.14947411171097078,
+      "graph_roc": 0.7123172337239,
+      "parameters": {
+        "baseline": 14522,
+        "candidate": 14586,
+        "added": 64
+      },
+      "spline_l2_norm": 1.2679529190063477,
+      "metadata": {
+        "component_calibration": "normal_train_ecdf",
+        "final_calibration": "normal_train_ecdf",
+        "fusion_strategy": "reliability_mix",
+        "message_gate": 0.30724063515663147,
+        "n_hyperedges": 19,
+        "pool": "sparse",
+        "relation_input": "signed_standardized_var_innovation",
+        "reliability_gate": {
+          "allowed_graph_tail_rate": 0.01659448470920983,
+          "base_threshold": 0.9893434287179215,
+          "base_validation_tail_rate": 0.013275587767367862,
+          "graph_threshold": 0.9893200702930527,
+          "graph_validation_tail_rate": 0.013399328265865299,
+          "inflation_limit": 1.25,
+          "kill_switch": false,
+          "max_weight": 0.2,
+          "method": "normal_tail_stability",
+          "reference_fraction": 0.8,
+          "reference_size": 452492,
+          "reliability": 0.9907651715039414,
+          "selected_weight": 0.1981530343007883,
+          "tail_probability": 0.01,
+          "validation_size": 113140
+        },
+        "reliability_mix_weight": 0.1981530343007883,
+        "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+        "selected_weight": 0.1981530343007883
+      },
+      "finite": true
+    },
+    "SWAT": {
+      "result_dir": "code/ISTAD/test_results/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_innov_hglite_hginnov_bs64_v10ibrk_s87_0",
+      "baseline": {
+        "ap": 0.5287901573756483,
+        "roc": 0.8500226172775898,
+        "pot_pa": 0.8322632717841407,
+        "best_pa": 0.9524487504947322
+      },
+      "candidate": {
+        "ap": 0.5644161491204657,
+        "roc": 0.8577166247162192,
+        "pot_pa": 0.8273481814266427,
+        "best_pa": 0.953618055275699
+      },
+      "delta": {
+        "ap": 0.0356259917448174,
+        "roc": 0.007694007438629469,
+        "pot_pa": -0.004915090357498042,
+        "best_pa": 0.0011693047809667734
+      },
+      "graph_ap": 0.578945017235035,
+      "graph_roc": 0.8578588511094742,
+      "parameters": {
+        "baseline": 44867,
+        "candidate": 44931,
+        "added": 64
+      },
+      "spline_l2_norm": 0.6108458638191223,
+      "metadata": {
+        "component_calibration": "normal_train_ecdf",
+        "final_calibration": "normal_train_ecdf",
+        "fusion_strategy": "reliability_mix",
+        "message_gate": 0.2900869846343994,
+        "n_hyperedges": 20,
+        "pool": "dense",
+        "relation_input": "signed_standardized_var_innovation",
+        "reliability_gate": {
+          "allowed_graph_tail_rate": 0.013652146464646464,
+          "base_threshold": 0.9898144191919193,
+          "base_validation_tail_rate": 0.010921717171717171,
+          "graph_threshold": 0.989946994949495,
+          "graph_validation_tail_rate": 0.010265151515151515,
+          "inflation_limit": 1.25,
+          "kill_switch": false,
+          "max_weight": 0.2,
+          "method": "normal_tail_stability",
+          "reference_fraction": 0.8,
+          "reference_size": 316800,
+          "reliability": 1.0,
+          "selected_weight": 0.2,
+          "tail_probability": 0.01,
+          "validation_size": 79200
+        },
+        "reliability_mix_weight": 0.2,
+        "role": "dynamic_hyperedge_pooling_of_v4_feature_innovations",
+        "selected_weight": 0.2
+      },
+      "finite": true
+    }
+  },
+  "macro": {
+    "baseline_ap": 0.3749999566314883,
+    "candidate_ap": 0.3938383504842391,
+    "delta_ap": 0.018838393852750823,
+    "baseline_roc": 0.7535354836940615,
+    "candidate_roc": 0.7605593167454021,
+    "delta_roc": 0.007023833051340578,
+    "baseline_pot_pa": 0.9022703904133883,
+    "candidate_pot_pa": 0.8989046431185151,
+    "delta_pot_pa": -0.003365747294873156,
+    "baseline_best_pa": 0.9451071184450924,
+    "candidate_best_pa": 0.9466527851452309,
+    "delta_best_pa": 0.0015456667001384483,
+    "graph_ap": 0.41779013587926084
+  },
+  "decision": {
+    "finite_artifacts_pass": true,
+    "innovation_input_pass": true,
+    "parameter_budget_pass": true,
+    "learned_spline_pass": true,
+    "macro_ap_pass": true,
+    "dataset_ap_pass": true,
+    "worst_ap_pass": true,
+    "pot_pa_macro_pass": false,
+    "best_pa_macro_pass": true,
+    "continue_to_three_seeds": false
+  }
+}

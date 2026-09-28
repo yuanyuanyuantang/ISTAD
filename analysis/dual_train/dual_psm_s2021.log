@@ -1,0 +1,244 @@
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          anomaly_detection   Is Training:        1                   
+  Model ID:           PSM                 Model:              ISTAD               
+  Seed:               2021                Itr:                1                   
+
+[1mData Loader[0m
+  Data:               PSM                 Root Path:          ./dataset/PSM       
+  Features:           M                   Seq Len:            64                  
+  Enc In:             25                  C Out:              25                  
+  Checkpoints:        ./checkpoints/      
+
+[1mAnomaly Detection Task[0m
+  Anomaly Ratio:      1.0                 
+
+[1mISTAD Parameters[0m
+  Kernel Size:        7                   Branch Mode:        hgat_kan_tcn        
+  TCN Type:           kan                 
+  Feat GAT Dim:       -1                  GRU Layers:         1                   
+  GRU Hidden:         150                 Recon Layers:       1                   
+  Recon Hidden:       150                 ISTAD Dropout:      0.3                 
+  Recon Type:         kanad               KANAD Order:        6                   
+  Leaky Alpha:        0.2                 H Init:             normal              
+  Hyperedges:         -1                  Top-K Nodes:        -1                  
+  KAN Grid:           10                  KAN Order:          3                   
+  Arch:               legacy              Ablation:           full                
+  Explainability:     1                   Explain Batches:    0                   
+  Explain Points:     20000               Explain TopK:       10                  
+  SmoothGrad:         0                   SG Samples:         20                  
+  SG Noise:           0.1                 Quad Mode:          quantile            
+  Quad Value:         0.75                Err Agg:            sum                 
+  Sal Agg:            sum                 
+
+[1mRun Parameters[0m
+  Num Workers:        4                   Batch Size:         64                  
+  Train Epochs:       3                   Patience:           5                   
+  Learning Rate:      0.01                Lradj:              type1               
+  Des:                PSM_g10_dual_s2021  
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+>>>>>>>start training : anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_kan_tcn_bs64_PSM_g10_dual_s2021_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+test: (87841, 25)
+train: (132481, 25)
+train 132418
+test: (87841, 25)
+train: (132481, 25)
+val 26434
+test: (87841, 25)
+train: (132481, 25)
+test 87778
+	iters: 100, epoch: 1 | loss: 0.4818700
+	speed: 0.0963s/iter; left time: 588.4208s
+	iters: 200, epoch: 1 | loss: 0.1661271
+	speed: 0.0709s/iter; left time: 426.1467s
+	iters: 300, epoch: 1 | loss: 0.1060326
+	speed: 0.0707s/iter; left time: 417.7714s
+	iters: 400, epoch: 1 | loss: 0.2266856
+	speed: 0.0709s/iter; left time: 411.7543s
+	iters: 500, epoch: 1 | loss: 0.1325556
+	speed: 0.0702s/iter; left time: 400.9398s
+	iters: 600, epoch: 1 | loss: 0.1733177
+	speed: 0.0700s/iter; left time: 392.9620s
+	iters: 700, epoch: 1 | loss: 0.1118313
+	speed: 0.0676s/iter; left time: 372.6661s
+	iters: 800, epoch: 1 | loss: 0.0686970
+	speed: 0.0677s/iter; left time: 366.5090s
+	iters: 900, epoch: 1 | loss: 0.0509081
+	speed: 0.0676s/iter; left time: 359.0650s
+	iters: 1000, epoch: 1 | loss: 0.0523705
+	speed: 0.0659s/iter; left time: 343.4939s
+	iters: 1100, epoch: 1 | loss: 0.0847414
+	speed: 0.0688s/iter; left time: 351.5805s
+	iters: 1200, epoch: 1 | loss: 0.0363566
+	speed: 0.0705s/iter; left time: 353.3965s
+	iters: 1300, epoch: 1 | loss: 0.1025680
+	speed: 0.0681s/iter; left time: 334.2319s
+	iters: 1400, epoch: 1 | loss: 0.0285329
+	speed: 0.0676s/iter; left time: 325.0564s
+	iters: 1500, epoch: 1 | loss: 0.0425495
+	speed: 0.0672s/iter; left time: 316.5769s
+	iters: 1600, epoch: 1 | loss: 0.0273796
+	speed: 0.0673s/iter; left time: 310.2877s
+	iters: 1700, epoch: 1 | loss: 0.0343193
+	speed: 0.0677s/iter; left time: 305.3003s
+	iters: 1800, epoch: 1 | loss: 0.0269162
+	speed: 0.0792s/iter; left time: 349.4634s
+	iters: 1900, epoch: 1 | loss: 0.0273019
+	speed: 0.0916s/iter; left time: 394.9493s
+	iters: 2000, epoch: 1 | loss: 0.0438553
+	speed: 0.0761s/iter; left time: 320.4164s
+Epoch: 1 cost time: 147.9226474761963
+Epoch: 1, Steps: 2070 | Train Loss: 0.1009616 Vali Loss: 0.4270308 Test Loss: 0.2929630
+Validation loss decreased (inf --> 0.427031).  Saving model ...
+Updating learning rate to 0.01
+	iters: 100, epoch: 2 | loss: 0.0451223
+	speed: 0.4882s/iter; left time: 1973.0137s
+	iters: 200, epoch: 2 | loss: 0.0204527
+	speed: 0.0659s/iter; left time: 259.7136s
+	iters: 300, epoch: 2 | loss: 0.0485152
+	speed: 0.0672s/iter; left time: 258.0828s
+	iters: 400, epoch: 2 | loss: 0.0545154
+	speed: 0.0669s/iter; left time: 250.1536s
+	iters: 500, epoch: 2 | loss: 0.0683198
+	speed: 0.0679s/iter; left time: 247.1047s
+	iters: 600, epoch: 2 | loss: 0.0297872
+	speed: 0.0672s/iter; left time: 237.7993s
+	iters: 700, epoch: 2 | loss: 0.0277983
+	speed: 0.0674s/iter; left time: 231.9428s
+	iters: 800, epoch: 2 | loss: 0.0168966
+	speed: 0.0681s/iter; left time: 227.5280s
+	iters: 900, epoch: 2 | loss: 0.0287800
+	speed: 0.0678s/iter; left time: 219.8645s
+	iters: 1000, epoch: 2 | loss: 0.0334273
+	speed: 0.0660s/iter; left time: 207.3750s
+	iters: 1100, epoch: 2 | loss: 0.0184038
+	speed: 0.0664s/iter; left time: 201.8108s
+	iters: 1200, epoch: 2 | loss: 0.0269976
+	speed: 0.0675s/iter; left time: 198.5243s
+	iters: 1300, epoch: 2 | loss: 0.0232390
+	speed: 0.0672s/iter; left time: 190.8044s
+	iters: 1400, epoch: 2 | loss: 0.0243410
+	speed: 0.0673s/iter; left time: 184.4452s
+	iters: 1500, epoch: 2 | loss: 0.0234052
+	speed: 0.0681s/iter; left time: 179.9147s
+	iters: 1600, epoch: 2 | loss: 0.0309895
+	speed: 0.0674s/iter; left time: 171.2097s
+	iters: 1700, epoch: 2 | loss: 0.0240279
+	speed: 0.0673s/iter; left time: 164.3375s
+	iters: 1800, epoch: 2 | loss: 0.0185021
+	speed: 0.0676s/iter; left time: 158.1949s
+	iters: 1900, epoch: 2 | loss: 0.0183708
+	speed: 0.0667s/iter; left time: 149.4711s
+	iters: 2000, epoch: 2 | loss: 0.0266462
+	speed: 0.0770s/iter; left time: 164.8529s
+Epoch: 2 cost time: 139.64636611938477
+Epoch: 2, Steps: 2070 | Train Loss: 0.0294215 Vali Loss: 0.0460487 Test Loss: 0.1520731
+Validation loss decreased (0.427031 --> 0.046049).  Saving model ...
+Updating learning rate to 0.005
+	iters: 100, epoch: 3 | loss: 0.0195257
+	speed: 0.4817s/iter; left time: 949.4063s
+	iters: 200, epoch: 3 | loss: 0.0262378
+	speed: 0.0673s/iter; left time: 125.8923s
+	iters: 300, epoch: 3 | loss: 0.0155704
+	speed: 0.0671s/iter; left time: 118.8396s
+	iters: 400, epoch: 3 | loss: 0.0170655
+	speed: 0.0783s/iter; left time: 130.9164s
+	iters: 500, epoch: 3 | loss: 0.0173933
+	speed: 0.0883s/iter; left time: 138.7659s
+	iters: 600, epoch: 3 | loss: 0.0161497
+	speed: 0.0927s/iter; left time: 136.3564s
+	iters: 700, epoch: 3 | loss: 0.0249065
+	speed: 0.0917s/iter; left time: 125.6988s
+	iters: 800, epoch: 3 | loss: 0.0235436
+	speed: 0.0828s/iter; left time: 105.2285s
+	iters: 900, epoch: 3 | loss: 0.0155876
+	speed: 0.0868s/iter; left time: 101.6063s
+	iters: 1000, epoch: 3 | loss: 0.0192049
+	speed: 0.0698s/iter; left time: 74.7309s
+	iters: 1100, epoch: 3 | loss: 0.0123885
+	speed: 0.0638s/iter; left time: 61.9099s
+	iters: 1200, epoch: 3 | loss: 0.0231014
+	speed: 0.0629s/iter; left time: 54.8025s
+	iters: 1300, epoch: 3 | loss: 0.0222668
+	speed: 0.0725s/iter; left time: 55.9174s
+	iters: 1400, epoch: 3 | loss: 0.0896427
+	speed: 0.0651s/iter; left time: 43.6717s
+	iters: 1500, epoch: 3 | loss: 0.0180999
+	speed: 0.0669s/iter; left time: 38.1759s
+	iters: 1600, epoch: 3 | loss: 0.0256016
+	speed: 0.0669s/iter; left time: 31.4933s
+	iters: 1700, epoch: 3 | loss: 0.0504330
+	speed: 0.0549s/iter; left time: 20.3681s
+	iters: 1800, epoch: 3 | loss: 0.0325373
+	speed: 0.0570s/iter; left time: 15.4505s
+	iters: 1900, epoch: 3 | loss: 0.0165454
+	speed: 0.0672s/iter; left time: 11.4892s
+	iters: 2000, epoch: 3 | loss: 0.0167913
+	speed: 0.0671s/iter; left time: 4.7633s
+Epoch: 3 cost time: 148.4620418548584
+Epoch: 3, Steps: 2070 | Train Loss: 0.0209217 Vali Loss: 0.0288698 Test Loss: 0.1599620
+Validation loss decreased (0.046049 --> 0.028870).  Saving model ...
+Updating learning rate to 0.0025
+>>>>>>>testing : anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_kan_tcn_bs64_PSM_g10_dual_s2021_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test: (87841, 25)
+train: (132481, 25)
+test 87778
+test: (87841, 25)
+train: (132481, 25)
+train 132418
+Percentile Threshold : 0.8460678619146349
+pred_raw: (5617792,)
+gt:      (5617792,)
+pred_pa: (5617792,)
+gt_pa:   (5617792,)
+
+============================================================
+使用百分位数阈值的结果:
+============================================================
+Accuracy : 0.9615, Precision : 0.9706, Recall : 0.8883, F-score : 0.9276 
+============================================================
+
+
+使用自适应 Best F1 搜索（两阶段）
+粗搜索步数: 200, 精细搜索步数: 500
+
+============================================================
+自适应 Best F1 阈值搜索（两阶段）
+============================================================
+
+分数统计信息:
+  最小值: 0.001172
+  最大值: 505.340820
+  均值: 0.151879
+  标准差: 0.576317
+  中位数: 0.034634
+  第1百分位: 0.005380
+  第99百分位: 0.915439
+
+自动确定的搜索范围: [0.002690, 1.830878]
+
+============================================================
+阶段 1: 粗搜索（步数: 200）
+============================================================
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [0.0027, 1.8309]
+搜索步数: 200
+使用点调整: True
+阈值: 0.0118 | F1: 0.4688 | Precision: 0.3062 | Recall: 0.9998
+阈值: 0.1946 | F1: 0.8019 | Precision: 0.6939 | Recall: 0.9497
+阈值: 0.3775 | F1: 0.8286 | Precision: 0.7411 | Recall: 0.9396
+阈值: 0.5603 | F1: 0.8791 | Precision: 0.8646 | Recall: 0.8941
+阈值: 0.7431 | F1: 0.9254 | Precision: 0.9629 | Recall: 0.8908
+阈值: 0.9259 | F1: 0.9359 | Precision: 0.9901 | Recall: 0.8874
+阈值: 1.1087 | F1: 0.9222 | Precision: 0.9994 | Recall: 0.8562
+Terminated

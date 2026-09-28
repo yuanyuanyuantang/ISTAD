@@ -1,0 +1,46 @@
+{
+  "status": "completed_preregistered_training_ecdf_candidate",
+  "seed": 87,
+  "architecture": "Causal Conv + HGAT-Lite(rank=16) + KAN-TCN + KANAD",
+  "score": "train_ecdf((1-0.001)*innovation_score + 0.001*model_score)",
+  "fit_scope": "normal training scores only",
+  "results": {
+    "EXA": {"roc_auc": 0.8276794056744403, "pr_auc": 0.4271860951842359, "pot_point_adjusted_f1": 0.9592550735409572, "best_f1_point_adjusted": 0.963083984574698},
+    "PSM": {"roc_auc": 0.6551667033791784, "pr_auc": 0.4277879072228749, "pot_point_adjusted_f1": 0.969457557771654, "best_f1_point_adjusted": 0.9824446578524745},
+    "SMD": {"roc_auc": 0.6816214263215318, "pr_auc": 0.11818181101372167, "pot_point_adjusted_f1": 0.8476667974102543, "best_f1_point_adjusted": 0.8851169634628039},
+    "SWAT": {"roc_auc": 0.8498637374741307, "pr_auc": 0.535511852466766, "pot_point_adjusted_f1": 0.8322721668847375, "best_f1_point_adjusted": 0.9523534219298225}
+  },
+  "macro_f1": {
+    "pot_point_adjusted": 0.9021628989019008,
+    "best_f1_point_adjusted": 0.9457497569549498
+  },
+  "comparison_to_stored_baselines": {
+    "pot_point_adjusted": {
+      "EXA": {"best_baseline": 0.9577, "delta": 0.0015550735409572, "above": true},
+      "PSM": {"best_baseline": 0.9672, "delta": 0.002257557771654, "above": true},
+      "SMD": {"best_baseline": 0.8194, "delta": 0.0282667974102543, "above": true},
+      "SWAT": {"best_baseline": 0.8215, "delta": 0.0107721668847375, "above": true}
+    },
+    "best_f1_point_adjusted": {
+      "EXA": {"best_baseline": 0.9612, "delta": 0.001883984574698, "above": true},
+      "PSM": {"best_baseline": 0.9732, "delta": 0.0092446578524745, "above": true},
+      "SMD": {"best_baseline": 0.8514, "delta": 0.0337169634628039, "above": true},
+      "SWAT": {"best_baseline": 0.9064, "delta": 0.0459534219298225, "above": true}
+    }
+  },
+  "comparison_to_formal_v4": {
+    "delta_macro_pot_point_adjusted": -0.0001074915114875,
+    "delta_macro_best_f1_point_adjusted": 0.0006426385098574,
+    "pot_point_adjusted_delta": {"EXA": -0.0000704199119755, "PSM": -0.0002552818874132, "SMD": -0.0001131593471584, "SWAT": 0.0000088951005968},
+    "best_f1_point_adjusted_delta": {"EXA": 0.0002848743701336, "PSM": 0.0002016232590814, "SMD": 0.0021793849751236, "SWAT": -0.0000953285649097}
+  },
+  "preregistered_gate": {
+    "pot_macro_not_lower_than_unrecalibrated_lite": true,
+    "no_dataset_pot_drop_greater_than_0.001": false,
+    "swat_pot_above_timesnet_0.8215": true,
+    "ranking_and_best_f1_preserved_up_to_ecdf_ties": true,
+    "reaches_formal_v4_pot_macro": false,
+    "passed_for_formal_replacement": false
+  },
+  "decision": "retain_as_baseline_sota_candidate_not_formal_replacement"
+}

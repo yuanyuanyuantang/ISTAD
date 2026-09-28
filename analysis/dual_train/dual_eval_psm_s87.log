@@ -1,0 +1,22 @@
+=== 单视角（联合模型） ===
+base gated               A=0.4933 C=0.8240 D=0.9141 ROC=0.7687 AP=0.5604 POT_th=0.09177
+revin mean               A=0.0568 C=0.9680 D=0.9732 ROC=0.5523 AP=0.3374 POT_th=0.06048
+revin gated              A=0.0503 C=0.9681 D=0.9718 ROC=0.5502 AP=0.3319 POT_th=0.04845
+
+=== 融合家族（z 化按各自 split） ===
+min_z(base,revin_mean)   A=0.1302 C=0.9665 D=0.9756 ROC=0.7627 AP=0.5128 POT_th=0.04387
+mean_z                   A=0.3309 C=0.9377 D=0.9482 ROC=0.7653 AP=0.5592 POT_th=0.7939
+wmean base*0.3           A=0.3532 C=0.9295 D=0.9697 ROC=0.7571 AP=0.5506 POT_th=0.416
+wmean base*0.5           A=0.3309 C=0.9377 D=0.9482 ROC=0.7653 AP=0.5592 POT_th=0.7939
+wmean base*0.7           A=0.3312 C=0.9173 D=0.9277 ROC=0.7680 AP=0.5608 POT_th=1.082
+min_z(base,revin_gated)  A=0.0623 C=0.9502 D=0.9690 ROC=0.7592 AP=0.5118 POT_th=0.713
+
+=== 对照：同种子分开训练 ===
+[sep] base gated         A=0.4664 C=0.8817 D=0.9303 ROC=0.7892 AP=0.6089 POT_th=0.1112
+[sep] revin mean         A=0.1081 C=0.9662 D=0.9803 ROC=0.5666 AP=0.3430 POT_th=0.03325
+[sep] min_z              A=0.1231 C=0.9622 D=0.9719 ROC=0.7759 AP=0.5133 POT_th=0.004144
+
+=== kill-switch 判定 ===
+联合模型 revin 单视角 ROC = 0.5523（分开训练 ~0.55）
+满足 ROC≥0.72 的最优融合: min_z(base,revin_mean) D=0.9756 ROC=0.7627
+>>> PASS：追平/超 TimesNet D 0.9732，扩展到全种子

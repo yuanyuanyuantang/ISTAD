@@ -1,0 +1,272 @@
+{
+  "explain_batches_used": 1372,
+  "points_used": 87778,
+  "topk": 10,
+  "use_smoothgrad": false,
+  "smoothgrad_samples": 20,
+  "smoothgrad_noise": 0.1,
+  "quadrant_threshold_mode": "quantile",
+  "quadrant_threshold_value": 0.75,
+  "quadrant_error_threshold": 0.009696961380541325,
+  "quadrant_saliency_threshold": 0.07711867243051529,
+  "quadrant_feature_counts": {
+    "q1": 3,
+    "q2": 3,
+    "q3": 3,
+    "q4": 16
+  },
+  "error_aggregation": "sum",
+  "saliency_aggregation": "sum",
+  "overall_top_saliency_features": [
+    {
+      "feature": 3,
+      "value": 0.3270973861217499
+    },
+    {
+      "feature": 1,
+      "value": 0.1605600267648697
+    },
+    {
+      "feature": 4,
+      "value": 0.08518915623426437
+    },
+    {
+      "feature": 13,
+      "value": 0.08262120187282562
+    },
+    {
+      "feature": 23,
+      "value": 0.08226078003644943
+    },
+    {
+      "feature": 12,
+      "value": 0.08171693235635757
+    },
+    {
+      "feature": 10,
+      "value": 0.07711867243051529
+    },
+    {
+      "feature": 14,
+      "value": 0.07177375257015228
+    },
+    {
+      "feature": 5,
+      "value": 0.06841299682855606
+    },
+    {
+      "feature": 8,
+      "value": 0.06169911101460457
+    }
+  ],
+  "overall_top_error_features": [
+    {
+      "feature": 20,
+      "value": 0.02390950731933117
+    },
+    {
+      "feature": 3,
+      "value": 0.020034510642290115
+    },
+    {
+      "feature": 6,
+      "value": 0.019354835152626038
+    },
+    {
+      "feature": 12,
+      "value": 0.015347153879702091
+    },
+    {
+      "feature": 13,
+      "value": 0.014743366278707981
+    },
+    {
+      "feature": 24,
+      "value": 0.010348635725677013
+    },
+    {
+      "feature": 15,
+      "value": 0.009696961380541325
+    },
+    {
+      "feature": 14,
+      "value": 0.008998757228255272
+    },
+    {
+      "feature": 21,
+      "value": 0.00778898736461997
+    },
+    {
+      "feature": 10,
+      "value": 0.0059793563559651375
+    }
+  ],
+  "pred_anomaly_top_saliency_features": [
+    {
+      "feature": 3,
+      "value": 0.7653696537017822
+    },
+    {
+      "feature": 1,
+      "value": 0.25644785165786743
+    },
+    {
+      "feature": 10,
+      "value": 0.2428506761789322
+    },
+    {
+      "feature": 13,
+      "value": 0.23601765930652618
+    },
+    {
+      "feature": 12,
+      "value": 0.23586377501487732
+    },
+    {
+      "feature": 14,
+      "value": 0.2235250174999237
+    },
+    {
+      "feature": 6,
+      "value": 0.22093620896339417
+    },
+    {
+      "feature": 23,
+      "value": 0.1857394576072693
+    },
+    {
+      "feature": 4,
+      "value": 0.1705777496099472
+    },
+    {
+      "feature": 2,
+      "value": 0.16382551193237305
+    }
+  ],
+  "pred_anomaly_top_error_features": [
+    {
+      "feature": 20,
+      "value": 0.3824470043182373
+    },
+    {
+      "feature": 13,
+      "value": 0.15683715045452118
+    },
+    {
+      "feature": 12,
+      "value": 0.14955559372901917
+    },
+    {
+      "feature": 21,
+      "value": 0.11644161492586136
+    },
+    {
+      "feature": 6,
+      "value": 0.11106079071760178
+    },
+    {
+      "feature": 3,
+      "value": 0.10211222618818283
+    },
+    {
+      "feature": 14,
+      "value": 0.0721210315823555
+    },
+    {
+      "feature": 24,
+      "value": 0.0679408609867096
+    },
+    {
+      "feature": 15,
+      "value": 0.05195183679461479
+    },
+    {
+      "feature": 10,
+      "value": 0.04203208535909653
+    }
+  ],
+  "gt_anomaly_top_saliency_features": [
+    {
+      "feature": 3,
+      "value": 0.35727426409721375
+    },
+    {
+      "feature": 1,
+      "value": 0.20702674984931946
+    },
+    {
+      "feature": 13,
+      "value": 0.12860679626464844
+    },
+    {
+      "feature": 23,
+      "value": 0.1252932995557785
+    },
+    {
+      "feature": 12,
+      "value": 0.12252043932676315
+    },
+    {
+      "feature": 10,
+      "value": 0.11072023212909698
+    },
+    {
+      "feature": 14,
+      "value": 0.10801073163747787
+    },
+    {
+      "feature": 4,
+      "value": 0.10693278908729553
+    },
+    {
+      "feature": 5,
+      "value": 0.0895891934633255
+    },
+    {
+      "feature": 2,
+      "value": 0.08153695613145828
+    }
+  ],
+  "gt_anomaly_top_error_features": [
+    {
+      "feature": 20,
+      "value": 0.06461148709058762
+    },
+    {
+      "feature": 3,
+      "value": 0.03586464002728462
+    },
+    {
+      "feature": 6,
+      "value": 0.03520568832755089
+    },
+    {
+      "feature": 13,
+      "value": 0.03018064610660076
+    },
+    {
+      "feature": 12,
+      "value": 0.027896052226424217
+    },
+    {
+      "feature": 21,
+      "value": 0.02188037894666195
+    },
+    {
+      "feature": 24,
+      "value": 0.020245227962732315
+    },
+    {
+      "feature": 15,
+      "value": 0.020124897360801697
+    },
+    {
+      "feature": 14,
+      "value": 0.015779277309775352
+    },
+    {
+      "feature": 10,
+      "value": 0.012710252776741982
+    }
+  ]
+}

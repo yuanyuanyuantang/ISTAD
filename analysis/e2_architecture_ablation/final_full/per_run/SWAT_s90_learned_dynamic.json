@@ -1,0 +1,63 @@
+{
+  "setting": "anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s90_0",
+  "score_artifact": {
+    "path": "/data/modeluse/TS/ISTAD-release/analysis/e2_architecture_ablation/runtime/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s90_0/point_scores.npz",
+    "sha256": "4a3232f6d104f6396032854a8e67d3a78ebc932fe6a8278f706ae24258f004ba",
+    "bytes": 6018048,
+    "stored_dtypes": {
+      "score": "float64",
+      "train_score": "float64",
+      "label": "int8",
+      "model_score": "float32",
+      "train_model_score": "float32"
+    }
+  },
+  "checkpoint": {
+    "path": "/data/modeluse/TS/ISTAD-release/checkpoints/ISTAD_e2_architecture_ablation/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_hglite_bs64_e2_learned_dynamic_s90_0/checkpoint.pth",
+    "sha256": "6588026229a72e17483c6eb54f57033b8049d142c6f73b4a2e92bffcd6f22ffc",
+    "bytes": 186274
+  },
+  "n_train": 396000,
+  "n_test": 449856,
+  "anomaly_rate": 0.12141885403329065,
+  "roc_auc": 0.8232417751685275,
+  "average_precision": 0.7175952818676704,
+  "train_threshold": {
+    "percentile": 99.0,
+    "value": 1.8755567777156852,
+    "point": {
+      "precision": 0.17512407731250645,
+      "recall": 0.837864557587741,
+      "f1": 0.28969773698369994,
+      "predicted_positive": 261329
+    },
+    "event": {
+      "event_precision": 0.18181818181818182,
+      "event_recall": 0.7142857142857143,
+      "event_f1": 0.2898550724637682,
+      "true_events": 35,
+      "predicted_events": 341,
+      "detected_events": 25,
+      "correct_predicted_events": 62,
+      "mean_detection_delay": 78.16,
+      "mean_normalized_detection_delay": 0.09900351215018638
+    }
+  },
+  "best_raw": {
+    "precision": 0.9872812633376014,
+    "recall": 0.6352501785027737,
+    "f1": 0.7730766659982622,
+    "threshold": 9.14811038970947,
+    "selection": "exact_test_label_oracle_no_point_adjustment"
+  },
+  "train_time": {
+    "avg_epoch_train_time": 3.8979748010635378,
+    "unit": "seconds"
+  },
+  "score_statistics": {
+    "train_mean": 0.09890828949010595,
+    "train_std": 0.40466062161624344,
+    "test_mean": 3.4123639791515763,
+    "test_std": 3.603250736740245
+  }
+}

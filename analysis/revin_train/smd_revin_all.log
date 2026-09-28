@@ -1,0 +1,1057 @@
++ export PATH=/data/zenghaoyang/miniconda3/envs/tranad/bin:/home/zenghaoyang/.local/bin:/home/zenghaoyang/.local/bin:/home/zenghaoyang/miniconda3/envs/gat/bin:/home/zenghaoyang/.vscode-server/cli/servers/Stable-6a49527b96e326fe62fbdb56f60e16877c9aa724/server/bin/remote-cli:/home/zenghaoyang/.local/bin:/home/zenghaoyang/.local/bin:/home/zenghaoyang/.nvm/versions/node/v20.20.2/bin:/home/zenghaoyang/miniconda3/envs/gat/bin:/home/zenghaoyang/.local/bin:/data/zenghaoyang/miniconda3/bin:/data/zenghaoyang/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/ffmpeg/bin:/home/zenghaoyang/hadoop/hadoop-3.3.6/bin:/home/zenghaoyang/hadoop/hadoop-3.3.6/sbin:/home/zenghaoyang/hadoop/hadoop-3.3.6/bin:/home/zenghaoyang/hadoop/hadoop-3.3.6/sbin:/home/zenghaoyang/miniconda3/envs/gat/bin:/usr/local/ffmpeg/bin:/home/zenghaoyang/hadoop/hadoop-3.3.6/bin:/home/zenghaoyang/hadoop/hadoop-3.3.6/sbin:/home/zenghaoyang/hadoop/hadoop-3.3.6/bin:/home/zenghaoyang/hadoop/hadoop-3.3.6/sbin:/home/zenghaoyang/miniconda3/envs/gat/bin
++ PATH=/data/zenghaoyang/miniconda3/envs/tranad/bin:/home/zenghaoyang/.local/bin:/home/zenghaoyang/.local/bin:/home/zenghaoyang/miniconda3/envs/gat/bin:/home/zenghaoyang/.vscode-server/cli/servers/Stable-6a49527b96e326fe62fbdb56f60e16877c9aa724/server/bin/remote-cli:/home/zenghaoyang/.local/bin:/home/zenghaoyang/.local/bin:/home/zenghaoyang/.nvm/versions/node/v20.20.2/bin:/home/zenghaoyang/miniconda3/envs/gat/bin:/home/zenghaoyang/.local/bin:/data/zenghaoyang/miniconda3/bin:/data/zenghaoyang/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/ffmpeg/bin:/home/zenghaoyang/hadoop/hadoop-3.3.6/bin:/home/zenghaoyang/hadoop/hadoop-3.3.6/sbin:/home/zenghaoyang/hadoop/hadoop-3.3.6/bin:/home/zenghaoyang/hadoop/hadoop-3.3.6/sbin:/home/zenghaoyang/miniconda3/envs/gat/bin:/usr/local/ffmpeg/bin:/home/zenghaoyang/hadoop/hadoop-3.3.6/bin:/home/zenghaoyang/hadoop/hadoop-3.3.6/sbin:/home/zenghaoyang/hadoop/hadoop-3.3.6/bin:/home/zenghaoyang/hadoop/hadoop-3.3.6/sbin:/home/zenghaoyang/miniconda3/envs/gat/bin
++ cd /data/modeluse/TS/ISTAD
++ for s in 48 2021 2022 2025
+++ date
++ echo '===== SMD revin seed 48 start Wed Sep  2 01:27:14 PM CST 2026 ====='
+===== SMD revin seed 48 start Wed Sep  2 01:27:14 PM CST 2026 =====
++ bash scripts/anomaly_detection/SMD/ISTAD_revin_s48.sh
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          anomaly_detection   Is Training:        1                   
+  Model ID:           SMD                 Model:              ISTAD               
+  Seed:               48                  Itr:                1                   
+
+[1mData Loader[0m
+  Data:               SMD                 Root Path:          ./dataset/SMD       
+  Features:           M                   Seq Len:            96                  
+  Enc In:             38                  C Out:              38                  
+  Checkpoints:        ./checkpoints/      
+
+[1mAnomaly Detection Task[0m
+  Anomaly Ratio:      1.0                 
+
+[1mISTAD Parameters[0m
+  Kernel Size:        7                   Branch Mode:        hgat_kan_tcn        
+  TCN Type:           kan                 
+  Feat GAT Dim:       -1                  GRU Layers:         1                   
+  GRU Hidden:         150                 Recon Layers:       1                   
+  Recon Hidden:       150                 ISTAD Dropout:      0.2                 
+  Recon Type:         kanad               KANAD Order:        4                   
+  Leaky Alpha:        0.2                 H Init:             normal              
+  Hyperedges:         -1                  Top-K Nodes:        -1                  
+  KAN Grid:           10                  KAN Order:          3                   
+  Arch:               legacy              Ablation:           full                
+  Explainability:     1                   Explain Batches:    0                   
+  Explain Points:     20000               Explain TopK:       10                  
+  SmoothGrad:         0                   SG Samples:         20                  
+  SG Noise:           0.1                 Quad Mode:          quantile            
+  Quad Value:         0.75                Err Agg:            sum                 
+  Sal Agg:            sum                 
+
+[1mRun Parameters[0m
+  Num Workers:        4                   Batch Size:         64                  
+  Train Epochs:       100                 Patience:           5                   
+  Learning Rate:      0.01                Lradj:              type1               
+  Des:                SMD_revin_s48       
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+>>>>>>>start training : anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s48_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+test: (708420, 38)
+train: (708405, 38)
+train 7456
+test: (708420, 38)
+train: (708405, 38)
+val 1491
+test: (708420, 38)
+train: (708405, 38)
+test 7457
+	iters: 100, epoch: 1 | loss: 1.0515667
+	speed: 0.1161s/iter; left time: 1346.5712s
+Epoch: 1 cost time: 8.945335149765015
+Epoch: 1, Steps: 117 | Train Loss: 0.2713012 Vali Loss: 0.1824340 Test Loss: 0.9181730
+Validation loss decreased (inf --> 0.182434).  Saving model ...
+Updating learning rate to 0.01
+	iters: 100, epoch: 2 | loss: 0.2362223
+	speed: 0.0988s/iter; left time: 1134.2923s
+Epoch: 2 cost time: 6.644205808639526
+Epoch: 2, Steps: 117 | Train Loss: 0.2412346 Vali Loss: 0.1756039 Test Loss: 0.8782051
+Validation loss decreased (0.182434 --> 0.175604).  Saving model ...
+Updating learning rate to 0.005
+	iters: 100, epoch: 3 | loss: 0.9647617
+	speed: 0.1009s/iter; left time: 1146.3865s
+Epoch: 3 cost time: 6.735550880432129
+Epoch: 3, Steps: 117 | Train Loss: 0.2282605 Vali Loss: 0.1673042 Test Loss: 0.8615781
+Validation loss decreased (0.175604 --> 0.167304).  Saving model ...
+Updating learning rate to 0.0025
+	iters: 100, epoch: 4 | loss: 0.1339753
+	speed: 0.1008s/iter; left time: 1133.5262s
+Epoch: 4 cost time: 6.892389535903931
+Epoch: 4, Steps: 117 | Train Loss: 0.2187277 Vali Loss: 0.1587676 Test Loss: 0.8509787
+Validation loss decreased (0.167304 --> 0.158768).  Saving model ...
+Updating learning rate to 0.00125
+	iters: 100, epoch: 5 | loss: 0.1055162
+	speed: 0.1025s/iter; left time: 1141.4059s
+Epoch: 5 cost time: 7.023477792739868
+Epoch: 5, Steps: 117 | Train Loss: 0.2120828 Vali Loss: 0.1554949 Test Loss: 0.8450925
+Validation loss decreased (0.158768 --> 0.155495).  Saving model ...
+Updating learning rate to 0.000625
+	iters: 100, epoch: 6 | loss: 0.0933218
+	speed: 0.1012s/iter; left time: 1115.3520s
+Epoch: 6 cost time: 6.853055477142334
+Epoch: 6, Steps: 117 | Train Loss: 0.2085566 Vali Loss: 0.1523150 Test Loss: 0.8435135
+Validation loss decreased (0.155495 --> 0.152315).  Saving model ...
+Updating learning rate to 0.0003125
+	iters: 100, epoch: 7 | loss: 0.1264442
+	speed: 0.1015s/iter; left time: 1106.7583s
+Epoch: 7 cost time: 6.868857145309448
+Epoch: 7, Steps: 117 | Train Loss: 0.2068315 Vali Loss: 0.1500835 Test Loss: 0.8427209
+Validation loss decreased (0.152315 --> 0.150084).  Saving model ...
+Updating learning rate to 0.00015625
+	iters: 100, epoch: 8 | loss: 0.1235236
+	speed: 0.1029s/iter; left time: 1109.3778s
+Epoch: 8 cost time: 6.852745056152344
+Epoch: 8, Steps: 117 | Train Loss: 0.2061459 Vali Loss: 0.1493171 Test Loss: 0.8429700
+Validation loss decreased (0.150084 --> 0.149317).  Saving model ...
+Updating learning rate to 7.8125e-05
+	iters: 100, epoch: 9 | loss: 0.0849899
+	speed: 0.1011s/iter; left time: 1078.0252s
+Epoch: 9 cost time: 6.93051815032959
+Epoch: 9, Steps: 117 | Train Loss: 0.2057260 Vali Loss: 0.1504721 Test Loss: 0.8428858
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-05
+	iters: 100, epoch: 10 | loss: 0.1041237
+	speed: 0.0994s/iter; left time: 1048.1664s
+Epoch: 10 cost time: 6.683745384216309
+Epoch: 10, Steps: 117 | Train Loss: 0.2052712 Vali Loss: 0.1498512 Test Loss: 0.8427306
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-05
+	iters: 100, epoch: 11 | loss: 0.1435622
+	speed: 0.0986s/iter; left time: 1028.6729s
+Epoch: 11 cost time: 6.605300188064575
+Epoch: 11, Steps: 117 | Train Loss: 0.2050600 Vali Loss: 0.1487575 Test Loss: 0.8428149
+Validation loss decreased (0.149317 --> 0.148758).  Saving model ...
+Updating learning rate to 9.765625e-06
+	iters: 100, epoch: 12 | loss: 0.1297773
+	speed: 0.0960s/iter; left time: 989.7037s
+Epoch: 12 cost time: 6.333524942398071
+Epoch: 12, Steps: 117 | Train Loss: 0.2052677 Vali Loss: 0.1503634 Test Loss: 0.8425579
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-06
+	iters: 100, epoch: 13 | loss: 0.1381645
+	speed: 0.1015s/iter; left time: 1035.4152s
+Epoch: 13 cost time: 6.760227918624878
+Epoch: 13, Steps: 117 | Train Loss: 0.2051379 Vali Loss: 0.1500768 Test Loss: 0.8427467
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.44140625e-06
+	iters: 100, epoch: 14 | loss: 0.1111640
+	speed: 0.1026s/iter; left time: 1034.2021s
+Epoch: 14 cost time: 6.916996002197266
+Epoch: 14, Steps: 117 | Train Loss: 0.2053402 Vali Loss: 0.1495821 Test Loss: 0.8427729
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.220703125e-06
+	iters: 100, epoch: 15 | loss: 0.1362845
+	speed: 0.0982s/iter; left time: 978.6064s
+Epoch: 15 cost time: 6.665279150009155
+Epoch: 15, Steps: 117 | Train Loss: 0.2053815 Vali Loss: 0.1480222 Test Loss: 0.8428909
+Validation loss decreased (0.148758 --> 0.148022).  Saving model ...
+Updating learning rate to 6.103515625e-07
+	iters: 100, epoch: 16 | loss: 0.1006212
+	speed: 0.0992s/iter; left time: 976.9103s
+Epoch: 16 cost time: 6.75639796257019
+Epoch: 16, Steps: 117 | Train Loss: 0.2047531 Vali Loss: 0.1496432 Test Loss: 0.8424940
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.0517578125e-07
+	iters: 100, epoch: 17 | loss: 0.1201270
+	speed: 0.1002s/iter; left time: 975.2825s
+Epoch: 17 cost time: 6.798343896865845
+Epoch: 17, Steps: 117 | Train Loss: 0.2049661 Vali Loss: 0.1496474 Test Loss: 0.8431206
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.52587890625e-07
+	iters: 100, epoch: 18 | loss: 0.1094932
+	speed: 0.1001s/iter; left time: 962.5605s
+Epoch: 18 cost time: 6.6676201820373535
+Epoch: 18, Steps: 117 | Train Loss: 0.2051524 Vali Loss: 0.1491806 Test Loss: 0.8429129
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.62939453125e-08
+	iters: 100, epoch: 19 | loss: 0.1600953
+	speed: 0.1020s/iter; left time: 968.3724s
+Epoch: 19 cost time: 7.01857590675354
+Epoch: 19, Steps: 117 | Train Loss: 0.2055574 Vali Loss: 0.1492200 Test Loss: 0.8426619
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.814697265625e-08
+	iters: 100, epoch: 20 | loss: 0.1151113
+	speed: 0.1008s/iter; left time: 945.2876s
+Epoch: 20 cost time: 6.8909032344818115
+Epoch: 20, Steps: 117 | Train Loss: 0.2050927 Vali Loss: 0.1489075 Test Loss: 0.8429043
+EarlyStopping counter: 5 out of 5
+Early stopping
+>>>>>>>testing : anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s48_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test: (708420, 38)
+train: (708405, 38)
+test 7457
+test: (708420, 38)
+train: (708405, 38)
+train 7456
+Percentile Threshold : 2.299201
+pred_raw: (715872,)
+gt:      (715872,)
+pred_pa: (715872,)
+gt_pa:   (715872,)
+
+============================================================
+使用百分位数阈值的结果:
+============================================================
+Accuracy : 0.9826, Precision : 0.7563, Recall : 0.8561, F-score : 0.8031 
+============================================================
+
+
+使用自适应 Best F1 搜索（两阶段）
+粗搜索步数: 200, 精细搜索步数: 500
+
+============================================================
+自适应 Best F1 阈值搜索（两阶段）
+============================================================
+
+分数统计信息:
+  最小值: 0.000026
+  最大值: 15904.973633
+  均值: 0.844656
+  标准差: 70.450157
+  中位数: 0.029331
+  第1百分位: 0.000990
+  第99百分位: 3.168457
+
+自动确定的搜索范围: [0.000495, 6.336913]
+
+============================================================
+阶段 1: 粗搜索（步数: 200）
+============================================================
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [0.0005, 6.3369]
+搜索步数: 200
+使用点调整: True
+阈值: 0.0322 | F1: 0.1578 | Precision: 0.0856 | Recall: 0.9997
+阈值: 0.6658 | F1: 0.6774 | Precision: 0.5158 | Recall: 0.9865
+阈值: 1.2995 | F1: 0.7356 | Precision: 0.6195 | Recall: 0.9052
+阈值: 1.9331 | F1: 0.7878 | Precision: 0.7217 | Recall: 0.8672
+阈值: 2.5667 | F1: 0.8038 | Precision: 0.7755 | Recall: 0.8343
+阈值: 3.2004 | F1: 0.8287 | Precision: 0.8301 | Recall: 0.8272
+阈值: 3.8340 | F1: 0.8304 | Precision: 0.8650 | Recall: 0.7985
+阈值: 4.4677 | F1: 0.8284 | Precision: 0.8889 | Recall: 0.7756
+阈值: 5.1013 | F1: 0.8179 | Precision: 0.9048 | Recall: 0.7463
+阈值: 5.7350 | F1: 0.8201 | Precision: 0.9213 | Recall: 0.7390
+
+============================================================
+✓ 找到最佳阈值: 3.929074
+  最佳 F1: 0.8318
+  Precision: 0.8689
+  Recall: 0.7978
+============================================================
+
+
+============================================================
+阶段 2: 精细搜索（步数: 500）
+============================================================
+在最佳阈值 3.929074 附近精细搜索
+精细搜索范围: [3.295432, 4.562716]
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [3.2954, 4.5627]
+搜索步数: 500
+使用点调整: True
+阈值: 3.2980 | F1: 0.8225 | Precision: 0.8352 | Recall: 0.8103
+阈值: 3.4247 | F1: 0.8260 | Precision: 0.8444 | Recall: 0.8085
+阈值: 3.5514 | F1: 0.8285 | Precision: 0.8516 | Recall: 0.8066
+阈值: 3.6782 | F1: 0.8291 | Precision: 0.8578 | Recall: 0.8023
+阈值: 3.8049 | F1: 0.8299 | Precision: 0.8637 | Recall: 0.7986
+阈值: 3.9316 | F1: 0.8319 | Precision: 0.8691 | Recall: 0.7978
+阈值: 4.0583 | F1: 0.8296 | Precision: 0.8739 | Recall: 0.7895
+阈值: 4.1851 | F1: 0.8236 | Precision: 0.8770 | Recall: 0.7763
+阈值: 4.3118 | F1: 0.8258 | Precision: 0.8823 | Recall: 0.7762
+阈值: 4.4385 | F1: 0.8279 | Precision: 0.8876 | Recall: 0.7756
+
+============================================================
+✓ 找到最佳阈值: 3.936678
+  最佳 F1: 0.8321
+  Precision: 0.8695
+  Recall: 0.7978
+============================================================
+
+
+✓ 精细搜索找到更好的阈值！
+
+============================================================
+自适应搜索完成！
+============================================================
+最终最佳阈值: 3.936678
+最佳 F1: 0.8321
+Precision: 0.8695
+Recall: 0.7978
+============================================================
+
+Saved Best F1 results: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s48_0/bestf1_threshold_results.json
+Saved anomaly score plot: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s48_0/anomaly_score_threshold.png
+Running ISTAD explainability analysis...
+Saved ISTAD saliency heatmap: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s48_0/istad_saliency_heatmap.png
+Saved ISTAD feature localization time-series: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s48_0/feature_localization_timeseries.csv
+Saved ISTAD explainability summary: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s48_0/istad_explainability_summary.json
+Saved ISTAD segment localization summary: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s48_0/segment_localization_summary.json
+Saved train time summary: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s48_0/train_time_summary.json
+++ date
++ echo '===== SMD revin seed 48 done Wed Sep  2 01:33:44 PM CST 2026 exit=0 ====='
+===== SMD revin seed 48 done Wed Sep  2 01:33:44 PM CST 2026 exit=0 =====
++ for s in 48 2021 2022 2025
+++ date
++ echo '===== SMD revin seed 2021 start Wed Sep  2 01:33:44 PM CST 2026 ====='
+===== SMD revin seed 2021 start Wed Sep  2 01:33:44 PM CST 2026 =====
++ bash scripts/anomaly_detection/SMD/ISTAD_revin_s2021.sh
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          anomaly_detection   Is Training:        1                   
+  Model ID:           SMD                 Model:              ISTAD               
+  Seed:               2021                Itr:                1                   
+
+[1mData Loader[0m
+  Data:               SMD                 Root Path:          ./dataset/SMD       
+  Features:           M                   Seq Len:            96                  
+  Enc In:             38                  C Out:              38                  
+  Checkpoints:        ./checkpoints/      
+
+[1mAnomaly Detection Task[0m
+  Anomaly Ratio:      1.0                 
+
+[1mISTAD Parameters[0m
+  Kernel Size:        7                   Branch Mode:        hgat_kan_tcn        
+  TCN Type:           kan                 
+  Feat GAT Dim:       -1                  GRU Layers:         1                   
+  GRU Hidden:         150                 Recon Layers:       1                   
+  Recon Hidden:       150                 ISTAD Dropout:      0.2                 
+  Recon Type:         kanad               KANAD Order:        4                   
+  Leaky Alpha:        0.2                 H Init:             normal              
+  Hyperedges:         -1                  Top-K Nodes:        -1                  
+  KAN Grid:           10                  KAN Order:          3                   
+  Arch:               legacy              Ablation:           full                
+  Explainability:     1                   Explain Batches:    0                   
+  Explain Points:     20000               Explain TopK:       10                  
+  SmoothGrad:         0                   SG Samples:         20                  
+  SG Noise:           0.1                 Quad Mode:          quantile            
+  Quad Value:         0.75                Err Agg:            sum                 
+  Sal Agg:            sum                 
+
+[1mRun Parameters[0m
+  Num Workers:        4                   Batch Size:         64                  
+  Train Epochs:       100                 Patience:           5                   
+  Learning Rate:      0.01                Lradj:              type1               
+  Des:                SMD_revin_s2021     
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+>>>>>>>start training : anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2021_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+test: (708420, 38)
+train: (708405, 38)
+train 7456
+test: (708420, 38)
+train: (708405, 38)
+val 1491
+test: (708420, 38)
+train: (708405, 38)
+test 7457
+	iters: 100, epoch: 1 | loss: 0.5894170
+	speed: 0.0769s/iter; left time: 892.4480s
+Epoch: 1 cost time: 7.859776973724365
+Epoch: 1, Steps: 117 | Train Loss: 0.3046861 Vali Loss: 0.2020225 Test Loss: 1.3050229
+Validation loss decreased (inf --> 0.202022).  Saving model ...
+Updating learning rate to 0.01
+	iters: 100, epoch: 2 | loss: 0.1417954
+	speed: 0.0991s/iter; left time: 1138.5585s
+Epoch: 2 cost time: 6.6655049324035645
+Epoch: 2, Steps: 117 | Train Loss: 0.2769581 Vali Loss: 0.1823494 Test Loss: 0.9465854
+Validation loss decreased (0.202022 --> 0.182349).  Saving model ...
+Updating learning rate to 0.005
+	iters: 100, epoch: 3 | loss: 0.1278051
+	speed: 0.1027s/iter; left time: 1167.0596s
+Epoch: 3 cost time: 6.887997388839722
+Epoch: 3, Steps: 117 | Train Loss: 0.2460819 Vali Loss: 0.1819980 Test Loss: 0.9444827
+Validation loss decreased (0.182349 --> 0.181998).  Saving model ...
+Updating learning rate to 0.0025
+	iters: 100, epoch: 4 | loss: 0.1690800
+	speed: 0.1002s/iter; left time: 1127.3859s
+Epoch: 4 cost time: 6.62363338470459
+Epoch: 4, Steps: 117 | Train Loss: 0.2426795 Vali Loss: 0.1849447 Test Loss: 0.9419549
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 0.00125
+	iters: 100, epoch: 5 | loss: 0.1220739
+	speed: 0.1019s/iter; left time: 1134.8937s
+Epoch: 5 cost time: 6.988759517669678
+Epoch: 5, Steps: 117 | Train Loss: 0.2413074 Vali Loss: 0.1846018 Test Loss: 0.9416523
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 0.000625
+	iters: 100, epoch: 6 | loss: 0.2876605
+	speed: 0.0993s/iter; left time: 1094.0592s
+Epoch: 6 cost time: 6.6057515144348145
+Epoch: 6, Steps: 117 | Train Loss: 0.2406896 Vali Loss: 0.1846642 Test Loss: 0.9425043
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 0.0003125
+	iters: 100, epoch: 7 | loss: 0.1136808
+	speed: 0.0991s/iter; left time: 1080.1773s
+Epoch: 7 cost time: 6.636953353881836
+Epoch: 7, Steps: 117 | Train Loss: 0.2401455 Vali Loss: 0.1832341 Test Loss: 0.9424943
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 0.00015625
+	iters: 100, epoch: 8 | loss: 0.1727231
+	speed: 0.0984s/iter; left time: 1060.4425s
+Epoch: 8 cost time: 6.5452964305877686
+Epoch: 8, Steps: 117 | Train Loss: 0.2401074 Vali Loss: 0.1821567 Test Loss: 0.9427203
+EarlyStopping counter: 5 out of 5
+Early stopping
+>>>>>>>testing : anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2021_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test: (708420, 38)
+train: (708405, 38)
+test 7457
+test: (708420, 38)
+train: (708405, 38)
+train 7456
+Percentile Threshold : 2.833469
+pred_raw: (715872,)
+gt:      (715872,)
+pred_pa: (715872,)
+gt_pa:   (715872,)
+
+============================================================
+使用百分位数阈值的结果:
+============================================================
+Accuracy : 0.9831, Precision : 0.7640, Recall : 0.8572, F-score : 0.8079 
+============================================================
+
+
+使用自适应 Best F1 搜索（两阶段）
+粗搜索步数: 200, 精细搜索步数: 500
+
+============================================================
+自适应 Best F1 阈值搜索（两阶段）
+============================================================
+
+分数统计信息:
+  最小值: 0.000034
+  最大值: 17216.337891
+  均值: 0.946344
+  标准差: 75.327019
+  中位数: 0.038978
+  第1百分位: 0.001148
+  第99百分位: 3.683446
+
+自动确定的搜索范围: [0.000574, 7.366892]
+
+============================================================
+阶段 1: 粗搜索（步数: 200）
+============================================================
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [0.0006, 7.3669]
+搜索步数: 200
+使用点调整: True
+阈值: 0.0374 | F1: 0.1482 | Precision: 0.0800 | Recall: 0.9997
+阈值: 0.7740 | F1: 0.6834 | Precision: 0.5210 | Recall: 0.9927
+阈值: 1.5107 | F1: 0.7414 | Precision: 0.6258 | Recall: 0.9096
+阈值: 2.2473 | F1: 0.7879 | Precision: 0.7153 | Recall: 0.8768
+阈值: 2.9839 | F1: 0.8119 | Precision: 0.7774 | Recall: 0.8496
+阈值: 3.7206 | F1: 0.8359 | Precision: 0.8322 | Recall: 0.8396
+阈值: 4.4572 | F1: 0.8401 | Precision: 0.8645 | Recall: 0.8171
+阈值: 5.1938 | F1: 0.8387 | Precision: 0.8865 | Recall: 0.7958
+阈值: 5.9305 | F1: 0.8267 | Precision: 0.9021 | Recall: 0.7629
+阈值: 6.6671 | F1: 0.8279 | Precision: 0.9164 | Recall: 0.7550
+
+============================================================
+✓ 找到最佳阈值: 3.978386
+  最佳 F1: 0.8420
+  Precision: 0.8456
+  Recall: 0.8385
+============================================================
+
+
+============================================================
+阶段 2: 精细搜索（步数: 500）
+============================================================
+在最佳阈值 3.978386 附近精细搜索
+精细搜索范围: [3.241754, 4.715018]
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [3.2418, 4.7150]
+搜索步数: 500
+使用点调整: True
+阈值: 3.2447 | F1: 0.8206 | Precision: 0.8004 | Recall: 0.8419
+阈值: 3.3920 | F1: 0.8264 | Precision: 0.8117 | Recall: 0.8416
+阈值: 3.5394 | F1: 0.8318 | Precision: 0.8222 | Recall: 0.8416
+阈值: 3.6867 | F1: 0.8351 | Precision: 0.8308 | Recall: 0.8396
+阈值: 3.8340 | F1: 0.8389 | Precision: 0.8385 | Recall: 0.8394
+阈值: 3.9813 | F1: 0.8420 | Precision: 0.8456 | Recall: 0.8385
+阈值: 4.1287 | F1: 0.8350 | Precision: 0.8506 | Recall: 0.8200
+阈值: 4.2760 | F1: 0.8381 | Precision: 0.8572 | Recall: 0.8199
+阈值: 4.4233 | F1: 0.8394 | Precision: 0.8629 | Recall: 0.8171
+阈值: 4.5706 | F1: 0.8325 | Precision: 0.8665 | Recall: 0.8011
+
+============================================================
+✓ 找到最佳阈值: 4.001958
+  最佳 F1: 0.8427
+  Precision: 0.8469
+  Recall: 0.8385
+============================================================
+
+
+✓ 精细搜索找到更好的阈值！
+
+============================================================
+自适应搜索完成！
+============================================================
+最终最佳阈值: 4.001958
+最佳 F1: 0.8427
+Precision: 0.8469
+Recall: 0.8385
+============================================================
+
+Saved Best F1 results: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2021_0/bestf1_threshold_results.json
+Saved anomaly score plot: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2021_0/anomaly_score_threshold.png
+Running ISTAD explainability analysis...
+Saved ISTAD saliency heatmap: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2021_0/istad_saliency_heatmap.png
+Saved ISTAD feature localization time-series: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2021_0/feature_localization_timeseries.csv
+Saved ISTAD explainability summary: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2021_0/istad_explainability_summary.json
+Saved ISTAD segment localization summary: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2021_0/segment_localization_summary.json
+Saved train time summary: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2021_0/train_time_summary.json
+++ date
++ echo '===== SMD revin seed 2021 done Wed Sep  2 01:38:09 PM CST 2026 exit=0 ====='
+===== SMD revin seed 2021 done Wed Sep  2 01:38:09 PM CST 2026 exit=0 =====
++ for s in 48 2021 2022 2025
+++ date
++ echo '===== SMD revin seed 2022 start Wed Sep  2 01:38:09 PM CST 2026 ====='
+===== SMD revin seed 2022 start Wed Sep  2 01:38:09 PM CST 2026 =====
++ bash scripts/anomaly_detection/SMD/ISTAD_revin_s2022.sh
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          anomaly_detection   Is Training:        1                   
+  Model ID:           SMD                 Model:              ISTAD               
+  Seed:               2022                Itr:                1                   
+
+[1mData Loader[0m
+  Data:               SMD                 Root Path:          ./dataset/SMD       
+  Features:           M                   Seq Len:            96                  
+  Enc In:             38                  C Out:              38                  
+  Checkpoints:        ./checkpoints/      
+
+[1mAnomaly Detection Task[0m
+  Anomaly Ratio:      1.0                 
+
+[1mISTAD Parameters[0m
+  Kernel Size:        7                   Branch Mode:        hgat_kan_tcn        
+  TCN Type:           kan                 
+  Feat GAT Dim:       -1                  GRU Layers:         1                   
+  GRU Hidden:         150                 Recon Layers:       1                   
+  Recon Hidden:       150                 ISTAD Dropout:      0.2                 
+  Recon Type:         kanad               KANAD Order:        4                   
+  Leaky Alpha:        0.2                 H Init:             normal              
+  Hyperedges:         -1                  Top-K Nodes:        -1                  
+  KAN Grid:           10                  KAN Order:          3                   
+  Arch:               legacy              Ablation:           full                
+  Explainability:     1                   Explain Batches:    0                   
+  Explain Points:     20000               Explain TopK:       10                  
+  SmoothGrad:         0                   SG Samples:         20                  
+  SG Noise:           0.1                 Quad Mode:          quantile            
+  Quad Value:         0.75                Err Agg:            sum                 
+  Sal Agg:            sum                 
+
+[1mRun Parameters[0m
+  Num Workers:        4                   Batch Size:         64                  
+  Train Epochs:       100                 Patience:           5                   
+  Learning Rate:      0.01                Lradj:              type1               
+  Des:                SMD_revin_s2022     
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+>>>>>>>start training : anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2022_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+test: (708420, 38)
+train: (708405, 38)
+train 7456
+test: (708420, 38)
+train: (708405, 38)
+val 1491
+test: (708420, 38)
+train: (708405, 38)
+test 7457
+	iters: 100, epoch: 1 | loss: 0.1290405
+	speed: 0.0772s/iter; left time: 895.9064s
+Epoch: 1 cost time: 7.849372386932373
+Epoch: 1, Steps: 117 | Train Loss: 0.2635293 Vali Loss: 0.1820553 Test Loss: 0.9143708
+Validation loss decreased (inf --> 0.182055).  Saving model ...
+Updating learning rate to 0.01
+	iters: 100, epoch: 2 | loss: 0.1810654
+	speed: 0.1015s/iter; left time: 1165.0954s
+Epoch: 2 cost time: 6.873882055282593
+Epoch: 2, Steps: 117 | Train Loss: 0.2496162 Vali Loss: 0.1770328 Test Loss: 0.8814449
+Validation loss decreased (0.182055 --> 0.177033).  Saving model ...
+Updating learning rate to 0.005
+	iters: 100, epoch: 3 | loss: 0.1190406
+	speed: 0.1031s/iter; left time: 1172.0152s
+Epoch: 3 cost time: 6.960317850112915
+Epoch: 3, Steps: 117 | Train Loss: 0.2389488 Vali Loss: 0.1747577 Test Loss: 0.8743496
+Validation loss decreased (0.177033 --> 0.174758).  Saving model ...
+Updating learning rate to 0.0025
+	iters: 100, epoch: 4 | loss: 0.0969363
+	speed: 0.0983s/iter; left time: 1105.7895s
+Epoch: 4 cost time: 6.410714149475098
+Epoch: 4, Steps: 117 | Train Loss: 0.2333608 Vali Loss: 0.1757505 Test Loss: 0.8593706
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 0.00125
+	iters: 100, epoch: 5 | loss: 0.6203788
+	speed: 0.0966s/iter; left time: 1075.8230s
+Epoch: 5 cost time: 6.595742225646973
+Epoch: 5, Steps: 117 | Train Loss: 0.2318066 Vali Loss: 0.1724527 Test Loss: 0.8672029
+Validation loss decreased (0.174758 --> 0.172453).  Saving model ...
+Updating learning rate to 0.000625
+	iters: 100, epoch: 6 | loss: 0.1488213
+	speed: 0.0989s/iter; left time: 1089.5192s
+Epoch: 6 cost time: 6.488744497299194
+Epoch: 6, Steps: 117 | Train Loss: 0.2295927 Vali Loss: 0.1748661 Test Loss: 0.8651688
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 0.0003125
+	iters: 100, epoch: 7 | loss: 0.1580218
+	speed: 0.0992s/iter; left time: 1081.4043s
+Epoch: 7 cost time: 6.754075050354004
+Epoch: 7, Steps: 117 | Train Loss: 0.2280702 Vali Loss: 0.1715076 Test Loss: 0.8662046
+Validation loss decreased (0.172453 --> 0.171508).  Saving model ...
+Updating learning rate to 0.00015625
+	iters: 100, epoch: 8 | loss: 0.2080053
+	speed: 0.1035s/iter; left time: 1116.3221s
+Epoch: 8 cost time: 6.992321014404297
+Epoch: 8, Steps: 117 | Train Loss: 0.2281701 Vali Loss: 0.1732450 Test Loss: 0.8655339
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-05
+	iters: 100, epoch: 9 | loss: 0.1819224
+	speed: 0.0984s/iter; left time: 1049.1073s
+Epoch: 9 cost time: 6.536048173904419
+Epoch: 9, Steps: 117 | Train Loss: 0.2274272 Vali Loss: 0.1747312 Test Loss: 0.8653771
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-05
+	iters: 100, epoch: 10 | loss: 0.1480700
+	speed: 0.0996s/iter; left time: 1050.8840s
+Epoch: 10 cost time: 6.7720746994018555
+Epoch: 10, Steps: 117 | Train Loss: 0.2278684 Vali Loss: 0.1729719 Test Loss: 0.8652775
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-05
+	iters: 100, epoch: 11 | loss: 0.1745477
+	speed: 0.1003s/iter; left time: 1045.8323s
+Epoch: 11 cost time: 6.781226634979248
+Epoch: 11, Steps: 117 | Train Loss: 0.2272449 Vali Loss: 0.1745676 Test Loss: 0.8652447
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 9.765625e-06
+	iters: 100, epoch: 12 | loss: 0.1088917
+	speed: 0.1020s/iter; left time: 1052.4074s
+Epoch: 12 cost time: 6.860165119171143
+Epoch: 12, Steps: 117 | Train Loss: 0.2272160 Vali Loss: 0.1744493 Test Loss: 0.8651798
+EarlyStopping counter: 5 out of 5
+Early stopping
+>>>>>>>testing : anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2022_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test: (708420, 38)
+train: (708405, 38)
+test 7457
+test: (708420, 38)
+train: (708405, 38)
+train 7456
+Percentile Threshold : 2.7834866
+pred_raw: (715872,)
+gt:      (715872,)
+pred_pa: (715872,)
+gt_pa:   (715872,)
+
+============================================================
+使用百分位数阈值的结果:
+============================================================
+Accuracy : 0.9823, Precision : 0.7594, Recall : 0.8407, F-score : 0.7980 
+============================================================
+
+
+使用自适应 Best F1 搜索（两阶段）
+粗搜索步数: 200, 精细搜索步数: 500
+
+============================================================
+自适应 Best F1 阈值搜索（两阶段）
+============================================================
+
+分数统计信息:
+  最小值: 0.000039
+  最大值: 15750.454102
+  均值: 0.867809
+  标准差: 69.807907
+  中位数: 0.031653
+  第1百分位: 0.001018
+  第99百分位: 3.612159
+
+自动确定的搜索范围: [0.000509, 7.224319]
+
+============================================================
+阶段 1: 粗搜索（步数: 200）
+============================================================
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [0.0005, 7.2243]
+搜索步数: 200
+使用点调整: True
+阈值: 0.0366 | F1: 0.1614 | Precision: 0.0878 | Recall: 0.9997
+阈值: 0.7590 | F1: 0.6855 | Precision: 0.5245 | Recall: 0.9889
+阈值: 1.4814 | F1: 0.7424 | Precision: 0.6266 | Recall: 0.9105
+阈值: 2.2038 | F1: 0.7836 | Precision: 0.7141 | Recall: 0.8681
+阈值: 2.9262 | F1: 0.8045 | Precision: 0.7728 | Recall: 0.8389
+阈值: 3.6485 | F1: 0.8288 | Precision: 0.8301 | Recall: 0.8275
+阈值: 4.3709 | F1: 0.8230 | Precision: 0.8608 | Recall: 0.7884
+阈值: 5.0933 | F1: 0.8278 | Precision: 0.8855 | Recall: 0.7772
+阈值: 5.8157 | F1: 0.8244 | Precision: 0.9024 | Recall: 0.7589
+阈值: 6.5381 | F1: 0.8257 | Precision: 0.9162 | Recall: 0.7515
+
+============================================================
+✓ 找到最佳阈值: 3.720771
+  最佳 F1: 0.8310
+  Precision: 0.8345
+  Recall: 0.8275
+============================================================
+
+
+============================================================
+阶段 2: 精细搜索（步数: 500）
+============================================================
+在最佳阈值 3.720771 附近精细搜索
+精细搜索范围: [2.998390, 4.443152]
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [2.9984, 4.4432]
+搜索步数: 500
+使用点调整: True
+阈值: 3.0013 | F1: 0.8073 | Precision: 0.7797 | Recall: 0.8370
+阈值: 3.1458 | F1: 0.8130 | Precision: 0.7930 | Recall: 0.8340
+阈值: 3.2902 | F1: 0.8201 | Precision: 0.8066 | Recall: 0.8340
+阈值: 3.4347 | F1: 0.8225 | Precision: 0.8165 | Recall: 0.8287
+阈值: 3.5792 | F1: 0.8266 | Precision: 0.8255 | Recall: 0.8277
+阈值: 3.7237 | F1: 0.8311 | Precision: 0.8347 | Recall: 0.8275
+阈值: 3.8681 | F1: 0.8250 | Precision: 0.8405 | Recall: 0.8101
+阈值: 4.0126 | F1: 0.8264 | Precision: 0.8471 | Recall: 0.8067
+阈值: 4.1571 | F1: 0.8293 | Precision: 0.8534 | Recall: 0.8066
+阈值: 4.3016 | F1: 0.8215 | Precision: 0.8576 | Recall: 0.7884
+
+============================================================
+✓ 找到最佳阈值: 3.735219
+  最佳 F1: 0.8314
+  Precision: 0.8354
+  Recall: 0.8275
+============================================================
+
+
+✓ 精细搜索找到更好的阈值！
+
+============================================================
+自适应搜索完成！
+============================================================
+最终最佳阈值: 3.735219
+最佳 F1: 0.8314
+Precision: 0.8354
+Recall: 0.8275
+============================================================
+
+Saved Best F1 results: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2022_0/bestf1_threshold_results.json
+Saved anomaly score plot: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2022_0/anomaly_score_threshold.png
+Running ISTAD explainability analysis...
+Saved ISTAD saliency heatmap: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2022_0/istad_saliency_heatmap.png
+Saved ISTAD feature localization time-series: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2022_0/feature_localization_timeseries.csv
+Saved ISTAD explainability summary: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2022_0/istad_explainability_summary.json
+Saved ISTAD segment localization summary: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2022_0/segment_localization_summary.json
+Saved train time summary: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2022_0/train_time_summary.json
+++ date
++ echo '===== SMD revin seed 2022 done Wed Sep  2 01:43:10 PM CST 2026 exit=0 ====='
+===== SMD revin seed 2022 done Wed Sep  2 01:43:10 PM CST 2026 exit=0 =====
++ for s in 48 2021 2022 2025
+++ date
++ echo '===== SMD revin seed 2025 start Wed Sep  2 01:43:10 PM CST 2026 ====='
+===== SMD revin seed 2025 start Wed Sep  2 01:43:10 PM CST 2026 =====
++ bash scripts/anomaly_detection/SMD/ISTAD_revin_s2025.sh
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          anomaly_detection   Is Training:        1                   
+  Model ID:           SMD                 Model:              ISTAD               
+  Seed:               2025                Itr:                1                   
+
+[1mData Loader[0m
+  Data:               SMD                 Root Path:          ./dataset/SMD       
+  Features:           M                   Seq Len:            96                  
+  Enc In:             38                  C Out:              38                  
+  Checkpoints:        ./checkpoints/      
+
+[1mAnomaly Detection Task[0m
+  Anomaly Ratio:      1.0                 
+
+[1mISTAD Parameters[0m
+  Kernel Size:        7                   Branch Mode:        hgat_kan_tcn        
+  TCN Type:           kan                 
+  Feat GAT Dim:       -1                  GRU Layers:         1                   
+  GRU Hidden:         150                 Recon Layers:       1                   
+  Recon Hidden:       150                 ISTAD Dropout:      0.2                 
+  Recon Type:         kanad               KANAD Order:        4                   
+  Leaky Alpha:        0.2                 H Init:             normal              
+  Hyperedges:         -1                  Top-K Nodes:        -1                  
+  KAN Grid:           10                  KAN Order:          3                   
+  Arch:               legacy              Ablation:           full                
+  Explainability:     1                   Explain Batches:    0                   
+  Explain Points:     20000               Explain TopK:       10                  
+  SmoothGrad:         0                   SG Samples:         20                  
+  SG Noise:           0.1                 Quad Mode:          quantile            
+  Quad Value:         0.75                Err Agg:            sum                 
+  Sal Agg:            sum                 
+
+[1mRun Parameters[0m
+  Num Workers:        4                   Batch Size:         64                  
+  Train Epochs:       100                 Patience:           5                   
+  Learning Rate:      0.01                Lradj:              type1               
+  Des:                SMD_revin_s2025     
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+>>>>>>>start training : anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2025_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+test: (708420, 38)
+train: (708405, 38)
+train 7456
+test: (708420, 38)
+train: (708405, 38)
+val 1491
+test: (708420, 38)
+train: (708405, 38)
+test 7457
+	iters: 100, epoch: 1 | loss: 0.1055241
+	speed: 0.0768s/iter; left time: 890.9550s
+Epoch: 1 cost time: 7.870330572128296
+Epoch: 1, Steps: 117 | Train Loss: 0.2284928 Vali Loss: 0.0988909 Test Loss: 0.8354758
+Validation loss decreased (inf --> 0.098891).  Saving model ...
+Updating learning rate to 0.01
+	iters: 100, epoch: 2 | loss: 0.0567121
+	speed: 0.1033s/iter; left time: 1186.0713s
+Epoch: 2 cost time: 6.930810213088989
+Epoch: 2, Steps: 117 | Train Loss: 0.1729888 Vali Loss: 0.0575638 Test Loss: 0.7291609
+Validation loss decreased (0.098891 --> 0.057564).  Saving model ...
+Updating learning rate to 0.005
+	iters: 100, epoch: 3 | loss: 0.1156436
+	speed: 0.1038s/iter; left time: 1180.1301s
+Epoch: 3 cost time: 6.937282562255859
+Epoch: 3, Steps: 117 | Train Loss: 0.1482761 Vali Loss: 0.0506825 Test Loss: 0.7021796
+Validation loss decreased (0.057564 --> 0.050682).  Saving model ...
+Updating learning rate to 0.0025
+	iters: 100, epoch: 4 | loss: 0.0290613
+	speed: 0.1003s/iter; left time: 1128.6116s
+Epoch: 4 cost time: 6.849496126174927
+Epoch: 4, Steps: 117 | Train Loss: 0.1368236 Vali Loss: 0.0450471 Test Loss: 0.6922514
+Validation loss decreased (0.050682 --> 0.045047).  Saving model ...
+Updating learning rate to 0.00125
+	iters: 100, epoch: 5 | loss: 0.0335089
+	speed: 0.1025s/iter; left time: 1141.5907s
+Epoch: 5 cost time: 6.997899770736694
+Epoch: 5, Steps: 117 | Train Loss: 0.1303941 Vali Loss: 0.0423692 Test Loss: 0.6868985
+Validation loss decreased (0.045047 --> 0.042369).  Saving model ...
+Updating learning rate to 0.000625
+	iters: 100, epoch: 6 | loss: 0.0352604
+	speed: 0.1038s/iter; left time: 1143.8467s
+Epoch: 6 cost time: 7.025836229324341
+Epoch: 6, Steps: 117 | Train Loss: 0.1272220 Vali Loss: 0.0409032 Test Loss: 0.6820352
+Validation loss decreased (0.042369 --> 0.040903).  Saving model ...
+Updating learning rate to 0.0003125
+	iters: 100, epoch: 7 | loss: 0.0197315
+	speed: 0.1029s/iter; left time: 1121.2837s
+Epoch: 7 cost time: 7.0062479972839355
+Epoch: 7, Steps: 117 | Train Loss: 0.1255746 Vali Loss: 0.0405871 Test Loss: 0.6813603
+Validation loss decreased (0.040903 --> 0.040587).  Saving model ...
+Updating learning rate to 0.00015625
+	iters: 100, epoch: 8 | loss: 0.0254345
+	speed: 0.1031s/iter; left time: 1111.7756s
+Epoch: 8 cost time: 7.008140325546265
+Epoch: 8, Steps: 117 | Train Loss: 0.1246650 Vali Loss: 0.0408096 Test Loss: 0.6807920
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-05
+	iters: 100, epoch: 9 | loss: 0.2192334
+	speed: 0.0998s/iter; left time: 1064.2127s
+Epoch: 9 cost time: 6.574820041656494
+Epoch: 9, Steps: 117 | Train Loss: 0.1242816 Vali Loss: 0.0408234 Test Loss: 0.6800282
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-05
+	iters: 100, epoch: 10 | loss: 0.2564701
+	speed: 0.0924s/iter; left time: 975.1153s
+Epoch: 10 cost time: 5.7075114250183105
+Epoch: 10, Steps: 117 | Train Loss: 0.1240960 Vali Loss: 0.0401255 Test Loss: 0.6799775
+Validation loss decreased (0.040587 --> 0.040126).  Saving model ...
+Updating learning rate to 1.953125e-05
+	iters: 100, epoch: 11 | loss: 0.0403100
+	speed: 0.1008s/iter; left time: 1051.5923s
+Epoch: 11 cost time: 7.003692626953125
+Epoch: 11, Steps: 117 | Train Loss: 0.1239361 Vali Loss: 0.0404336 Test Loss: 0.6798100
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.765625e-06
+	iters: 100, epoch: 12 | loss: 0.0274765
+	speed: 0.1043s/iter; left time: 1075.6822s
+Epoch: 12 cost time: 7.059892892837524
+Epoch: 12, Steps: 117 | Train Loss: 0.1238579 Vali Loss: 0.0403176 Test Loss: 0.6798054
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 4.8828125e-06
+	iters: 100, epoch: 13 | loss: 0.0234048
+	speed: 0.1008s/iter; left time: 1028.1155s
+Epoch: 13 cost time: 6.743283271789551
+Epoch: 13, Steps: 117 | Train Loss: 0.1243095 Vali Loss: 0.0401280 Test Loss: 0.6796838
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 2.44140625e-06
+	iters: 100, epoch: 14 | loss: 0.0547707
+	speed: 0.0920s/iter; left time: 926.8781s
+Epoch: 14 cost time: 5.564597129821777
+Epoch: 14, Steps: 117 | Train Loss: 0.1245991 Vali Loss: 0.0403419 Test Loss: 0.6797895
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.220703125e-06
+	iters: 100, epoch: 15 | loss: 0.0976286
+	speed: 0.0961s/iter; left time: 957.3700s
+Epoch: 15 cost time: 6.4426352977752686
+Epoch: 15, Steps: 117 | Train Loss: 0.1246681 Vali Loss: 0.0403368 Test Loss: 0.6798027
+EarlyStopping counter: 5 out of 5
+Early stopping
+>>>>>>>testing : anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2025_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test: (708420, 38)
+train: (708405, 38)
+test 7457
+test: (708420, 38)
+train: (708405, 38)
+train 7456
+Percentile Threshold : 0.5655135
+pred_raw: (715872,)
+gt:      (715872,)
+pred_pa: (715872,)
+gt_pa:   (715872,)
+
+============================================================
+使用百分位数阈值的结果:
+============================================================
+Accuracy : 0.9823, Precision : 0.7650, Recall : 0.8279, F-score : 0.7952 
+============================================================
+
+
+使用自适应 Best F1 搜索（两阶段）
+粗搜索步数: 200, 精细搜索步数: 500
+
+============================================================
+自适应 Best F1 阈值搜索（两阶段）
+============================================================
+
+分数统计信息:
+  最小值: 0.000011
+  最大值: 14799.605469
+  均值: 0.682182
+  标准差: 64.798454
+  中位数: 0.009213
+  第1百分位: 0.000347
+  第99百分位: 0.941948
+
+自动确定的搜索范围: [0.000174, 1.883896]
+
+============================================================
+阶段 1: 粗搜索（步数: 200）
+============================================================
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [0.0002, 1.8839]
+搜索步数: 200
+使用点调整: True
+阈值: 0.0096 | F1: 0.1548 | Precision: 0.0839 | Recall: 0.9998
+阈值: 0.1980 | F1: 0.7258 | Precision: 0.5798 | Recall: 0.9700
+阈值: 0.3863 | F1: 0.7877 | Precision: 0.7095 | Recall: 0.8852
+阈值: 0.5747 | F1: 0.7965 | Precision: 0.7674 | Recall: 0.8279
+阈值: 0.7631 | F1: 0.8047 | Precision: 0.8036 | Recall: 0.8058
+阈值: 0.9515 | F1: 0.8121 | Precision: 0.8292 | Recall: 0.7957
+阈值: 1.1398 | F1: 0.8131 | Precision: 0.8472 | Recall: 0.7817
+阈值: 1.3282 | F1: 0.8194 | Precision: 0.8617 | Recall: 0.7811
+阈值: 1.5166 | F1: 0.8150 | Precision: 0.8705 | Recall: 0.7662
+阈值: 1.7049 | F1: 0.7922 | Precision: 0.8733 | Recall: 0.7249
+
+============================================================
+✓ 找到最佳阈值: 1.356453
+  最佳 F1: 0.8201
+  Precision: 0.8633
+  Recall: 0.7811
+============================================================
+
+
+============================================================
+阶段 2: 精细搜索（步数: 500）
+============================================================
+在最佳阈值 1.356453 附近精细搜索
+精细搜索范围: [1.168081, 1.544826]
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [1.1681, 1.5448]
+搜索步数: 500
+使用点调整: True
+阈值: 1.1688 | F1: 0.8143 | Precision: 0.8498 | Recall: 0.7817
+阈值: 1.2065 | F1: 0.8155 | Precision: 0.8524 | Recall: 0.7817
+阈值: 1.2442 | F1: 0.8165 | Precision: 0.8552 | Recall: 0.7812
+阈值: 1.2819 | F1: 0.8178 | Precision: 0.8581 | Recall: 0.7811
+阈值: 1.3195 | F1: 0.8191 | Precision: 0.8611 | Recall: 0.7811
+阈值: 1.3572 | F1: 0.8202 | Precision: 0.8634 | Recall: 0.7811
+阈值: 1.3949 | F1: 0.8144 | Precision: 0.8638 | Recall: 0.7703
+阈值: 1.4326 | F1: 0.8150 | Precision: 0.8661 | Recall: 0.7695
+阈值: 1.4702 | F1: 0.8160 | Precision: 0.8684 | Recall: 0.7695
+阈值: 1.5079 | F1: 0.8156 | Precision: 0.8702 | Recall: 0.7674
+
+============================================================
+✓ 找到最佳阈值: 1.359467
+  最佳 F1: 0.8202
+  Precision: 0.8635
+  Recall: 0.7811
+============================================================
+
+
+✓ 精细搜索找到更好的阈值！
+
+============================================================
+自适应搜索完成！
+============================================================
+最终最佳阈值: 1.359467
+最佳 F1: 0.8202
+Precision: 0.8635
+Recall: 0.7811
+============================================================
+
+Saved Best F1 results: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2025_0/bestf1_threshold_results.json
+Saved anomaly score plot: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2025_0/anomaly_score_threshold.png
+Running ISTAD explainability analysis...
+Saved ISTAD saliency heatmap: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2025_0/istad_saliency_heatmap.png
+Saved ISTAD feature localization time-series: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2025_0/feature_localization_timeseries.csv
+Saved ISTAD explainability summary: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2025_0/istad_explainability_summary.json
+Saved ISTAD segment localization summary: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2025_0/segment_localization_summary.json
+Saved train time summary: ./test_results/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_kan_tcn_bs64_SMD_revin_s2025_0/train_time_summary.json
+++ date
++ echo '===== SMD revin seed 2025 done Wed Sep  2 01:48:46 PM CST 2026 exit=0 ====='
+===== SMD revin seed 2025 done Wed Sep  2 01:48:46 PM CST 2026 exit=0 =====

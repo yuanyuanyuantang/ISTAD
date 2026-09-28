@@ -1,0 +1,249 @@
+{
+  "status": "completed_posthoc_entity_boundary_sensitivity",
+  "confirmatory": false,
+  "primary_result": "analysis/independent_confirmation/msl_smap_results.json",
+  "change_from_frozen_protocol": "80/20 split, complete-window truncation, lag pairs, and point adjustment are isolated per NASA entity instead of applied to concatenated arrays",
+  "conclusion": "Entity-aware handling does not reverse the negative primary confirmation.",
+  "results": {
+    "MSL": {
+      "dataset": "MSL",
+      "entities": 27,
+      "fit_points": 46643,
+      "held_out_normal_validation_points": 11674,
+      "evaluated_points": 72600,
+      "innovation": {
+        "lag": 1,
+        "ridge": 0.01,
+        "n_features": 55,
+        "coefficient_count": 3025,
+        "requested_pool": "auto",
+        "selected_pool": "dense",
+        "degenerate_fraction": 0.41818181818181815,
+        "degenerate_cutoff": 0.1,
+        "scale_floor_ratio": 0.1,
+        "calibration_size": 46616
+      },
+      "ranking": {
+        "roc_auc": 0.5012285204729179,
+        "pr_auc": 0.11566802367126702,
+        "anomaly_prevalence": 0.10322314049586777,
+        "roc_above_random": true,
+        "pr_above_prevalence": true
+      },
+      "train-p99_raw": {
+        "f1": 0.05844232355367032,
+        "precision": 0.2497482376636455,
+        "recall": 0.033093141179610354,
+        "threshold": 0.9903361434669755
+      },
+      "train-p99+PA": {
+        "f1": 0.8812496680402085,
+        "precision": 0.8970283332452961,
+        "recall": 0.8660261531011128,
+        "TP": 6490,
+        "TN": 64361,
+        "FP": 745,
+        "FN": 1004,
+        "threshold": 0.9903361434669755
+      },
+      "POT+PA": {
+        "f1": 0.8823153713442022,
+        "precision": 0.9167146131807903,
+        "recall": 0.8504136631299525,
+        "TP": 6373,
+        "TN": 64527,
+        "FP": 579,
+        "FN": 1121,
+        "threshold": 4.827116108532401,
+        "q": 1e-05,
+        "configured_level": 0.99,
+        "effective_level": 0.99,
+        "base_multiplier": 1.0,
+        "tail_safety_margin": 1.04,
+        "raw_spot_threshold": 4.64145779666577
+      },
+      "Best-raw": {
+        "f1": 0.190732444772256,
+        "precision": 0.11983838933101473,
+        "recall": 0.4670402982825723,
+        "TP": 3500,
+        "TN": 39400,
+        "FP": 25706,
+        "FN": 3994,
+        "threshold": 0.581390546453005,
+        "latency": 0.0,
+        "use_adjustment": false,
+        "search_method": "adaptive_two_stage",
+        "coarse_step_num": 200,
+        "fine_step_num": 500,
+        "auto_search_range": [
+          0.002375528240770534,
+          0.9999892742990755
+        ],
+        "score_statistics": {
+          "min": 1.072570092455542e-05,
+          "max": 0.9999892742990755,
+          "mean": 0.4990846943893238,
+          "std": 0.2865914998477936,
+          "median": 0.4376193234227857,
+          "p1": 0.004751056481541068,
+          "p99": 0.9919879014093571
+        }
+      },
+      "Best-F1+PA": {
+        "f1": 0.8839062409566717,
+        "precision": 0.9201559328325788,
+        "recall": 0.8504136631299525,
+        "TP": 6373,
+        "TN": 64553,
+        "FP": 553,
+        "FN": 1121,
+        "threshold": 0.9927465985026712,
+        "latency": 0.0,
+        "use_adjustment": true,
+        "search_method": "adaptive_two_stage",
+        "coarse_step_num": 200,
+        "fine_step_num": 500,
+        "auto_search_range": [
+          0.002375528240770534,
+          0.9999892742990755
+        ],
+        "score_statistics": {
+          "min": 1.072570092455542e-05,
+          "max": 0.9999892742990755,
+          "mean": 0.4990846943893238,
+          "std": 0.2865914998477936,
+          "median": 0.4376193234227857,
+          "p1": 0.004751056481541068,
+          "p99": 0.9919879014093571
+        }
+      },
+      "source_sha256": {
+        "train": "d767ecfc8ea344f7a6e78f815a84dc7923f600df1beb14359f3e73202148b058",
+        "test": "8b479ebeeabb63ff636e8adeb095a7bcc46a0cdc7befa189b45b05b1e90c9425",
+        "test_label": "23e120c30a645000f093ff5311de177601b8220ba3ca4281c6376883444f7b97"
+      },
+      "score_artifact": "analysis/independent_confirmation/MSL_entity_aware_sensitivity_scores.npz"
+    },
+    "SMAP": {
+      "dataset": "SMAP",
+      "entities": 53,
+      "fit_points": 108132,
+      "held_out_normal_validation_points": 27051,
+      "evaluated_points": 425400,
+      "innovation": {
+        "lag": 1,
+        "ridge": 0.01,
+        "n_features": 25,
+        "coefficient_count": 625,
+        "requested_pool": "auto",
+        "selected_pool": "sparse",
+        "degenerate_fraction": 0.04,
+        "degenerate_cutoff": 0.1,
+        "scale_floor_ratio": 0.1,
+        "calibration_size": 108079
+      },
+      "ranking": {
+        "roc_auc": 0.5259376793305184,
+        "pr_auc": 0.12480022791063694,
+        "anomaly_prevalence": 0.12774565115185707,
+        "roc_above_random": true,
+        "pr_above_prevalence": false
+      },
+      "train-p99_raw": {
+        "f1": 0.01075966003680014,
+        "precision": 0.11278471711976489,
+        "recall": 0.00564930165798723,
+        "threshold": 0.9907152109548483
+      },
+      "train-p99+PA": {
+        "f1": 0.7677997747411435,
+        "precision": 0.936080673088751,
+        "recall": 0.650810591860808,
+        "TP": 35367,
+        "TN": 368642,
+        "FP": 2415,
+        "FN": 18976,
+        "threshold": 0.9907152109548483
+      },
+      "POT+PA": {
+        "f1": 0.69866707269039,
+        "precision": 0.9437920773622069,
+        "recall": 0.554625250620204,
+        "TP": 30140,
+        "TN": 369262,
+        "FP": 1795,
+        "FN": 24203,
+        "threshold": 4.86687350796322,
+        "q": 1e-05,
+        "configured_level": 0.99,
+        "effective_level": 0.99,
+        "base_multiplier": 1.0,
+        "tail_safety_margin": 1.04,
+        "raw_spot_threshold": 4.67968606534925
+      },
+      "Best-raw": {
+        "f1": 0.2760567272315929,
+        "precision": 0.1618669598768919,
+        "recall": 0.937287230933646,
+        "TP": 50935,
+        "TN": 107320,
+        "FP": 263737,
+        "FN": 3408,
+        "threshold": 0.26170938055144277,
+        "latency": 0.0,
+        "use_adjustment": false,
+        "search_method": "adaptive_two_stage",
+        "coarse_step_num": 200,
+        "fine_step_num": 500,
+        "auto_search_range": [
+          0.1124190414507772,
+          0.9999953737971873
+        ],
+        "score_statistics": {
+          "min": 4.62620281273131e-06,
+          "max": 0.9999953737971873,
+          "mean": 0.5023025435285011,
+          "std": 0.24009348195513627,
+          "median": 0.4634761287934863,
+          "p1": 0.2248380829015544,
+          "p99": 0.9845914137675807
+        }
+      },
+      "Best-F1+PA": {
+        "f1": 0.7679748370776514,
+        "precision": 0.9366012550153329,
+        "recall": 0.650810591860808,
+        "TP": 35367,
+        "TN": 368663,
+        "FP": 2394,
+        "FN": 18976,
+        "threshold": 0.9908089587573878,
+        "latency": 0.0,
+        "use_adjustment": true,
+        "search_method": "adaptive_two_stage",
+        "coarse_step_num": 200,
+        "fine_step_num": 500,
+        "auto_search_range": [
+          0.1124190414507772,
+          0.9999953737971873
+        ],
+        "score_statistics": {
+          "min": 4.62620281273131e-06,
+          "max": 0.9999953737971873,
+          "mean": 0.5023025435285011,
+          "std": 0.24009348195513627,
+          "median": 0.4634761287934863,
+          "p1": 0.2248380829015544,
+          "p99": 0.9845914137675807
+        }
+      },
+      "source_sha256": {
+        "train": "1c823bed59f32d45a2e6323ac79bf7755c80c2ff68a2d3d7322e4dee40a11010",
+        "test": "458c3b354b6a602b711241c29fb50518dddb0c1c9248d7d2e1691a9c218d4ac0",
+        "test_label": "55f94fcccc3ae35216cfd6ac5e0e2016ad9d08d5ff0aca9f09916c6501380e0f"
+      },
+      "score_artifact": "analysis/independent_confirmation/SMAP_entity_aware_sensitivity_scores.npz"
+    }
+  }
+}

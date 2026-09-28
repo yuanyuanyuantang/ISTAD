@@ -1,0 +1,254 @@
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          anomaly_detection   Is Training:        1                   
+  Model ID:           EXATHLON            Model:              ISTAD               
+  Seed:               89                  Itr:                1                   
+
+[1mData Loader[0m
+  Data:               EXATHLON            Root Path:          ./dataset/EXATHLON  
+  Features:           M                   Seq Len:            100                 
+  Enc In:             19                  C Out:              19                  
+  Checkpoints:        ./checkpoints/      
+
+[1mAnomaly Detection Task[0m
+  Anomaly Ratio:      1.0                 
+
+[1mISTAD Parameters[0m
+  Kernel Size:        7                   Branch Mode:        hgat_kan_tcn        
+  TCN Type:           kan                 
+  Feat GAT Dim:       -1                  GRU Layers:         1                   
+  GRU Hidden:         150                 Recon Layers:       1                   
+  Recon Hidden:       150                 ISTAD Dropout:      0.1                 
+  Recon Type:         kanad               KANAD Order:        4                   
+  Leaky Alpha:        0.2                 H Init:             normal              
+  Hyperedges:         -1                  Top-K Nodes:        -1                  
+  KAN Grid:           10                  KAN Order:          3                   
+  Arch:               legacy              Ablation:           full                
+  Explainability:     1                   Explain Batches:    0                   
+  Explain Points:     20000               Explain TopK:       10                  
+  SmoothGrad:         0                   SG Samples:         20                  
+  SG Noise:           0.1                 Quad Mode:          quantile            
+  Quad Value:         0.75                Err Agg:            sum                 
+  Sal Agg:            sum                 
+
+[1mRun Parameters[0m
+  Num Workers:        4                   Batch Size:         64                  
+  Train Epochs:       40                  Patience:           5                   
+  Learning Rate:      0.0001              Lradj:              cosine              
+  Des:                EXA_dual_s89        
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+>>>>>>>start training : anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_kan_tcn_bs64_EXA_dual_s89_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+test: (52844, 19)
+train: (88230, 19)
+train 928
+test: (52844, 19)
+train: (88230, 19)
+val 185
+test: (52844, 19)
+train: (88230, 19)
+test 556
+Epoch: 1 cost time: 2.29176926612854
+Epoch: 1, Steps: 15 | Train Loss: 2.1788572 Vali Loss: 2.1151482 Test Loss: 2.0827296
+Validation loss decreased (inf --> 2.115148).  Saving model ...
+Updating learning rate to 9.98458666866564e-05
+Epoch: 2 cost time: 1.3185083866119385
+Epoch: 2, Steps: 15 | Train Loss: 2.1095513 Vali Loss: 2.0659661 Test Loss: 2.0470641
+Validation loss decreased (2.115148 --> 2.065966).  Saving model ...
+Updating learning rate to 9.938441702975689e-05
+Epoch: 3 cost time: 1.2876858711242676
+Epoch: 3, Steps: 15 | Train Loss: 2.0626758 Vali Loss: 2.0259345 Test Loss: 1.9991604
+Validation loss decreased (2.065966 --> 2.025935).  Saving model ...
+Updating learning rate to 9.861849601988383e-05
+Epoch: 4 cost time: 1.3198330402374268
+Epoch: 4, Steps: 15 | Train Loss: 2.0479208 Vali Loss: 1.9747120 Test Loss: 1.9689451
+Validation loss decreased (2.025935 --> 1.974712).  Saving model ...
+Updating learning rate to 9.755282581475769e-05
+Epoch: 5 cost time: 1.2051093578338623
+Epoch: 5, Steps: 15 | Train Loss: 2.0024447 Vali Loss: 1.9626191 Test Loss: 1.9468417
+Validation loss decreased (1.974712 --> 1.962619).  Saving model ...
+Updating learning rate to 9.619397662556435e-05
+Epoch: 6 cost time: 1.1782824993133545
+Epoch: 6, Steps: 15 | Train Loss: 1.9670062 Vali Loss: 1.9480256 Test Loss: 1.9313714
+Validation loss decreased (1.962619 --> 1.948026).  Saving model ...
+Updating learning rate to 9.45503262094184e-05
+Epoch: 7 cost time: 1.2868783473968506
+Epoch: 7, Steps: 15 | Train Loss: 2.0128111 Vali Loss: 1.9356632 Test Loss: 1.9205819
+Validation loss decreased (1.948026 --> 1.935663).  Saving model ...
+Updating learning rate to 9.263200821770461e-05
+Epoch: 8 cost time: 1.2712042331695557
+Epoch: 8, Steps: 15 | Train Loss: 1.9873991 Vali Loss: 1.9124424 Test Loss: 1.9130322
+Validation loss decreased (1.935663 --> 1.912442).  Saving model ...
+Updating learning rate to 9.045084971874738e-05
+Epoch: 9 cost time: 1.2580180168151855
+Epoch: 9, Steps: 15 | Train Loss: 1.9704263 Vali Loss: 1.9040288 Test Loss: 1.9074530
+Validation loss decreased (1.912442 --> 1.904029).  Saving model ...
+Updating learning rate to 8.802029828000156e-05
+Epoch: 10 cost time: 1.2062857151031494
+Epoch: 10, Steps: 15 | Train Loss: 1.9703196 Vali Loss: 1.9184169 Test Loss: 1.9035495
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 8.535533905932738e-05
+Epoch: 11 cost time: 1.2129900455474854
+Epoch: 11, Steps: 15 | Train Loss: 1.9471887 Vali Loss: 1.9191166 Test Loss: 1.9008292
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 8.247240241650918e-05
+Epoch: 12 cost time: 1.2095754146575928
+Epoch: 12, Steps: 15 | Train Loss: 1.9456532 Vali Loss: 1.9115723 Test Loss: 1.8986741
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.938926261462366e-05
+Epoch: 13 cost time: 1.272749900817871
+Epoch: 13, Steps: 15 | Train Loss: 1.9513257 Vali Loss: 1.9170793 Test Loss: 1.8971272
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.612492823579745e-05
+Epoch: 14 cost time: 1.2562077045440674
+Epoch: 14, Steps: 15 | Train Loss: 1.9465265 Vali Loss: 1.8952247 Test Loss: 1.8959644
+Validation loss decreased (1.904029 --> 1.895225).  Saving model ...
+Updating learning rate to 7.269952498697734e-05
+Epoch: 15 cost time: 1.2571382522583008
+Epoch: 15, Steps: 15 | Train Loss: 1.9538525 Vali Loss: 1.9066022 Test Loss: 1.8951321
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.91341716182545e-05
+Epoch: 16 cost time: 1.2475028038024902
+Epoch: 16, Steps: 15 | Train Loss: 1.9361333 Vali Loss: 1.9164132 Test Loss: 1.8944000
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.545084971874738e-05
+Epoch: 17 cost time: 1.2120747566223145
+Epoch: 17, Steps: 15 | Train Loss: 1.9213870 Vali Loss: 1.9028568 Test Loss: 1.8938409
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.167226819279528e-05
+Epoch: 18 cost time: 1.231368064880371
+Epoch: 18, Steps: 15 | Train Loss: 1.9404030 Vali Loss: 1.9036358 Test Loss: 1.8934896
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 5.782172325201155e-05
+Epoch: 19 cost time: 1.2931430339813232
+Epoch: 19, Steps: 15 | Train Loss: 1.9475590 Vali Loss: 1.9070531 Test Loss: 1.8930172
+EarlyStopping counter: 5 out of 5
+Early stopping
+>>>>>>>testing : anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_kan_tcn_bs64_EXA_dual_s89_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test: (52844, 19)
+train: (88230, 19)
+test 556
+test: (52844, 19)
+train: (88230, 19)
+train 928
+Percentile Threshold : 8.226461076736548
+pred_raw: (55600,)
+gt:      (55600,)
+pred_pa: (55600,)
+gt_pa:   (55600,)
+
+============================================================
+使用百分位数阈值的结果:
+============================================================
+Accuracy : 0.9894, Precision : 0.9654, Recall : 0.9522, F-score : 0.9588 
+============================================================
+
+
+使用自适应 Best F1 搜索（两阶段）
+粗搜索步数: 200, 精细搜索步数: 500
+
+============================================================
+自适应 Best F1 阈值搜索（两阶段）
+============================================================
+
+分数统计信息:
+  最小值: 0.012061
+  最大值: 1449.165771
+  均值: 0.993957
+  标准差: 13.307483
+  中位数: 0.271756
+  第1百分位: 0.051149
+  第99百分位: 10.394566
+
+自动确定的搜索范围: [0.025575, 20.789131]
+
+============================================================
+阶段 1: 粗搜索（步数: 200）
+============================================================
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [0.0256, 20.7891]
+搜索步数: 200
+使用点调整: True
+阈值: 0.1294 | F1: 0.2656 | Precision: 0.1531 | Recall: 1.0000
+阈值: 2.2057 | F1: 0.9465 | Precision: 0.9003 | Recall: 0.9978
+阈值: 4.2821 | F1: 0.9512 | Precision: 0.9386 | Recall: 0.9642
+阈值: 6.3585 | F1: 0.9551 | Precision: 0.9564 | Recall: 0.9538
+阈值: 8.4348 | F1: 0.9592 | Precision: 0.9662 | Recall: 0.9522
+阈值: 10.5112 | F1: 0.9298 | Precision: 0.9692 | Recall: 0.8936
+阈值: 12.5875 | F1: 0.9052 | Precision: 0.9749 | Recall: 0.8448
+阈值: 14.6639 | F1: 0.8820 | Precision: 0.9801 | Recall: 0.8018
+阈值: 16.7402 | F1: 0.8557 | Precision: 0.9823 | Recall: 0.7580
+阈值: 18.8166 | F1: 0.7905 | Precision: 0.9814 | Recall: 0.6618
+
+============================================================
+✓ 找到最佳阈值: 8.538633
+  最佳 F1: 0.9594
+  Precision: 0.9668
+  Recall: 0.9522
+============================================================
+
+
+============================================================
+阶段 2: 精细搜索（步数: 500）
+============================================================
+在最佳阈值 8.538633 附近精细搜索
+精细搜索范围: [6.462277, 10.614989]
+
+============================================================
+开始 Best F1 阈值搜索...
+============================================================
+搜索范围: [6.4623, 10.6150]
+搜索步数: 500
+使用点调整: True
+阈值: 6.4706 | F1: 0.9553 | Precision: 0.9570 | Recall: 0.9538
+阈值: 6.8859 | F1: 0.9567 | Precision: 0.9596 | Recall: 0.9538
+阈值: 7.3011 | F1: 0.9575 | Precision: 0.9613 | Recall: 0.9538
+阈值: 7.7164 | F1: 0.9577 | Precision: 0.9632 | Recall: 0.9522
+阈值: 8.1317 | F1: 0.9586 | Precision: 0.9651 | Recall: 0.9522
+阈值: 8.5469 | F1: 0.9594 | Precision: 0.9668 | Recall: 0.9522
+阈值: 8.9622 | F1: 0.9365 | Precision: 0.9661 | Recall: 0.9088
+阈值: 9.3775 | F1: 0.9371 | Precision: 0.9672 | Recall: 0.9088
+阈值: 9.7928 | F1: 0.9292 | Precision: 0.9677 | Recall: 0.8936
+阈值: 10.2080 | F1: 0.9294 | Precision: 0.9682 | Recall: 0.8936
+
+============================================================
+✓ 找到最佳阈值: 8.522022
+  最佳 F1: 0.9594
+  Precision: 0.9668
+  Recall: 0.9522
+============================================================
+
+
+✓ 粗搜索的结果已经是最优的。
+
+============================================================
+自适应搜索完成！
+============================================================
+最终最佳阈值: 8.538633
+最佳 F1: 0.9594
+Precision: 0.9668
+Recall: 0.9522
+============================================================
+
+Saved Best F1 results: ./test_results/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_kan_tcn_bs64_EXA_dual_s89_0/bestf1_threshold_results.json
+Saved anomaly score plot: ./test_results/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_kan_tcn_bs64_EXA_dual_s89_0/anomaly_score_threshold.png
+Running ISTAD explainability analysis...
+Traceback (most recent call last):
+  File "/data/modeluse/TS/ISTAD/run.py", line 218, in <module>
+    exp.test(setting)
+  File "/data/modeluse/TS/ISTAD/exp/exp_anomaly_detection.py", line 1192, in test
+    self._run_istad_explainability(
+  File "/data/modeluse/TS/ISTAD/exp/exp_anomaly_detection.py", line 661, in _run_istad_explainability
+    anomaly_score = self._compute_recon_anomaly_score(recons_last, x_last)
+  File "/data/modeluse/TS/ISTAD/exp/exp_anomaly_detection.py", line 344, in _compute_recon_anomaly_score
+    recon_error_sq = (recons_last - x_last) ** 2
+RuntimeError: The size of tensor a (38) must match the size of tensor b (19) at non-singleton dimension 1

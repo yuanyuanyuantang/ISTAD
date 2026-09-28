@@ -1,0 +1,59 @@
+=== PROJECT ===
+/data/modeluse/TS/ISTAD-release
+NO_GIT_COMMIT
+=== CODE HASHES ===
+ebf877266b8d61d941396ef27cd0e0fd64e9cc1c9d9fbfe115d6de88e6c39d46  code/ISTAD/models/ISTAD.py
+f0482e4c881321e7cb657fd102527b0bca9a62069cc373b36e5907dd8d23ca50  code/ISTAD/models/istad_layers/hypergraph_attention.py
+ba0ed839dec4af7650a676e75404c7843a7e77554ac1eb992c84ae4788f10d61  code/ISTAD/exp/exp_anomaly_detection.py
+fc13b6fe5a96a0dc7a04ae61a46f3fb9098a7ea84178aeb057a09cc19b47674e  code/ISTAD/utils/innovation.py
+c321f789df214f9a51fc12f5ef8191ea4ab6071150d212691b611249584a4358  code/ISTAD/scripts/anomaly_detection/ISTAD_v4_hgat_integrated.sh
+=== CHECKPOINTS ===
+./checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0/checkpoint.pth	25826 bytes
+./checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v4hg_s90_0/checkpoint.pth	25826 bytes
+./checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_EXATHLON_ISTAD_EXATHLON_ftM_sl100_bmhgat_v3_innov_hglite_bs128_v4hg_s98_0/checkpoint.pth	25826 bytes
+./checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s87_0/checkpoint.pth	36002 bytes
+./checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s90_0/checkpoint.pth	36002 bytes
+./checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_PSM_ISTAD_PSM_ftM_sl64_bmhgat_v3_innov_hglite_bs128_v4hg_s98_0/checkpoint.pth	36002 bytes
+./checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_innov_hglite_bs128_v4hg_s87_0/checkpoint.pth	64802 bytes
+./checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_innov_hglite_bs128_v4hg_s90_0/checkpoint.pth	64802 bytes
+./checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_SMD_ISTAD_SMD_ftM_sl96_bmhgat_v3_ent_innov_hglite_bs128_v4hg_s98_0/checkpoint.pth	64802 bytes
+./checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_innov_hglite_bs64_v4hg_s87_0/checkpoint.pth	186274 bytes
+./checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_innov_hglite_bs64_v4hg_s90_0/checkpoint.pth	186274 bytes
+./checkpoints/ISTAD_v4_hgat_integrated/anomaly_detection_SWAT_ISTAD_SWAT_ftM_sl96_bmhgat_v3_innov_hglite_bs64_v4hg_s98_0/checkpoint.pth	186274 bytes
+=== DATASET DIRECTORIES ===
+./code/ISTAD/scripts/anomaly_detection/PSM
+./code/ISTAD/scripts/anomaly_detection/SMD
+./code/ISTAD/scripts/anomaly_detection/SWAT
+./code/Time-Series-Library/scripts/anomaly_detection/PSM
+./code/Time-Series-Library/scripts/anomaly_detection/SMD
+./code/Time-Series-Library/scripts/anomaly_detection/SWAT
+=== REQUIRED HELPER ===
+evaluate_istad_innovation_pa.py: PRESENT
+=== ENVIRONMENT ===
+python: 3.10.19 (main, Oct 21 2025, 16:43:05) [GCC 11.2.0]
+numpy: 1.26.4
+torch: 2.6.0+cu124
+sklearn: 1.7.2
+cuda_available: True
+gpu: NVIDIA RTX A6000
+=== CONFIGURED DATA ROOT CHECK ===
+configured_data_root: /data/modeluse/TS/ISTAD/dataset
+/data/modeluse/TS/ISTAD/dataset/EXATHLON	PRESENT	4
+/data/modeluse/TS/ISTAD/dataset/PSM	PRESENT	5
+/data/modeluse/TS/ISTAD/dataset/SMD	PRESENT	3
+/data/modeluse/TS/ISTAD/dataset/SWAT	PRESENT	3
+=== RELEASE FREEZE HASH CHECK ===
+code/ISTAD/models/ISTAD.py: OK
+code/ISTAD/models/istad_layers/hypergraph_attention.py: OK
+code/ISTAD/utils/innovation.py: OK
+code/ISTAD/exp/exp_anomaly_detection.py: OK
+code/ISTAD/scripts/anomaly_detection/ISTAD_v4_hgat_integrated.sh: OK
+code/ISTAD/scripts/anomaly_detection/ISTAD_v10_innovation_brkan_hgat.sh: OK
+code/ISTAD/scripts/anomaly_detection/ISTAD_v10_innovation_linear_hgat.sh: OK
+analysis/evaluate_v4_hgat_paper.py: OK
+analysis/evaluate_v10_innovation_brkan_hgat.py: OK
+analysis/evaluate_v10_projection_ablation.py: OK
+analysis/v4_hgat_paper/paper_metrics.json: OK
+analysis/v4_hgat_paper/efficiency.json: OK
+analysis/v10_innovation_brkan_hgat/seed87_metrics.json: OK
+analysis/v10_innovation_brkan_hgat/projection_ablation_seed87.json: OK

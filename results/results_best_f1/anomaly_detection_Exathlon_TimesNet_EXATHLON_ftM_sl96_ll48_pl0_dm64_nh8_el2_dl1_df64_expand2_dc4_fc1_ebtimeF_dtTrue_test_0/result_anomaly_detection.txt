@@ -1,0 +1,12 @@
+anomaly_detection_Exathlon_TimesNet_EXATHLON_ftM_sl96_ll48_pl0_dm64_nh8_el2_dl1_df64_expand2_dc4_fc1_ebtimeF_dtTrue_test_0  
+Accuracy : 0.9871, Precision : 0.9619, Recall : 0.9371, F-score : 0.9493 
+Average epoch training time: 1.7496s
+Total epoch training time: 13.9968s
+Finished epochs: 8
+
+Best F1 Threshold Method:
+Threshold: 0.793744
+F1: 0.4326, Precision: 0.3798, Recall: 0.5023
+TP: 3275, TN: 38821, FP: 5347, FN: 3245
+ROC-AUC: 0.7684, PR-AUC: 0.3750
+

@@ -1,0 +1,90 @@
+{
+  "status": "verified_exact_official_tslib_numpy_serializations",
+  "official_repository": "thuml/Time-Series-Library",
+  "official_commit": "ffdb671c1a34bbed9fa689dbc4bcbf1ac7c5ba4a",
+  "conversion": "pickle.load followed by numpy.save(allow_pickle=False)",
+  "records": [
+    {
+      "dataset": "MSL",
+      "part": "train",
+      "shape": [
+        58317,
+        55
+      ],
+      "dtype": "float64",
+      "source_path": "/data/modeluse/TS/上次的ISTAD/datasets/data/processed/MSL/MSL_train.pkl",
+      "source_pickle_sha256": "5cc80e45886c9ac883232acdbac35091ae5d065536af84e37424a667bd61264e",
+      "destination_path": "/data/modeluse/TS/ISTAD/dataset/MSL/MSL_train.npy",
+      "destination_npy_sha256": "d767ecfc8ea344f7a6e78f815a84dc7923f600df1beb14359f3e73202148b058",
+      "official_tslib_sha256_match": true
+    },
+    {
+      "dataset": "MSL",
+      "part": "test",
+      "shape": [
+        73729,
+        55
+      ],
+      "dtype": "float64",
+      "source_path": "/data/modeluse/TS/上次的ISTAD/datasets/data/processed/MSL/MSL_test.pkl",
+      "source_pickle_sha256": "44cd685088612c95e3af7fc52f160c1b285e25ccf28f6e0daa51e096599a375b",
+      "destination_path": "/data/modeluse/TS/ISTAD/dataset/MSL/MSL_test.npy",
+      "destination_npy_sha256": "8b479ebeeabb63ff636e8adeb095a7bcc46a0cdc7befa189b45b05b1e90c9425",
+      "official_tslib_sha256_match": true
+    },
+    {
+      "dataset": "MSL",
+      "part": "test_label",
+      "shape": [
+        73729
+      ],
+      "dtype": "bool",
+      "source_path": "/data/modeluse/TS/上次的ISTAD/datasets/data/processed/MSL/MSL_test_label.pkl",
+      "source_pickle_sha256": "2134f6618f70270f06b45183e7596e5afaa0f6e1b9a143538910b1459a3952ca",
+      "destination_path": "/data/modeluse/TS/ISTAD/dataset/MSL/MSL_test_label.npy",
+      "destination_npy_sha256": "23e120c30a645000f093ff5311de177601b8220ba3ca4281c6376883444f7b97",
+      "official_tslib_sha256_match": true
+    },
+    {
+      "dataset": "SMAP",
+      "part": "train",
+      "shape": [
+        135183,
+        25
+      ],
+      "dtype": "float64",
+      "source_path": "/data/modeluse/TS/上次的ISTAD/datasets/data/processed/SMAP/SMAP_train.pkl",
+      "source_pickle_sha256": "15991fcba91ff6218365df3cb4e546e84a0b714cd60b655a81c2b8323cbffa4c",
+      "destination_path": "/data/modeluse/TS/ISTAD/dataset/SMAP/SMAP_train.npy",
+      "destination_npy_sha256": "1c823bed59f32d45a2e6323ac79bf7755c80c2ff68a2d3d7322e4dee40a11010",
+      "official_tslib_sha256_match": true
+    },
+    {
+      "dataset": "SMAP",
+      "part": "test",
+      "shape": [
+        427617,
+        25
+      ],
+      "dtype": "float64",
+      "source_path": "/data/modeluse/TS/上次的ISTAD/datasets/data/processed/SMAP/SMAP_test.pkl",
+      "source_pickle_sha256": "c108819a25550b4de91a6cb829ed1802476477e3b0414f734c03c49f91fcd28b",
+      "destination_path": "/data/modeluse/TS/ISTAD/dataset/SMAP/SMAP_test.npy",
+      "destination_npy_sha256": "458c3b354b6a602b711241c29fb50518dddb0c1c9248d7d2e1691a9c218d4ac0",
+      "official_tslib_sha256_match": true
+    },
+    {
+      "dataset": "SMAP",
+      "part": "test_label",
+      "shape": [
+        427617
+      ],
+      "dtype": "bool",
+      "source_path": "/data/modeluse/TS/上次的ISTAD/datasets/data/processed/SMAP/SMAP_test_label.pkl",
+      "source_pickle_sha256": "f60d4f55699ced7b715ce6142acd40e2cd900a3d0b7d40fdba874b90354c6a2b",
+      "destination_path": "/data/modeluse/TS/ISTAD/dataset/SMAP/SMAP_test_label.npy",
+      "destination_npy_sha256": "55f94fcccc3ae35216cfd6ac5e0e2016ad9d08d5ff0aca9f09916c6501380e0f",
+      "official_tslib_sha256_match": true
+    }
+  ]
+}

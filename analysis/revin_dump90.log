@@ -1,0 +1,9 @@
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (87841, 25)
+train: (132481, 25)
+TEST 1372
+test: (87841, 25)
+train: (132481, 25)
+train 132418
+[dump] PSM s90  n=87808  anom_frac=0.2774  ROC=0.5447  -> /data/modeluse/TS/vus_diag/istad_scores/PSM_s90_revin.npz

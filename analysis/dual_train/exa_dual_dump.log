@@ -1,0 +1,34 @@
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (52844, 19)
+train: (88230, 19)
+TEST 528
+test: (52844, 19)
+train: (88230, 19)
+test errors: (52800, 19) (base + revin)
+train errors: (88200, 19) (base + revin)
+[dual] 联合训练新模型，无同权重参考，跳过回归校验
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/EXA_s48_dual.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (52844, 19)
+train: (88230, 19)
+TEST 528
+test: (52844, 19)
+train: (88230, 19)
+test errors: (52800, 19) (base + revin)
+train errors: (88200, 19) (base + revin)
+[dual] 联合训练新模型，无同权重参考，跳过回归校验
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/EXA_s89_dual.npz
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (52844, 19)
+train: (88230, 19)
+TEST 528
+test: (52844, 19)
+train: (88230, 19)
+test errors: (52800, 19) (base + revin)
+train errors: (88200, 19) (base + revin)
+[dual] 联合训练新模型，无同权重参考，跳过回归校验
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/EXA_s2021_dual.npz
+EXA_DUMP_DONE

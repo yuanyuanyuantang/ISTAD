@@ -1,0 +1,42 @@
+{
+  "status": "exploratory_single_seed_pilot",
+  "dataset": "PSM",
+  "seed": 87,
+  "controlled_change": "legacy HGAT -> HGAT-Lite(rank=16)",
+  "selection_warning": "The PSM test set had already been inspected; use this result only to decide whether to run a preregistered multi-seed ablation.",
+  "efficiency": {
+    "legacy_spatial_parameters": 2905,
+    "lite_spatial_parameters": 690,
+    "spatial_parameter_reduction": 0.7624784853700517,
+    "legacy_total_parameters": 86564,
+    "lite_total_parameters": 84349,
+    "total_parameter_reduction": 0.0255870265911072
+  },
+  "neural_evidence_branch": {
+    "legacy_hgat": {
+      "roc_auc": 0.7268590323853326,
+      "pr_auc": 0.5127327102729138,
+      "best_f1_point_adjusted": 0.9546398438997531,
+      "train_p99_raw_f1": 0.3498490170703149,
+      "train_p99_point_adjusted_f1": 0.9435205460535401
+    },
+    "lite_hgat": {
+      "roc_auc": 0.7559739838423378,
+      "pr_auc": 0.530338151935636,
+      "best_f1_point_adjusted": 0.9586212432021901,
+      "train_p99_raw_f1": 0.3273967923071876,
+      "train_p99_point_adjusted_f1": 0.9493555578681058
+    }
+  },
+  "innovation_fused_weight_0.001": {
+    "roc_auc": 0.6551667600003364,
+    "pr_auc": 0.4277999640381571,
+    "best_f1_point_adjusted": 0.9823639986168151,
+    "pot_point_adjusted_f1_with_tail_margin_1.04": 0.969457557771654
+  },
+  "training": {
+    "epochs": 3,
+    "best_validation_loss": 0.5617389,
+    "average_epoch_seconds": 236.8285570939382
+  }
+}

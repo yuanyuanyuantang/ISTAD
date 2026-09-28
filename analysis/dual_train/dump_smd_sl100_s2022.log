@@ -1,0 +1,14 @@
+python: can't open file '/data/modeluse/TS/dump_istad_perfeat.py': [Errno 2] No such file or directory
+ERROR conda.cli.main_run:execute(142): `conda run python -u dump_istad_perfeat.py SMD 2022 2 dual_sl100` failed. (See above for error)
+Use GPU: cuda:0
+🚀 Lazy Loading: ISTAD ...
+test: (708420, 38)
+train: (708405, 38)
+TEST 7084
+test: (708420, 38)
+train: (708405, 38)
+test errors: (708400, 38) (base + revin)
+train errors: (708400, 38) (base + revin)
+test errors 截断到现行评估面: 708384
+[dual] 联合训练新模型，无同权重参考，跳过回归校验
+[dump] -> /data/modeluse/TS/vus_diag/istad_perfeat/SMD_s2022_dual_sl100.npz
