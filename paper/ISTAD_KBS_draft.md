@@ -1,5 +1,8 @@
 # ISTAD: Interpretable Rank-Safe Hypergraph Refinement of Causal Innovations for Multivariate Time-Series Anomaly Detection
 
+> 注：本文件是早期中文方法稿，标题与部分表述早于投稿版。投稿版的标题、摘要与实验
+> 表述以仓库首页 [README](../README.md) 中的论文信息为准。
+
 > 中文方法稿。论文正文统一使用 **ISTAD**，不使用开发阶段版本号。本文所有公式与当前
 > 冻结实现一致；BR-KAN 被限定为新息域关系映射扩展和消融对象。
 

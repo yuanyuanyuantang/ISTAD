@@ -1,8 +1,8 @@
 # ISTAD
 
-Reference implementation of **ISTAD: Interpretable Rank-Safe Hypergraph Refinement of Causal Innovations for Multivariate Time-Series Anomaly Detection**.
+Reference implementation of **ISTAD: Interpretable Spatio-Temporal Anomaly Detection for Multivariate Time Series via Rank-Preserving Hypergraph Refinement**.
 
-This directory contains the model, training/evaluation pipeline, frozen experiment entry points, and utility code used for the paper. The repository root [README](../../README.md) is the authoritative record of the method, the frozen protocols, the reported results, and the evidence boundaries; the method draft is [paper/ISTAD_KBS_draft.md](../../paper/ISTAD_KBS_draft.md). This file documents the code itself and deliberately does not restate performance numbers, so that the code and the paper record cannot drift apart.
+This directory contains the model, training/evaluation pipeline, frozen experiment entry points, and utility code used for the paper. The repository [README](../../README.md) gives the paper overview; [EXPERIMENTS.md](../../EXPERIMENTS.md) is the authoritative record of the frozen protocols, the reported results, and the evidence boundaries. Earlier method notes are in [paper/ISTAD_KBS_draft.md](../../paper/ISTAD_KBS_draft.md). This file documents the code itself and deliberately does not restate performance numbers, so that the code and the paper record cannot drift apart.
 
 ![ISTAD framework overview](../../paper/figures/fig2_ISTAD_framework.png)
 
@@ -10,7 +10,7 @@ This directory contains the model, training/evaluation pipeline, frozen experime
 
 ## Scope
 
-The release contains the main model plus several frozen ablations and diagnostics. Their roles are defined in the root README, not in this file: some configurations are part of the main method, while others are controls or negative results that are kept for auditability. The shell scripts under `scripts/anomaly_detection/` are the frozen experiment entry points, including the protocols used for those negative results. They are not a general-purpose hyperparameter search interface.
+The release contains the main model plus several frozen ablations and diagnostics. Their roles are defined in [EXPERIMENTS.md](../../EXPERIMENTS.md), not in this file: some configurations are part of the main method, while others are controls or negative results that are kept for auditability. The shell scripts under `scripts/anomaly_detection/` are the frozen experiment entry points, including the protocols used for those negative results. They are not a general-purpose hyperparameter search interface.
 
 ## What is implemented
 
@@ -74,7 +74,7 @@ Arrays are expected as `(time, channels)` numeric arrays; labels are binary per 
 
 ## Quick start
 
-The frozen scripts under `scripts/anomaly_detection/` are the canonical entry points. The root README maps each script to the experiment it reproduces. Examples:
+The frozen scripts under `scripts/anomaly_detection/` are the canonical entry points. [EXPERIMENTS.md](../../EXPERIMENTS.md) maps each script to the experiment it reproduces. Examples:
 
 ```bash
 # Legacy KAN-TCN configuration on PSM
@@ -131,7 +131,7 @@ Use `python run.py --help` for the full argument list. `run.py` validates flag c
 - **Normalisation and split.** Each loader fits a `StandardScaler` on the training portion and transforms the test split. By default the legacy split trains on the complete training array and reuses its final 20% as validation; `--istad_holdout_val 1` switches to a disjoint chronological holdout and is required for entity-aware runs.
 - **Loss and stopping.** The default objective is mean-squared reconstruction error, with optional denoising, evidence-head, dual-head, relation-bottleneck, or V7 terms enabled by their flags. Early stopping monitors the validation loss, saves `checkpoint.pth` on improvement, and the best checkpoint is restored before testing.
 - **Scoring.** With `--istad_score_mode base_mean`, the per-point score is the mean squared reconstruction error over the observed channels. The innovation modes replace or refine that score with the training-only V4 branch.
-- **Thresholds and point adjustment.** Both threshold paths report raw point metrics. The percentile path additionally applies point adjustment (PA) before writing the headline metric; Best-F1 search uses PA by default (`--bestf1_use_adjustment 1`). PA is entity-safe when entity metadata is present. The Best-F1 threshold is selected using test labels and is an oracle upper bound, not a deployable operating point. The root README defines how these numbers may be reported.
+- **Thresholds and point adjustment.** Both threshold paths report raw point metrics. The percentile path additionally applies point adjustment (PA) before writing the headline metric; Best-F1 search uses PA by default (`--bestf1_use_adjustment 1`). PA is entity-safe when entity metadata is present. The Best-F1 threshold is selected using test labels and is an oracle upper bound, not a deployable operating point. [EXPERIMENTS.md](../../EXPERIMENTS.md) defines how these numbers may be reported.
 - **Outputs.**
   - `checkpoints/<setting>/checkpoint.pth` (or the directory given by `--checkpoints`).
   - `test_results/<setting>/` (override with `ISTAD_RESULT_ROOT`): `percentile_threshold_results*.json`, `bestf1_threshold_results*.json`, `anomaly_score_threshold*.png`, optional `point_scores*.npz`, and training-time summaries.
@@ -140,7 +140,7 @@ Use `python run.py --help` for the full argument list. `run.py` validates flag c
 
 ## Reproducing the paper experiments
 
-Use the root [README](../../README.md), sections 6–7, as the index of frozen scripts and evaluators, and `analysis/` for the evaluation code and machine-readable results. In particular, `scripts/anomaly_detection/ISTAD_v4_hgat_paper_eval.sh` regenerates the float64 score artefacts from frozen checkpoints and then runs the paper-facing evaluators; it performs no training and no hyperparameter selection.
+Use [EXPERIMENTS.md](../../EXPERIMENTS.md) as the index of frozen scripts and evaluators, and `analysis/` for the evaluation code and machine-readable results. In particular, `scripts/anomaly_detection/ISTAD_v4_hgat_paper_eval.sh` regenerates the float64 score artefacts from frozen checkpoints and then runs the paper-facing evaluators; it performs no training and no hyperparameter selection.
 
 ## Tests
 
@@ -160,6 +160,6 @@ MIT. See [../../LICENSE](../../LICENSE).
 
 If you use this code, please cite the ISTAD paper:
 
-> ISTAD: Interpretable Rank-Safe Hypergraph Refinement of Causal Innovations for Multivariate Time-Series Anomaly Detection.
+> ISTAD: Interpretable Spatio-Temporal Anomaly Detection for Multivariate Time Series via Rank-Preserving Hypergraph Refinement.
 
-The manuscript is under review. Author list, venue, and DOI will be added here once they are final.
+Zeng, Shao, Xia, Fu, Yang, Sun, Tang, Wei, and Zhong. Manuscript under review at Knowledge-Based Systems, 2026. See the repository [README](../../README.md#citation) for the BibTeX entry.
