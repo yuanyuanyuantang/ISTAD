@@ -7,6 +7,14 @@
 论文正文方法稿位于 `paper/ISTAD_KBS_draft.md`。正文统一称 **ISTAD**；开发版本号仅在
 本 README 的审计记录中保留，不进入论文方法、实验表标题或结论。
 
+![ISTAD 框架主图](paper/figures/fig2_ISTAD_framework.png)
+
+图：ISTAD 主图（三阶段框架）。Stage I 训练校准的时序证据：在正常训练段上拟合
+ridge-VAR，用一步因果新息及其经验 CDF 构造分数；Stage II 动态超图注意力：低秩动态
+超图对有向新息关系做汇聚；Stage III 有界关系细化：保序融合只在 V4 排名步长内并列
+细化，不反转任何不同的 V4 排名，并输出逐点异常分数与告警。矢量版见
+`paper/figures/fig2_ISTAD_framework.pdf`。
+
 > 当前建议论文架构为 **ISTAD V4-HG rank-safe**。它在 V4 因果创新分数上加入受
 > 数学保序约束的 HGAT-Lite 超边细化；三种子 `POT + point-adjust` 与
 > `Best-F1 + point-adjust` Macro 为 **0.902270±0 / 0.945107±0**，与 V4 完全一致，

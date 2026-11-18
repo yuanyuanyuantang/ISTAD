@@ -4,6 +4,10 @@ Reference implementation of **ISTAD: Interpretable Rank-Safe Hypergraph Refineme
 
 This directory contains the model, training/evaluation pipeline, frozen experiment entry points, and utility code used for the paper. The repository root [README](../../README.md) is the authoritative record of the method, the frozen protocols, the reported results, and the evidence boundaries; the method draft is [paper/ISTAD_KBS_draft.md](../../paper/ISTAD_KBS_draft.md). This file documents the code itself and deliberately does not restate performance numbers, so that the code and the paper record cannot drift apart.
 
+![ISTAD framework overview](../../paper/figures/fig2_ISTAD_framework.png)
+
+*Figure: the ISTAD framework. Stage I fits a ridge-VAR on normal training points and builds training-calibrated temporal evidence from one-step causal innovations. Stage II organizes the signed innovations with a low-rank dynamic hypergraph. Stage III applies bounded, rank-preserving refinement, so distinct V4 ranks are never inverted, and emits per-point anomaly scores. A vector version is available at [paper/figures/fig2_ISTAD_framework.pdf](../../paper/figures/fig2_ISTAD_framework.pdf).*
+
 ## Scope
 
 The release contains the main model plus several frozen ablations and diagnostics. Their roles are defined in the root README, not in this file: some configurations are part of the main method, while others are controls or negative results that are kept for auditability. The shell scripts under `scripts/anomaly_detection/` are the frozen experiment entry points, including the protocols used for those negative results. They are not a general-purpose hyperparameter search interface.
